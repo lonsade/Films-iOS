@@ -11,4 +11,5 @@ import UIKit
 class TabNameCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var tabName: UIButton!
+    
 }

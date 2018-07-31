@@ -20,10 +20,13 @@ extension MainViewController: UICollectionViewDataSource {
     ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: self.reuseIdentifier,
-            for: indexPath as IndexPath
+            for: indexPath
         ) as! TabNameCollectionViewCell
         cell.tabName.setTitle(tabNames[indexPath.item], for: .normal)
         cell.tabName.setTitleColor(UIColor.FContentTextColor, for: .normal)
+        
+        //cell.frame = CGRect(origin: cell.frame.origin, size: cell.intrinsicContentSize)
+        
         return cell
     }
 }
