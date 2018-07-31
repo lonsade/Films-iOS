@@ -8,12 +8,12 @@
 
 import UIKit
 
-//extension MainViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        layout collectionViewLayout: UICollectionViewLayout,
-//        sizeForItemAt indexPath: IndexPath
-//    ) -> CGSize {
-//        return tabNames[indexPath.item]
-//    }
-//}
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CGSize(width: tabNames[indexPath.row].size().width + 20, height: 32)
+    }
+}

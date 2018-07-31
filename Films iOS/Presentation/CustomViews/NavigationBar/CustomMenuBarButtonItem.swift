@@ -9,5 +9,8 @@
 import UIKit
 
 class CustomMenuBarButtonItem: UIBarButtonItem {
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        image = UIImage(named: "menuIcon")?.withRenderingMode(.alwaysOriginal)
+    }
 }
