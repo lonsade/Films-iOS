@@ -14,7 +14,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let sizeString = NSString(string: tabNames[indexPath.row]).size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14.0)])
-        return CGSize(width: sizeString.width+20, height: sizeString.height)
+        return CGSize(width: tabNames[indexPath.row].size().width + 20, height: 32)
     }
 }

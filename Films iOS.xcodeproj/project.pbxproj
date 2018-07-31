@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD6681ED2110903A002693B7 /* NSAttributedStringChangeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6681EC2110903A002693B7 /* NSAttributedStringChangeColor.swift */; };
 		BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC941CA210EE861005C5041 /* AppDelegate.swift */; };
 		BDC941D0210EE861005C5041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC941CE210EE861005C5041 /* Main.storyboard */; };
 		BDC941D2210EE864005C5041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC941D1210EE864005C5041 /* Assets.xcassets */; };
@@ -22,11 +23,14 @@
 		BDC9420B210F5912005C5041 /* PageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9420A210F5912005C5041 /* PageViewControllerDataSource.swift */; };
 		BDC9420D210F5998005C5041 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9420C210F5998005C5041 /* CollectionViewDataSource.swift */; };
 		BDC9420F210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9420E210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift */; };
-		BDD3BFAC211065180096C212 /* CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFAB211065180096C212 /* CollectionViewDelegate.swift */; };
+		BDD0FC9921107DE50060A3F0 /* seguisb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD0FC9821107DE50060A3F0 /* seguisb.ttf */; };
+		BDD0FC9A21107E650060A3F0 /* segui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD0FC9C21107E650060A3F0 /* segui.ttf */; };
 		BDD3BFAF211069B20096C212 /* TabNamesRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFAE211069B20096C212 /* TabNamesRouting.swift */; };
+		BDD3BFB5211078860096C212 /* fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFB4211078860096C212 /* fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD6681EC2110903A002693B7 /* NSAttributedStringChangeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NSAttributedStringChangeColor.swift; path = ../../../../../Desktop/NSAttributedStringChangeColor.swift; sourceTree = "<group>"; };
 		BDC941C7210EE861005C5041 /* Films iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Films iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC941CA210EE861005C5041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC941CF210EE861005C5041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,8 +48,10 @@
 		BDC9420A210F5912005C5041 /* PageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerDataSource.swift; sourceTree = "<group>"; };
 		BDC9420C210F5998005C5041 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		BDC9420E210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
-		BDD3BFAB211065180096C212 /* CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegate.swift; sourceTree = "<group>"; };
+		BDD0FC9821107DE50060A3F0 /* seguisb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisb.ttf; sourceTree = "<group>"; };
+		BDD0FC9B21107E650060A3F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/segui.ttf; sourceTree = "<group>"; };
 		BDD3BFAE211069B20096C212 /* TabNamesRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesRouting.swift; sourceTree = "<group>"; };
+		BDD3BFB4211078860096C212 /* fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				BDC941F7210F1B2C005C5041 /* colors.swift */,
+				BDD3BFB4211078860096C212 /* fonts.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -204,6 +211,7 @@
 		BDC941E9210EF124005C5041 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BD6681EC2110903A002693B7 /* NSAttributedStringChangeColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -226,6 +234,8 @@
 		BDC941ED210EF1CD005C5041 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				BDD0FC9C21107E650060A3F0 /* segui.ttf */,
+				BDD0FC9821107DE50060A3F0 /* seguisb.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -263,8 +273,8 @@
 		BDC94204210F57EA005C5041 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				BDD3BFAD2110694D0096C212 /* Routing */,
 				BDC94205210F582B005C5041 /* Extensions */,
+				BDD3BFAD2110694D0096C212 /* Routing */,
 				BDC941CE210EE861005C5041 /* Main.storyboard */,
 				BDC941FB210F2ADE005C5041 /* MainViewController.swift */,
 				BDC941FD210F352D005C5041 /* TabNameCollectionViewCell.swift */,
@@ -279,7 +289,6 @@
 				BDC9420E210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift */,
 				BDC9420A210F5912005C5041 /* PageViewControllerDataSource.swift */,
 				BDC94208210F589A005C5041 /* PageViewControllerDelegate.swift */,
-				BDD3BFAB211065180096C212 /* CollectionViewDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -350,6 +359,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD0FC9A21107E650060A3F0 /* segui.ttf in Resources */,
+				BDD0FC9921107DE50060A3F0 /* seguisb.ttf in Resources */,
 				BDC941D5210EE864005C5041 /* LaunchScreen.storyboard in Resources */,
 				BDC941EF210EF1F7005C5041 /* Localizable.strings in Resources */,
 				BDC941D2210EE864005C5041 /* Assets.xcassets in Resources */,
@@ -369,11 +380,12 @@
 				BDC941F8210F1B2C005C5041 /* colors.swift in Sources */,
 				BDC9420B210F5912005C5041 /* PageViewControllerDataSource.swift in Sources */,
 				BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */,
-				BDD3BFAC211065180096C212 /* CollectionViewDelegate.swift in Sources */,
 				BDC9420D210F5998005C5041 /* CollectionViewDataSource.swift in Sources */,
 				BDC9420F210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift in Sources */,
 				BDC94209210F589A005C5041 /* PageViewControllerDelegate.swift in Sources */,
+				BD6681ED2110903A002693B7 /* NSAttributedStringChangeColor.swift in Sources */,
 				BDC941FE210F352D005C5041 /* TabNameCollectionViewCell.swift in Sources */,
+				BDD3BFB5211078860096C212 /* fonts.swift in Sources */,
 				BDC941F4210EF464005C5041 /* BaseViewController.swift in Sources */,
 				BDC941F6210EF50E005C5041 /* BaseHandlerController.swift in Sources */,
 				BDD3BFAF211069B20096C212 /* TabNamesRouting.swift in Sources */,
@@ -398,6 +410,15 @@
 				BDC941D4210EE864005C5041 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+		BDD0FC9C21107E650060A3F0 /* segui.ttf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDD0FC9B21107E650060A3F0 /* Base */,
+			);
+			name = segui.ttf;
 			path = .;
 			sourceTree = "<group>";
 		};

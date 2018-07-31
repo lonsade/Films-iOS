@@ -10,14 +10,34 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
+    public let reuseIdentifier = "tabName"
+    
     private var pageViewController: UIPageViewController! {
         didSet {
             pageViewController.dataSource = self
             pageViewController.delegate = self
         }
     }
-    let reuseIdentifier = "tabName"
-    var tabNames = ["IN CINEMA", "POPULAR", "COMEDIES", "DRAMA", "HISTORICAL"]
+    
+    private var tabNamesString = ["IN CINEMA", "POPULAR", "COMEDIES", "DRAMA", "HISTORICAL"]
+    
+    private var currentTab: UIButton?
+    
+    /* с помощью такой обвертки фиксится ширина ячейки таба */
+    
+    lazy var tabNames: [NSAttributedString] = {
+        var temp = [NSAttributedString]()
+        for str in tabNamesString {
+             temp.append(NSAttributedString(
+                string: str,
+                attributes: [
+                    .foregroundColor: UIColor.FTabNameColor,
+                    .font: UIFont.FTabName
+                ]
+            ))
+        }
+        return temp
+    }()
     
     lazy var pages: [UIViewController] = {
         return [
@@ -26,6 +46,11 @@ final class MainViewController: UIViewController {
         ]
     }()
     
+    @IBOutlet weak var borderView: UIView! {
+        didSet{
+            borderView.backgroundColor = UIColor.FHRColor
+        }
+    }
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var collectionTabNames: UICollectionView! {
         didSet {
@@ -34,18 +59,23 @@ final class MainViewController: UIViewController {
         }
     }
     
+    /* инициализация контроллеров, соответствующих таб вкладок */
+    
     private func getViewController(withIdentifier identifier: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
     }
+    
+    /* кастомизация navigationBar и установка главного фона */
     
     func customize() {
         view.backgroundColor = UIColor.FMainBackgroundColor
         navigationBar.barTintColor = UIColor.FMainBackgroundColor
         navigationBar.titleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.FTitleTextColor
+            .foregroundColor: UIColor.FTitleTextColor,
+            .font: UIFont.FAppName
         ]
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customize()
@@ -60,28 +90,21 @@ final class MainViewController: UIViewController {
         }
     }
     
-    
-    
-    
-    
-    var tabNamesRouting = TabNamesRouting()
-    var currentTab: UIButton?
+    /* клик по табам */
     
     @IBAction func showContent(_ sender: UIButton) {
         if currentTab != nil {
-            currentTab?.setTitleColor(UIColor.FContentTextColor, for: .normal)
+            let tempStr =
+                currentTab?.attributedTitle(for: .normal)?
+                .getStringWithChangeColor(color: UIColor.FTabNameColor)
+            currentTab?.setAttributedTitle(tempStr, for: .normal)
         }
+
         currentTab = sender
-        currentTab?.setTitleColor(UIColor.FActiveTextColor, for: .normal)
-        
-        
-        
+        let tempStr =
+            currentTab?.attributedTitle(for: .normal)?
+            .getStringWithChangeColor(color: UIColor.FActiveTextColor)
+        currentTab?.setAttributedTitle(tempStr, for: .normal)
     }
-    
-    
-    
-    
-    
-    
     
 }

@@ -25,6 +25,10 @@ extension UIColor {
     
     static let FRedColor = #colorLiteral(red: 1, green: 0.3411764706, blue: 0.3411764706, alpha: 1)
     
+    static let FTabNameColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5)
+    
+    static let FHRColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.12)
+    
 }
 
 // swiftlint:enable identifier_name line_length type_body_length

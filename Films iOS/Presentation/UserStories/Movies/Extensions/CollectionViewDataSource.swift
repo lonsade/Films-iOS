@@ -22,11 +22,7 @@ extension MainViewController: UICollectionViewDataSource {
             withReuseIdentifier: self.reuseIdentifier,
             for: indexPath
         ) as! TabNameCollectionViewCell
-        cell.tabName.setTitle(tabNames[indexPath.item], for: .normal)
-        cell.tabName.setTitleColor(UIColor.FContentTextColor, for: .normal)
-        
-        //cell.frame = CGRect(origin: cell.frame.origin, size: cell.intrinsicContentSize)
-        
+        cell.tabName.setAttributedTitle(tabNames[indexPath.item], for: .normal)
         return cell
     }
 }
