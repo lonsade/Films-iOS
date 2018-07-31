@@ -22,6 +22,8 @@
 		BDC9420B210F5912005C5041 /* PageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9420A210F5912005C5041 /* PageViewControllerDataSource.swift */; };
 		BDC9420D210F5998005C5041 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9420C210F5998005C5041 /* CollectionViewDataSource.swift */; };
 		BDC9420F210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9420E210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift */; };
+		BDD3BFAC211065180096C212 /* CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFAB211065180096C212 /* CollectionViewDelegate.swift */; };
+		BDD3BFAF211069B20096C212 /* TabNamesRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFAE211069B20096C212 /* TabNamesRouting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +36,7 @@
 		BDC941EE210EF1F7005C5041 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BDC941F3210EF464005C5041 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BDC941F5210EF50E005C5041 /* BaseHandlerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHandlerController.swift; sourceTree = "<group>"; };
-		BDC941F7210F1B2C005C5041 /* colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = colors.swift; path = colors.swift; sourceTree = "<group>"; };
+		BDC941F7210F1B2C005C5041 /* colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colors.swift; sourceTree = "<group>"; };
 		BDC941FB210F2ADE005C5041 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BDC941FD210F352D005C5041 /* TabNameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNameCollectionViewCell.swift; sourceTree = "<group>"; };
 		BDC94201210F52F6005C5041 /* CustomMenuBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuBarButtonItem.swift; sourceTree = "<group>"; };
@@ -42,6 +44,8 @@
 		BDC9420A210F5912005C5041 /* PageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerDataSource.swift; sourceTree = "<group>"; };
 		BDC9420C210F5998005C5041 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		BDC9420E210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
+		BDD3BFAB211065180096C212 /* CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegate.swift; sourceTree = "<group>"; };
+		BDD3BFAE211069B20096C212 /* TabNamesRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesRouting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,7 @@
 		BDC94204210F57EA005C5041 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				BDD3BFAD2110694D0096C212 /* Routing */,
 				BDC94205210F582B005C5041 /* Extensions */,
 				BDC941CE210EE861005C5041 /* Main.storyboard */,
 				BDC941FB210F2ADE005C5041 /* MainViewController.swift */,
@@ -274,8 +279,17 @@
 				BDC9420E210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift */,
 				BDC9420A210F5912005C5041 /* PageViewControllerDataSource.swift */,
 				BDC94208210F589A005C5041 /* PageViewControllerDelegate.swift */,
+				BDD3BFAB211065180096C212 /* CollectionViewDelegate.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BDD3BFAD2110694D0096C212 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				BDD3BFAE211069B20096C212 /* TabNamesRouting.swift */,
+			);
+			path = Routing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,12 +369,14 @@
 				BDC941F8210F1B2C005C5041 /* colors.swift in Sources */,
 				BDC9420B210F5912005C5041 /* PageViewControllerDataSource.swift in Sources */,
 				BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */,
+				BDD3BFAC211065180096C212 /* CollectionViewDelegate.swift in Sources */,
 				BDC9420D210F5998005C5041 /* CollectionViewDataSource.swift in Sources */,
 				BDC9420F210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift in Sources */,
 				BDC94209210F589A005C5041 /* PageViewControllerDelegate.swift in Sources */,
 				BDC941FE210F352D005C5041 /* TabNameCollectionViewCell.swift in Sources */,
 				BDC941F4210EF464005C5041 /* BaseViewController.swift in Sources */,
 				BDC941F6210EF50E005C5041 /* BaseHandlerController.swift in Sources */,
+				BDD3BFAF211069B20096C212 /* TabNamesRouting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

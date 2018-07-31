@@ -26,7 +26,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <items>
                                             <navigationItem title="AppName" id="pEl-IG-axs">
-                                                <barButtonItem key="leftBarButtonItem" title="Item" image="menuIcon" id="X3z-eS-a85"/>
+                                                <barButtonItem key="leftBarButtonItem" title="menu" image="menuIcon" id="X3z-eS-a85" customClass="CustomMenuBarButtonItem" customModule="Films_iOS" customModuleProvider="target"/>
                                                 <barButtonItem key="rightBarButtonItem" title="Item" image="icSort" id="eLz-sk-WBa">
                                                     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </barButtonItem>
@@ -58,6 +58,9 @@
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <state key="normal" title="TabName"/>
+                                                            <connections>
+                                                                <action selector="showContent:" destination="HHy-2x-2AX" eventType="touchUpInside" id="1fN-kc-Ac5"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </view>
@@ -111,13 +114,13 @@
         <!--View Controller-->
         <scene sceneID="DaQ-5G-td1">
             <objects>
-                <viewController storyboardIdentifier="Page 1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JtH-VU-9pV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IN CINEMA" id="JtH-VU-9pV" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Page 1" id="A8D-QF-7Pc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Page 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-wA-Xi4">
-                                <rect key="frame" x="200" y="262" width="51" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IN CINEMA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-wA-Xi4">
+                                <rect key="frame" x="200" y="262" width="85" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -135,13 +138,13 @@
         <!--View Controller-->
         <scene sceneID="OlP-76-MlL">
             <objects>
-                <viewController storyboardIdentifier="Page 2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="icl-jj-tZb" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="POPULAR" id="icl-jj-tZb" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="12e-jc-YMq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Page 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYo-oK-EYm">
-                                <rect key="frame" x="218" y="223" width="53" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POPULAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYo-oK-EYm">
+                                <rect key="frame" x="218" y="223" width="77" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>

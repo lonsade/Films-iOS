@@ -17,19 +17,19 @@ final class MainViewController: UIViewController {
         }
     }
     let reuseIdentifier = "tabName"
-    var tabNames = ["IN CINEMA", "LOL", "POPULAR", "COMEDIES", "DRAMA", "HISTORICAL"]
+    var tabNames = ["IN CINEMA", "POPULAR", "COMEDIES", "DRAMA", "HISTORICAL"]
     
     lazy var pages: [UIViewController] = {
         return [
-            self.getViewController(withIdentifier: "Page 1"),
-            self.getViewController(withIdentifier: "Page 2")
+            self.getViewController(withIdentifier: "IN CINEMA"),
+            self.getViewController(withIdentifier: "POPULAR")
         ]
     }()
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var collectionTabNames: UICollectionView! {
         didSet {
-            collectionTabNames.delegate = self as? UICollectionViewDelegate
+            collectionTabNames.delegate = self
             collectionTabNames.dataSource = self
         }
     }
@@ -59,4 +59,29 @@ final class MainViewController: UIViewController {
             }
         }
     }
+    
+    
+    
+    
+    
+    var tabNamesRouting = TabNamesRouting()
+    var currentTab: UIButton?
+    
+    @IBAction func showContent(_ sender: UIButton) {
+        if currentTab != nil {
+            currentTab?.setTitleColor(UIColor.FContentTextColor, for: .normal)
+        }
+        currentTab = sender
+        currentTab?.setTitleColor(UIColor.FActiveTextColor, for: .normal)
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
 }
