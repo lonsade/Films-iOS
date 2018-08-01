@@ -9,7 +9,8 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    
+
+    // Почему public?
     public let reuseIdentifier = "tabName"
     
     private var pageViewController: UIPageViewController! {

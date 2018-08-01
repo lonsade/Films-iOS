@@ -8,6 +8,8 @@
 
 import UIKit
 
+// TODO: А это можно перенести к файлу с объявлением вью-контроллера.
+
 extension MainViewController: UIPageViewControllerDelegate {
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return pages.count
