@@ -19,14 +19,12 @@
 		BDC941FC210F2ADE005C5041 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC941FB210F2ADE005C5041 /* MainViewController.swift */; };
 		BDC941FE210F352D005C5041 /* TabNameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC941FD210F352D005C5041 /* TabNameCollectionViewCell.swift */; };
 		BDC94202210F52F6005C5041 /* CustomMenuBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC94201210F52F6005C5041 /* CustomMenuBarButtonItem.swift */; };
-		BDC94209210F589A005C5041 /* PageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC94208210F589A005C5041 /* PageViewControllerDelegate.swift */; };
-		BDC9420B210F5912005C5041 /* PageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9420A210F5912005C5041 /* PageViewControllerDataSource.swift */; };
-		BDC9420D210F5998005C5041 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9420C210F5998005C5041 /* CollectionViewDataSource.swift */; };
-		BDC9420F210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC9420E210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift */; };
 		BDD0FC9921107DE50060A3F0 /* seguisb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD0FC9821107DE50060A3F0 /* seguisb.ttf */; };
 		BDD0FC9A21107E650060A3F0 /* segui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD0FC9C21107E650060A3F0 /* segui.ttf */; };
 		BDD3BFAF211069B20096C212 /* TabNamesRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFAE211069B20096C212 /* TabNamesRouting.swift */; };
 		BDD3BFB5211078860096C212 /* fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFB4211078860096C212 /* fonts.swift */; };
+		BDE164EB21119D57002E0A14 /* TabDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */; };
+		BDE164ED2111A0DA002E0A14 /* StringSizeWithFormating.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,14 +42,12 @@
 		BDC941FB210F2ADE005C5041 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BDC941FD210F352D005C5041 /* TabNameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNameCollectionViewCell.swift; sourceTree = "<group>"; };
 		BDC94201210F52F6005C5041 /* CustomMenuBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuBarButtonItem.swift; sourceTree = "<group>"; };
-		BDC94208210F589A005C5041 /* PageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerDelegate.swift; sourceTree = "<group>"; };
-		BDC9420A210F5912005C5041 /* PageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerDataSource.swift; sourceTree = "<group>"; };
-		BDC9420C210F5998005C5041 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
-		BDC9420E210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
 		BDD0FC9821107DE50060A3F0 /* seguisb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisb.ttf; sourceTree = "<group>"; };
 		BDD0FC9B21107E650060A3F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/segui.ttf; sourceTree = "<group>"; };
 		BDD3BFAE211069B20096C212 /* TabNamesRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesRouting.swift; sourceTree = "<group>"; };
 		BDD3BFB4211078860096C212 /* fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fonts.swift; sourceTree = "<group>"; };
+		BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDisplayManager.swift; sourceTree = "<group>"; };
+		BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSizeWithFormating.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +86,6 @@
 				BDC941DD210EEFC6005C5041 /* Core */,
 				BDC941DE210EEFCC005C5041 /* Presentation */,
 				BDC941DF210EEFD5005C5041 /* Resources */,
-				BDC941F5210EF50E005C5041 /* BaseHandlerController.swift */,
-				BDC941F3210EF464005C5041 /* BaseViewController.swift */,
 			);
 			path = "Films iOS";
 			sourceTree = "<group>";
@@ -113,6 +107,8 @@
 			children = (
 				BDC941EA210EF133005C5041 /* Assemblies */,
 				BDC941E9210EF124005C5041 /* Extension */,
+				BDC941F5210EF50E005C5041 /* BaseHandlerController.swift */,
+				BDC941F3210EF464005C5041 /* BaseViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -212,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				BD6681EC2110903A002693B7 /* NSAttributedStringChangeColor.swift */,
+				BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -273,6 +270,7 @@
 		BDC94204210F57EA005C5041 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				BDE164E921119D2C002E0A14 /* DisplayManagers */,
 				BDC94205210F582B005C5041 /* Extensions */,
 				BDD3BFAD2110694D0096C212 /* Routing */,
 				BDC941CE210EE861005C5041 /* Main.storyboard */,
@@ -285,10 +283,6 @@
 		BDC94205210F582B005C5041 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BDC9420C210F5998005C5041 /* CollectionViewDataSource.swift */,
-				BDC9420E210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift */,
-				BDC9420A210F5912005C5041 /* PageViewControllerDataSource.swift */,
-				BDC94208210F589A005C5041 /* PageViewControllerDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -299,6 +293,14 @@
 				BDD3BFAE211069B20096C212 /* TabNamesRouting.swift */,
 			);
 			path = Routing;
+			sourceTree = "<group>";
+		};
+		BDE164E921119D2C002E0A14 /* DisplayManagers */ = {
+			isa = PBXGroup;
+			children = (
+				BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */,
+			);
+			path = DisplayManagers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,14 +377,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE164EB21119D57002E0A14 /* TabDisplayManager.swift in Sources */,
 				BDC94202210F52F6005C5041 /* CustomMenuBarButtonItem.swift in Sources */,
 				BDC941FC210F2ADE005C5041 /* MainViewController.swift in Sources */,
 				BDC941F8210F1B2C005C5041 /* colors.swift in Sources */,
-				BDC9420B210F5912005C5041 /* PageViewControllerDataSource.swift in Sources */,
 				BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */,
-				BDC9420D210F5998005C5041 /* CollectionViewDataSource.swift in Sources */,
-				BDC9420F210F5F69005C5041 /* CollectionViewDelegateFlowLayout.swift in Sources */,
-				BDC94209210F589A005C5041 /* PageViewControllerDelegate.swift in Sources */,
+				BDE164ED2111A0DA002E0A14 /* StringSizeWithFormating.swift in Sources */,
 				BD6681ED2110903A002693B7 /* NSAttributedStringChangeColor.swift in Sources */,
 				BDC941FE210F352D005C5041 /* TabNameCollectionViewCell.swift in Sources */,
 				BDD3BFB5211078860096C212 /* fonts.swift in Sources */,

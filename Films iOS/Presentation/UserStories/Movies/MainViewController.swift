@@ -10,9 +10,6 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
-    // Почему public?
-    public let reuseIdentifier = "tabName"
-    
     private var pageViewController: UIPageViewController! {
         didSet {
             pageViewController.dataSource = self
@@ -20,25 +17,14 @@ final class MainViewController: UIViewController {
         }
     }
     
-    private var tabNamesString = ["IN CINEMA", "POPULAR", "COMEDIES", "DRAMA", "HISTORICAL"]
+    private var prevSelectedCell: TabNameCollectionViewCell?
     
-    private var currentTab: UIButton?
-    
-    /* с помощью такой обвертки фиксится ширина ячейки таба */
-    
-    lazy var tabNames: [NSAttributedString] = {
-        var temp = [NSAttributedString]()
-        for str in tabNamesString {
-             temp.append(NSAttributedString(
-                string: str,
-                attributes: [
-                    .foregroundColor: UIColor.FTabNameColor,
-                    .font: UIFont.FTabName
-                ]
-            ))
+    private var tabDisplayManager: TabDisplayManager? {
+        didSet {
+            tabDisplayManager!.collectionTabNames = self.collectionTabNames
+            tabDisplayManager!.delegate = self
         }
-        return temp
-    }()
+    }
     
     lazy var pages: [UIViewController] = {
         return [
@@ -53,12 +39,7 @@ final class MainViewController: UIViewController {
         }
     }
     @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var collectionTabNames: UICollectionView! {
-        didSet {
-            collectionTabNames.delegate = self
-            collectionTabNames.dataSource = self
-        }
-    }
+    @IBOutlet weak var collectionTabNames: UICollectionView!
     
     /* инициализация контроллеров, соответствующих таб вкладок */
     
@@ -79,6 +60,9 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabDisplayManager = TabDisplayManager()
+        
         customize()
     }
 
@@ -90,22 +74,56 @@ final class MainViewController: UIViewController {
             }
         }
     }
-    
-    /* клик по табам */
-    
-    @IBAction func showContent(_ sender: UIButton) {
-        if currentTab != nil {
-            let tempStr =
-                currentTab?.attributedTitle(for: .normal)?
-                .getStringWithChangeColor(color: UIColor.FTabNameColor)
-            currentTab?.setAttributedTitle(tempStr, for: .normal)
-        }
+}
 
-        currentTab = sender
-        let tempStr =
-            currentTab?.attributedTitle(for: .normal)?
-            .getStringWithChangeColor(color: UIColor.FActiveTextColor)
-        currentTab?.setAttributedTitle(tempStr, for: .normal)
+extension MainViewController: UIPageViewControllerDelegate {
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return pages.count
     }
     
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+}
+
+extension MainViewController: UIPageViewControllerDataSource {
+    
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerBefore viewController: UIViewController
+        ) -> UIViewController? {
+        guard let viewControllerIndex = pages.index(of: viewController) else { return nil }
+        let previousIndex = viewControllerIndex - 1
+        guard previousIndex >= 0 else { return pages.last }
+        guard pages.count > previousIndex else { return nil }
+        return pages[previousIndex]
+    }
+    
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerAfter viewController: UIViewController
+        ) -> UIViewController? {
+        guard let viewControllerIndex = pages.index(of: viewController) else { return nil }
+        let nextIndex = viewControllerIndex + 1
+        guard nextIndex < pages.count else { return pages.first }
+        guard pages.count > nextIndex else { return nil }
+        return pages[nextIndex]
+    }
+}
+
+extension MainViewController: TabDisplayManagerDelegate {
+    
+    func tabWasSelected(at indexPath: IndexPath) {
+        
+        let selectedCell = collectionTabNames.cellForItem(at: indexPath) as! TabNameCollectionViewCell
+        
+        if let psc = prevSelectedCell {
+            psc.changeActive(active: false)
+        }
+        
+        selectedCell.changeActive(active: true)
+        
+        prevSelectedCell = selectedCell
+        
+    }
 }

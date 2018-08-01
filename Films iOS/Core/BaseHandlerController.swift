@@ -8,8 +8,7 @@
 
 import Foundation
 
-// TODO: Перенести в Core
 protocol BaseHandlerController {
     func openModule(withName name: String)
-    func closeModule(withName name: String)
+    func closeModule()
 }
