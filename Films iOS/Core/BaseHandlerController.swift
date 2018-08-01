@@ -10,5 +10,5 @@ import Foundation
 
 protocol BaseHandlerController {
     func openModule(withName name: String)
-    func closeModule(withName name: String)
+    func closeModule()
 }

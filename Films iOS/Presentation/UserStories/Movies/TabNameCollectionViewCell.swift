@@ -10,6 +10,19 @@ import UIKit
 
 class TabNameCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var tabName: UIButton!
+    @IBOutlet weak var tabName: UILabel!
+    
+    func setTitle(title: String) {
+        let attrStr = NSAttributedString(string: title, attributes: [
+            .foregroundColor: UIColor.FTabNameColor,
+            .font: UIFont.FTabName
+        ])
+        tabName.attributedText = attrStr
+    }
+    
+    func changeActive(active: Bool) {
+        let color = (active) ? UIColor.FActiveTextColor : UIColor.FTabNameColor
+        tabName.textColor = color
+    }
     
 }
