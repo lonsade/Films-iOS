@@ -15,7 +15,7 @@ protocol TabDisplayManagerDelegate: class {
 final class TabDisplayManager: NSObject {
 
     private let reuseIdentifier = "tabName"
-    
+
     private var tabNames = ["IN CINEMA", "POPULAR", "COMEDIES", "DRAMA", "HISTORICAL"]
 
     weak var collectionTabNames: UICollectionView? {
@@ -39,10 +39,10 @@ extension TabDisplayManager: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
+        guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: self.reuseIdentifier,
             for: indexPath
-        ) as! TabNameCollectionViewCell
+        ) as? TabNameCollectionViewCell else { fatalError("Error cell tab name") }
         cell.setTitle(title: tabNames[indexPath.item])
         return cell
     }

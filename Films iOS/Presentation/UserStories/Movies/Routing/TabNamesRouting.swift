@@ -9,14 +9,14 @@
 import UIKit
 
 final class TabNamesRouting {
-    
+
     /*
             в зависимости от названия таба
             открывает соответствующий модуль
      */
-    
+
     func navigate(nameOfTab: String) {
-        
+
     }
-    
+
 }
