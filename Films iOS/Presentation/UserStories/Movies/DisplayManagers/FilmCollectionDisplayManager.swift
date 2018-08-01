@@ -20,6 +20,11 @@ final class FilmCollectionDisplayManager: NSObject {
         FilmCard(urlPoster: "examplePoster", title: "title1", voteAverage: 1.1, age: 6),
         FilmCard(urlPoster: "examplePoster", title: "title2", voteAverage: 1.2, age: 7),
         FilmCard(urlPoster: "examplePoster", title: "title3", voteAverage: 1.3, age: 8),
+        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9),
+        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9),
+        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9),
+        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9),
+        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9),
         FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9)
     ]
 
@@ -27,6 +32,7 @@ final class FilmCollectionDisplayManager: NSObject {
         didSet {
             collectionFilms?.delegate = self
             collectionFilms?.dataSource = self
+            collectionFilms?.showsVerticalScrollIndicator = false
         }
     }
 
@@ -45,12 +51,11 @@ extension FilmCollectionDisplayManager: UICollectionViewDataSource {
             for: indexPath
         ) as? FilmCollectionViewCell else { fatalError("Error cell film") }
 
-        cell.imagePoster.image = UIImage(named: filmCards[indexPath.item].urlPoster)!
-        cell.setTextForTitle(text: filmCards[indexPath.item].title)
-        cell.setTextForAge(age: filmCards[indexPath.item].age)
-        cell.setTextForVoteAverage(vote: filmCards[indexPath.item].voteAverage)
-
-        cell.backgroundColor = UIColor.FBackgroundColorPoster
+        cell.setContent(
+            image: filmCards[indexPath.item].urlPoster,
+            title: filmCards[indexPath.item].title,
+            vote: filmCards[indexPath.item].voteAverage,
+            age: filmCards[indexPath.item].age)
 
         return cell
     }

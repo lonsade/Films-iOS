@@ -11,32 +11,35 @@ import UIKit
 class FilmCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imagePoster: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var voteAverage: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
-
-    func setTextForTitle(text: String) {
-        let attrStr = NSAttributedString(string: text, attributes: [
-            .foregroundColor: UIColor.FTitleTextColor,
-            .font: UIFont.FTitleContent
-        ])
-        title.attributedText = attrStr
+    @IBOutlet weak var title: UILabel! {
+        didSet {
+            title.textColor = UIColor.FTitleTextColor
+            title.font = UIFont.FTitleContent
+        }
+    }
+    @IBOutlet weak var voteAverage: UILabel! {
+        didSet {
+            voteAverage.textColor = UIColor.FActiveTextColor
+            voteAverage.font = UIFont.FActiveTextOnContent
+        }
+    }
+    @IBOutlet weak var ageLabel: UILabel! {
+        didSet {
+            ageLabel.textColor = UIColor.FTitleTextColor
+            ageLabel.font = UIFont.FTextAgeOnFilmCollection
+        }
     }
 
-    func setTextForVoteAverage(vote: Float) {
-        let attrStr = NSAttributedString(string: String(vote), attributes: [
-            .foregroundColor: UIColor.FActiveTextColor,
-            .font: UIFont.FActiveTextOnContent
-        ])
-        voteAverage.attributedText = attrStr
+    override func awakeFromNib() {
+        self.layer.cornerRadius = 4.0
+        self.backgroundColor = UIColor.FBackgroundColorPoster
+        //cell.layer.applySketchShadow(color: <#T##UIColor#>, alpha: <#T##Float#>, x: <#T##CGFloat#>, y: <#T##CGFloat#>, blur: <#T##CGFloat#>, spread: <#T##CGFloat#>)
     }
 
-    func setTextForAge(age: Int) {
-        let attrStr = NSAttributedString(string: String(age), attributes: [
-            .foregroundColor: UIColor.FTitleTextColor,
-            .font: UIFont.FTextAgeOnFilmCollection
-        ])
-        ageLabel.attributedText = attrStr
+    func setContent(image: String, title: String, vote: Float, age: Int) {
+        imagePoster.image = UIImage(named: image)
+        self.title.text = title
+        voteAverage.text = String(vote)
+        ageLabel.text = String(age)
     }
-
 }

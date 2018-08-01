@@ -32,6 +32,7 @@
 		BDF83D642111D68E001596EA /* FilmCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D632111D68E001596EA /* FilmCard.swift */; };
 		BDF83D662111D980001596EA /* FilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D652111D980001596EA /* FilmCollectionViewCell.swift */; };
 		BDF83D682111F24F001596EA /* PopularFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D672111F24F001596EA /* PopularFilmsViewController.swift */; };
+		BDF83D6A2111FF35001596EA /* CALayerApplySketchShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D692111FF35001596EA /* CALayerApplySketchShadow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +63,8 @@
 		BDF83D612111D58C001596EA /* FilmCollectionDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionDisplayManager.swift; sourceTree = "<group>"; };
 		BDF83D632111D68E001596EA /* FilmCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCard.swift; sourceTree = "<group>"; };
 		BDF83D652111D980001596EA /* FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewCell.swift; sourceTree = "<group>"; };
-		BDF83D672111F24F001596EA /* PopularFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopularFilmsViewController.swift; path = PopularFilmsViewController.swift; sourceTree = "<group>"; };
+		BDF83D672111F24F001596EA /* PopularFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularFilmsViewController.swift; sourceTree = "<group>"; };
+		BDF83D692111FF35001596EA /* CALayerApplySketchShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerApplySketchShadow.swift; sourceTree = "<group>"; };
 		F2BA10CCB5AE7214BBA9E48E /* Pods_Films_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Films_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -248,6 +250,7 @@
 			children = (
 				BD6681EC2110903A002693B7 /* NSAttributedStringChangeColor.swift */,
 				BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */,
+				BDF83D692111FF35001596EA /* CALayerApplySketchShadow.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				BDF83D642111D68E001596EA /* FilmCard.swift in Sources */,
 				BDC941F4210EF464005C5041 /* BaseViewController.swift in Sources */,
 				BDF83D662111D980001596EA /* FilmCollectionViewCell.swift in Sources */,
+				BDF83D6A2111FF35001596EA /* CALayerApplySketchShadow.swift in Sources */,
 				BDF83D622111D58D001596EA /* FilmCollectionDisplayManager.swift in Sources */,
 				BDC941F6210EF50E005C5041 /* BaseHandlerController.swift in Sources */,
 				BDD3BFAF211069B20096C212 /* TabNamesRouting.swift in Sources */,
