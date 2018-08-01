@@ -15,20 +15,17 @@ open class BaseViewController: UIViewController, BaseHandlerController {
     }
 
     func closeModule() {
-        if let nc = navigationController {
-            if nc.viewControllers.count > 1 {
-                if nc.presentingViewController!.isModalInPopover {
+        if let navc = navigationController {
+            if navc.viewControllers.count > 1 {
+                if navc.presentingViewController!.isModalInPopover {
                     self.dismiss(animated: true, completion: nil)
+                } else {
+                    navc.popViewController(animated: true)
                 }
-                else {
-                    nc.popViewController(animated: true)
-                }
-            }
-            else {
+            } else {
                 fatalError("Error close root controller")
             }
-        }
-        else {
+        } else {
             self.dismiss(animated: true, completion: nil)
         }
     }

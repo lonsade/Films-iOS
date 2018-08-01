@@ -1,0 +1,32 @@
+PODS:
+  - EasyDi (1.4.0)
+  - PromiseKit (6.3.4):
+    - PromiseKit/CorePromise (= 6.3.4)
+    - PromiseKit/Foundation (= 6.3.4)
+    - PromiseKit/UIKit (= 6.3.4)
+  - PromiseKit/CorePromise (6.3.4)
+  - PromiseKit/Foundation (6.3.4):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.3.4):
+    - PromiseKit/CorePromise
+  - SwiftLint (0.26.0)
+
+DEPENDENCIES:
+  - EasyDi
+  - PromiseKit
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - EasyDi
+    - PromiseKit
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  EasyDi: 84cfe04e906c0f463b1b1d76ed4be3db446f9702
+  PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
+  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
+
+PODFILE CHECKSUM: 386d791f628294e2f31020d67c320916b91b1599
+
+COCOAPODS: 1.5.2
