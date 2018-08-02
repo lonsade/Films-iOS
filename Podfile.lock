@@ -1,4 +1,7 @@
 PODS:
+  - Alamofire (4.7.3)
+  - AlamofireNetworkActivityLogger (2.3.0):
+    - Alamofire (~> 4.6)
   - EasyDi (1.4.0)
   - PromiseKit (6.3.4):
     - PromiseKit/CorePromise (= 6.3.4)
@@ -12,21 +15,27 @@ PODS:
   - SwiftLint (0.26.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - AlamofireNetworkActivityLogger (~> 2.3)
   - EasyDi
   - PromiseKit
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireNetworkActivityLogger
     - EasyDi
     - PromiseKit
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireNetworkActivityLogger: 6f3076652ab7fa6c819b59be08ea038d339e36d8
   EasyDi: 84cfe04e906c0f463b1b1d76ed4be3db446f9702
   PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
   SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
 
-PODFILE CHECKSUM: 386d791f628294e2f31020d67c320916b91b1599
+PODFILE CHECKSUM: c03d8991e0f771efafbe175cb2f3c4e649303945
 
 COCOAPODS: 1.5.2

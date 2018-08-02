@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3BA753C0705FFA4885FD9053 /* Pods_Films_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BA10CCB5AE7214BBA9E48E /* Pods_Films_iOS.framework */; };
+		BD1DCF6321131A38001B48EF /* NetworkingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6221131A38001B48EF /* NetworkingAssembly.swift */; };
+		BD47CFD92112F47E007339C8 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47CFD82112F47E007339C8 /* Networking.swift */; };
+		BD47CFDC2112FE15007339C8 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47CFDB2112FE15007339C8 /* NetworkingError.swift */; };
 		BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC941CA210EE861005C5041 /* AppDelegate.swift */; };
 		BDC941D0210EE861005C5041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC941CE210EE861005C5041 /* Main.storyboard */; };
 		BDC941D2210EE864005C5041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC941D1210EE864005C5041 /* Assets.xcassets */; };
@@ -25,8 +28,6 @@
 		BDD3BFB5211078860096C212 /* fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFB4211078860096C212 /* fonts.swift */; };
 		BDE164EB21119D57002E0A14 /* TabDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */; };
 		BDE164ED2111A0DA002E0A14 /* StringSizeWithFormating.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */; };
-		BDE164F02111BD34002E0A14 /* TabNamesUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EF2111BD34002E0A14 /* TabNamesUsecase.swift */; };
-		BDE164F22111BD99002E0A14 /* TabNamesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164F12111BD99002E0A14 /* TabNamesGateway.swift */; };
 		BDF83D622111D58D001596EA /* FilmCollectionDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D612111D58C001596EA /* FilmCollectionDisplayManager.swift */; };
 		BDF83D642111D68E001596EA /* FilmCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D632111D68E001596EA /* FilmCard.swift */; };
 		BDF83D662111D980001596EA /* FilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D652111D980001596EA /* FilmCollectionViewCell.swift */; };
@@ -37,6 +38,9 @@
 /* Begin PBXFileReference section */
 		313906239C0C062D5B903C0D /* Pods-Films iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Films iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Films iOS/Pods-Films iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		86484042187C4F131FBE1961 /* Pods-Films iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Films iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Films iOS/Pods-Films iOS.release.xcconfig"; sourceTree = "<group>"; };
+		BD1DCF6221131A38001B48EF /* NetworkingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkingAssembly.swift; path = "Films iOS/Core/Errors/NetworkingAssembly.swift"; sourceTree = SOURCE_ROOT; };
+		BD47CFD82112F47E007339C8 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		BD47CFDB2112FE15007339C8 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		BDC941C7210EE861005C5041 /* Films iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Films iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC941CA210EE861005C5041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC941CF210EE861005C5041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,8 +60,6 @@
 		BDD3BFB4211078860096C212 /* fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fonts.swift; sourceTree = "<group>"; };
 		BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDisplayManager.swift; sourceTree = "<group>"; };
 		BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSizeWithFormating.swift; sourceTree = "<group>"; };
-		BDE164EF2111BD34002E0A14 /* TabNamesUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesUsecase.swift; sourceTree = "<group>"; };
-		BDE164F12111BD99002E0A14 /* TabNamesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesGateway.swift; sourceTree = "<group>"; };
 		BDF83D612111D58C001596EA /* FilmCollectionDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionDisplayManager.swift; sourceTree = "<group>"; };
 		BDF83D632111D68E001596EA /* FilmCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCard.swift; sourceTree = "<group>"; };
 		BDF83D652111D980001596EA /* FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 				F2BA10CCB5AE7214BBA9E48E /* Pods_Films_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD47CFDA2112FE02007339C8 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				BD47CFDB2112FE15007339C8 /* NetworkingError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		BDC941BE210EE861005C5041 = {
@@ -142,9 +152,11 @@
 			isa = PBXGroup;
 			children = (
 				BDC941EA210EF133005C5041 /* Assemblies */,
+				BD47CFDA2112FE02007339C8 /* Errors */,
 				BDC941E9210EF124005C5041 /* Extension */,
 				BDC941F5210EF50E005C5041 /* BaseHandlerController.swift */,
 				BDC941F3210EF464005C5041 /* BaseViewController.swift */,
+				BD47CFD82112F47E007339C8 /* Networking.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -221,7 +233,6 @@
 		BDC941E6210EF0ED005C5041 /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
-				BDE164EF2111BD34002E0A14 /* TabNamesUsecase.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -229,7 +240,6 @@
 		BDC941E7210EF0F6005C5041 /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
-				BDE164F12111BD99002E0A14 /* TabNamesGateway.swift */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -255,6 +265,7 @@
 		BDC941EA210EF133005C5041 /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
+				BD1DCF6221131A38001B48EF /* NetworkingAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -465,11 +476,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Films iOS/Pods-Films iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityLogger/AlamofireNetworkActivityLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/EasyDi/EasyDi.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyDi.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 			);
@@ -485,19 +500,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD47CFD92112F47E007339C8 /* Networking.swift in Sources */,
 				BDE164EB21119D57002E0A14 /* TabDisplayManager.swift in Sources */,
 				BDC94202210F52F6005C5041 /* CustomMenuBarButtonItem.swift in Sources */,
 				BDC941FC210F2ADE005C5041 /* MainViewController.swift in Sources */,
 				BDC941F8210F1B2C005C5041 /* colors.swift in Sources */,
 				BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */,
-				BDE164F22111BD99002E0A14 /* TabNamesGateway.swift in Sources */,
+				BD1DCF6321131A38001B48EF /* NetworkingAssembly.swift in Sources */,
 				BDE164ED2111A0DA002E0A14 /* StringSizeWithFormating.swift in Sources */,
-				BDE164F02111BD34002E0A14 /* TabNamesUsecase.swift in Sources */,
 				BDF83D682111F24F001596EA /* PopularFilmsViewController.swift in Sources */,
 				BDC941FE210F352D005C5041 /* TabNameCollectionViewCell.swift in Sources */,
 				BDD3BFB5211078860096C212 /* fonts.swift in Sources */,
 				BDF83D642111D68E001596EA /* FilmCard.swift in Sources */,
 				BDC941F4210EF464005C5041 /* BaseViewController.swift in Sources */,
+				BD47CFDC2112FE15007339C8 /* NetworkingError.swift in Sources */,
 				BDF83D662111D980001596EA /* FilmCollectionViewCell.swift in Sources */,
 				BDF83D6A2111FF35001596EA /* CALayerApplySketchShadow.swift in Sources */,
 				BDF83D622111D58D001596EA /* FilmCollectionDisplayManager.swift in Sources */,
