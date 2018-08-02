@@ -246,8 +246,8 @@
 		BDC941E9210EF124005C5041 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */,
 				BDF83D692111FF35001596EA /* CALayerApplySketchShadow.swift */,
+				BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";

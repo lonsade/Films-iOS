@@ -35,11 +35,11 @@ class FilmCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = UIColor.FBackgroundColorPoster
 
         self.layer.applySketchShadow(
-            color: UIColor.FRedColor,
+            color: UIColor.FShadowColor,
             alpha: 0.5,
-            x: 10,
-            y: 10,
-            blur: 4,
+            x: 0,
+            y: 1,
+            blur: 3,
             spread: 0
         )
     }
