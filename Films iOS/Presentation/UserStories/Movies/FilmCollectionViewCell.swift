@@ -33,7 +33,15 @@ class FilmCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         self.layer.cornerRadius = 4.0
         self.backgroundColor = UIColor.FBackgroundColorPoster
-        //cell.layer.applySketchShadow(color: <#T##UIColor#>, alpha: <#T##Float#>, x: <#T##CGFloat#>, y: <#T##CGFloat#>, blur: <#T##CGFloat#>, spread: <#T##CGFloat#>)
+
+        self.layer.applySketchShadow(
+            color: UIColor.FRedColor,
+            alpha: 0.5,
+            x: 10,
+            y: 10,
+            blur: 4,
+            spread: 0
+        )
     }
 
     func setContent(image: String, title: String, vote: Float, age: Int) {
