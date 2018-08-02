@@ -17,10 +17,10 @@ extension CALayer {
         blur: CGFloat = 4,
         spread: CGFloat = 0
     ) {
-        self.shadowColor = color.cgColor
-        self.shadowOpacity = alpha
-        self.shadowOffset = CGSize(width: x, height: y)
-        self.shadowRadius = blur / 2.0
+        shadowColor = color.cgColor
+        shadowOpacity = alpha
+        shadowOffset = CGSize(width: x, height: y)
+        shadowRadius = blur / 2.0
         if spread == 0 {
             self.shadowPath = nil
         } else {

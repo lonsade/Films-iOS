@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3BA753C0705FFA4885FD9053 /* Pods_Films_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BA10CCB5AE7214BBA9E48E /* Pods_Films_iOS.framework */; };
-		BD6681ED2110903A002693B7 /* NSAttributedStringChangeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6681EC2110903A002693B7 /* NSAttributedStringChangeColor.swift */; };
 		BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC941CA210EE861005C5041 /* AppDelegate.swift */; };
 		BDC941D0210EE861005C5041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC941CE210EE861005C5041 /* Main.storyboard */; };
 		BDC941D2210EE864005C5041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC941D1210EE864005C5041 /* Assets.xcassets */; };
@@ -38,7 +37,6 @@
 /* Begin PBXFileReference section */
 		313906239C0C062D5B903C0D /* Pods-Films iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Films iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Films iOS/Pods-Films iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		86484042187C4F131FBE1961 /* Pods-Films iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Films iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Films iOS/Pods-Films iOS.release.xcconfig"; sourceTree = "<group>"; };
-		BD6681EC2110903A002693B7 /* NSAttributedStringChangeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NSAttributedStringChangeColor.swift; path = ../../../../../Desktop/NSAttributedStringChangeColor.swift; sourceTree = "<group>"; };
 		BDC941C7210EE861005C5041 /* Films iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Films iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC941CA210EE861005C5041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC941CF210EE861005C5041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -248,7 +246,6 @@
 		BDC941E9210EF124005C5041 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BD6681EC2110903A002693B7 /* NSAttributedStringChangeColor.swift */,
 				BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */,
 				BDF83D692111FF35001596EA /* CALayerApplySketchShadow.swift */,
 			);
@@ -363,8 +360,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDC941D9210EE864005C5041 /* Build configuration list for PBXNativeTarget "Films iOS" */;
 			buildPhases = (
-				BDF83D5F2111D0AC001596EA /* swiftlint */,
 				6BB1C109D88D899C21878B9C /* [CP] Check Pods Manifest.lock */,
+				BDF83D5F2111D0AC001596EA /* swiftlint */,
 				BDC941C3210EE861005C5041 /* Sources */,
 				BDC941C4210EE861005C5041 /* Frameworks */,
 				BDC941C5210EE861005C5041 /* Resources */,
@@ -497,7 +494,6 @@
 				BDE164ED2111A0DA002E0A14 /* StringSizeWithFormating.swift in Sources */,
 				BDE164F02111BD34002E0A14 /* TabNamesUsecase.swift in Sources */,
 				BDF83D682111F24F001596EA /* PopularFilmsViewController.swift in Sources */,
-				BD6681ED2110903A002693B7 /* NSAttributedStringChangeColor.swift in Sources */,
 				BDC941FE210F352D005C5041 /* TabNameCollectionViewCell.swift in Sources */,
 				BDD3BFB5211078860096C212 /* fonts.swift in Sources */,
 				BDF83D642111D68E001596EA /* FilmCard.swift in Sources */,
