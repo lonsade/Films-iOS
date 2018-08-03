@@ -58,8 +58,17 @@ final class MainViewController: UIViewController {
         ]
     }
 
+    var tabNamesUsecase: ITabNamesUsecase!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        MainViewAssembly.instance().inject(into: self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tabNamesUsecase.getTabNames()
 
         tabDisplayManager = TabDisplayManager()
 

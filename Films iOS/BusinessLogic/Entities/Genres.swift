@@ -1,5 +1,5 @@
 //
-//  NetworkingError.swift
+//  Genres.swift
 //  Films iOS
 //
 //  Created by Nikita Zhudin on 02.08.2018.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-enum NetworkingError: Error {
-    case corruptedData
-    case networkingError
-    case jsonCouldNotBeSerialized
+struct Genres: Codable {
+    let genres: [TabName]
 }
