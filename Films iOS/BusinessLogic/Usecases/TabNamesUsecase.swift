@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol ITabNamesUsecase: class {
-    func getTabNames() -> Promise<[String]>
+    func getTabNames() -> Promise<[TabName]>
 }
 
 final class TabNamesUsecase: ITabNamesUsecase {
@@ -21,7 +21,7 @@ final class TabNamesUsecase: ITabNamesUsecase {
         self.tabNamesGateway = tabNamesGateway
     }
 
-    func getTabNames() -> Promise<[String]> {
+    func getTabNames() -> Promise<[TabName]> {
         return tabNamesGateway.getTabNames()
     }
 }

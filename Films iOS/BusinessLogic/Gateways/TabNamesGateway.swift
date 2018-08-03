@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol ITabNamesGateway: class {
-    func getTabNames() -> Promise<[String]>
+    func getTabNames() -> Promise<[TabName]>
 }
 
 final class TabNamesGateway: ITabNamesGateway {
@@ -35,9 +35,9 @@ final class TabNamesGateway: ITabNamesGateway {
         self.method = method
     }
 
-    func getTabNames() -> Promise<[String]> {
-        return Promise<[String]> { seal in
-            var tabNames: [String] = []
+    func getTabNames() -> Promise<[TabName]> {
+        return Promise<[TabName]> { seal in
+            var tabNames: [TabName] = []
             networking.request(
                 method: method,
                 relativeURL,
@@ -45,7 +45,7 @@ final class TabNamesGateway: ITabNamesGateway {
                 headers: headers
             ).done { (result: Genres) in
                 result.genres.forEach { tabName in
-                    tabNames.append(tabName.name)
+                    tabNames.append(tabName)
                 }
                 seal.fulfill(tabNames)
             }.catch { error in
