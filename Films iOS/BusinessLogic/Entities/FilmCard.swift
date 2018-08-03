@@ -9,6 +9,7 @@
 import Foundation
 
 struct FilmCard {
+
     let urlPoster: String
     let title: String
     let voteAverage: Float

@@ -6,5 +6,7 @@ target 'Films iOS' do
   pod 'PromiseKit'
   pod 'EasyDi'
   pod 'SwiftLint'
+  pod 'Alamofire', '~> 4.7'
+  pod 'AlamofireNetworkActivityLogger', '~> 2.3'
 
 end

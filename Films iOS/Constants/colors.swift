@@ -31,6 +31,8 @@ extension UIColor {
 
     static let FBackgroundColorPoster = #colorLiteral(red: 0.09803921569, green: 0.09803921569, blue: 0.09803921569, alpha: 1)
 
+    static let FShadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+
 }
 
 // swiftlint:enable identifier_name line_length type_body_length
