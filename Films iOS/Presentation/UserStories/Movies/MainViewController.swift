@@ -19,7 +19,9 @@ final class MainViewController: UIViewController {
 
     private var prevSelectedCell: TabNameCollectionViewCell?
 
-    private var tabDisplayManager: TabDisplayManager! {
+    var tabNamesPresenter: ITabNamesPresenter!
+
+    var tabDisplayManager: TabDisplayManager! {
         didSet {
             tabDisplayManager.collectionTabNames = self.collectionTabNames
             tabDisplayManager.delegate = self
@@ -58,20 +60,10 @@ final class MainViewController: UIViewController {
         ]
     }
 
-    var tabNamesUsecase: ITabNamesUsecase!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        MainViewAssembly.instance().inject(into: self)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tabNamesUsecase.getTabNames()
-
-        tabDisplayManager = TabDisplayManager()
-
+        MainViewAssembly.instance().inject(into: self)
+        tabNamesPresenter.setTabNames()
         customize()
     }
 

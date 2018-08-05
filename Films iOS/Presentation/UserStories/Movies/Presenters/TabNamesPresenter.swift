@@ -8,16 +8,27 @@
 
 import Foundation
 
-final class TabNamesPresenter {
-    private let tabNamesUsecase: ITabNamesUsecase
+protocol ITabNamesPresenter: class {
+    func setTabNames()
+}
 
-    private let dataSource: IDataSource
+final class TabNamesPresenter: ITabNamesPresenter {
 
-    init(tabNamesUsecase: ITabNamesUsecase, dataSource: IDataSource) {
+    private var tabNamesUsecase: ITabNamesUsecase
+    private var dataSource: ITabNamesDataSourceInput
+
+    init(tabNamesUsecase: ITabNamesUsecase, dataSource: ITabNamesDataSourceInput) {
         self.tabNamesUsecase = tabNamesUsecase
         self.dataSource = dataSource
     }
 
-    
-    
+    func setTabNames() {
+        tabNamesUsecase.getTabNames().done { tabNames in
+            self.dataSource.addNames(names: tabNames)
+        }
+        .catch { error in
+            fatalError(error.localizedDescription)
+        }
+    }
+
 }

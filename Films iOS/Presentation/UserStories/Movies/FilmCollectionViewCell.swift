@@ -10,13 +10,34 @@ import UIKit
 
 class FilmCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var imagePoster: UIImageView!
-    @IBOutlet weak var title: UILabel! {
+    private let baseUrlImage = "https://image.tmdb.org/t/p/w500"
+
+    @IBOutlet weak var imagePoster: UIImageView! {
         didSet {
+            imagePoster.layer.masksToBounds = true
+
+            //top border radius
+            let path = UIBezierPath(
+                roundedRect: imagePoster.bounds,
+                byRoundingCorners: [.topLeft, .topRight],
+                cornerRadii: CGSize(width: 4, height: 4)
+            )
+            let maskLayer = CAShapeLayer()
+            maskLayer.frame = imagePoster.bounds
+            maskLayer.path = path.cgPath
+            imagePoster.layer.mask = maskLayer
+        }
+    }
+
+    @IBOutlet weak var title: UITextView! {
+        didSet {
+            title.textContainerInset = .zero
+            title.textContainer.lineFragmentPadding = 0
             title.textColor = UIColor.FTitleTextColor
             title.font = UIFont.FTitleContent
         }
     }
+
     @IBOutlet weak var voteAverage: UILabel! {
         didSet {
             voteAverage.textColor = UIColor.FActiveTextColor
@@ -45,9 +66,11 @@ class FilmCollectionViewCell: UICollectionViewCell {
     }
 
     func setContent(image: String, title: String, vote: Float, age: Int) {
-        imagePoster.image = UIImage(named: image)
+
+        imagePoster.downloadedFrom(link: baseUrlImage+image, contentMode: .scaleToFill)
         self.title.text = title
-        voteAverage.text = String(vote)
+        voteAverage.text = "TMDDb "+String(vote)
         ageLabel.text = String(age)
+
     }
 }

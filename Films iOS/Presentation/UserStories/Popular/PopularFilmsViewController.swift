@@ -12,17 +12,21 @@ class PopularFilmsViewController: UIViewController {
 
     @IBOutlet weak var filmCollection: UICollectionView!
 
-    private var filmCollectionDisplayManager: FilmCollectionDisplayManager! {
+    var filmCollectionDisplayManager: FilmCollectionDisplayManager! {
         didSet {
             filmCollectionDisplayManager.collectionFilms = filmCollection
             filmCollectionDisplayManager.delegate = self
         }
     }
 
+    var popularFilmsPresenter: IPopularFilmsPresenter!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        filmCollectionDisplayManager = FilmCollectionDisplayManager()
+        PopularFilmsViewAssembly.instance().inject(into: self)
+
+        popularFilmsPresenter.setPopularFilms()
 
         // Do any additional setup after loading the view.
     }

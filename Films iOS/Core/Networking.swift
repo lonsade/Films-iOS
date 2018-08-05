@@ -172,6 +172,7 @@ extension DataRequest {
                 return .failure(NetworkingError.jsonCouldNotBeSerialized)
             }
             do {
+
                 let json = try JSONDecoder().decode(T.self, from: validData)
                 return .success(json)
             } catch {
