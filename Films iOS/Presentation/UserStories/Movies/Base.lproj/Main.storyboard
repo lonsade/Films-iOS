@@ -149,10 +149,10 @@
                                                                 <constraint firstAttribute="width" secondItem="vHV-Go-mrv" secondAttribute="height" multiplier="163:220" priority="750" id="L6T-oP-JSQ"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2a-zs-E2J">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Очень большое" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2a-zs-E2J">
                                                             <rect key="frame" x="16" y="233" width="131" height="16"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="16" id="4fa-H1-76o"/>
+                                                                <constraint firstAttribute="height" constant="16" id="cKV-X7-Svi"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>

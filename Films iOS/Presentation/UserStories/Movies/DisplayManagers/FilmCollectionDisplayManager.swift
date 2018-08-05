@@ -16,20 +16,11 @@ final class FilmCollectionDisplayManager: NSObject {
 
     private let reuseIdentifier = "filmCard"
 
-    private var filmCards: [FilmCard] = [
-        FilmCard(urlPoster: "examplePoster", title: "title1", voteAverage: 1.1, age: 6),
-        FilmCard(urlPoster: "examplePoster", title: "title2", voteAverage: 1.2, age: 7),
-        FilmCard(urlPoster: "examplePoster", title: "title3", voteAverage: 1.3, age: 8),
-        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9),
-        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9),
-        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9),
-        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9),
-        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9),
-        FilmCard(urlPoster: "examplePoster", title: "title4", voteAverage: 1.4, age: 9)
-    ]
+    private var listPopularDataSource: IListPopularDataSourceOutput
 
     weak var collectionFilms: UICollectionView? {
         didSet {
+            listPopularDataSource.delegate = self
             collectionFilms?.delegate = self
             collectionFilms?.dataSource = self
             collectionFilms?.showsVerticalScrollIndicator = false
@@ -38,11 +29,15 @@ final class FilmCollectionDisplayManager: NSObject {
 
     weak var delegate: FilmCollectionDisplayManagerDelegate?
 
+    init(listPopularDataSource: IListPopularDataSourceOutput) {
+        self.listPopularDataSource = listPopularDataSource
+    }
+
 }
 
 extension FilmCollectionDisplayManager: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.filmCards.count
+        return self.listPopularDataSource.films.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,10 +47,10 @@ extension FilmCollectionDisplayManager: UICollectionViewDataSource {
         ) as? FilmCollectionViewCell else { fatalError("Error cell film") }
 
         cell.setContent(
-            image: filmCards[indexPath.item].urlPoster,
-            title: filmCards[indexPath.item].title,
-            vote: filmCards[indexPath.item].voteAverage,
-            age: filmCards[indexPath.item].age)
+            image: self.listPopularDataSource.films[indexPath.item].posterPath,
+            title: self.listPopularDataSource.films[indexPath.item].title,
+            vote: self.listPopularDataSource.films[indexPath.item].voteAverage,
+            age: self.listPopularDataSource.films[indexPath.item].id)
 
         return cell
     }
@@ -65,5 +60,11 @@ extension FilmCollectionDisplayManager: UICollectionViewDataSource {
 extension FilmCollectionDisplayManager: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.filmWasSelected(at: indexPath)
+    }
+}
+
+extension FilmCollectionDisplayManager: FilmsDSDelegate {
+    func filmsWasAdded(films: [FilmCard]) {
+        collectionFilms?.reloadData()
     }
 }

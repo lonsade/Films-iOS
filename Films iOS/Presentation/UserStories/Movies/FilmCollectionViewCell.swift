@@ -10,6 +10,8 @@ import UIKit
 
 class FilmCollectionViewCell: UICollectionViewCell {
 
+    private let baseUrlImage = "https://image.tmdb.org/t/p/w500"
+
     @IBOutlet weak var imagePoster: UIImageView!
     @IBOutlet weak var title: UILabel! {
         didSet {
@@ -45,9 +47,11 @@ class FilmCollectionViewCell: UICollectionViewCell {
     }
 
     func setContent(image: String, title: String, vote: Float, age: Int) {
-        imagePoster.image = UIImage(named: image)
+
+        imagePoster.downloadedFrom(link: baseUrlImage+image, contentMode: .scaleToFill)
         self.title.text = title
-        voteAverage.text = String(vote)
+        voteAverage.text = "TMDDb "+String(vote)
         ageLabel.text = String(age)
+
     }
 }

@@ -19,7 +19,7 @@ final class TabNamesPresenterAssembly: Assembly {
         return define(scope: .lazySingleton, init:
             TabNamesPresenter(
                 tabNamesUsecase: self.tabNamesUsecaseAssembly.tabNamesUsecase,
-                dataSource: self.tabNamesDataSourceAssembly.tabNamesDataSourceAssembly
+                dataSource: self.tabNamesDataSourceAssembly.tabNamesDataSource
             )
         )
     }

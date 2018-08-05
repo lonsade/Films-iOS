@@ -10,7 +10,7 @@ import Foundation
 import EasyDi
 
 final class TabNamesDataSourceAssembly: Assembly {
-    var tabNamesDataSourceAssembly: ITabNamesDataSourceOutput & ITabNamesDataSourceInput {
+    var tabNamesDataSource: ITabNamesDataSourceOutput & ITabNamesDataSourceInput {
         return define(scope: .lazySingleton, init: TabNamesDataSource())
     }
 

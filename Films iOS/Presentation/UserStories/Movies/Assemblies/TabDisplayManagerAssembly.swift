@@ -15,7 +15,7 @@ final class TabDisplayManagerAssembly: Assembly {
 
     var tabDisplayManager: TabDisplayManager {
         return define(scope: .lazySingleton, init:
-            TabDisplayManager(tabNamesDataSource: self.tabNamesDSAssembly.tabNamesDataSourceAssembly)
+            TabDisplayManager(tabNamesDataSource: self.tabNamesDSAssembly.tabNamesDataSource)
         )
     }
 
