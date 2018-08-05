@@ -12,13 +12,32 @@ class FilmCollectionViewCell: UICollectionViewCell {
 
     private let baseUrlImage = "https://image.tmdb.org/t/p/w500"
 
-    @IBOutlet weak var imagePoster: UIImageView!
-    @IBOutlet weak var title: UILabel! {
+    @IBOutlet weak var imagePoster: UIImageView! {
         didSet {
+            imagePoster.layer.masksToBounds = true
+
+            //top border radius
+            let path = UIBezierPath(
+                roundedRect: imagePoster.bounds,
+                byRoundingCorners: [.topLeft, .topRight],
+                cornerRadii: CGSize(width: 4, height: 4)
+            )
+            let maskLayer = CAShapeLayer()
+            maskLayer.frame = imagePoster.bounds
+            maskLayer.path = path.cgPath
+            imagePoster.layer.mask = maskLayer
+        }
+    }
+
+    @IBOutlet weak var title: UITextView! {
+        didSet {
+            title.textContainerInset = .zero
+            title.textContainer.lineFragmentPadding = 0
             title.textColor = UIColor.FTitleTextColor
             title.font = UIFont.FTitleContent
         }
     }
+
     @IBOutlet weak var voteAverage: UILabel! {
         didSet {
             voteAverage.textColor = UIColor.FActiveTextColor
