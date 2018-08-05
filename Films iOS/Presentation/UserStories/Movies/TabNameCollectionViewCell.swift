@@ -13,7 +13,7 @@ class TabNameCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tabName: UILabel!
 
     func setTitle(title: String) {
-        let attrStr = NSAttributedString(string: title, attributes: [
+        let attrStr = NSAttributedString(string: title.uppercased(), attributes: [
             .foregroundColor: UIColor.FTabNameColor,
             .font: UIFont.FTabName
         ])

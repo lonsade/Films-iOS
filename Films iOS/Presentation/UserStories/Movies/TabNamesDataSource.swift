@@ -8,21 +8,30 @@
 
 import Foundation
 
-protocol IDataSource: class {
-    var names: [TabName] { get }
+protocol ITabNamesDataSourceInput: class {
     func addNames(names: [TabName])
 }
 
-final class TabNamesDataSource: IDataSource {
-    
-//    private var names: [TabName]
-//    
-//    func addNames(names: [TabName]) {
-//        self.names = names
-//    }
-//
-//    init() {
-//
-//    }
+protocol ITabNamesDataSourceOutput: class {
+    var names: [TabName] { get }
+    var delegate: TabNamesDSDelegate? { get set }
+}
 
+final class TabNamesDataSource: ITabNamesDataSourceInput, ITabNamesDataSourceOutput {
+    var names: [TabName]
+
+    weak var delegate: TabNamesDSDelegate?
+
+    func addNames(names: [TabName]) {
+        self.names = names
+        delegate?.tabNamesWasAdded(names: names)
+    }
+
+    init() {
+        names = []
+    }
+}
+
+protocol TabNamesDSDelegate: class {
+    func tabNamesWasAdded(names: [TabName])
 }

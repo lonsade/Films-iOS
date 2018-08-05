@@ -16,10 +16,11 @@ final class TabDisplayManager: NSObject {
 
     private let reuseIdentifier = "tabName"
 
-    private var tabNames = ["IN CINEMA", "POPULAR", "COMEDIES", "DRAMA", "HISTORICAL"]
+    private var tabNamesDataSource: ITabNamesDataSourceOutput
 
     weak var collectionTabNames: UICollectionView? {
         didSet {
+            tabNamesDataSource.delegate = self
             collectionTabNames?.delegate = self
             collectionTabNames?.dataSource = self
         }
@@ -27,12 +28,15 @@ final class TabDisplayManager: NSObject {
 
     weak var delegate: TabDisplayManagerDelegate?
 
+    init(tabNamesDataSource: ITabNamesDataSourceOutput) {
+        self.tabNamesDataSource = tabNamesDataSource
+    }
 }
 
 extension TabDisplayManager: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.tabNames.count
+        return self.tabNamesDataSource.names.count
     }
 
     func collectionView(
@@ -43,7 +47,7 @@ extension TabDisplayManager: UICollectionViewDataSource {
             withReuseIdentifier: self.reuseIdentifier,
             for: indexPath
         ) as? TabNameCollectionViewCell else { fatalError("Error cell tab name") }
-        cell.setTitle(title: tabNames[indexPath.item])
+        cell.setTitle(title: tabNamesDataSource.names[indexPath.item].name)
         return cell
     }
 
@@ -60,6 +64,16 @@ extension TabDisplayManager: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: tabNames[indexPath.item].getSizeWithFormating(font: UIFont.FTabName).width + 20, height: 32)
+        return CGSize(
+            width: tabNamesDataSource.names[indexPath.item].name.getSizeWithFormating(
+                font: UIFont.FTabName
+            ).width + 20,
+            height: 32)
+    }
+}
+
+extension TabDisplayManager: TabNamesDSDelegate {
+    func tabNamesWasAdded(names: [TabName]) {
+        collectionTabNames?.reloadData()
     }
 }

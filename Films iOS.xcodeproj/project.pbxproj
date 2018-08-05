@@ -20,6 +20,9 @@
 		BD47CFDC2112FE15007339C8 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47CFDB2112FE15007339C8 /* NetworkingError.swift */; };
 		BD5292A22114783700870328 /* TabNamesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5292A12114783700870328 /* TabNamesPresenter.swift */; };
 		BD5292A4211479DF00870328 /* TabNamesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5292A3211479DF00870328 /* TabNamesDataSource.swift */; };
+		BD52F3D82116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3D72116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift */; };
+		BD52F3DA2116E3D80063DEB1 /* TabDisplayManagerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3D92116E3D80063DEB1 /* TabDisplayManagerAssembly.swift */; };
+		BD52F3DE2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3DD2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift */; };
 		BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC941CA210EE861005C5041 /* AppDelegate.swift */; };
 		BDC941D0210EE861005C5041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC941CE210EE861005C5041 /* Main.storyboard */; };
 		BDC941D2210EE864005C5041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC941D1210EE864005C5041 /* Assets.xcassets */; };
@@ -59,6 +62,9 @@
 		BD47CFDB2112FE15007339C8 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		BD5292A12114783700870328 /* TabNamesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesPresenter.swift; sourceTree = "<group>"; };
 		BD5292A3211479DF00870328 /* TabNamesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesDataSource.swift; sourceTree = "<group>"; };
+		BD52F3D72116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesPresenterAssembly.swift; sourceTree = "<group>"; };
+		BD52F3D92116E3D80063DEB1 /* TabDisplayManagerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDisplayManagerAssembly.swift; sourceTree = "<group>"; };
+		BD52F3DD2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesDataSourceAssembly.swift; sourceTree = "<group>"; };
 		BDC941C7210EE861005C5041 /* Films iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Films iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC941CA210EE861005C5041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC941CF210EE861005C5041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,6 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				BD1DCF6521131DCA001B48EF /* MainViewAssembly.swift */,
+				BD52F3D72116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift */,
+				BD52F3D92116E3D80063DEB1 /* TabDisplayManagerAssembly.swift */,
+				BD52F3DD2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -543,6 +552,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD52F3DA2116E3D80063DEB1 /* TabDisplayManagerAssembly.swift in Sources */,
 				BD1DCF6821131EA6001B48EF /* TabNamesUsecase.swift in Sources */,
 				BD47CFD92112F47E007339C8 /* Networking.swift in Sources */,
 				BD1DCF6621131DCA001B48EF /* MainViewAssembly.swift in Sources */,
@@ -558,8 +568,10 @@
 				BD1DCF6321131A38001B48EF /* NetworkingAssembly.swift in Sources */,
 				BDE164ED2111A0DA002E0A14 /* StringSizeWithFormating.swift in Sources */,
 				BD1DCF6E2113245E001B48EF /* TabNamesGatewayAssembly.swift in Sources */,
+				BD52F3DE2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift in Sources */,
 				BD1DCF7021132697001B48EF /* TabNamesUsecaseAssembly.swift in Sources */,
 				BDF83D682111F24F001596EA /* PopularFilmsViewController.swift in Sources */,
+				BD52F3D82116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift in Sources */,
 				BDC941FE210F352D005C5041 /* TabNameCollectionViewCell.swift in Sources */,
 				BDD3BFB5211078860096C212 /* fonts.swift in Sources */,
 				BDF83D642111D68E001596EA /* FilmCard.swift in Sources */,
