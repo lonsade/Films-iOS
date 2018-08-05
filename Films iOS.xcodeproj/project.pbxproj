@@ -125,9 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				BD1DCF6521131DCA001B48EF /* MainViewAssembly.swift */,
-				BD52F3D72116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift */,
 				BD52F3D92116E3D80063DEB1 /* TabDisplayManagerAssembly.swift */,
 				BD52F3DD2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift */,
+				BD52F3D72116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
