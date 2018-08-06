@@ -33,6 +33,10 @@ extension UIColor {
 
     static let FShadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 
+    static let FActiveTabTitleColorAboutFilm = FMainBackgroundColor
+
+    static let FInactiveTabTitleColorAboutFilm = FTitleTextColor
+
 }
 
 // swiftlint:enable identifier_name line_length type_body_length
