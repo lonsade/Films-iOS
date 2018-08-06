@@ -15,15 +15,28 @@ import UIKit
 
 extension UIFont {
 
-    static let FTabName = UIFont(name: "Segoe UI", size: 14)!
+    private static func getFont(named name: String, of size: CGFloat) -> UIFont {
+        guard let font = UIFont(name: name, size: size) else {
+            #if DEBUG
+            fatalError("Invalid Font")
+            #else
+            return .systemFont(ofSize: size)
+            #endif
+        }
+        return font
+    }
 
-    static let FAppName = UIFont(name: "SegoeUI-Semibold", size: 17)!
+    static let FTabName = getFont(named: "Segoe UI", of: 14)
 
-    static let FTitleContent = UIFont(name: "SegoeUI-Semibold", size: 13)
+    static let FAppName = getFont(named: "SegoeUI-Semibold", of: 17)
 
-    static let FActiveTextOnContent = UIFont(name: "SegoeUI-Semibold", size: 12)
+    static let FTitleContent = getFont(named: "SegoeUI-Semibold", of: 13)
 
-    static let FTextAgeOnFilmCollection = UIFont(name: "SegoeUI-Semibold", size: 12)
+    static let FActiveTextOnContent = getFont(named: "SegoeUI-Semibold", of: 12)
+
+    static let FTextAgeOnFilmCollection = getFont(named: "SegoeUI-Semibold", of: 12)
+
+    static let FAboutFilmTab = getFont(named: "Segoe UI", of: 13)
 
 }
 

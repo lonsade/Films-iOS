@@ -52,6 +52,9 @@
 		BDD3BFB5211078860096C212 /* fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFB4211078860096C212 /* fonts.swift */; };
 		BDE164EB21119D57002E0A14 /* TabDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */; };
 		BDE164ED2111A0DA002E0A14 /* StringSizeWithFormating.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */; };
+		BDF1954A211863320093D236 /* film.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF19549211863320093D236 /* film.storyboard */; };
+		BDF1954C21186DDB0093D236 /* AboutFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */; };
+		BDF1954E211877760093D236 /* UIButtonChangeContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF1954D211877750093D236 /* UIButtonChangeContent.swift */; };
 		BDF83D622111D58D001596EA /* FilmCollectionDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D612111D58C001596EA /* FilmCollectionDisplayManager.swift */; };
 		BDF83D642111D68E001596EA /* FilmCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D632111D68E001596EA /* FilmCard.swift */; };
 		BDF83D662111D980001596EA /* FilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D652111D980001596EA /* FilmCollectionViewCell.swift */; };
@@ -108,6 +111,9 @@
 		BDD3BFB4211078860096C212 /* fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fonts.swift; sourceTree = "<group>"; };
 		BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDisplayManager.swift; sourceTree = "<group>"; };
 		BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSizeWithFormating.swift; sourceTree = "<group>"; };
+		BDF19549211863320093D236 /* film.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = film.storyboard; sourceTree = "<group>"; };
+		BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFilmViewController.swift; sourceTree = "<group>"; };
+		BDF1954D211877750093D236 /* UIButtonChangeContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonChangeContent.swift; sourceTree = "<group>"; };
 		BDF83D612111D58C001596EA /* FilmCollectionDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionDisplayManager.swift; sourceTree = "<group>"; };
 		BDF83D632111D68E001596EA /* FilmCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCard.swift; sourceTree = "<group>"; };
 		BDF83D652111D980001596EA /* FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -342,6 +348,7 @@
 				BDF83D692111FF35001596EA /* CALayerApplySketchShadow.swift */,
 				BDE164EC2111A0DA002E0A14 /* StringSizeWithFormating.swift */,
 				BD52F3F6211711660063DEB1 /* UIImageLoadFromURL.swift */,
+				BDF1954D211877750093D236 /* UIButtonChangeContent.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -357,6 +364,7 @@
 		BDC941EB210EF14E005C5041 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				BDF19548211863080093D236 /* AboutFilm */,
 				BDC94204210F57EA005C5041 /* Movies */,
 				BDE164EE2111BC8F002E0A14 /* Popular */,
 			);
@@ -452,6 +460,15 @@
 			path = Popular;
 			sourceTree = "<group>";
 		};
+		BDF19548211863080093D236 /* AboutFilm */ = {
+			isa = PBXGroup;
+			children = (
+				BDF19549211863320093D236 /* film.storyboard */,
+				BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */,
+			);
+			path = AboutFilm;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -515,6 +532,7 @@
 			files = (
 				BDD0FC9A21107E650060A3F0 /* segui.ttf in Resources */,
 				BDD0FC9921107DE50060A3F0 /* seguisb.ttf in Resources */,
+				BDF1954A211863320093D236 /* film.storyboard in Resources */,
 				BDC941D5210EE864005C5041 /* LaunchScreen.storyboard in Resources */,
 				BDC941EF210EF1F7005C5041 /* Localizable.strings in Resources */,
 				BDC941D2210EE864005C5041 /* Assets.xcassets in Resources */,
@@ -613,6 +631,7 @@
 				BD1DCF7021132697001B48EF /* TabNamesUsecaseAssembly.swift in Sources */,
 				BDF83D682111F24F001596EA /* PopularFilmsViewController.swift in Sources */,
 				BD52F3D82116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift in Sources */,
+				BDF1954E211877760093D236 /* UIButtonChangeContent.swift in Sources */,
 				BD52F3E22116FC2A0063DEB1 /* ListPopularFilmsUsecase.swift in Sources */,
 				BDC941FE210F352D005C5041 /* TabNameCollectionViewCell.swift in Sources */,
 				BDD3BFB5211078860096C212 /* fonts.swift in Sources */,
@@ -622,6 +641,7 @@
 				BD52F3F1211704930063DEB1 /* PopularFilmsDSAssembly.swift in Sources */,
 				BD52F3E42116FE980063DEB1 /* PopularFilms.swift in Sources */,
 				BD52F3EA2117031D0063DEB1 /* ListPopularFilmsGatewayAssembly.swift in Sources */,
+				BDF1954C21186DDB0093D236 /* AboutFilmViewController.swift in Sources */,
 				BD5292A22114783700870328 /* TabNamesPresenter.swift in Sources */,
 				BDC941F4210EF464005C5041 /* BaseViewController.swift in Sources */,
 				BD47CFDC2112FE15007339C8 /* NetworkingError.swift in Sources */,

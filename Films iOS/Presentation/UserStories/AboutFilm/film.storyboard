@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OL9-ba-FQO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--About Film View Controller-->
+        <scene sceneID="nFo-My-O96">
+            <objects>
+                <viewController id="OL9-ba-FQO" customClass="AboutFilmViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RL1-VX-ZUT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="x00-lq-xLv">
+                                <rect key="frame" x="0.0" y="67" width="375" height="600"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="E3P-oj-jWV">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Trn-gm-T3g">
+                                                <rect key="frame" x="0.0" y="1" width="375" height="29"/>
+                                                <segments>
+                                                    <segment title="Info"/>
+                                                    <segment title="Cast"/>
+                                                    <segment title="Review"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="tabChanged:" destination="OL9-ba-FQO" eventType="valueChanged" id="2bo-Wg-Woy"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3d-te-RVb">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="aNv-58-ldq"/>
+                                        </constraints>
+                                    </view>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcG-GX-rPQ">
+                                        <rect key="frame" x="0.0" y="59" width="375" height="541"/>
+                                        <connections>
+                                            <segue destination="KQ8-I4-dgd" kind="embed" id="Tfw-tj-rBr"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AJ1-Cp-cg8" firstAttribute="trailing" secondItem="x00-lq-xLv" secondAttribute="trailing" id="D1U-FU-M78"/>
+                            <constraint firstItem="AJ1-Cp-cg8" firstAttribute="bottom" secondItem="x00-lq-xLv" secondAttribute="bottom" id="EPb-2u-k3c"/>
+                            <constraint firstItem="x00-lq-xLv" firstAttribute="top" secondItem="AJ1-Cp-cg8" secondAttribute="top" constant="47" id="epZ-Ud-0zT"/>
+                            <constraint firstItem="x00-lq-xLv" firstAttribute="leading" secondItem="AJ1-Cp-cg8" secondAttribute="leading" id="j5s-Rr-dCc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AJ1-Cp-cg8"/>
+                    </view>
+                    <connections>
+                        <outlet property="tabs" destination="Trn-gm-T3g" id="Opb-sZ-pbS"/>
+                        <outlet property="tdbBarForFilm" destination="E3P-oj-jWV" id="IAT-Av-OqH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qyw-wg-W96" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-738.39999999999998" y="-246.02698650674665"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="7Ur-T2-UjI">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="KQ8-I4-dgd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W2b-wf-oB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4" y="-246"/>
+        </scene>
+    </scenes>
+</document>
