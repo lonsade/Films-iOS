@@ -1,0 +1,13 @@
+stages:
+  - build
+  - test
+
+build_project:
+  stage: build
+  script:
+    - fastlane cocoapods
+
+test_project:
+  stage: archive
+  script:
+    - fastlane tests
