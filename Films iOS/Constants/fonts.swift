@@ -26,7 +26,7 @@ extension UIFont {
         return font
     }
 
-    static let FTabName = getFont(named: "Segoe UI", of: 14)
+    static let FTabName = getFont(named: "SegoeUI-Regular", of: 14)
 
     static let FAppName = getFont(named: "SegoeUI-Semibold", of: 17)
 
@@ -36,11 +36,11 @@ extension UIFont {
 
     static let FTextAgeOnFilmCollection = getFont(named: "SegoeUI-Semibold", of: 12)
 
-    static let FAboutFilmTab = getFont(named: "Segoe UI", of: 13)
+    static let FAboutFilmTab = getFont(named: "SegoeUI-Regular", of: 13)
 
     static let FAboutFilmTitle = getFont(named: "SegoeUI-Semibold", of: 24)
 
-    static let FAboutFilmInfoTitleAndDesc = getFont(named: "Segoe UI", of: 14)
+    static let FAboutFilmInfoTitleAndDesc = getFont(named: "SegoeUI-Regular", of: 14)
 
     static let FAboutFilmTitles = getFont(named: "SegoeUI-Semibold", of: 18)
 

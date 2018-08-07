@@ -10,48 +10,40 @@ import UIKit
 
 class InfoFilmViewController: UIViewController {
 
-    /*Настройка коллекции трейлеров*/
-    @IBOutlet weak var collectionVideo: UICollectionView!
-
-    @IBOutlet weak var infoBlock: UIStackView! {
-        didSet {
-            infoBlock.layoutMargins = UIEdgeInsets(top: 20, left: 17, bottom: 10, right: 39)
-            infoBlock.isLayoutMarginsRelativeArrangement = true
-        }
-    }
-
-    @IBOutlet weak var infoTitlesBlock: UIStackView! {
-        didSet {
-            infoTitlesBlock.layoutMargins = UIEdgeInsets(top: 8, left: 20, bottom: 0, right: 0)
-            infoTitlesBlock.isLayoutMarginsRelativeArrangement = true
-        }
-    }
+    var detailsFilmDataSource: IDetailsFilmDataSourceOutput!
+    var detailsFilmPresenter: IDetailsFilmPresenter!
 
     private func costomizeInfoTitle(label: UILabel) {
         label.font = UIFont.FAboutFilmInfoTitleAndDesc
         label.textColor = UIColor.FTitleTextColor
     }
 
+    @IBOutlet weak var collectionVideo: UICollectionView!
+
     @IBOutlet weak var filmMark: UILabel! {
         didSet {
             costomizeInfoTitle(label: filmMark)
         }
     }
+
     @IBOutlet weak var year: UILabel! {
         didSet {
             costomizeInfoTitle(label: year)
         }
     }
+
     @IBOutlet weak var duration: UILabel! {
         didSet {
             costomizeInfoTitle(label: duration)
         }
     }
+
     @IBOutlet weak var age: UILabel! {
         didSet {
             costomizeInfoTitle(label: age)
         }
     }
+
     @IBOutlet weak var country: UILabel! {
         didSet {
             costomizeInfoTitle(label: country)
@@ -71,8 +63,7 @@ class InfoFilmViewController: UIViewController {
             descriptionFilm.font = UIFont.FAboutFilmInfoTitleAndDesc
             descriptionFilm.textColor = UIColor.FContentTextColor
             descriptionFilm.textContainer.lineFragmentPadding = 0
-
-            descriptionFilm.textContainerInset = UIEdgeInsets(top: 10, left: 16, bottom: 0, right: 39)
+            descriptionFilm.textContainerInset = .zero
         }
     }
 
@@ -90,14 +81,60 @@ class InfoFilmViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var mainStack: UIStackView!
+    @IBOutlet weak var infoTitlesBlock: UIStackView! {
+        didSet {
+            infoTitlesBlock.isLayoutMarginsRelativeArrangement = true
+            infoTitlesBlock.layoutMargins = UIEdgeInsets(top: 8, left: 0, bottom: 14, right: 0)
+        }
+    }
+
+    @IBOutlet weak var poster: UIImageView! {
+        didSet {
+            poster.setCornerRadius(byRoundingCorners: [.allCorners], size: 4)
+            poster.layer.applySketchShadow(
+                color: UIColor.FShadowColor,
+                alpha: 0.5,
+                x: 0,
+                y: 1,
+                blur: 3,
+                spread: 0
+            )
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        InfoViewAssembly.instance().inject(into: self)
+        detailsFilmDataSource.delegate = self
+        detailsFilmPresenter.setDetailsFilm()
+    }
+}
 
-        let ns1 = NSLayoutConstraint(item: galleryLabel, attribute: .leading, relatedBy: .equal, toItem: mainStack, attribute: .leading, multiplier: 1, constant: 16)
+extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
 
-        mainStack.addConstraint(ns1)
+    func detailsWasAdded(details: FilmDetail) {
+        filmTitle.text = details.title
+        country.text = details.productionCountries[0].name
+        descriptionFilm.text = details.overview
+        filmMark.text = String(details.voteAverage).withTMDb()
 
+        var validYear: Int
+        guard let yearInt = details.releaseDate.getDate(withFormat: "yyyy-MM-dd").year else {
+            #if DEBUG
+            fatalError("Invalid Date")
+            #else
+            validYear = 1448
+            #endif
+        }
+        validYear = yearInt
+        year.text = String(validYear)
+
+        let time = details.runtime.getTimeFromIntDuration()
+
+        // TODO: сделать через форматер
+
+        duration.text = String(time.0)+"h "+String(time.1)+"min"
+
+        poster.downloadedFrom(link: "https://image.tmdb.org/t/p/w500"+details.posterPath, contentMode: .scaleToFill)
     }
 }

@@ -15,17 +15,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imagePoster: UIImageView! {
         didSet {
             imagePoster.layer.masksToBounds = true
-
-            //top border radius
-            let path = UIBezierPath(
-                roundedRect: imagePoster.bounds,
-                byRoundingCorners: [.topLeft, .topRight],
-                cornerRadii: CGSize(width: 4, height: 4)
-            )
-            let maskLayer = CAShapeLayer()
-            maskLayer.frame = imagePoster.bounds
-            maskLayer.path = path.cgPath
-            imagePoster.layer.mask = maskLayer
+            imagePoster.setCornerRadius(byRoundingCorners: [.topLeft, .topRight], size: 4)
         }
     }
 
@@ -69,7 +59,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
 
         imagePoster.downloadedFrom(link: baseUrlImage+image, contentMode: .scaleToFill)
         self.title.text = title
-        voteAverage.text = "TMDDb "+String(vote)
+        voteAverage.text = String(vote).withTMDb()
         ageLabel.text = String(age)
 
     }

@@ -47,7 +47,9 @@ class AboutFilmViewController: UIViewController {
 
     lazy var pages: [UIViewController] = {
         return [
-            self.getViewController(withIdentifier: "aboutFilm")
+            self.getViewController(withIdentifier: "aboutFilm"),
+            self.getViewController(withIdentifier: "cast"),
+            self.getViewController(withIdentifier: "review")
         ]
     }()
 
@@ -86,6 +88,7 @@ class AboutFilmViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         costomize()
     }
 
