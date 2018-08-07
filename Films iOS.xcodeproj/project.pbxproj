@@ -48,6 +48,7 @@
 		BDC94202210F52F6005C5041 /* CustomMenuBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC94201210F52F6005C5041 /* CustomMenuBarButtonItem.swift */; };
 		BDD0FC9921107DE50060A3F0 /* seguisb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD0FC9821107DE50060A3F0 /* seguisb.ttf */; };
 		BDD0FC9A21107E650060A3F0 /* segui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD0FC9C21107E650060A3F0 /* segui.ttf */; };
+		BDD16047211985920063650A /* InfoFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD16046211985920063650A /* InfoFilmViewController.swift */; };
 		BDD3BFAF211069B20096C212 /* TabNamesRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFAE211069B20096C212 /* TabNamesRouting.swift */; };
 		BDD3BFB5211078860096C212 /* fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BFB4211078860096C212 /* fonts.swift */; };
 		BDE164EB21119D57002E0A14 /* TabDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */; };
@@ -107,6 +108,7 @@
 		BDC94201210F52F6005C5041 /* CustomMenuBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuBarButtonItem.swift; sourceTree = "<group>"; };
 		BDD0FC9821107DE50060A3F0 /* seguisb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = seguisb.ttf; sourceTree = "<group>"; };
 		BDD0FC9B21107E650060A3F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/segui.ttf; sourceTree = "<group>"; };
+		BDD16046211985920063650A /* InfoFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFilmViewController.swift; sourceTree = "<group>"; };
 		BDD3BFAE211069B20096C212 /* TabNamesRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesRouting.swift; sourceTree = "<group>"; };
 		BDD3BFB4211078860096C212 /* fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fonts.swift; sourceTree = "<group>"; };
 		BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDisplayManager.swift; sourceTree = "<group>"; };
@@ -435,6 +437,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		BDD160452119857B0063650A /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				BDD16046211985920063650A /* InfoFilmViewController.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
 		BDD3BFAD2110694D0096C212 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +473,7 @@
 		BDF19548211863080093D236 /* AboutFilm */ = {
 			isa = PBXGroup;
 			children = (
+				BDD160452119857B0063650A /* Info */,
 				BDF19549211863320093D236 /* film.storyboard */,
 				BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */,
 			);
@@ -620,6 +631,7 @@
 				BD52F3F52117083B0063DEB1 /* PopularFilmsViewAssembly.swift in Sources */,
 				BD52F3F3211706400063DEB1 /* PopularFilmsDisplayManagerAssembly.swift in Sources */,
 				BDC941F8210F1B2C005C5041 /* colors.swift in Sources */,
+				BDD16047211985920063650A /* InfoFilmViewController.swift in Sources */,
 				BD1DCF6A21131FAF001B48EF /* TabNamesGateway.swift in Sources */,
 				BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */,
 				BD1DCF6C21132308001B48EF /* TabName.swift in Sources */,

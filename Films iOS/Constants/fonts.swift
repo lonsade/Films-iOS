@@ -38,6 +38,12 @@ extension UIFont {
 
     static let FAboutFilmTab = getFont(named: "Segoe UI", of: 13)
 
+    static let FAboutFilmTitle = getFont(named: "SegoeUI-Semibold", of: 24)
+
+    static let FAboutFilmInfoTitleAndDesc = getFont(named: "Segoe UI", of: 14)
+
+    static let FAboutFilmTitles = getFont(named: "SegoeUI-Semibold", of: 18)
+
 }
 
 // swiftlint:enable identifier_name line_length type_body_length
