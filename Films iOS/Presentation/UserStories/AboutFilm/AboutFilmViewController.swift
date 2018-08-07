@@ -10,20 +10,35 @@ import UIKit
 
 class AboutFilmViewController: UIViewController {
 
+    /*
+        Сделал свой массив вьюшек табов,
+        потому что во время изменения состояния сегмент контроля
+        менялся и исходный массив tabs.subviews
+    */
+
+    private lazy var tabViews: [UIView] = {
+        var tabsV = [UIView]()
+        for tab in self.tabs.subviews {
+            tabsV.append(tab)
+        }
+        return tabsV
+    }()
+
+    private func setActiveTintColorOnItem(of index: Int) {
+        for tabIndex in tabViews.indices {
+            if tabIndex == index {
+                tabViews[tabIndex].tintColor = UIColor.FActiveTextColor
+            } else {
+                tabViews[tabIndex].tintColor = UIColor.FHRColor
+            }
+        }
+    }
+
     @IBOutlet weak var tdbBarForFilm: UIStackView! {
         didSet {
             tdbBarForFilm.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
             tdbBarForFilm.isLayoutMarginsRelativeArrangement = true
         }
-    }
-
-    private func setActiveTintColorOnItem(of index: Int) {
-
-        for tab in tabs.subviews {
-            tab.tintColor = UIColor.FHRColor
-        }
-        tabs.subviews[tabs.selectedSegmentIndex].tintColor = UIColor.FActiveTextColor
-
     }
 
     @IBOutlet weak var tabs: UISegmentedControl! {
@@ -32,6 +47,7 @@ class AboutFilmViewController: UIViewController {
             //tabs.tintColor = UIColor.FHRColor
             tabs.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.FInactiveTabTitleColorAboutFilm], for: .normal)
             tabs.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.FActiveTabTitleColorAboutFilm], for: .selected)
+
             setActiveTintColorOnItem(of: tabs.selectedSegmentIndex)
         }
     }
@@ -40,7 +56,7 @@ class AboutFilmViewController: UIViewController {
         setActiveTintColorOnItem(of: sender.selectedSegmentIndex)
     }
 
-    func costomize() {
+    private func costomize() {
         view.backgroundColor = UIColor.FMainBackgroundColor
     }
 
