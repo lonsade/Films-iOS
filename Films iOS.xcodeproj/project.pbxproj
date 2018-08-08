@@ -48,6 +48,7 @@
 		BD52F3F3211706400063DEB1 /* PopularFilmsDisplayManagerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3F2211706400063DEB1 /* PopularFilmsDisplayManagerAssembly.swift */; };
 		BD52F3F52117083B0063DEB1 /* PopularFilmsViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3F42117083B0063DEB1 /* PopularFilmsViewAssembly.swift */; };
 		BD52F3F7211711660063DEB1 /* UIImageLoadFromURL+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3F6211711660063DEB1 /* UIImageLoadFromURL+cornerRadius.swift */; };
+		BD700C36211ABDE300C51220 /* FSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD700C35211ABDE300C51220 /* FSegmentControl.swift */; };
 		BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC941CA210EE861005C5041 /* AppDelegate.swift */; };
 		BDC941D0210EE861005C5041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC941CE210EE861005C5041 /* Main.storyboard */; };
 		BDC941D2210EE864005C5041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC941D1210EE864005C5041 /* Assets.xcassets */; };
@@ -118,6 +119,7 @@
 		BD52F3F2211706400063DEB1 /* PopularFilmsDisplayManagerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularFilmsDisplayManagerAssembly.swift; sourceTree = "<group>"; };
 		BD52F3F42117083B0063DEB1 /* PopularFilmsViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularFilmsViewAssembly.swift; sourceTree = "<group>"; };
 		BD52F3F6211711660063DEB1 /* UIImageLoadFromURL+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageLoadFromURL+cornerRadius.swift"; sourceTree = "<group>"; };
+		BD700C35211ABDE300C51220 /* FSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSegmentControl.swift; sourceTree = "<group>"; };
 		BDC941C7210EE861005C5041 /* Films iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Films iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC941CA210EE861005C5041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC941CF210EE861005C5041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -232,6 +234,14 @@
 				BD5292A12114783700870328 /* TabNamesPresenter.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		BD700C34211ABDC500C51220 /* AboutFilm */ = {
+			isa = PBXGroup;
+			children = (
+				BD700C35211ABDE300C51220 /* FSegmentControl.swift */,
+			);
+			path = AboutFilm;
 			sourceTree = "<group>";
 		};
 		BDC941BE210EE861005C5041 = {
@@ -448,6 +458,7 @@
 		BDC941F1210EF267005C5041 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				BD700C34211ABDC500C51220 /* AboutFilm */,
 				BDC94203210F57D0005C5041 /* NavigationBar */,
 			);
 			path = CustomViews;
@@ -690,6 +701,7 @@
 				BD5292A4211479DF00870328 /* TabNamesDataSource.swift in Sources */,
 				BD05FCDA2119CC3B008B5AC5 /* DetailsFilmUsecaseAssembly.swift in Sources */,
 				BD1DCF7221132939001B48EF /* Genres.swift in Sources */,
+				BD700C36211ABDE300C51220 /* FSegmentControl.swift in Sources */,
 				BD05FCD32119C6F4008B5AC5 /* DetailsFilmDataSource.swift in Sources */,
 				BDC941FC210F2ADE005C5041 /* MainViewController.swift in Sources */,
 				BD52F3F52117083B0063DEB1 /* PopularFilmsViewAssembly.swift in Sources */,
