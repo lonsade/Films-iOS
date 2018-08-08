@@ -184,17 +184,19 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FXX-E4-wC7">
-                                                <rect key="frame" x="0.0" y="60" width="191" height="25.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FXX-E4-wC7">
+                                                <rect key="frame" x="0.0" y="60" width="191" height="14"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рейтинг" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ9-tB-YWa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91.5" height="25.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIa-To-alo" customClass="FStarRating" customModule="Films_iOS" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="78" height="14"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="78" id="GNU-Pa-WGZ"/>
+                                                            <constraint firstAttribute="height" constant="14" id="rKn-f7-qxk"/>
+                                                        </constraints>
+                                                    </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оценка" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMk-il-9jh">
-                                                        <rect key="frame" x="99.5" y="0.0" width="91.5" height="25.5"/>
+                                                        <rect key="frame" x="131" y="0.0" width="60" height="14"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -202,22 +204,22 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AT0-kr-p5S">
-                                                <rect key="frame" x="0.0" y="85.5" width="191" height="25"/>
+                                                <rect key="frame" x="0.0" y="74" width="191" height="26.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Год" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5b0-8f-HCN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="63.5" height="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="63.5" height="26.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebY-4G-dBu">
-                                                        <rect key="frame" x="63.5" y="0.0" width="64" height="25"/>
+                                                        <rect key="frame" x="63.5" y="0.0" width="64" height="26.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Возраст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rkd-K4-3Lh">
-                                                        <rect key="frame" x="127.5" y="0.0" width="63.5" height="25"/>
+                                                        <rect key="frame" x="127.5" y="0.0" width="63.5" height="26.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -225,7 +227,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Страна" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVw-iR-R6h">
-                                                <rect key="frame" x="0.0" y="110.5" width="191" height="39.5"/>
+                                                <rect key="frame" x="0.0" y="100.5" width="191" height="49.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -310,13 +312,14 @@
                         <outlet property="galleryLabel" destination="VSE-OO-LXq" id="tyL-jC-J3w"/>
                         <outlet property="infoTitlesBlock" destination="5cl-dA-SOm" id="ZNH-Dx-H1K"/>
                         <outlet property="poster" destination="T4u-Q8-38m" id="vmV-Id-QDc"/>
+                        <outlet property="rating" destination="CIa-To-alo" id="Ldj-6O-wKP"/>
                         <outlet property="seeAlsoTitle" destination="7CI-zh-tBv" id="obn-Xh-b5j"/>
                         <outlet property="year" destination="5b0-8f-HCN" id="d4J-NL-Vtb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8S3-vs-NqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="-577"/>
+            <point key="canvasLocation" x="716" y="-670"/>
         </scene>
     </scenes>
 </document>

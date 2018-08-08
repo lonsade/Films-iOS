@@ -102,6 +102,8 @@ class InfoFilmViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var rating: FStarRating!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         InfoViewAssembly.instance().inject(into: self)
@@ -136,5 +138,9 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
         duration.text = String(time.0)+"h "+String(time.1)+"min"
 
         poster.downloadedFrom(link: "https://image.tmdb.org/t/p/w500"+details.posterPath, contentMode: .scaleToFill)
+
+        // RAting
+        rating.setRating(voteAverage: details.voteAverage)
+
     }
 }
