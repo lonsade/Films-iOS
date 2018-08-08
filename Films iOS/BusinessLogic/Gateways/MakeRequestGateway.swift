@@ -41,10 +41,10 @@ final class MakeRequestGateway: IMakeRequestGateway {
                 relativeURL,
                 parameters: parameters,
                 headers: headers
-                ).done { (result: T) in
-                    seal.fulfill(result)
+            ).done { (result: T) in
+                seal.fulfill(result)
             }.catch { error in
-                    seal.reject(error)
+                seal.reject(error)
             }
         }
     }

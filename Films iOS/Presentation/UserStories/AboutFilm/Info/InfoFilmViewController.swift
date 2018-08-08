@@ -104,15 +104,27 @@ class InfoFilmViewController: UIViewController {
 
     @IBOutlet weak var rating: FStarRating!
 
+    @IBOutlet weak var galleryCollection: UICollectionView!
+
+    var galleryDisplayManager: GalleryDisplayManager! {
+        didSet {
+            galleryDisplayManager.collectionGallery = self.galleryCollection
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         InfoViewAssembly.instance().inject(into: self)
         detailsFilmDataSource.delegate = self
         detailsFilmPresenter.setDetailsFilm()
+        detailsFilmPresenter.setGallery()
     }
 }
 
 extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
+    func imagesWasAdded(images: [GalleryImage]) {
+        galleryDisplayManager.collectionGallery?.reloadData()
+    }
 
     func detailsWasAdded(details: FilmDetail) {
         filmTitle.text = details.title

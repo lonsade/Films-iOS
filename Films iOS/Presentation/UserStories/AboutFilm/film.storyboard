@@ -139,10 +139,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u8h-xu-Ddd">
-                                <rect key="frame" x="0.0" y="22" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="22" width="375" height="10"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="OT8-t6-y2a"/>
+                                    <constraint firstAttribute="height" constant="10" id="OT8-t6-y2a"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JAj-gD-w6G">
                                     <size key="itemSize" width="50" height="50"/>
@@ -162,7 +162,7 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mKd-IC-z0c">
-                                <rect key="frame" x="17" y="192" width="321" height="150"/>
+                                <rect key="frame" x="17" y="52" width="321" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T4u-Q8-38m">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="150"/>
@@ -250,33 +250,33 @@
                                 <color key="backgroundColor" red="0.93051225729999998" green="1" blue="0.19995064139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Описание" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5P-zL-EHb">
-                                <rect key="frame" x="16" y="352" width="322" height="33"/>
+                                <rect key="frame" x="16" y="212" width="322" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSE-OO-LXq">
-                                <rect key="frame" x="16" y="395" width="53.5" height="20.5"/>
+                                <rect key="frame" x="16" y="255" width="53.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UG0-gS-8bE">
-                                <rect key="frame" x="0.0" y="426.5" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="286.5" width="375" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="0e5-IN-QO7"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8mn-NO-iZF">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="16" minimumInteritemSpacing="16" id="8mn-NO-iZF">
                                     <size key="itemSize" width="120" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="image" id="8fy-F8-e3u">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="images" id="8fy-F8-e3u" customClass="GalleryCollectionCell" customModule="Films_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="0.0" width="120" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
@@ -294,11 +294,14 @@
                                             <constraint firstItem="Qvz-6J-0b4" firstAttribute="top" secondItem="8fy-F8-e3u" secondAttribute="top" id="qdK-Cb-Sas"/>
                                             <constraint firstAttribute="trailing" secondItem="Qvz-6J-0b4" secondAttribute="trailing" id="tdh-La-spy"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="Qvz-6J-0b4" id="s1S-uB-lbh"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See also" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CI-zh-tBv">
-                                <rect key="frame" x="16" y="504.5" width="65" height="20.5"/>
+                                <rect key="frame" x="16" y="364.5" width="65" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -333,6 +336,7 @@
                         <outlet property="duration" destination="ebY-4G-dBu" id="xn9-4l-JDq"/>
                         <outlet property="filmMark" destination="sMk-il-9jh" id="elT-SB-c4g"/>
                         <outlet property="filmTitle" destination="isi-JU-GF4" id="J3C-4y-OWz"/>
+                        <outlet property="galleryCollection" destination="UG0-gS-8bE" id="mZJ-7j-BDk"/>
                         <outlet property="galleryLabel" destination="VSE-OO-LXq" id="tyL-jC-J3w"/>
                         <outlet property="infoTitlesBlock" destination="5cl-dA-SOm" id="ZNH-Dx-H1K"/>
                         <outlet property="poster" destination="T4u-Q8-38m" id="vmV-Id-QDc"/>

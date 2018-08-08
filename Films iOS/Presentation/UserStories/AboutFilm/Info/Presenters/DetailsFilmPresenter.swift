@@ -10,20 +10,37 @@ import Foundation
 
 protocol IDetailsFilmPresenter: class {
     func setDetailsFilm()
+    func setGallery()
 }
 
 final class DetailsFilmPresenter: IDetailsFilmPresenter {
+
     private var detailsFilmUsecase: IDetailsFilmUsecase
     private var dataSource: IDetailsFilmDataSourceInput
+    private var galleryUsecase: IGalleryUsecase
 
-    init(detailsFilmUsecase: IDetailsFilmUsecase, dataSource: IDetailsFilmDataSourceInput) {
+    init(
+        detailsFilmUsecase: IDetailsFilmUsecase,
+        dataSource: IDetailsFilmDataSourceInput,
+        galleryUsecase: IGalleryUsecase
+    ) {
         self.detailsFilmUsecase = detailsFilmUsecase
         self.dataSource = dataSource
+        self.galleryUsecase = galleryUsecase
     }
 
     func setDetailsFilm() {
         detailsFilmUsecase.getFilmDetails().done { details in
             self.dataSource.addDetails(details: details)
+        }
+        .catch { error in
+            fatalError(error.localizedDescription)
+        }
+    }
+
+    func setGallery() {
+        galleryUsecase.getGallery().done { images in
+            self.dataSource.addImages(images: images)
         }
         .catch { error in
             fatalError(error.localizedDescription)

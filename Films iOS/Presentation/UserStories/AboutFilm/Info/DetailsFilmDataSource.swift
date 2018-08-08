@@ -10,14 +10,17 @@ import Foundation
 
 protocol IDetailsFilmDataSourceInput: class {
     func addDetails(details: FilmDetail)
+    func addImages(images: [GalleryImage])
 }
 
 protocol IDetailsFilmDataSourceOutput: class {
     var details: FilmDetail? { get }
+    var images: [GalleryImage] { get }
     var delegate: DetailsFilmDataSourceDelegate? { get set }
 }
 
 final class DetailsFilmDataSource: IDetailsFilmDataSourceInput, IDetailsFilmDataSourceOutput {
+
     weak var delegate: DetailsFilmDataSourceDelegate?
 
     func addDetails(details: FilmDetail) {
@@ -25,12 +28,21 @@ final class DetailsFilmDataSource: IDetailsFilmDataSourceInput, IDetailsFilmData
         delegate?.detailsWasAdded(details: details)
     }
 
-    var details: FilmDetail?
+    func addImages(images: [GalleryImage]) {
+        self.images = images
+        delegate?.imagesWasAdded(images: images)
+    }
 
-    init() {}
+    var details: FilmDetail?
+    var images: [GalleryImage]
+
+    init() {
+        images = []
+    }
 
 }
 
 protocol DetailsFilmDataSourceDelegate: class {
     func detailsWasAdded(details: FilmDetail)
+    func imagesWasAdded(images: [GalleryImage])
 }

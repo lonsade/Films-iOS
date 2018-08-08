@@ -15,11 +15,14 @@ final class DetailsFilmPresenterAssembly: Assembly {
 
     lazy var detailsFilmDataSourceAssembly: DetailsFilmDataSourceAssembly = DetailsFilmDataSourceAssembly.instance()
 
+    lazy var galleryUsecaseAssembly: GalleryUsecaseAssembly = GalleryUsecaseAssembly.instance()
+
     var detailsFilmPresenter: IDetailsFilmPresenter {
         return define(scope: .lazySingleton, init:
             DetailsFilmPresenter(
                 detailsFilmUsecase: self.detailsFilmUsecaseAssembly.detailsFilmUsecase,
-                dataSource: self.detailsFilmDataSourceAssembly.detailsFilmDataSource
+                dataSource: self.detailsFilmDataSourceAssembly.detailsFilmDataSource,
+                galleryUsecase: self.galleryUsecaseAssembly.galleryUsecase
             )
         )
     }
