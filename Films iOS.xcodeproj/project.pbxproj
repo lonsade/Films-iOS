@@ -23,7 +23,6 @@
 		BD1DCF6321131A38001B48EF /* NetworkingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6221131A38001B48EF /* NetworkingAssembly.swift */; };
 		BD1DCF6621131DCA001B48EF /* MainViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6521131DCA001B48EF /* MainViewAssembly.swift */; };
 		BD1DCF6821131EA6001B48EF /* TabNamesUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6721131EA6001B48EF /* TabNamesUsecase.swift */; };
-		BD1DCF6A21131FAF001B48EF /* TabNamesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6921131FAF001B48EF /* TabNamesGateway.swift */; };
 		BD1DCF6C21132308001B48EF /* TabName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6B21132308001B48EF /* TabName.swift */; };
 		BD1DCF6E2113245E001B48EF /* TabNamesGatewayAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6D2113245E001B48EF /* TabNamesGatewayAssembly.swift */; };
 		BD1DCF7021132697001B48EF /* TabNamesUsecaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6F21132697001B48EF /* TabNamesUsecaseAssembly.swift */; };
@@ -35,7 +34,6 @@
 		BD52F3D82116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3D72116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift */; };
 		BD52F3DA2116E3D80063DEB1 /* TabDisplayManagerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3D92116E3D80063DEB1 /* TabDisplayManagerAssembly.swift */; };
 		BD52F3DE2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3DD2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift */; };
-		BD52F3E02116FC0E0063DEB1 /* ListPopularFilmsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3DF2116FC0E0063DEB1 /* ListPopularFilmsGateway.swift */; };
 		BD52F3E22116FC2A0063DEB1 /* ListPopularFilmsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3E12116FC2A0063DEB1 /* ListPopularFilmsUsecase.swift */; };
 		BD52F3E42116FE980063DEB1 /* PopularFilms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3E32116FE980063DEB1 /* PopularFilms.swift */; };
 		BD52F3E6211700C70063DEB1 /* PopularFilmsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52F3E5211700C70063DEB1 /* PopularFilmsPresenter.swift */; };
@@ -103,7 +101,6 @@
 		BD1DCF6221131A38001B48EF /* NetworkingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingAssembly.swift; sourceTree = "<group>"; };
 		BD1DCF6521131DCA001B48EF /* MainViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewAssembly.swift; sourceTree = "<group>"; };
 		BD1DCF6721131EA6001B48EF /* TabNamesUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesUsecase.swift; sourceTree = "<group>"; };
-		BD1DCF6921131FAF001B48EF /* TabNamesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesGateway.swift; sourceTree = "<group>"; };
 		BD1DCF6B21132308001B48EF /* TabName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabName.swift; sourceTree = "<group>"; };
 		BD1DCF6D2113245E001B48EF /* TabNamesGatewayAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesGatewayAssembly.swift; sourceTree = "<group>"; };
 		BD1DCF6F21132697001B48EF /* TabNamesUsecaseAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesUsecaseAssembly.swift; sourceTree = "<group>"; };
@@ -115,7 +112,6 @@
 		BD52F3D72116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesPresenterAssembly.swift; sourceTree = "<group>"; };
 		BD52F3D92116E3D80063DEB1 /* TabDisplayManagerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDisplayManagerAssembly.swift; sourceTree = "<group>"; };
 		BD52F3DD2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesDataSourceAssembly.swift; sourceTree = "<group>"; };
-		BD52F3DF2116FC0E0063DEB1 /* ListPopularFilmsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopularFilmsGateway.swift; sourceTree = "<group>"; };
 		BD52F3E12116FC2A0063DEB1 /* ListPopularFilmsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPopularFilmsUsecase.swift; sourceTree = "<group>"; };
 		BD52F3E32116FE980063DEB1 /* PopularFilms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularFilms.swift; sourceTree = "<group>"; };
 		BD52F3E5211700C70063DEB1 /* PopularFilmsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularFilmsPresenter.swift; sourceTree = "<group>"; };
@@ -287,6 +283,17 @@
 			path = AboutFilm;
 			sourceTree = "<group>";
 		};
+		BD700C51211B24E300C51220 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				BD52F3E92117031D0063DEB1 /* ListPopularFilmsGatewayAssembly.swift */,
+				BD52F3EB211703350063DEB1 /* ListPopularFilmsUsecaseAssembly.swift */,
+				BD1DCF6D2113245E001B48EF /* TabNamesGatewayAssembly.swift */,
+				BD1DCF6F21132697001B48EF /* TabNamesUsecaseAssembly.swift */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
 		BDC941BE210EE861005C5041 = {
 			isa = PBXGroup;
 			children = (
@@ -408,11 +415,8 @@
 		BDC941E5210EF0DE005C5041 /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
+				BD700C51211B24E300C51220 /* MainPage */,
 				BD700C41211AF36000C51220 /* AboutFilm */,
-				BD52F3E92117031D0063DEB1 /* ListPopularFilmsGatewayAssembly.swift */,
-				BD52F3EB211703350063DEB1 /* ListPopularFilmsUsecaseAssembly.swift */,
-				BD1DCF6D2113245E001B48EF /* TabNamesGatewayAssembly.swift */,
-				BD1DCF6F21132697001B48EF /* TabNamesUsecaseAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -431,9 +435,7 @@
 		BDC941E7210EF0F6005C5041 /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
-				BD52F3DF2116FC0E0063DEB1 /* ListPopularFilmsGateway.swift */,
 				BD700C3F211AF10600C51220 /* MakeRequestGateway.swift */,
-				BD1DCF6921131FAF001B48EF /* TabNamesGateway.swift */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -738,7 +740,6 @@
 				BD47CFD92112F47E007339C8 /* Networking.swift in Sources */,
 				BD52F3F7211711660063DEB1 /* UIImageLoadFromURL+cornerRadius.swift in Sources */,
 				BD1DCF6621131DCA001B48EF /* MainViewAssembly.swift in Sources */,
-				BD52F3E02116FC0E0063DEB1 /* ListPopularFilmsGateway.swift in Sources */,
 				BD05FCD12119C60F008B5AC5 /* DetailsFilmPresenter.swift in Sources */,
 				BD700C40211AF10600C51220 /* MakeRequestGateway.swift in Sources */,
 				BDE164EB21119D57002E0A14 /* TabDisplayManager.swift in Sources */,
@@ -755,7 +756,6 @@
 				BD52F3F3211706400063DEB1 /* PopularFilmsDisplayManagerAssembly.swift in Sources */,
 				BDC941F8210F1B2C005C5041 /* colors.swift in Sources */,
 				BDD16047211985920063650A /* InfoFilmViewController.swift in Sources */,
-				BD1DCF6A21131FAF001B48EF /* TabNamesGateway.swift in Sources */,
 				BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */,
 				BD1DCF6C21132308001B48EF /* TabName.swift in Sources */,
 				BD05FCCE2119C552008B5AC5 /* DetailsFilmUsecase.swift in Sources */,

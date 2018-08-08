@@ -15,7 +15,7 @@ final class TabNamesUsecaseAssembly: Assembly {
 
     var tabNamesUsecase: ITabNamesUsecase {
         return define(scope: .lazySingleton, init:
-            TabNamesUsecase(tabNamesGateway: self.tabNamesGatewayAssembly.tabNamesGateway)
+            TabNamesUsecase(makeRequestGatewayTabNames: self.tabNamesGatewayAssembly.tabNamesGateway)
         )
     }
 }

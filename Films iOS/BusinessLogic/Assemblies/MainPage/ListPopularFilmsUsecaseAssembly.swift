@@ -16,7 +16,7 @@ final class ListPopularFilmsUsecaseAssembly: Assembly {
     var listPopularFilmsUsecase: IListPopularFilmsUsecase {
         return define(scope: .lazySingleton, init:
             ListPopularFilmsUsecase(
-                listPopularFilmsGateway: self.listPopularFilmsGatewayAssembly.listPopularFilmsGateway
+                makeRequestGatewayListPopular: self.listPopularFilmsGatewayAssembly.listPopularFilmsGateway
             )
         )
     }

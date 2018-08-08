@@ -15,13 +15,19 @@ protocol ITabNamesUsecase: class {
 
 final class TabNamesUsecase: ITabNamesUsecase {
 
-    private var tabNamesGateway: ITabNamesGateway
+    private var makeRequestGatewayTabNames: IMakeRequestGateway
 
-    init(tabNamesGateway: ITabNamesGateway) {
-        self.tabNamesGateway = tabNamesGateway
+    init(makeRequestGatewayTabNames: IMakeRequestGateway) {
+        self.makeRequestGatewayTabNames = makeRequestGatewayTabNames
     }
 
     func getTabNames() -> Promise<[TabName]> {
-        return tabNamesGateway.getTabNames()
+        return Promise<[TabName]> { seal in
+            makeRequestGatewayTabNames.getResults().done { (tabs: Genres) in
+                seal.fulfill(tabs.genres)
+            }.catch { error in
+                seal.reject(error)
+            }
+        }
     }
 }

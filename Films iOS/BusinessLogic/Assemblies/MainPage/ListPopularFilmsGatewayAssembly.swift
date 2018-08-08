@@ -1,23 +1,23 @@
 //
-//  TabNamesAssembly.swift
+//  ListPopularFilmsGatewayAssembly.swift
 //  Films iOS
 //
-//  Created by Nikita Zhudin on 02.08.2018.
+//  Created by Nikita Zhudin on 05.08.2018.
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
 import Foundation
 import EasyDi
 
-final class TabNamesGatewayAssembly: Assembly {
+final class ListPopularFilmsGatewayAssembly: Assembly {
 
     lazy var networking: NetworkingAssembly = self.context.assembly()
 
-    var tabNamesGateway: ITabNamesGateway {
+    var listPopularFilmsGateway: IMakeRequestGateway {
         return define(scope: .lazySingleton, init:
-            TabNamesGateway(
+            MakeRequestGateway(
                 networking: self.networking.networking,
-                relativeURL: "/genre/movie/list",
+                relativeURL: "/movie/popular",
                 parameters: [
                     "api_key": "7e768e8012161bc9c4ca59f1e4f5979e",
                     "language": "en-US"
