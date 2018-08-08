@@ -15,13 +15,20 @@ protocol IListPopularFilmsUsecase: class {
 
 final class ListPopularFilmsUsecase: IListPopularFilmsUsecase {
 
-    private var listPopularFilmsGateway: IListPopularFilmsGateway
+    private var makeRequestGatewayListPopular: IMakeRequestGateway
 
-    init(listPopularFilmsGateway: IListPopularFilmsGateway) {
-        self.listPopularFilmsGateway = listPopularFilmsGateway
+    init(makeRequestGatewayListPopular: IMakeRequestGateway) {
+        self.makeRequestGatewayListPopular = makeRequestGatewayListPopular
     }
 
     func getPopularFilms() -> Promise<[FilmCard]> {
-        return listPopularFilmsGateway.getPopularFilms()
+        return Promise<[FilmCard]> { seal in
+            makeRequestGatewayListPopular.getResults().done { (films: PopularFilms) in
+                seal.fulfill(films.results)
+            }.catch { error in
+                seal.reject(error)
+            }
+        }
+
     }
 }

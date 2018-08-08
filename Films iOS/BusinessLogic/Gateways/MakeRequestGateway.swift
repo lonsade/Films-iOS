@@ -1,20 +1,19 @@
 //
-//  ListPopularFilmsGateway.swift
+//  MakeRequestGateway.swift
 //  Films iOS
 //
-//  Created by Nikita Zhudin on 05.08.2018.
+//  Created by Nikita Zhudin on 08.08.2018.
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
 import Foundation
 import PromiseKit
 
-protocol IListPopularFilmsGateway: class {
-    func getPopularFilms() -> Promise<[FilmCard]>
+protocol IMakeRequestGateway: class {
+    func getResults<T: Codable>() -> Promise<T>
 }
 
-final class ListPopularFilmsGateway: IListPopularFilmsGateway {
-
+final class MakeRequestGateway: IMakeRequestGateway {
     private var networking: NetworkingProtocol
     private var parameters: [String: Any]?
     private var relativeURL: String
@@ -27,7 +26,7 @@ final class ListPopularFilmsGateway: IListPopularFilmsGateway {
         parameters: [String: Any]?,
         headers: [String: String]?,
         method: RequestMethod
-        ) {
+    ) {
         self.networking = networking
         self.relativeURL = relativeURL
         self.parameters = parameters
@@ -35,21 +34,17 @@ final class ListPopularFilmsGateway: IListPopularFilmsGateway {
         self.method = method
     }
 
-    func getPopularFilms() -> Promise<[FilmCard]> {
-        return Promise<[FilmCard]> { seal in
-            var films: [FilmCard] = []
+    func getResults<T>() -> Promise<T> where T: Decodable, T: Encodable {
+        return Promise<T> { seal in
             networking.request(
                 method: method,
                 relativeURL,
                 parameters: parameters,
                 headers: headers
-                ).done { (result: PopularFilms) in
-                    result.results.forEach { film in
-                        films.append(film)
-                    }
-                    seal.fulfill(films)
+            ).done { (result: T) in
+                seal.fulfill(result)
             }.catch { error in
-                    seal.reject(error)
+                seal.reject(error)
             }
         }
     }

@@ -28,4 +28,16 @@ extension UIImageView {
         guard let url = URL(string: link) else { return }
         downloadedFrom(url: url, contentMode: mode)
     }
+
+    func setCornerRadius(byRoundingCorners: UIRectCorner, size: Int) {
+        let path = UIBezierPath(
+            roundedRect: self.bounds,
+            byRoundingCorners: byRoundingCorners,
+            cornerRadii: CGSize(width: size, height: size)
+        )
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = self.bounds
+        maskLayer.path = path.cgPath
+        self.layer.mask = maskLayer
+    }
 }

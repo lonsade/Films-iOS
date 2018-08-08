@@ -22,7 +22,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>segui.ttf</string>
+		<string>Segoe UI, Regular.ttf</string>
 		<string>seguisb.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

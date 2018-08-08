@@ -13,9 +13,9 @@ final class ListPopularFilmsGatewayAssembly: Assembly {
 
     lazy var networking: NetworkingAssembly = self.context.assembly()
 
-    var listPopularFilmsGateway: IListPopularFilmsGateway {
+    var listPopularFilmsGateway: IMakeRequestGateway {
         return define(scope: .lazySingleton, init:
-            ListPopularFilmsGateway(
+            MakeRequestGateway(
                 networking: self.networking.networking,
                 relativeURL: "/movie/popular",
                 parameters: [

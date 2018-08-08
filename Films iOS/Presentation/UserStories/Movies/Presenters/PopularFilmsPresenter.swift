@@ -26,9 +26,9 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter {
         listPopularFilmsUsecase.getPopularFilms().done { films in
             self.dataSource.addFilms(films: films)
         }
-            .catch { error in
-                fatalError(error.localizedDescription)
-            }
+        .catch { error in
+            fatalError(error.localizedDescription)
+        }
     }
 
 }
