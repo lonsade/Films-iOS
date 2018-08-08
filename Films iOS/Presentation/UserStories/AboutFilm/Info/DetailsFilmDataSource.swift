@@ -11,38 +11,54 @@ import Foundation
 protocol IDetailsFilmDataSourceInput: class {
     func addDetails(details: FilmDetail)
     func addImages(images: [GalleryImage])
+    func addCredits(credits: [Cast])
 }
 
 protocol IDetailsFilmDataSourceOutput: class {
     var details: FilmDetail? { get }
     var images: [GalleryImage] { get }
-    var delegate: DetailsFilmDataSourceDelegate? { get set }
+    var credits: [Cast] { get }
+    var infoDelegate: DetailsFilmDataSourceInfoDelegate? { get set }
+    var castDelegate: DetailsFilmDataSourceCastDelegate? { get set }
+    //var infoDelegate: DetailsFilmDataSourceDelegate? { get set }
 }
 
 final class DetailsFilmDataSource: IDetailsFilmDataSourceInput, IDetailsFilmDataSourceOutput {
 
-    weak var delegate: DetailsFilmDataSourceDelegate?
+    weak var infoDelegate: DetailsFilmDataSourceInfoDelegate?
+    weak var castDelegate: DetailsFilmDataSourceCastDelegate?
 
     func addDetails(details: FilmDetail) {
         self.details = details
-        delegate?.detailsWasAdded(details: details)
+        infoDelegate?.detailsWasAdded(details: details)
     }
 
     func addImages(images: [GalleryImage]) {
         self.images = images
-        delegate?.imagesWasAdded(images: images)
+        infoDelegate?.imagesWasAdded(images: images)
+    }
+
+    func addCredits(credits: [Cast]) {
+        self.credits = credits
+        castDelegate?.creditsWasAdded(credits: credits)
     }
 
     var details: FilmDetail?
     var images: [GalleryImage]
+    var credits: [Cast]
 
     init() {
         images = []
+        credits = []
     }
 
 }
 
-protocol DetailsFilmDataSourceDelegate: class {
+protocol DetailsFilmDataSourceInfoDelegate: class {
     func detailsWasAdded(details: FilmDetail)
     func imagesWasAdded(images: [GalleryImage])
+}
+
+protocol DetailsFilmDataSourceCastDelegate: class {
+    func creditsWasAdded(credits: [Cast])
 }

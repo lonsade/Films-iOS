@@ -16,7 +16,7 @@ final class GalleryDisplayManager: NSObject {
 
     weak var collectionGallery: UICollectionView? {
         didSet {
-            //detailFilm.delegate = self
+            //detailFilm.infoDelegate = self
             //collectionGallery?.delegate = self
             collectionGallery?.dataSource = self
             collectionGallery?.showsVerticalScrollIndicator = false

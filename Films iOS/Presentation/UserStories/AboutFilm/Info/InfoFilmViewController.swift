@@ -115,13 +115,14 @@ class InfoFilmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         InfoViewAssembly.instance().inject(into: self)
-        detailsFilmDataSource.delegate = self
+        detailsFilmDataSource.infoDelegate = self
         detailsFilmPresenter.setDetailsFilm()
         detailsFilmPresenter.setGallery()
     }
 }
 
-extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
+extension InfoFilmViewController: DetailsFilmDataSourceInfoDelegate {
+
     func imagesWasAdded(images: [GalleryImage]) {
         galleryDisplayManager.collectionGallery?.reloadData()
     }

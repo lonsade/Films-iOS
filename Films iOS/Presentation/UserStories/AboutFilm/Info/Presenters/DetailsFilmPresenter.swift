@@ -11,6 +11,7 @@ import Foundation
 protocol IDetailsFilmPresenter: class {
     func setDetailsFilm()
     func setGallery()
+    func setCredits()
 }
 
 final class DetailsFilmPresenter: IDetailsFilmPresenter {
@@ -18,15 +19,18 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
     private var detailsFilmUsecase: IDetailsFilmUsecase
     private var dataSource: IDetailsFilmDataSourceInput
     private var galleryUsecase: IGalleryUsecase
+    private var castUsecase: ICastUsecase
 
     init(
         detailsFilmUsecase: IDetailsFilmUsecase,
         dataSource: IDetailsFilmDataSourceInput,
-        galleryUsecase: IGalleryUsecase
+        galleryUsecase: IGalleryUsecase,
+        castUsecase: ICastUsecase
     ) {
         self.detailsFilmUsecase = detailsFilmUsecase
         self.dataSource = dataSource
         self.galleryUsecase = galleryUsecase
+        self.castUsecase = castUsecase
     }
 
     func setDetailsFilm() {
@@ -46,4 +50,14 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
             fatalError(error.localizedDescription)
         }
     }
+
+    func setCredits() {
+        castUsecase.getCast().done { credits in
+            self.dataSource.addCredits(credits: credits)
+        }
+        .catch { error in
+            fatalError(error.localizedDescription)
+        }
+    }
+
 }

@@ -44,6 +44,8 @@ extension UIFont {
 
     static let FAboutFilmTitles = getFont(named: "SegoeUI-Semibold", of: 18)
 
+    static let FCastName = getFont(named: "SegoeUI-Regular", of: 16)
+
 }
 
 // swiftlint:enable identifier_name line_length type_body_length
