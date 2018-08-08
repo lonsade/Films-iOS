@@ -23,9 +23,9 @@ class AboutFilmViewController: UIViewController {
 
     lazy var pages: [UIViewController] = {
         return [
-            self.getViewController(withIdentifier: "aboutFilm"),
-            self.getViewController(withIdentifier: "cast"),
-            self.getViewController(withIdentifier: "review")
+            self.getViewController(withIdentifier: "page0"),
+            self.getViewController(withIdentifier: "page1"),
+            self.getViewController(withIdentifier: "page2")
         ]
     }()
 

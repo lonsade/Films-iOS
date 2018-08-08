@@ -9,13 +9,13 @@
 import Foundation
 import EasyDi
 
-final class DetailsFilmGatewayAssembly: Assembly {
+final class MakeRequestGatewayFilmDetailsAssembly: Assembly {
 
     lazy var networking: NetworkingAssembly = self.context.assembly()
 
-    var detailsFilmGateway: IDetailsFilmGateway {
+    var makeRequestGatewayFilmDetails: IMakeRequestGateway {
         return define(scope: .lazySingleton, init:
-            DetailsFilmGateway(
+            MakeRequestGateway(
                 networking: self.networking.networking,
                 relativeURL: "/movie/299536",
                 parameters: [

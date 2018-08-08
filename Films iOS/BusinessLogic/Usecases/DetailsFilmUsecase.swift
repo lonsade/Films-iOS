@@ -14,13 +14,14 @@ protocol IDetailsFilmUsecase: class {
 }
 
 final class DetailsFilmUsecase: IDetailsFilmUsecase {
-    private var detailsFilmGateway: IDetailsFilmGateway
 
-    init(detailsFilmGateway: IDetailsFilmGateway) {
-        self.detailsFilmGateway = detailsFilmGateway
+    private var makeRequestGatewayFilmDetail: IMakeRequestGateway
+
+    init(makeRequestGatewayFilmDetail: IMakeRequestGateway) {
+        self.makeRequestGatewayFilmDetail = makeRequestGatewayFilmDetail
     }
 
     func getFilmDetails() -> Promise<FilmDetail> {
-        return detailsFilmGateway.getFilmDetails()
+        return makeRequestGatewayFilmDetail.getResults()
     }
 }

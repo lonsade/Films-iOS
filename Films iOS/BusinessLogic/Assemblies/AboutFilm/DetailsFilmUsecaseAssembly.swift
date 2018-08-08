@@ -11,12 +11,12 @@ import EasyDi
 
 final class DetailsFilmUsecaseAssembly: Assembly {
 
-    lazy var detailsFilmGatewayAssembly: DetailsFilmGatewayAssembly = self.context.assembly()
+    lazy var requestFilmDetailAssembly: MakeRequestGatewayFilmDetailsAssembly = self.context.assembly()
 
     var detailsFilmUsecase: IDetailsFilmUsecase {
         return define(scope: .lazySingleton, init:
             DetailsFilmUsecase(
-                detailsFilmGateway: self.detailsFilmGatewayAssembly.detailsFilmGateway
+                makeRequestGatewayFilmDetail: self.requestFilmDetailAssembly.makeRequestGatewayFilmDetails
             )
         )
     }
