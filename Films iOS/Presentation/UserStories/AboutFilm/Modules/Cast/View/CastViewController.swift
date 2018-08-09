@@ -18,12 +18,12 @@ class CastViewController: UIViewController {
         }
     }
 
-    var detailsFilmPresenter: IDetailsFilmPresenter!
+    var castFilmPresenter: ICastFilmPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         CastViewAssembly.instance().inject(into: self)
-        detailsFilmPresenter.setCredits()
+        castFilmPresenter.setCredits()
     }
 
 }

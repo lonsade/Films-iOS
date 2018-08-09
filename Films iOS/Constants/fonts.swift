@@ -46,6 +46,8 @@ extension UIFont {
 
     static let FCastName = getFont(named: "SegoeUI-Regular", of: 16)
 
+    static let FReviewMark = getFont(named: "SegoeUI-Semibold", of: 14)
+
 }
 
 // swiftlint:enable identifier_name line_length type_body_length

@@ -6,16 +6,15 @@
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
-import Foundation
 import EasyDi
 
 final class CastDisplayManagerAssembly: Assembly {
 
-    lazy var detailsFilmDataSourceAssembly: DetailsFilmDataSourceAssembly = self.context.assembly()
+    lazy var castFilmDataSourceAssembly: CastFilmDataSourceAssembly = CastFilmDataSourceAssembly.instance()
 
     var castDisplayManager: CastDisplayManager {
         return define(scope: .lazySingleton, init:
-            CastDisplayManager(castDataSource: self.detailsFilmDataSourceAssembly.detailsFilmDataSource)
+            CastDisplayManager(castDataSource: self.castFilmDataSourceAssembly.castFilmDataSource)
         )
     }
 

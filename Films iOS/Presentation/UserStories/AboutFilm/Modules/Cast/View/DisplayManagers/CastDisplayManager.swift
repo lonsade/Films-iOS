@@ -12,11 +12,11 @@ final class CastDisplayManager: NSObject {
 
     private let reuseIdentifier = "cast"
 
-    private var castDataSource: IDetailsFilmDataSourceOutput
+    private var castDataSource: ICastFilmDataSourceOutput
 
     weak var collectionCast: UICollectionView? {
         didSet {
-            castDataSource.castDelegate = self
+            castDataSource.delegate = self
             //collectionCast?.delegate = self
             collectionCast?.dataSource = self
             collectionCast?.showsVerticalScrollIndicator = false
@@ -25,7 +25,7 @@ final class CastDisplayManager: NSObject {
 
     //weak var delegate: FilmDetailCollectionDisplayManager?
 
-    init(castDataSource: IDetailsFilmDataSourceOutput) {
+    init(castDataSource: ICastFilmDataSourceOutput) {
         self.castDataSource = castDataSource
     }
 
@@ -52,7 +52,7 @@ extension CastDisplayManager: UICollectionViewDataSource {
 
 }
 
-extension CastDisplayManager: DetailsFilmDataSourceCastDelegate {
+extension CastDisplayManager: CastFilmDataSourceCastDelegate {
     func creditsWasAdded(credits: [Cast]) {
         collectionCast?.reloadData()
     }
