@@ -47,7 +47,7 @@
                                         <rect key="frame" x="0.0" y="58" width="375" height="589"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="6mb-tj-FGG" kind="embed" id="POJ-Vf-GJE"/>
+                                            <segue destination="6mb-tj-FGG" kind="embed" identifier="" id="POJ-Vf-GJE"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
@@ -71,6 +71,7 @@
                     </view>
                     <connections>
                         <outlet property="lineUnderTabs" destination="Ffn-ar-Uc5" id="dGa-cJ-Dxk"/>
+                        <outlet property="pageView" destination="Jxi-KZ-dpZ" id="IEy-NC-Qjc"/>
                         <outlet property="tdbBarForFilm" destination="CMd-10-jV5" id="4b0-RV-7Dh"/>
                     </connections>
                 </viewController>
@@ -84,7 +85,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6mb-tj-FGG" customClass="BaseAboutArtistPageController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88v-cw-gJl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-340" y="-682"/>
+            <point key="canvasLocation" x="-342" y="-707"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hyL-GX-iqG">

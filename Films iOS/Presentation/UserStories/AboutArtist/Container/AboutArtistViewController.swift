@@ -24,6 +24,8 @@ class AboutArtistViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var pageView: UIView!
+
     private func costomize() {
         view.backgroundColor = UIColor.FMainBackgroundColor
     }
