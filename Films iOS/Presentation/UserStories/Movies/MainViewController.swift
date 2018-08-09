@@ -40,7 +40,7 @@ final class MainViewController: UIViewController {
             borderView.backgroundColor = UIColor.FHRColor
         }
     }
-    @IBOutlet weak var navigationBar: UINavigationBar!
+
     @IBOutlet weak var collectionTabNames: UICollectionView!
 
     /* инициализация контроллеров, соответствующих таб вкладок */
@@ -51,10 +51,14 @@ final class MainViewController: UIViewController {
 
     /* кастомизация navigationBar и установка главного фона */
 
+    @IBOutlet weak var navigationBar: UINavigationItem!
+
     func customize() {
         view.backgroundColor = UIColor.FMainBackgroundColor
-        navigationBar.barTintColor = UIColor.FMainBackgroundColor
-        navigationBar.titleTextAttributes = [
+
+        navigationController?.navigationBar.barTintColor = UIColor.FMainBackgroundColor
+
+        navigationController?.navigationBar.titleTextAttributes = [
             .foregroundColor: UIColor.FTitleTextColor,
             .font: UIFont.FAppName
         ]

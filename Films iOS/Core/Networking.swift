@@ -36,22 +36,11 @@ final class Networking: NetworkingProtocol {
         self.baseURL = baseURL
     }
 
-    func request(
-        method: RequestMethod,
-        _ relativeURL: String,
-        parameters: [String: Any]?,
-        headers: [String: String]?
-    ) -> Promise<Void> {
+    func request(method: RequestMethod, _ relativeURL: String, parameters: [String: Any]?, headers: [String: String]?) -> Promise<Void> {
         return Promise { seal in
             let URL = self.baseURL + relativeURL
             let headers = headers ?? [:]
-            Alamofire.request(
-                URL,
-                method: method.alamofireMethod(),
-                parameters: parameters,
-                headers: headers
-            )
-            .validate()
+            Alamofire.request(URL, method: method.alamofireMethod(), parameters: parameters, headers: headers).validate()
             .responseJSON { response in
                 if let error = response.result.error {
                     seal.reject(error)
@@ -71,13 +60,7 @@ final class Networking: NetworkingProtocol {
         return Promise<T> { seal in
             let URL = self.baseURL + relativeURL
             let headers = headers ?? [:]
-            Alamofire.request(
-                URL,
-                method: method.alamofireMethod(),
-                parameters: parameters,
-                headers: headers
-            )
-            .validate()
+            Alamofire.request(URL, method: method.alamofireMethod(), parameters: parameters, headers: headers).validate()
             .responseObject { (response: DataResponse<T>) in
                 if let error = response.result.error {
                     seal.reject(error)

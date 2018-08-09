@@ -18,7 +18,7 @@ extension UIFont {
     private static func getFont(named name: String, of size: CGFloat) -> UIFont {
         guard let font = UIFont(name: name, size: size) else {
             #if DEBUG
-            fatalError("Invalid Font")
+            fatalError("Could not load font \(name).")
             #else
             return .systemFont(ofSize: size)
             #endif
@@ -45,6 +45,10 @@ extension UIFont {
     static let FAboutFilmTitles = getFont(named: "SegoeUI-Semibold", of: 18)
 
     static let FCastName = getFont(named: "SegoeUI-Regular", of: 16)
+
+    static let FReviewMark = getFont(named: "SegoeUI-Semibold", of: 14)
+
+    static let FArtistName = getFont(named: "SegoeUI-Regular", of: 20)
 
 }
 

@@ -10,8 +10,6 @@ import UIKit
 
 class FilmCollectionViewCell: UICollectionViewCell {
 
-    private let baseUrlImage = "https://image.tmdb.org/t/p/w500"
-
     @IBOutlet weak var imagePoster: UIImageView! {
         didSet {
             imagePoster.layer.masksToBounds = true
@@ -57,7 +55,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
 
     func setContent(image: String, title: String, vote: Float, age: Int) {
 
-        imagePoster.downloadedFrom(link: baseUrlImage+image, contentMode: .scaleToFill)
+        imagePoster.downloadedFrom(link: image, contentMode: .scaleToFill)
         self.title.text = title
         voteAverage.text = String(vote).withTMDb()
         ageLabel.text = String(age)

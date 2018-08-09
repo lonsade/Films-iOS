@@ -24,9 +24,15 @@ extension UIImageView {
             }
         }.resume()
     }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
+    func downloadedFrom(link: String?, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+
+        let baseUrl = "https://image.tmdb.org/t/p/w500"
+
+        if let link = link, let url = URL(string: baseUrl + link) {
+            downloadedFrom(url: url, contentMode: mode)
+        } else {
+            self.image = #imageLiteral(resourceName: "group")
+        }
     }
 
     func setCornerRadius(byRoundingCorners: UIRectCorner, size: Int) {

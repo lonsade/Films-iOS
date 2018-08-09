@@ -11,6 +11,6 @@ import UIKit
 class CustomMenuBarButtonItem: UIBarButtonItem {
     override func awakeFromNib() {
         super.awakeFromNib()
-        image = UIImage(named: "menuIcon")?.withRenderingMode(.alwaysOriginal)
+        image = #imageLiteral(resourceName: "menuIcon").withRenderingMode(.alwaysOriginal)
     }
 }
