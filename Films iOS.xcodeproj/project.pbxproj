@@ -99,6 +99,7 @@
 		BDD85BA4211C51D300256E60 /* artist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD85BA3211C51D300256E60 /* artist.storyboard */; };
 		BDD85BA8211C545A00256E60 /* ArtistBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD85BA7211C545A00256E60 /* ArtistBioViewController.swift */; };
 		BDD85BAA211C56BD00256E60 /* ArtistViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD85BA9211C56BD00256E60 /* ArtistViewAssembly.swift */; };
+		BDD85BAC211C6EEB00256E60 /* BaseAboutArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD85BAB211C6EEB00256E60 /* BaseAboutArtistViewController.swift */; };
 		BDE164EB21119D57002E0A14 /* TabDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */; };
 		BDE164ED2111A0DA002E0A14 /* StringWithFormating.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EC2111A0DA002E0A14 /* StringWithFormating.swift */; };
 		BDF1954A211863320093D236 /* film.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF19549211863320093D236 /* film.storyboard */; };
@@ -207,6 +208,7 @@
 		BDD85BA3211C51D300256E60 /* artist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = artist.storyboard; sourceTree = "<group>"; };
 		BDD85BA7211C545A00256E60 /* ArtistBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBioViewController.swift; sourceTree = "<group>"; };
 		BDD85BA9211C56BD00256E60 /* ArtistViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewAssembly.swift; sourceTree = "<group>"; };
+		BDD85BAB211C6EEB00256E60 /* BaseAboutArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAboutArtistViewController.swift; sourceTree = "<group>"; };
 		BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDisplayManager.swift; sourceTree = "<group>"; };
 		BDE164EC2111A0DA002E0A14 /* StringWithFormating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringWithFormating.swift; sourceTree = "<group>"; };
 		BDF19549211863320093D236 /* film.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = film.storyboard; sourceTree = "<group>"; };
@@ -801,6 +803,7 @@
 			children = (
 				BDD85B58211C1AB800256E60 /* AboutArtistViewController.swift */,
 				BDD85BA3211C51D300256E60 /* artist.storyboard */,
+				BDD85BAB211C6EEB00256E60 /* BaseAboutArtistViewController.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -1132,6 +1135,7 @@
 				BDD85B85211C492200256E60 /* AboutArtistUsecase.swift in Sources */,
 				BD1DCF6E2113245E001B48EF /* TabNamesGatewayAssembly.swift in Sources */,
 				BD52F3DE2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift in Sources */,
+				BDD85BAC211C6EEB00256E60 /* BaseAboutArtistViewController.swift in Sources */,
 				BD700C5F211B2BF400C51220 /* Credits.swift in Sources */,
 				BD700C46211AF49B00C51220 /* GalleryImage.swift in Sources */,
 				BD1DCF7021132697001B48EF /* TabNamesUsecaseAssembly.swift in Sources */,

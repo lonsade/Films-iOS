@@ -49,6 +49,8 @@ class ArtistBioViewController: UIViewController {
         didSet {
             artistBioTextView.font = .FAboutFilmInfoTitleAndDesc
             artistBioTextView.textColor = .FContentTextColor
+            artistBioTextView.textContainerInset = .zero
+            artistBioTextView.textContainer.lineFragmentPadding = 0
         }
     }
     @IBOutlet weak var titlePhotosLabel: UILabel! {
