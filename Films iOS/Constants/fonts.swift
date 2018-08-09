@@ -18,7 +18,7 @@ extension UIFont {
     private static func getFont(named name: String, of size: CGFloat) -> UIFont {
         guard let font = UIFont(name: name, size: size) else {
             #if DEBUG
-            fatalError("Invalid Font")
+            fatalError("Could not load font \(name).")
             #else
             return .systemFont(ofSize: size)
             #endif

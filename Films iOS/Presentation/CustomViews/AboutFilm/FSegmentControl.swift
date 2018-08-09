@@ -10,10 +10,10 @@ import UIKit
 
 final class FSegmentControl: UISegmentedControl {
 
-    var selectedTextColor: UIColor = UIColor.FActiveTabTitleColorAboutFilm
-    var selectedTintColor: UIColor = UIColor.FActiveTextColor
-    var notSelectedTextColor: UIColor = UIColor.FInactiveTabTitleColorAboutFilm
-    var notSelectesTintColor: UIColor = UIColor.FHRColor
+    var selectedTextColor: UIColor = .FActiveTabTitleColorAboutFilm
+    var selectedTintColor: UIColor = .FActiveTextColor
+    var notSelectedTextColor: UIColor = .FInactiveTabTitleColorAboutFilm
+    var notSelectesTintColor: UIColor = .FHRColor
 
     private var prevSelectedIndex: Int?
 

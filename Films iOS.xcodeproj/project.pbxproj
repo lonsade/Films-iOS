@@ -16,7 +16,6 @@
 		BD05FCDD2119CCD5008B5AC5 /* DetailsFilmPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05FCDC2119CCD5008B5AC5 /* DetailsFilmPresenterAssembly.swift */; };
 		BD05FCDF2119CD08008B5AC5 /* DetailsFilmDataSourceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05FCDE2119CD08008B5AC5 /* DetailsFilmDataSourceAssembly.swift */; };
 		BD05FCE12119CDCE008B5AC5 /* InfoViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05FCE02119CDCE008B5AC5 /* InfoViewAssembly.swift */; };
-		BD05FCE32119D240008B5AC5 /* timeFromIntDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05FCE22119D240008B5AC5 /* timeFromIntDuration.swift */; };
 		BD05FCE82119E4C4008B5AC5 /* Segoe UI, Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD05FCE72119E4C4008B5AC5 /* Segoe UI, Regular.ttf */; };
 		BD1DCF6321131A38001B48EF /* NetworkingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6221131A38001B48EF /* NetworkingAssembly.swift */; };
 		BD1DCF6621131DCA001B48EF /* MainViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6521131DCA001B48EF /* MainViewAssembly.swift */; };
@@ -110,7 +109,6 @@
 		BD05FCDC2119CCD5008B5AC5 /* DetailsFilmPresenterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFilmPresenterAssembly.swift; sourceTree = "<group>"; };
 		BD05FCDE2119CD08008B5AC5 /* DetailsFilmDataSourceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFilmDataSourceAssembly.swift; sourceTree = "<group>"; };
 		BD05FCE02119CDCE008B5AC5 /* InfoViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewAssembly.swift; sourceTree = "<group>"; };
-		BD05FCE22119D240008B5AC5 /* timeFromIntDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeFromIntDuration.swift; sourceTree = "<group>"; };
 		BD05FCE72119E4C4008B5AC5 /* Segoe UI, Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI, Regular.ttf"; sourceTree = "<group>"; };
 		BD1DCF6221131A38001B48EF /* NetworkingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingAssembly.swift; sourceTree = "<group>"; };
 		BD1DCF6521131DCA001B48EF /* MainViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewAssembly.swift; sourceTree = "<group>"; };
@@ -251,14 +249,6 @@
 			path = Assemblies;
 			sourceTree = "<group>";
 		};
-		BD47CFDA2112FE02007339C8 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				BD47CFDB2112FE15007339C8 /* NetworkingError.swift */,
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
 		BD5292A02114781700870328 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,7 +347,6 @@
 			isa = PBXGroup;
 			children = (
 				BDC941EA210EF133005C5041 /* Assemblies */,
-				BD47CFDA2112FE02007339C8 /* Errors */,
 				BDC941E9210EF124005C5041 /* Extension */,
 				BDC941F5210EF50E005C5041 /* BaseHandlerController.swift */,
 				BDC941F3210EF464005C5041 /* BaseViewController.swift */,
@@ -476,7 +465,6 @@
 				BDE164EC2111A0DA002E0A14 /* StringWithFormating.swift */,
 				BDF1954D211877750093D236 /* UIButtonChangeContent.swift */,
 				BD52F3F6211711660063DEB1 /* UIImageLoadFromURL+cornerRadius.swift */,
-				BD05FCE22119D240008B5AC5 /* timeFromIntDuration.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -512,6 +500,7 @@
 		BDC941F0210EF225005C5041 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
+				BD47CFDB2112FE15007339C8 /* NetworkingError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -985,7 +974,6 @@
 				BD52F3DA2116E3D80063DEB1 /* TabDisplayManagerAssembly.swift in Sources */,
 				BD1DCF6821131EA6001B48EF /* TabNamesUsecase.swift in Sources */,
 				BD700C59211B296A00C51220 /* Cast.swift in Sources */,
-				BD05FCE32119D240008B5AC5 /* timeFromIntDuration.swift in Sources */,
 				BD700C50211B168500C51220 /* GalleryDisplayManagerAssembly.swift in Sources */,
 				BD47CFD92112F47E007339C8 /* Networking.swift in Sources */,
 				BD52F3F7211711660063DEB1 /* UIImageLoadFromURL+cornerRadius.swift in Sources */,

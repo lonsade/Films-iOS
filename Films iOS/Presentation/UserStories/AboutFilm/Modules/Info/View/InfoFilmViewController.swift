@@ -134,14 +134,12 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
         filmMark.text = String(details.voteAverage).withTMDb()
 
         var validYear: Int
-        guard let yearInt = details.releaseDate.getDate(withFormat: "yyyy-MM-dd").year else {
-            #if DEBUG
-            fatalError("Invalid Date")
-            #else
-            validYear = 1448
-            #endif
+        if let yearInt = details.releaseDate.getDate(withFormat: "yyyy-MM-dd").year {
+            validYear = yearInt
         }
-        validYear = yearInt
+        else {
+            validYear = 1448
+        }
         year.text = String(validYear)
 
         let time = details.runtime.getTimeFromIntDuration()
@@ -153,7 +151,15 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
         poster.downloadedFrom(link: "https://image.tmdb.org/t/p/w500"+details.posterPath, contentMode: .scaleToFill)
 
         // RAting
-        rating.setRating(voteAverage: details.voteAverage)
+        rating.setRating(equal: details.voteAverage)
 
+    }
+}
+
+private extension Int {
+    func getTimeFromIntDuration() -> (Int, Int) {
+        let hours: Int = self / 60
+        let minutes = self - (hours * 60)
+        return (hours, minutes)
     }
 }

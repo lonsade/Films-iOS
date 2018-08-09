@@ -27,7 +27,7 @@ extension String {
 
         guard let date = dateFormatter.date(from: self) else {
             #if DEBUG
-            fatalError("Invalid Date")
+            fatalError("Could not get date with dataFormatter from string: \(self)")
             #else
             validDate = Date()
             #endif
