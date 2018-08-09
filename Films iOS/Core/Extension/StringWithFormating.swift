@@ -24,20 +24,38 @@ extension String {
         let calendar = Calendar.current
 
         var validDate: Date
-
-        guard let date = dateFormatter.date(from: self) else {
+        if let date = dateFormatter.date(from: self) {
+            validDate = date
+        } else {
             #if DEBUG
             fatalError("Could not get date with dataFormatter from string: \(self)")
             #else
             validDate = Date()
             #endif
         }
-        validDate = date
 
         let components = calendar.dateComponents(
             [Calendar.Component.day, Calendar.Component.month, Calendar.Component.year],
             from: validDate
         )
         return components
+    }
+
+    func getStringDate(newFormat: String, oldFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = oldFormat
+
+        var validDate: Date
+        if let date = dateFormatter.date(from: self) {
+            validDate = date
+        } else {
+            #if DEBUG
+            fatalError("Could not get date with dataFormatter from string: \(self)")
+            #else
+            validDate = Date()
+            #endif
+        }
+        dateFormatter.dateFormat = newFormat
+        return dateFormatter.string(from: validDate)
     }
 }

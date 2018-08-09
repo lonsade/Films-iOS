@@ -10,10 +10,8 @@ import UIKit
 
 class GalleryCollectionCell: UICollectionViewCell {
 
-    private let baseUrl = "https://image.tmdb.org/t/p/w500"
-
     func setImage(imageUrl: String) {
-        image.downloadedFrom(link: baseUrl+imageUrl, contentMode: .scaleToFill)
+        image.downloadedFrom(link: imageUrl, contentMode: .scaleToFill)
     }
 
     @IBOutlet weak var image: UIImageView! {

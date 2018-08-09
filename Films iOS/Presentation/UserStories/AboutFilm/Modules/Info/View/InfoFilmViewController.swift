@@ -136,8 +136,7 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
         var validYear: Int
         if let yearInt = details.releaseDate.getDate(withFormat: "yyyy-MM-dd").year {
             validYear = yearInt
-        }
-        else {
+        } else {
             validYear = 1448
         }
         year.text = String(validYear)
