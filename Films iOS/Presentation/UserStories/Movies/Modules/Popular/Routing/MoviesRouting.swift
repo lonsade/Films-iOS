@@ -8,11 +8,15 @@
 
 import UIKit
 
-protocol MoviesRoutingProtocol {
+protocol MoviesRoutingProtocol: class {
     func set(viewController: BaseViewController)
 }
 
-final class MoviesRouting: MoviesRoutingProtocol {
+protocol MoviesRoutingOutput: class {
+    var selectFilmId: Int? { get }
+}
+
+final class MoviesRouting: MoviesRoutingProtocol, MoviesRoutingOutput {
 
     private var currentViewController: BaseViewController?
 

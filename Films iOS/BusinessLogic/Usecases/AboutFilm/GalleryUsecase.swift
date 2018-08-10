@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol IGalleryUsecase: class {
-    func getGallery() -> Promise<[GalleryImage]>
+    func getGallery(relativeURL: String) -> Promise<[GalleryImage]>
 }
 
 final class GalleryUsecase: IGalleryUsecase {
@@ -21,9 +21,9 @@ final class GalleryUsecase: IGalleryUsecase {
         self.makeRequestGatewayGallery = makeRequestGatewayGallery
     }
 
-    func getGallery() -> Promise<[GalleryImage]> {
+    func getGallery(relativeURL: String) -> Promise<[GalleryImage]> {
         return Promise<[GalleryImage]> { seal in
-            makeRequestGatewayGallery.getResults().done { (gallery: Gallery) in
+            makeRequestGatewayGallery.getResults(relativeURL: relativeURL).done { (gallery: Gallery) in
                 seal.fulfill(gallery.backdrops)
             }.catch { error in
                 seal.reject(error)

@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol ICastUsecase: class {
-    func getCast() -> Promise<[Cast]>
+    func getCast(relativeURL: String) -> Promise<[Cast]>
 }
 
 final class CastUsecase: ICastUsecase {
@@ -21,9 +21,9 @@ final class CastUsecase: ICastUsecase {
         self.makeRequestGatewayCast = makeRequestGatewayCast
     }
 
-    func getCast() -> Promise<[Cast]> {
+    func getCast(relativeURL: String) -> Promise<[Cast]> {
         return Promise<[Cast]> { seal in
-            makeRequestGatewayCast.getResults().done { (credits: Credits) in
+            makeRequestGatewayCast.getResults(relativeURL: relativeURL).done { (credits: Credits) in
                 seal.fulfill(credits.cast)
             }.catch { error in
                 seal.reject(error)

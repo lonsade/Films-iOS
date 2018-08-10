@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol IDetailsFilmUsecase: class {
-    func getFilmDetails() -> Promise<FilmDetail>
+    func getFilmDetails(relativeURL: String) -> Promise<FilmDetail>
 }
 
 final class DetailsFilmUsecase: IDetailsFilmUsecase {
@@ -21,7 +21,7 @@ final class DetailsFilmUsecase: IDetailsFilmUsecase {
         self.makeRequestGatewayFilmDetail = makeRequestGatewayFilmDetail
     }
 
-    func getFilmDetails() -> Promise<FilmDetail> {
-        return makeRequestGatewayFilmDetail.getResults()
+    func getFilmDetails(relativeURL: String) -> Promise<FilmDetail> {
+        return makeRequestGatewayFilmDetail.getResults(relativeURL: relativeURL)
     }
 }

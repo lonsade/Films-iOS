@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol ITabNamesUsecase: class {
-    func getTabNames() -> Promise<[TabName]>
+    func getTabNames(relativeURL: String) -> Promise<[TabName]>
 }
 
 final class TabNamesUsecase: ITabNamesUsecase {
@@ -21,9 +21,9 @@ final class TabNamesUsecase: ITabNamesUsecase {
         self.makeRequestGatewayTabNames = makeRequestGatewayTabNames
     }
 
-    func getTabNames() -> Promise<[TabName]> {
+    func getTabNames(relativeURL: String) -> Promise<[TabName]> {
         return Promise<[TabName]> { seal in
-            makeRequestGatewayTabNames.getResults().done { (tabs: Genres) in
+            makeRequestGatewayTabNames.getResults(relativeURL: relativeURL).done { (tabs: Genres) in
                 seal.fulfill(tabs.genres)
             }.catch { error in
                 seal.reject(error)

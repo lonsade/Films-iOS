@@ -23,7 +23,7 @@ final class CastFilmPresenter: ICastFilmPresenter {
     }
 
     func setCredits() {
-        castFilmUsecase.getCast().done { credits in
+        castFilmUsecase.getCast(relativeURL: "/movie/353081/credits").done { credits in
             self.castFilmDataSource.addCredits(credits: credits)
         }
         .catch { error in

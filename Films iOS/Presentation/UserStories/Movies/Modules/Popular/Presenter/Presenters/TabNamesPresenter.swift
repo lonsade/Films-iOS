@@ -23,7 +23,7 @@ final class TabNamesPresenter: ITabNamesPresenter {
     }
 
     func setTabNames() {
-        tabNamesUsecase.getTabNames().done { tabNames in
+        tabNamesUsecase.getTabNames(relativeURL: "/genre/movie/list").done { tabNames in
             self.dataSource.addNames(names: tabNames)
         }
         .catch { error in

@@ -16,7 +16,6 @@ final class MoviesGatewayAssembly: Assembly {
         return define(scope: .lazySingleton, init:
             MakeRequestGateway(
                 networking: self.networking.networking,
-                relativeURL: "/genre/movie/list",
                 parameters: [
                     "api_key": "7e768e8012161bc9c4ca59f1e4f5979e",
                     "language": "en-US"
@@ -34,7 +33,6 @@ final class MoviesGatewayAssembly: Assembly {
         return define(scope: .lazySingleton, init:
             MakeRequestGateway(
                 networking: self.networking.networking,
-                relativeURL: "/movie/popular",
                 parameters: [
                     "api_key": "7e768e8012161bc9c4ca59f1e4f5979e",
                     "language": "en-US"

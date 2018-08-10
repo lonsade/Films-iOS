@@ -30,7 +30,7 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
     }
 
     func setDetailsFilm() {
-        detailsFilmUsecase.getFilmDetails().done { details in
+        detailsFilmUsecase.getFilmDetails(relativeURL: "/movie/353081").done { details in
             self.dataSource.addDetails(details: details)
         }
         .catch { error in
@@ -39,7 +39,7 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
     }
 
     func setGallery() {
-        galleryUsecase.getGallery().done { images in
+        galleryUsecase.getGallery(relativeURL: "/movie/353081/images").done { images in
             self.dataSource.addImages(images: images)
         }
         .catch { error in

@@ -23,7 +23,7 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter {
     }
 
     func setPopularFilms() {
-        listPopularFilmsUsecase.getPopularFilms().done { films in
+        listPopularFilmsUsecase.getPopularFilms(relativeURL: "/movie/popular").done { films in
             self.dataSource.addFilms(films: films)
         }
         .catch { error in

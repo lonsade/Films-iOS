@@ -23,7 +23,7 @@ final class ArtistBioPresenter: IArtistBioPresenter {
     }
 
     func setBio() {
-        artistBioUsecase.getArtist().done { artist in
+        artistBioUsecase.getArtist(relativeURL: "/person/287").done { artist in
             self.artistBioDataSource.add(bio: artist)
         }
         .catch { error in
