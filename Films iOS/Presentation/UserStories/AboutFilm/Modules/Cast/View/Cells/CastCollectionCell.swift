@@ -10,11 +10,9 @@ import UIKit
 
 class CastCollectionCell: UICollectionViewCell {
 
-    private let baseUrl = "https://image.tmdb.org/t/p/w500"
-
     private func setImage(imageUrl: String?) {
         if let imageUrl = imageUrl {
-            image.downloadedFrom(link: baseUrl+imageUrl, contentMode: .scaleToFill)
+            image.downloadedFrom(link: imageUrl, contentMode: .scaleToFill)
         } else {
             image.image = #imageLiteral(resourceName: "defaultAva")
         }

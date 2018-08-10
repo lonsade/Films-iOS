@@ -23,12 +23,8 @@ class PopularFilmsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         PopularFilmsViewAssembly.instance().inject(into: self)
-
         popularFilmsPresenter.setPopularFilms()
-
-        // Do any additional setup after loading the view.
     }
 
 }

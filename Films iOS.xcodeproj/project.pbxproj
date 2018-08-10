@@ -107,6 +107,8 @@
 		BDF83D6A2111FF35001596EA /* CALayerApplySketchShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF83D692111FF35001596EA /* CALayerApplySketchShadow.swift */; };
 		BDFCE2CB211D60AB00C70770 /* MoviesGatewayAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFCE2CA211D60AB00C70770 /* MoviesGatewayAssembly.swift */; };
 		BDFCE2CD211D611700C70770 /* MoviesUsecaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFCE2CC211D611700C70770 /* MoviesUsecaseAssembly.swift */; };
+		BDFCE2D1211D682F00C70770 /* BaseMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFCE2D0211D682F00C70770 /* BaseMoviesViewController.swift */; };
+		BDFCE2D3211D6A5900C70770 /* BaseAboutFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFCE2D2211D6A5900C70770 /* BaseAboutFilmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +215,8 @@
 		BDF83D692111FF35001596EA /* CALayerApplySketchShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerApplySketchShadow.swift; sourceTree = "<group>"; };
 		BDFCE2CA211D60AB00C70770 /* MoviesGatewayAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesGatewayAssembly.swift; sourceTree = "<group>"; };
 		BDFCE2CC211D611700C70770 /* MoviesUsecaseAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUsecaseAssembly.swift; sourceTree = "<group>"; };
+		BDFCE2D0211D682F00C70770 /* BaseMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMoviesViewController.swift; sourceTree = "<group>"; };
+		BDFCE2D2211D6A5900C70770 /* BaseAboutFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAboutFilmViewController.swift; sourceTree = "<group>"; };
 		F2BA10CCB5AE7214BBA9E48E /* Pods_Films_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Films_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -593,6 +597,7 @@
 			children = (
 				BDF19549211863320093D236 /* film.storyboard */,
 				BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */,
+				BDFCE2D2211D6A5900C70770 /* BaseAboutFilmViewController.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -883,6 +888,7 @@
 			children = (
 				BDC941FB210F2ADE005C5041 /* MainViewController.swift */,
 				BDC941CE210EE861005C5041 /* Main.storyboard */,
+				BDFCE2D0211D682F00C70770 /* BaseMoviesViewController.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -1182,6 +1188,7 @@
 				BD05FCDD2119CCD5008B5AC5 /* DetailsFilmPresenterAssembly.swift in Sources */,
 				BDD3BFB5211078860096C212 /* fonts.swift in Sources */,
 				BD700C57211B289B00C51220 /* CastDisplayManager.swift in Sources */,
+				BDFCE2D1211D682F00C70770 /* BaseMoviesViewController.swift in Sources */,
 				BDD85B4E211C12C600256E60 /* ReviewViewController.swift in Sources */,
 				BDD85B70211C311400256E60 /* InfoFilmUsecaseAssembly.swift in Sources */,
 				BD700C65211B30E700C51220 /* CastViewAssembly.swift in Sources */,
@@ -1192,6 +1199,7 @@
 				BDF83D642111D68E001596EA /* FilmCard.swift in Sources */,
 				BDD85BA0211C505900256E60 /* ArtistBioDataSourceAssembly.swift in Sources */,
 				BD52F3E8211701600063DEB1 /* ListPopularDataSource.swift in Sources */,
+				BDFCE2D3211D6A5900C70770 /* BaseAboutFilmViewController.swift in Sources */,
 				BDD85B82211C3C8D00256E60 /* CastFilmDataSourceAssembly.swift in Sources */,
 				BD52F3F1211704930063DEB1 /* PopularFilmsDSAssembly.swift in Sources */,
 				BD52F3E42116FE980063DEB1 /* PopularFilms.swift in Sources */,
