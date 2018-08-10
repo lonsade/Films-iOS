@@ -15,11 +15,13 @@ class PopularFilmsViewController: UIViewController {
     var filmCollectionDisplayManager: FilmCollectionDisplayManager! {
         didSet {
             filmCollectionDisplayManager.collectionFilms = filmCollection
-            filmCollectionDisplayManager.delegate = self
+            //filmCollectionDisplayManager.delegate = self
         }
     }
 
     var popularFilmsPresenter: IPopularFilmsPresenter!
+
+    var moviesRouting: MoviesRouting!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +31,9 @@ class PopularFilmsViewController: UIViewController {
 
 }
 
-extension PopularFilmsViewController: FilmCollectionDisplayManagerDelegate {
-    func filmWasSelected(at indexPath: IndexPath) {
-        return
-    }
-
-}
+//extension PopularFilmsViewController: FilmCollectionDisplayManagerDelegate {
+//    func filmWasSelected(at indexPath: IndexPath) {
+//        return
+//    }
+//
+//}

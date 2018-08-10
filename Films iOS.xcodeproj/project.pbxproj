@@ -109,6 +109,8 @@
 		BDFCE2CD211D611700C70770 /* MoviesUsecaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFCE2CC211D611700C70770 /* MoviesUsecaseAssembly.swift */; };
 		BDFCE2D1211D682F00C70770 /* BaseMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFCE2D0211D682F00C70770 /* BaseMoviesViewController.swift */; };
 		BDFCE2D3211D6A5900C70770 /* BaseAboutFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFCE2D2211D6A5900C70770 /* BaseAboutFilmViewController.swift */; };
+		BDFCE2D6211D7BA200C70770 /* MoviesRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFCE2D5211D7BA200C70770 /* MoviesRouting.swift */; };
+		BDFCE2D8211D7D5000C70770 /* MoviesRotingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFCE2D7211D7D5000C70770 /* MoviesRotingAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +219,8 @@
 		BDFCE2CC211D611700C70770 /* MoviesUsecaseAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUsecaseAssembly.swift; sourceTree = "<group>"; };
 		BDFCE2D0211D682F00C70770 /* BaseMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMoviesViewController.swift; sourceTree = "<group>"; };
 		BDFCE2D2211D6A5900C70770 /* BaseAboutFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAboutFilmViewController.swift; sourceTree = "<group>"; };
+		BDFCE2D5211D7BA200C70770 /* MoviesRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRouting.swift; sourceTree = "<group>"; };
+		BDFCE2D7211D7D5000C70770 /* MoviesRotingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRotingAssembly.swift; sourceTree = "<group>"; };
 		F2BA10CCB5AE7214BBA9E48E /* Pods_Films_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Films_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -896,6 +900,7 @@
 		BDFCE2C2211D5F6200C70770 /* Popular */ = {
 			isa = PBXGroup;
 			children = (
+				BDFCE2D4211D7B8600C70770 /* Routing */,
 				BDFCE2C5211D5F8200C70770 /* Assemblies */,
 				BDFCE2C4211D5F7B00C70770 /* Presenter */,
 				BDFCE2C3211D5F7400C70770 /* View */,
@@ -933,6 +938,7 @@
 				BD52F3D92116E3D80063DEB1 /* TabDisplayManagerAssembly.swift */,
 				BD52F3DD2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift */,
 				BD52F3D72116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift */,
+				BDFCE2D7211D7D5000C70770 /* MoviesRotingAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -990,6 +996,14 @@
 				BD1DCF6721131EA6001B48EF /* TabNamesUsecase.swift */,
 			);
 			path = Movies;
+			sourceTree = "<group>";
+		};
+		BDFCE2D4211D7B8600C70770 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				BDFCE2D5211D7BA200C70770 /* MoviesRouting.swift */,
+			);
+			path = Routing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1167,6 +1181,7 @@
 				BD1DCF6321131A38001B48EF /* NetworkingAssembly.swift in Sources */,
 				BD05FCDF2119CD08008B5AC5 /* DetailsFilmDataSourceAssembly.swift in Sources */,
 				BDE164ED2111A0DA002E0A14 /* StringWithFormating.swift in Sources */,
+				BDFCE2D6211D7BA200C70770 /* MoviesRouting.swift in Sources */,
 				BD700C4E211B0C1D00C51220 /* GalleryCollectionCell.swift in Sources */,
 				BD700C5B211B2AE800C51220 /* CastDisplayAssembly.swift in Sources */,
 				BD52F3E6211700C70063DEB1 /* PopularFilmsPresenter.swift in Sources */,
@@ -1201,6 +1216,7 @@
 				BD52F3E8211701600063DEB1 /* ListPopularDataSource.swift in Sources */,
 				BDFCE2D3211D6A5900C70770 /* BaseAboutFilmViewController.swift in Sources */,
 				BDD85B82211C3C8D00256E60 /* CastFilmDataSourceAssembly.swift in Sources */,
+				BDFCE2D8211D7D5000C70770 /* MoviesRotingAssembly.swift in Sources */,
 				BD52F3F1211704930063DEB1 /* PopularFilmsDSAssembly.swift in Sources */,
 				BD52F3E42116FE980063DEB1 /* PopularFilms.swift in Sources */,
 				BDF1954C21186DDB0093D236 /* AboutFilmViewController.swift in Sources */,

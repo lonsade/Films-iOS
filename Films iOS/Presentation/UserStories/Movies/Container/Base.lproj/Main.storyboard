@@ -233,11 +233,20 @@
                     </view>
                     <connections>
                         <outlet property="filmCollection" destination="0gm-7s-XOp" id="rIo-VX-yAd"/>
+                        <segue destination="jbk-zS-6H3" kind="show" identifier="AboutFilm" id="VoE-zb-peK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RjV-OD-g2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1922.4000000000001" y="-556.37181409295351"/>
+        </scene>
+        <!--film-->
+        <scene sceneID="GQ2-Ub-EtP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6lo-Sz-2Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="film" id="jbk-zS-6H3" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="2534" y="-557"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OlP-76-MlL">

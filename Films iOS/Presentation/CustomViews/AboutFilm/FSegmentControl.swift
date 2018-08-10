@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FSegmentControlDelegate: class {
+    func itemWasSelected(at index: Int)
+}
+
 final class FSegmentControl: UISegmentedControl {
 
     var selectedTextColor: UIColor = .FActiveTabTitleColorAboutFilm
@@ -30,6 +34,8 @@ final class FSegmentControl: UISegmentedControl {
         }
         return tabsV
     }()
+    
+    weak var delegate: FSegmentControlDelegate?
 
     private func setActiveTintColorOnItem(of index: Int) {
         if let prevIndex = prevSelectedIndex {
@@ -50,6 +56,7 @@ final class FSegmentControl: UISegmentedControl {
 
     @objc private func tabChanged(_ sender: UISegmentedControl) {
         setActiveTintColorOnItem(of: sender.selectedSegmentIndex)
+        delegate?.itemWasSelected(at: self.selectedSegmentIndex)
     }
 
 }
