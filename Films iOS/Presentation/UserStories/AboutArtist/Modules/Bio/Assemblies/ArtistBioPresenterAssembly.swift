@@ -14,11 +14,14 @@ final class ArtistBioPresenterAssembly: Assembly {
 
     lazy var artistBioDataSourceAssembly: ArtistBioDataSourceAssembly = ArtistBioDataSourceAssembly.instance()
 
+    lazy var castRoutingAssembly: CastRoutingAssembly = CastRoutingAssembly.instance()
+
     var artistBioPresenter: IArtistBioPresenter {
         return define(scope: .lazySingleton, init:
             ArtistBioPresenter(
                 artistBioUsecase: self.artistBioUsecaseAssembly.artistBioUsecase,
-                artistBioDataSource: self.artistBioDataSourceAssembly.artistBioDataSource
+                artistBioDataSource: self.artistBioDataSourceAssembly.artistBioDataSource,
+                castRouting: self.castRoutingAssembly.castRouting
             )
         )
     }

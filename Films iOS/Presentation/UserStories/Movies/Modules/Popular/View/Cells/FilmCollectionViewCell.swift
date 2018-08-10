@@ -53,7 +53,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
         )
     }
 
-    func setContent(image: String, title: String, vote: Float, age: Int) {
+    func setContent(image: String?, title: String, vote: Float, age: Int) {
 
         imagePoster.downloadedFrom(link: image, contentMode: .scaleToFill)
         self.title.text = title

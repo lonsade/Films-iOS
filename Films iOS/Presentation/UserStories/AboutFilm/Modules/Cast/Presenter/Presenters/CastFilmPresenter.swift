@@ -16,14 +16,23 @@ final class CastFilmPresenter: ICastFilmPresenter {
 
     private var castFilmUsecase: ICastUsecase
     private var castFilmDataSource: ICastFilmDataSourceInput
+    private var moviesRouting: MoviesRoutingOutput
 
-    init(castFilmUsecase: ICastUsecase, castFilmDataSource: ICastFilmDataSourceInput) {
+    init(
+        castFilmUsecase: ICastUsecase,
+        castFilmDataSource: ICastFilmDataSourceInput,
+        moviesRouting: MoviesRoutingOutput
+    ) {
         self.castFilmUsecase = castFilmUsecase
         self.castFilmDataSource = castFilmDataSource
+        self.moviesRouting = moviesRouting
     }
 
     func setCredits() {
-        castFilmUsecase.getCast(relativeURL: "/movie/353081/credits").done { credits in
+
+        guard let filmId = moviesRouting.selectFilmId else { fatalError("Film id doesnt exist") }
+
+        castFilmUsecase.getCast(relativeURL: "/movie/\(filmId)/credits").done { credits in
             self.castFilmDataSource.addCredits(credits: credits)
         }
         .catch { error in

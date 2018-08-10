@@ -14,7 +14,7 @@ class CastRoutingAssembly: Assembly {
 
     lazy var castFilmDataSourceAssembly = CastFilmDataSourceAssembly.instance()
 
-    var castRouting: CastRoutingProtocol {
+    var castRouting: CastRoutingProtocol & CastRoutingProtocolOutput {
         return define(scope: .lazySingleton, init:
             CastRouting(
                 castDisplayManager: self.castDisplayManagerAssembly.castDisplayManager,

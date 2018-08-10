@@ -14,7 +14,7 @@ class MoviesRotingAssembly: Assembly {
 
     lazy var filmCoolectionDS = PopularFilmsDSAssembly.instance()
 
-    var moviesRoting: MoviesRoutingProtocol {
+    var moviesRoting: MoviesRoutingProtocol & MoviesRoutingOutput {
         return define(scope: .lazySingleton, init:
             MoviesRouting(
                 filmCollectionDisplayManager: self.filmCollectionDM.popularFilmsDisplayManager,

@@ -134,18 +134,20 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
         filmMark.text = String(details.voteAverage).withTMDb()
 
         var validYear: Int
-        if let yearInt = details.releaseDate.getDate(withFormat: "yyyy-MM-dd").year {
+        if !details.releaseDate.isEmpty, let yearInt = details.releaseDate.getDate(withFormat: "yyyy-MM-dd").year {
             validYear = yearInt
         } else {
             validYear = 1448
         }
         year.text = String(validYear)
 
-        let time = details.runtime.getTimeFromIntDuration()
-
-        // TODO: сделать через форматер
-
-        duration.text = String(time.0)+"h "+String(time.1)+"min"
+        if let runtime = details.runtime {
+            let time = runtime.getTimeFromIntDuration()
+            // TODO: сделать через форматер
+            duration.text = String(time.0)+"h "+String(time.1)+"min"
+        } else {
+            duration.text = "No Information"
+        }
 
         poster.downloadedFrom(link: details.posterPath, contentMode: .scaleToFill)
 

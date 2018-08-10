@@ -12,7 +12,11 @@ protocol CastRoutingProtocol {
     func set(viewController: BaseViewController)
 }
 
-final class CastRouting: CastRoutingProtocol {
+protocol CastRoutingProtocolOutput {
+    var selectArtistId: Int? { get }
+}
+
+final class CastRouting: CastRoutingProtocol, CastRoutingProtocolOutput {
 
     private var currentViewController: BaseViewController?
 

@@ -27,6 +27,9 @@ extension String {
         if let date = dateFormatter.date(from: self) {
             validDate = date
         } else {
+
+            // TODO: сделать клэжуру
+
             #if DEBUG
             fatalError("Could not get date with dataFormatter from string: \(self)")
             #else
