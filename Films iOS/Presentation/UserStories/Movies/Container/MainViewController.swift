@@ -10,6 +10,9 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
+    private let pages = ["Popular", "in cinema"]
+    private let storybordName = "Main"
+
     private var prevSelectedCell: TabNameCollectionViewCell?
 
     var tabNamesPresenter: ITabNamesPresenter!
@@ -42,6 +45,16 @@ final class MainViewController: UIViewController {
             .foregroundColor: UIColor.FTitleTextColor,
             .font: UIFont.FAppName
         ]
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let pageView = segue.destination as? BasePageViewController {
+            pageView.set(pages: pages, storyboardName: storybordName)
+            guard let firstPage = pageView.viewPages.first else {
+                fatalError("Could not put first page)")
+            }
+            pageView.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
+        }
     }
 
     override func viewDidLoad() {

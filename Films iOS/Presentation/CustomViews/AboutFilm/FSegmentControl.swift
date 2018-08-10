@@ -34,7 +34,7 @@ final class FSegmentControl: UISegmentedControl {
         }
         return tabsV
     }()
-    
+
     weak var delegate: FSegmentControlDelegate?
 
     private func setActiveTintColorOnItem(of index: Int) {

@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="-1146.4000000000001" y="-706.59670164917543"/>
         </scene>
-        <!--Base About Artist Page Controller-->
+        <!--Base Page View Controller-->
         <scene sceneID="6U7-sC-Axk">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6mb-tj-FGG" customClass="BaseAboutArtistPageController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6mb-tj-FGG" customClass="BasePageViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88v-cw-gJl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-342" y="-707"/>

@@ -54,7 +54,7 @@
                                         <rect key="frame" x="0.0" y="56" width="375" height="591"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="KQ8-I4-dgd" kind="embed" id="Tfw-tj-rBr"/>
+                                            <segue destination="KQ8-I4-dgd" kind="embed" id="unI-6j-rpL"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
@@ -74,6 +74,7 @@
                         <viewLayoutGuide key="safeArea" id="AJ1-Cp-cg8"/>
                     </view>
                     <connections>
+                        <outlet property="filmContainerView" destination="qcG-GX-rPQ" id="jDF-ee-PCT"/>
                         <outlet property="lineUnderTabs" destination="Q3d-te-RVb" id="Wjr-vf-PP7"/>
                         <outlet property="tdbBarForFilm" destination="E3P-oj-jWV" id="IAT-Av-OqH"/>
                     </connections>
@@ -82,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="-738.39999999999998" y="-246.02698650674665"/>
         </scene>
-        <!--Base About Film View Controller-->
+        <!--Base Page View Controller-->
         <scene sceneID="7Ur-T2-UjI">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="KQ8-I4-dgd" customClass="BaseAboutFilmViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="KQ8-I4-dgd" customClass="BasePageViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2b-wf-oB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4" y="-246"/>
@@ -155,6 +156,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionCast" destination="lYD-2E-9lI" id="XWP-uy-Bgd"/>
+                        <segue destination="Q0H-2g-L8g" kind="show" identifier="AboutArtist" id="zvn-U8-t4u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0z-mt-C4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -251,6 +253,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhu-FQ-lqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1540" y="-116.49175412293854"/>
+        </scene>
+        <!--artist-->
+        <scene sceneID="qaC-au-OeP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="artist" id="Q0H-2g-L8g" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yFu-b3-F9C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1491" y="390"/>
         </scene>
         <!--Info Film View Controller-->
         <scene sceneID="Ovz-D3-BOd">

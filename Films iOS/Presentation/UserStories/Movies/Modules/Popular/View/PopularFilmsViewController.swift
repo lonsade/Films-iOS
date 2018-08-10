@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopularFilmsViewController: UIViewController {
+class PopularFilmsViewController: BaseViewController {
 
     @IBOutlet weak var filmCollection: UICollectionView!
 
@@ -21,19 +21,13 @@ class PopularFilmsViewController: UIViewController {
 
     var popularFilmsPresenter: IPopularFilmsPresenter!
 
-    var moviesRouting: MoviesRouting!
+    var moviesRouting: MoviesRoutingProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         PopularFilmsViewAssembly.instance().inject(into: self)
+        moviesRouting.set(viewController: self)
         popularFilmsPresenter.setPopularFilms()
     }
 
 }
-
-//extension PopularFilmsViewController: FilmCollectionDisplayManagerDelegate {
-//    func filmWasSelected(at indexPath: IndexPath) {
-//        return
-//    }
-//
-//}

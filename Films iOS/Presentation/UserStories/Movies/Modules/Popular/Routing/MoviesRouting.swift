@@ -6,9 +6,19 @@
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-final class MoviesRouting {
+protocol MoviesRoutingProtocol {
+    func set(viewController: BaseViewController)
+}
+
+final class MoviesRouting: MoviesRoutingProtocol {
+
+    private var currentViewController: BaseViewController?
+
+    func set(viewController: BaseViewController) {
+        currentViewController = viewController
+    }
 
     private var filmCollectionDisplayManager: FilmCollectionDisplayManager
 
@@ -29,7 +39,8 @@ final class MoviesRouting {
 extension MoviesRouting: FilmCollectionDisplayManagerDelegate {
     func filmWasSelected(at indexPath: IndexPath) {
         selectFilmId = filmCollectionDataSource.films[indexPath.item].id
-        
-        
+
+        currentViewController?.openModule(withName: "AboutFilm")
+
     }
 }

@@ -10,6 +10,9 @@ import UIKit
 
 class AboutFilmViewController: UIViewController {
 
+    private let pages = ["page0", "page1", "page2"]
+    private let storybordName = "film"
+
     /*Кастомизация линии под сегмент контролем*/
     @IBOutlet weak var lineUnderTabs: UIView! {
         didSet {
@@ -24,13 +27,26 @@ class AboutFilmViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var filmContainerView: UIView!
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let pageView = segue.destination as? BasePageViewController {
+            pageView.set(pages: pages, storyboardName: storybordName)
+
+            guard let firstPage = pageView.viewPages.first else {
+                fatalError("Could not put first page)")
+            }
+
+            pageView.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
+        }
+    }
+
     private func costomize() {
         view.backgroundColor = UIColor.FMainBackgroundColor
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         costomize()
     }
 
