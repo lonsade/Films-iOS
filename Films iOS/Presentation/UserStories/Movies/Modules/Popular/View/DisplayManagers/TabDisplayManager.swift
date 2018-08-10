@@ -65,10 +65,9 @@ extension TabDisplayManager: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         return CGSize(
-            width: tabNamesDataSource.names[indexPath.item].name.getSizeWithFormating(
-                font: UIFont.FTabName
-            ).width + 20,
-            height: 32)
+            width: tabNamesDataSource.names[indexPath.item].name.getSizeWithFormating(font: UIFont.FTabName).width + 20,
+            height: tabNamesDataSource.names[indexPath.item].name.getSizeWithFormating(font: UIFont.FTabName).height
+        )
     }
 }
 

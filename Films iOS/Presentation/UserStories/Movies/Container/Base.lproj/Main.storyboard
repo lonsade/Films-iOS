@@ -37,31 +37,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7XZ-W3-6W1">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="7XZ-W3-6W1">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sfu-Re-Isi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sfu-Re-Isi">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="bJa-uL-4kF"/>
+                                            <constraint firstAttribute="height" constant="40" id="bJa-uL-4kF"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="layoutMargins" id="cDr-I0-NY2">
-                                            <size key="itemSize" width="83" height="32"/>
+                                            <size key="itemSize" width="83" height="30"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="4"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" misplaced="YES" reuseIdentifier="tabName" id="KIG-vl-fe1" customClass="TabNameCollectionViewCell" customModule="Films_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="0.0" width="83" height="32"/>
+                                                <rect key="frame" x="18" y="3" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="83" height="32"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="83" height="30"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUy-KX-6ga">
-                                                            <rect key="frame" x="20" y="6.5" width="42" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUy-KX-6ga">
+                                                            <rect key="frame" x="0.0" y="0.0" width="83" height="32"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="32" id="yvh-qt-7ob"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -70,8 +73,11 @@
                                                 </view>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="sUy-KX-6ga" secondAttribute="trailing" id="DY1-l5-669"/>
                                                     <constraint firstItem="sUy-KX-6ga" firstAttribute="centerX" secondItem="KIG-vl-fe1" secondAttribute="centerX" id="Hrt-kz-2c9"/>
-                                                    <constraint firstItem="sUy-KX-6ga" firstAttribute="centerY" secondItem="KIG-vl-fe1" secondAttribute="centerY" id="UO7-uH-r0U"/>
+                                                    <constraint firstItem="sUy-KX-6ga" firstAttribute="leading" secondItem="KIG-vl-fe1" secondAttribute="leading" id="UN1-yw-rre"/>
+                                                    <constraint firstItem="sUy-KX-6ga" firstAttribute="top" secondItem="KIG-vl-fe1" secondAttribute="top" id="h42-K1-EOg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="sUy-KX-6ga" secondAttribute="bottom" id="pWR-hk-pKT"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="tabName" destination="sUy-KX-6ga" id="5VV-5a-M6O"/>
@@ -80,14 +86,14 @@
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0L-sf-TKa">
-                                        <rect key="frame" x="0.0" y="32" width="375" height="1"/>
+                                        <rect key="frame" x="0.0" y="40" width="375" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="lhr-25-ocT"/>
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H0B-mU-aw8">
-                                        <rect key="frame" x="0.0" y="33" width="375" height="570"/>
+                                        <rect key="frame" x="0.0" y="41" width="375" height="562"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -95,6 +101,11 @@
                                         </connections>
                                     </containerView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="O0L-sf-TKa" firstAttribute="top" secondItem="sfu-Re-Isi" secondAttribute="bottom" id="YAj-3p-Xzo"/>
+                                    <constraint firstAttribute="trailing" secondItem="sfu-Re-Isi" secondAttribute="trailing" id="tzM-yn-dWC"/>
+                                    <constraint firstItem="sfu-Re-Isi" firstAttribute="leading" secondItem="7XZ-W3-6W1" secondAttribute="leading" id="zNo-yH-FbE"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

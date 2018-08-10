@@ -11,14 +11,14 @@ import EasyDi
 
 final class TabNamesPresenterAssembly: Assembly {
 
-    lazy var tabNamesUsecaseAssembly: TabNamesUsecaseAssembly = TabNamesUsecaseAssembly.instance()
+    lazy var moviesUsecaseAssembly: MoviesUsecaseAssembly = MoviesUsecaseAssembly.instance()
 
     lazy var tabNamesDataSourceAssembly: TabNamesDataSourceAssembly = TabNamesDataSourceAssembly.instance()
 
     var tabNamesPresenter: ITabNamesPresenter {
         return define(scope: .lazySingleton, init:
             TabNamesPresenter(
-                tabNamesUsecase: self.tabNamesUsecaseAssembly.tabNamesUsecase,
+                tabNamesUsecase: self.moviesUsecaseAssembly.tabNamesUsecase,
                 dataSource: self.tabNamesDataSourceAssembly.tabNamesDataSource
             )
         )

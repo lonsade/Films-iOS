@@ -11,14 +11,14 @@ import EasyDi
 
 final class PopularFilmsPresenterAssembly: Assembly {
 
-    lazy var listPopularFilmsUsecaseAssembly: ListPopularFilmsUsecaseAssembly = ListPopularFilmsUsecaseAssembly.instance()
+    lazy var moviesUsecaseAssembly: MoviesUsecaseAssembly = MoviesUsecaseAssembly.instance()
 
     lazy var popularFilmsDSAssembly: PopularFilmsDSAssembly = PopularFilmsDSAssembly.instance()
 
     var popularFilmsPresenter: IPopularFilmsPresenter {
         return define(scope: .lazySingleton, init:
             PopularFilmsPresenter(
-                listPopularFilmsUsecase: self.listPopularFilmsUsecaseAssembly.listPopularFilmsUsecase,
+                listPopularFilmsUsecase: self.moviesUsecaseAssembly.listPopularFilmsUsecase,
                 dataSource: self.popularFilmsDSAssembly.popularFilmsDS
             )
         )
