@@ -12,7 +12,7 @@ class CastCollectionCell: UICollectionViewCell {
 
     private func setImage(imageUrl: String?) {
         if let imageUrl = imageUrl {
-            image.downloadedFrom(link: imageUrl, contentMode: .scaleToFill)
+            image.downloadedFrom(link: imageUrl, contentMode: .scaleAspectFill)
         } else {
             image.image = #imageLiteral(resourceName: "defaultAva")
         }
