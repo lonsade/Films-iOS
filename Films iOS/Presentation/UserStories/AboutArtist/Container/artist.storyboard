@@ -71,7 +71,7 @@
                     </view>
                     <connections>
                         <outlet property="lineUnderTabs" destination="Ffn-ar-Uc5" id="dGa-cJ-Dxk"/>
-                        <outlet property="pageView" destination="Jxi-KZ-dpZ" id="IEy-NC-Qjc"/>
+                        <outlet property="tabsSegmentControl" destination="ocl-AQ-AgR" id="vgh-LZ-bTl"/>
                         <outlet property="tdbBarForFilm" destination="CMd-10-jV5" id="4b0-RV-7Dh"/>
                     </connections>
                 </viewController>
