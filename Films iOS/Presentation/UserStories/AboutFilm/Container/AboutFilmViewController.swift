@@ -43,8 +43,11 @@ class AboutFilmViewController: UIViewController {
 
     private func costomize() {
         view.backgroundColor = UIColor.FMainBackgroundColor
-    }
+        navigationItem.title = "Film"
+        navigationController?.navigationBar.topItem?.title = "Back"
+        navigationController?.navigationBar.tintColor = .FTitleTextColor
 
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         costomize()

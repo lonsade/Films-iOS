@@ -39,7 +39,9 @@ final class MainViewController: UIViewController {
     func customize() {
         view.backgroundColor = UIColor.FMainBackgroundColor
 
-        navigationController?.navigationBar.barTintColor = UIColor.FMainBackgroundColor
+//        UINavigationBar.appearance().backgroundColor = UIColor.clear
+
+//        navigationController?.navigationBar.barTintColor = UIColor.FMainBackgroundColor
 
         navigationController?.navigationBar.titleTextAttributes = [
             .foregroundColor: UIColor.FTitleTextColor,
