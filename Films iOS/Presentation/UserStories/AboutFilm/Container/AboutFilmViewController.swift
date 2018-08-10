@@ -27,17 +27,27 @@ class AboutFilmViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var filmContainerView: UIView!
+    private var pageViewController: BasePageViewController?
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let pageView = segue.destination as? BasePageViewController {
             pageView.set(pages: pages, storyboardName: storybordName)
+
+            pageViewController = pageView
 
             guard let firstPage = pageView.viewPages.first else {
                 fatalError("Could not put first page)")
             }
 
             pageView.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
+
+            pageView.pageDelegate = self
+        }
+    }
+
+    @IBOutlet weak var tabsSegmentControl: FSegmentControl! {
+        didSet {
+            tabsSegmentControl.delegate = self
         }
     }
 
@@ -53,4 +63,22 @@ class AboutFilmViewController: UIViewController {
         costomize()
     }
 
+}
+
+//Синхронизация смены страницы с изменением активной вкладки
+extension AboutFilmViewController: BasePageViewControllerDelegate {
+    func pageWasChanged(at index: Int) {
+        tabsSegmentControl.selectedSegmentIndex = index
+    }
+}
+
+//Синхронизация изменения активной вкладки с сменой страницы
+extension AboutFilmViewController: FSegmentControlDelegate {
+    func itemWasSelected(at index: Int) {
+        var direction: UIPageViewControllerNavigationDirection = .forward
+        if let prevIndex = tabsSegmentControl.prevSelectedIndex, prevIndex > index {
+            direction = .reverse
+        }
+        pageViewController?.setViewControllers([(pageViewController?.viewPages[index])!], direction: direction, animated: true, completion: nil)
+    }
 }

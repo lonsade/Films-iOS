@@ -40,9 +40,39 @@ class BasePageViewController: UIPageViewController, BasePageViewControllerHandle
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
+        delegate = self
     }
 
     //setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
+
+    // Текущий индекс
+    private var currentIndex: Int?
+    private var pendingIndex: Int?
+
+}
+
+extension BasePageViewController: UIPageViewControllerDelegate {
+
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        willTransitionTo pendingViewControllers: [UIViewController]
+    ) {
+        pendingIndex = viewPages.index(of: pendingViewControllers.first!)
+    }
+
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers: [UIViewController],
+        transitionCompleted completed: Bool
+    ) {
+        if completed {
+            currentIndex = pendingIndex
+            if let index = currentIndex {
+                pageDelegate?.pageWasChanged(at: index)
+            }
+        }
+    }
 
 }
 
@@ -50,7 +80,7 @@ extension BasePageViewController: UIPageViewControllerDataSource {
     func pageViewController(
         _ pageViewController: UIPageViewController,
         viewControllerBefore viewController: UIViewController
-        ) -> UIViewController? {
+    ) -> UIViewController? {
         guard let viewControllerIndex = viewPages.index(of: viewController) else { return nil }
         let previousIndex = viewControllerIndex - 1
         guard previousIndex >= 0 else { return nil }
@@ -61,7 +91,7 @@ extension BasePageViewController: UIPageViewControllerDataSource {
     func pageViewController(
         _ pageViewController: UIPageViewController,
         viewControllerAfter viewController: UIViewController
-        ) -> UIViewController? {
+    ) -> UIViewController? {
         guard let viewControllerIndex = viewPages.index(of: viewController) else { return nil }
         let nextIndex = viewControllerIndex + 1
         guard nextIndex < viewPages.count else { return nil }

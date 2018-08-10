@@ -19,7 +19,7 @@ final class FSegmentControl: UISegmentedControl {
     var notSelectedTextColor: UIColor = .FInactiveTabTitleColorAboutFilm
     var notSelectesTintColor: UIColor = .FHRColor
 
-    private var prevSelectedIndex: Int?
+    var prevSelectedIndex: Int?
 
     /*
      Сделал свой массив вьюшек табов,
@@ -45,6 +45,18 @@ final class FSegmentControl: UISegmentedControl {
         tabViews[index].tintColor = selectedTintColor
     }
 
+    /**
+            Для синхронизации pageViewController с Self
+            Смена активной вкладки при свайне страницы
+    **/
+
+    override var selectedSegmentIndex: Int {
+        didSet {
+            setActiveTintColorOnItem(of: selectedSegmentIndex)
+            delegate?.itemWasSelected(at: self.selectedSegmentIndex)
+        }
+    }
+
     override func awakeFromNib() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: notSelectedTextColor], for: .normal)
@@ -55,8 +67,8 @@ final class FSegmentControl: UISegmentedControl {
     }
 
     @objc private func tabChanged(_ sender: UISegmentedControl) {
-        setActiveTintColorOnItem(of: sender.selectedSegmentIndex)
         delegate?.itemWasSelected(at: self.selectedSegmentIndex)
+        setActiveTintColorOnItem(of: sender.selectedSegmentIndex)
     }
 
 }

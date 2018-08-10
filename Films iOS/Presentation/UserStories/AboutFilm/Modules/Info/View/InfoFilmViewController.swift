@@ -84,7 +84,7 @@ class InfoFilmViewController: UIViewController {
     @IBOutlet weak var infoTitlesBlock: UIStackView! {
         didSet {
             infoTitlesBlock.isLayoutMarginsRelativeArrangement = true
-            infoTitlesBlock.layoutMargins = UIEdgeInsets(top: 8, left: 0, bottom: 14, right: 0)
+            infoTitlesBlock.layoutMargins = UIEdgeInsets(top: 3, left: 0, bottom: 14, right: 0)
         }
     }
 
