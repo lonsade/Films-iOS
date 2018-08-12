@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol IAboutArtistUsecase: class {
-    func getArtist() -> Promise<Artist>
+    func getArtist(relativeURL: String) -> Promise<Artist>
 }
 
 final class AboutArtistUsecase: IAboutArtistUsecase {
@@ -21,7 +21,7 @@ final class AboutArtistUsecase: IAboutArtistUsecase {
         self.makeRequestGatewayCast = makeRequestGatewayCast
     }
 
-    func getArtist() -> Promise<Artist> {
-        return makeRequestGatewayCast.getResults()
+    func getArtist(relativeURL: String) -> Promise<Artist> {
+        return makeRequestGatewayCast.getResults(relativeURL: relativeURL)
     }
 }

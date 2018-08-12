@@ -84,7 +84,7 @@ class InfoFilmViewController: UIViewController {
     @IBOutlet weak var infoTitlesBlock: UIStackView! {
         didSet {
             infoTitlesBlock.isLayoutMarginsRelativeArrangement = true
-            infoTitlesBlock.layoutMargins = UIEdgeInsets(top: 8, left: 0, bottom: 14, right: 0)
+            infoTitlesBlock.layoutMargins = UIEdgeInsets(top: 3, left: 0, bottom: 14, right: 0)
         }
     }
 
@@ -134,20 +134,22 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
         filmMark.text = String(details.voteAverage).withTMDb()
 
         var validYear: Int
-        if let yearInt = details.releaseDate.getDate(withFormat: "yyyy-MM-dd").year {
+        if !details.releaseDate.isEmpty, let yearInt = details.releaseDate.getDate(withFormat: "yyyy-MM-dd").year {
             validYear = yearInt
         } else {
             validYear = 1448
         }
         year.text = String(validYear)
 
-        let time = details.runtime.getTimeFromIntDuration()
+        if let runtime = details.runtime {
+            let time = runtime.getTimeFromIntDuration()
+            // TODO: сделать через форматер
+            duration.text = String(time.0)+"h "+String(time.1)+"min"
+        } else {
+            duration.text = "No Information"
+        }
 
-        // TODO: сделать через форматер
-
-        duration.text = String(time.0)+"h "+String(time.1)+"min"
-
-        poster.downloadedFrom(link: "https://image.tmdb.org/t/p/w500"+details.posterPath, contentMode: .scaleToFill)
+        poster.downloadedFrom(link: details.posterPath, contentMode: .scaleToFill)
 
         // RAting
         rating.setRating(equal: details.voteAverage)

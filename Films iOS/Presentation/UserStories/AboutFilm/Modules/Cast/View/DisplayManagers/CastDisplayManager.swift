@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FilmCastCollectionDisplayManager: class {
+    func castWasSelected(at index: Int)
+}
+
 final class CastDisplayManager: NSObject {
 
     private let reuseIdentifier = "cast"
@@ -17,18 +21,24 @@ final class CastDisplayManager: NSObject {
     weak var collectionCast: UICollectionView? {
         didSet {
             castDataSource.delegate = self
-            //collectionCast?.delegate = self
+            collectionCast?.delegate = self
             collectionCast?.dataSource = self
             collectionCast?.showsVerticalScrollIndicator = false
         }
     }
 
-    //weak var delegate: FilmDetailCollectionDisplayManager?
+    weak var delegate: FilmCastCollectionDisplayManager?
 
     init(castDataSource: ICastFilmDataSourceOutput) {
         self.castDataSource = castDataSource
     }
 
+}
+
+extension CastDisplayManager: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.castWasSelected(at: indexPath.item)
+    }
 }
 
 extension CastDisplayManager: UICollectionViewDataSource {

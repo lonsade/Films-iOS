@@ -10,7 +10,7 @@ import Foundation
 
 struct FilmCard: Codable {
 
-    let posterPath: String
+    let posterPath: String?
     //let adult: Bool
     //let overview: String
     //let releaseDate: String

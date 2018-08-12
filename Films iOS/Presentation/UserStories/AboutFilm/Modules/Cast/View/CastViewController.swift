@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CastViewController: UIViewController {
+class CastViewController: BaseViewController {
 
     @IBOutlet weak var collectionCast: UICollectionView!
 
@@ -18,12 +18,14 @@ class CastViewController: UIViewController {
         }
     }
 
+    var castRouting: CastRoutingProtocol!
     var castFilmPresenter: ICastFilmPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         CastViewAssembly.instance().inject(into: self)
         castFilmPresenter.setCredits()
+        castRouting.set(viewController: self)
     }
 
 }

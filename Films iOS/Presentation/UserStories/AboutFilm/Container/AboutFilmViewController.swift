@@ -10,24 +10,8 @@ import UIKit
 
 class AboutFilmViewController: UIViewController {
 
-    private func getViewController(withIdentifier identifier: String) -> UIViewController {
-        return UIStoryboard(name: "film", bundle: nil).instantiateViewController(withIdentifier: identifier)
-    }
-
-    private var pageViewController: UIPageViewController! {
-        didSet {
-            pageViewController.dataSource = self
-            pageViewController.delegate = self
-        }
-    }
-
-    lazy var pages: [UIViewController] = {
-        return [
-            self.getViewController(withIdentifier: "page0"),
-            self.getViewController(withIdentifier: "page1"),
-            self.getViewController(withIdentifier: "page2")
-        ]
-    }()
+    private let pages = ["page0", "page1", "page2"]
+    private let storybordName = "film"
 
     /*Кастомизация линии под сегмент контролем*/
     @IBOutlet weak var lineUnderTabs: UIView! {
@@ -43,52 +27,58 @@ class AboutFilmViewController: UIViewController {
         }
     }
 
-    private func costomize() {
-        view.backgroundColor = UIColor.FMainBackgroundColor
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        costomize()
-    }
+    private var pageViewController: BasePageViewController?
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let pvc = segue.destination as? UIPageViewController {
-            pageViewController = pvc
-            if let firstVC = pages.first {
-                pageViewController.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        if let pageView = segue.destination as? BasePageViewController {
+            pageView.set(pages: pages, storyboardName: storybordName)
+
+            pageViewController = pageView
+
+            guard let firstPage = pageView.viewPages.first else {
+                fatalError("Could not put first page)")
             }
+
+            pageView.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
+
+            pageView.pageDelegate = self
         }
     }
 
-}
-
-extension AboutFilmViewController: UIPageViewControllerDelegate {
-
-}
-
-extension AboutFilmViewController: UIPageViewControllerDataSource {
-
-    func pageViewController(
-        _ pageViewController: UIPageViewController,
-        viewControllerBefore viewController: UIViewController
-    ) -> UIViewController? {
-        guard let viewControllerIndex = pages.index(of: viewController) else { return nil }
-        let previousIndex = viewControllerIndex - 1
-        guard previousIndex >= 0 else { return pages.last }
-        guard pages.count > previousIndex else { return nil }
-        return pages[previousIndex]
+    @IBOutlet weak var tabsSegmentControl: FSegmentControl! {
+        didSet {
+            tabsSegmentControl.delegate = self
+        }
     }
 
-    func pageViewController(
-        _ pageViewController: UIPageViewController,
-        viewControllerAfter viewController: UIViewController
-    ) -> UIViewController? {
-        guard let viewControllerIndex = pages.index(of: viewController) else { return nil }
-        let nextIndex = viewControllerIndex + 1
-        guard nextIndex < pages.count else { return pages.first }
-        guard pages.count > nextIndex else { return nil }
-        return pages[nextIndex]
+    private func costomize() {
+        view.backgroundColor = UIColor.FMainBackgroundColor
+        navigationItem.title = "Film"
+        navigationController?.navigationBar.topItem?.title = "Back"
+        navigationController?.navigationBar.tintColor = .FTitleTextColor
+
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        costomize()
+    }
+
+}
+
+//Синхронизация смены страницы с изменением активной вкладки
+extension AboutFilmViewController: BasePageViewControllerDelegate {
+    func pageWasChanged(at index: Int) {
+        tabsSegmentControl.selectedSegmentIndex = index
+    }
+}
+
+//Синхронизация изменения активной вкладки с сменой страницы
+extension AboutFilmViewController: FSegmentControlDelegate {
+    func itemWasSelected(at index: Int) {
+        var direction: UIPageViewControllerNavigationDirection = .forward
+        if let prevIndex = tabsSegmentControl.prevSelectedIndex, prevIndex > index {
+            direction = .reverse
+        }
+        pageViewController?.setViewControllers([(pageViewController?.viewPages[index])!], direction: direction, animated: true, completion: nil)
     }
 }

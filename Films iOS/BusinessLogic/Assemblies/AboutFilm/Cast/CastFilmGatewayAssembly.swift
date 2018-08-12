@@ -16,7 +16,6 @@ final class CastFilmGatewayAssembly: Assembly {
         return define(scope: .lazySingleton, init:
             MakeRequestGateway(
                 networking: self.networking.networking,
-                relativeURL: "/movie/353081/credits",
                 parameters: ["api_key": "7e768e8012161bc9c4ca59f1e4f5979e", "language": "en-US"],
                 headers: ["Content-Type": "application/json", "Accept": "application/json"],
                 method: RequestMethod.GET

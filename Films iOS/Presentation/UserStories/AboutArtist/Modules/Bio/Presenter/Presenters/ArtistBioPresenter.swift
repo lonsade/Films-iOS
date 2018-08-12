@@ -16,14 +16,23 @@ final class ArtistBioPresenter: IArtistBioPresenter {
 
     private var artistBioUsecase: IAboutArtistUsecase
     private var artistBioDataSource: IArtistBioDataSourceInput
+    private var castRouting: CastRoutingProtocolOutput
 
-    init(artistBioUsecase: IAboutArtistUsecase, artistBioDataSource: IArtistBioDataSourceInput) {
+    init(
+        artistBioUsecase: IAboutArtistUsecase,
+        artistBioDataSource: IArtistBioDataSourceInput,
+        castRouting: CastRoutingProtocolOutput
+    ) {
         self.artistBioUsecase = artistBioUsecase
         self.artistBioDataSource = artistBioDataSource
+        self.castRouting = castRouting
     }
 
     func setBio() {
-        artistBioUsecase.getArtist().done { artist in
+
+        guard let castId = castRouting.selectArtistId else { fatalError("Cast id doesnt exist") }
+
+        artistBioUsecase.getArtist(relativeURL: "/person/\(castId)").done { artist in
             self.artistBioDataSource.add(bio: artist)
         }
         .catch { error in

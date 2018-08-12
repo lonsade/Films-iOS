@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol IArtistPhotosUsecase: class {
-    func getPhotos() -> Promise<[ArtistPhoto]>
+    func getPhotos(relativeURL: String) -> Promise<[ArtistPhoto]>
 }
 
 final class ArtistPhotosUsecase: IArtistPhotosUsecase {
@@ -21,9 +21,9 @@ final class ArtistPhotosUsecase: IArtistPhotosUsecase {
         self.makeRequestGatewayPhotos = makeRequestGatewayPhotos
     }
 
-    func getPhotos() -> Promise<[ArtistPhoto]> {
+    func getPhotos(relativeURL: String) -> Promise<[ArtistPhoto]> {
         return Promise<[ArtistPhoto]> { seal in
-            makeRequestGatewayPhotos.getResults().done { (photos: ArtistPhotos) in
+            makeRequestGatewayPhotos.getResults(relativeURL: relativeURL).done { (photos: ArtistPhotos) in
                 seal.fulfill(photos.profiles)
             }.catch { error in
                 seal.reject(error)

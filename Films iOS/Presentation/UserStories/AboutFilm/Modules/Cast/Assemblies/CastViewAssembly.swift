@@ -14,10 +14,13 @@ class CastViewAssembly: Assembly {
 
     lazy var castDisplayManagerAssembly: CastDisplayManagerAssembly = CastDisplayManagerAssembly.instance()
 
+    lazy var castRoutingAssembly = CastRoutingAssembly.instance()
+
     func inject(into mvc: CastViewController) {
         defineInjection(into: mvc) {
             $0.castFilmPresenter = self.castFilmPresenterAssembly.castFilmPresenter
             $0.castDisplayManager = self.castDisplayManagerAssembly.castDisplayManager
+            $0.castRouting = self.castRoutingAssembly.castRouting
             return $0
         }
     }

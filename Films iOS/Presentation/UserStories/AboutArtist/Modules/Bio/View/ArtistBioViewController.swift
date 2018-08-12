@@ -55,8 +55,8 @@ class ArtistBioViewController: UIViewController {
     }
     @IBOutlet weak var titlePhotosLabel: UILabel! {
         didSet {
-            artistPlaceOfBirthLabel.font = .FTabName
-            artistPlaceOfBirthLabel.textColor = .FTitleTextColor
+            titlePhotosLabel.font = .FTabName
+            titlePhotosLabel.textColor = .FTitleTextColor
         }
     }
     @IBOutlet weak var artistPhotosCollectionView: UICollectionView!
@@ -71,7 +71,6 @@ class ArtistBioViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Временно
         view.backgroundColor = UIColor.FMainBackgroundColor
         ArtistViewAssembly.instance().inject(into: self)

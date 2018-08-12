@@ -14,11 +14,14 @@ final class CastFilmPresenterAssembly: Assembly {
 
     lazy var castFilmDataSourceAssembly: CastFilmDataSourceAssembly = CastFilmDataSourceAssembly.instance()
 
+    lazy var moviesRoutingAssembly = MoviesRotingAssembly.instance()
+
     var castFilmPresenter: ICastFilmPresenter {
         return define(scope: .lazySingleton, init:
             CastFilmPresenter(
                 castFilmUsecase: self.castFilmUsecaseAssembly.castFilmUsecase,
-                castFilmDataSource: self.castFilmDataSourceAssembly.castFilmDataSource
+                castFilmDataSource: self.castFilmDataSourceAssembly.castFilmDataSource,
+                moviesRouting: self.moviesRoutingAssembly.moviesRoting
             )
         )
     }
