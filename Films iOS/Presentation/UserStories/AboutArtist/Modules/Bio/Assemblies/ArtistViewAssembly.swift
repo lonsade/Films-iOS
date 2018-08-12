@@ -8,7 +8,7 @@
 
 import EasyDi
 
-class ArtistViewAssembly: Assembly {
+final class ArtistViewAssembly: Assembly {
 
     lazy var artistBioPresenterAssembly: ArtistBioPresenterAssembly = ArtistBioPresenterAssembly.instance()
 

@@ -133,6 +133,9 @@ class InfoFilmViewController: UIViewController {
 extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
     func similarWereAdd() {
         collectionSimilarFilms.reloadData()
+
+        //* Фикс высоты коллекции *//
+
     }
 
     func imagesWasAdded(images: [GalleryImage]) {

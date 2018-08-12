@@ -19,7 +19,6 @@ final class SimilarFilmsDisplayManager: NSObject {
             //detailFilm.infoDelegate = self
             collectionSimilar?.delegate = self
             collectionSimilar?.dataSource = self
-            collectionSimilar?.showsVerticalScrollIndicator = false
         }
     }
 

@@ -445,11 +445,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-CE-63t">
-                                                <rect key="frame" x="0.0" y="521" width="375" height="298"/>
+                                                <rect key="frame" x="0.0" y="521" width="375" height="363"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="298" id="4rA-dX-2Mv"/>
-                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="Ya7-MC-ccP">
                                                     <size key="itemSize" width="163" height="298"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -530,13 +527,13 @@
                                             <constraint firstItem="mKd-IC-z0c" firstAttribute="leading" secondItem="plg-GS-3UY" secondAttribute="leading" constant="16" id="cax-g9-WJD"/>
                                             <constraint firstItem="VSE-OO-LXq" firstAttribute="top" secondItem="j5P-zL-EHb" secondAttribute="bottom" constant="14" id="cbb-pg-G2F"/>
                                             <constraint firstItem="mKd-IC-z0c" firstAttribute="top" secondItem="u8h-xu-Ddd" secondAttribute="bottom" constant="20" id="dzp-lO-rby"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Vga-CE-63t" secondAttribute="bottom" constant="16" id="fN6-p0-8sC"/>
                                             <constraint firstItem="UG0-gS-8bE" firstAttribute="top" secondItem="VSE-OO-LXq" secondAttribute="bottom" constant="11" id="ihB-dD-yM2"/>
                                             <constraint firstItem="VSE-OO-LXq" firstAttribute="leading" secondItem="plg-GS-3UY" secondAttribute="leading" constant="16" id="ktd-yB-1bv"/>
                                             <constraint firstAttribute="trailing" secondItem="VSE-OO-LXq" secondAttribute="trailing" constant="16" id="nWT-DC-ohi"/>
                                             <constraint firstItem="j5P-zL-EHb" firstAttribute="leading" secondItem="plg-GS-3UY" secondAttribute="leading" constant="16" id="oB2-eL-3Fd"/>
                                             <constraint firstAttribute="trailing" secondItem="u8h-xu-Ddd" secondAttribute="trailing" id="oaU-ML-KSc"/>
                                             <constraint firstItem="u8h-xu-Ddd" firstAttribute="top" secondItem="plg-GS-3UY" secondAttribute="top" constant="2" id="oec-00-GWO"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vga-CE-63t" secondAttribute="bottom" constant="16" id="pvq-Oe-ulh"/>
                                             <constraint firstItem="Vga-CE-63t" firstAttribute="leading" secondItem="plg-GS-3UY" secondAttribute="leading" id="qD3-L4-AiC"/>
                                             <constraint firstAttribute="trailing" secondItem="mKd-IC-z0c" secondAttribute="trailing" constant="16" id="tRY-Cq-sKS"/>
                                             <constraint firstAttribute="trailing" secondItem="Vga-CE-63t" secondAttribute="trailing" id="veu-EC-pJh"/>
