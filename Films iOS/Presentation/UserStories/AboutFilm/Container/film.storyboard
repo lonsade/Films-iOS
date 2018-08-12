@@ -267,14 +267,14 @@
             <objects>
                 <viewController storyboardIdentifier="page0" id="TCa-hi-m5R" customClass="InfoFilmViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aey-Ku-dgE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Df3-Pg-QgY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="780"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="880"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plg-GS-3UY" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u8h-xu-Ddd">
                                                 <rect key="frame" x="0.0" y="2" width="375" height="150"/>
@@ -444,26 +444,75 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-CE-63t">
-                                                <rect key="frame" x="0.0" y="521" width="375" height="220"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-CE-63t">
+                                                <rect key="frame" x="0.0" y="521" width="375" height="298"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="220" id="sPM-TI-VI1"/>
+                                                    <constraint firstAttribute="height" constant="298" id="4rA-dX-2Mv"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="Ya7-MC-ccP">
-                                                    <size key="itemSize" width="163" height="220"/>
+                                                    <size key="itemSize" width="163" height="298"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NVf-67-bbb">
-                                                        <rect key="frame" x="16" y="0.0" width="163" height="220"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="similar" id="NVf-67-bbb" customClass="FilmCollectionViewCell" customModule="Films_iOS" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="0.0" width="163" height="298"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="220"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="298"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VZ6-Cp-7qt">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="163" height="220"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="220" id="meo-qP-1c6"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcX-IF-y8b">
+                                                                    <rect key="frame" x="16" y="270" width="34" height="15"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iVl-op-MG5">
+                                                                    <rect key="frame" x="16" y="233" width="131" height="32"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="32" id="k3c-pS-5jd"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                </textView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRa-xd-2Zr">
+                                                                    <rect key="frame" x="118" y="270" width="29" height="15"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="VZ6-Cp-7qt" firstAttribute="top" secondItem="NVf-67-bbb" secondAttribute="top" id="6BP-M9-GBO"/>
+                                                            <constraint firstItem="VZ6-Cp-7qt" firstAttribute="leading" secondItem="NVf-67-bbb" secondAttribute="leading" id="EwL-ba-ZBK"/>
+                                                            <constraint firstItem="iVl-op-MG5" firstAttribute="top" secondItem="VZ6-Cp-7qt" secondAttribute="bottom" constant="13" id="Go1-QW-Wdz"/>
+                                                            <constraint firstItem="LcX-IF-y8b" firstAttribute="top" secondItem="iVl-op-MG5" secondAttribute="bottom" constant="5" id="IJw-ot-EwT"/>
+                                                            <constraint firstAttribute="trailing" secondItem="VZ6-Cp-7qt" secondAttribute="trailing" id="Ihy-I0-ReP"/>
+                                                            <constraint firstAttribute="bottom" secondItem="LcX-IF-y8b" secondAttribute="bottom" constant="13" id="QBk-3F-188"/>
+                                                            <constraint firstItem="LcX-IF-y8b" firstAttribute="leading" secondItem="NVf-67-bbb" secondAttribute="leading" constant="16" id="hMg-2h-cJF"/>
+                                                            <constraint firstAttribute="bottom" secondItem="mRa-xd-2Zr" secondAttribute="bottom" constant="13" id="jUD-mI-Mde"/>
+                                                            <constraint firstAttribute="trailing" secondItem="iVl-op-MG5" secondAttribute="trailing" constant="16" id="kFm-Oh-RQb"/>
+                                                            <constraint firstItem="mRa-xd-2Zr" firstAttribute="top" secondItem="iVl-op-MG5" secondAttribute="bottom" constant="5" id="r42-YZ-UxM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="mRa-xd-2Zr" secondAttribute="trailing" constant="16" id="rT3-J5-YhS"/>
+                                                            <constraint firstItem="iVl-op-MG5" firstAttribute="leading" secondItem="NVf-67-bbb" secondAttribute="leading" constant="16" id="wVD-Ti-vNS"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="ageLabel" destination="mRa-xd-2Zr" id="rHW-uz-uEF"/>
+                                                            <outlet property="imagePoster" destination="VZ6-Cp-7qt" id="78C-yB-4oQ"/>
+                                                            <outlet property="title" destination="iVl-op-MG5" id="dOY-2N-YwS"/>
+                                                            <outlet property="voteAverage" destination="LcX-IF-y8b" id="EL7-Ly-OH7"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -514,9 +563,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zgN-m3-zre"/>
                     </view>
-                    <size key="freeformSize" width="375" height="800"/>
+                    <size key="freeformSize" width="375" height="900"/>
                     <connections>
                         <outlet property="age" destination="Rkd-K4-3Lh" id="tgj-Bv-qsQ"/>
+                        <outlet property="collectionSimilarFilms" destination="Vga-CE-63t" id="MFA-Dl-vII"/>
                         <outlet property="collectionVideo" destination="u8h-xu-Ddd" id="7GQ-e7-EcI"/>
                         <outlet property="country" destination="pVw-iR-R6h" id="cCE-BZ-WeC"/>
                         <outlet property="descriptionFilm" destination="j5P-zL-EHb" id="Usq-jf-jTe"/>

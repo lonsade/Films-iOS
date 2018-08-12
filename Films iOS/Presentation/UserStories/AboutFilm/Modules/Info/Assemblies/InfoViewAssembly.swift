@@ -6,7 +6,6 @@
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
-import Foundation
 import EasyDi
 
 class InfoViewAssembly: Assembly {
@@ -15,13 +14,14 @@ class InfoViewAssembly: Assembly {
 
     lazy var detailsFilmDataSourceAssembly: DetailsFilmDataSourceAssembly = DetailsFilmDataSourceAssembly.instance()
 
-    lazy var galleryDisplayManagerAssembly: GalleryDisplayManagerAssembly = GalleryDisplayManagerAssembly.instance()
+    lazy var infoFilmDisplayManagerAssembly: InfoFilmDisplayManagerAssembly = InfoFilmDisplayManagerAssembly.instance()
 
     func inject(into mvc: InfoFilmViewController) {
         defineInjection(into: mvc) {
             $0.detailsFilmDataSource = self.detailsFilmDataSourceAssembly.detailsFilmDataSource
             $0.detailsFilmPresenter = self.detailsFilmPresenterAssembly.detailsFilmPresenter
-            $0.galleryDisplayManager = self.galleryDisplayManagerAssembly.galleryDisplayManager
+            $0.galleryDisplayManager = self.infoFilmDisplayManagerAssembly.galleryDisplayManager
+            $0.similarDisplayManager = self.infoFilmDisplayManagerAssembly.similarDisplayManager
             return $0
         }
     }

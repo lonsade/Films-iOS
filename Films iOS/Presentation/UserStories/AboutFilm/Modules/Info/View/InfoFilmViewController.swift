@@ -112,16 +112,28 @@ class InfoFilmViewController: UIViewController {
         }
     }
 
+    var similarDisplayManager: SimilarFilmsDisplayManager! {
+        didSet {
+            similarDisplayManager.collectionSimilar = collectionSimilarFilms
+        }
+    }
+
+    @IBOutlet weak var collectionSimilarFilms: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         InfoViewAssembly.instance().inject(into: self)
         detailsFilmDataSource.delegate = self
         detailsFilmPresenter.setDetailsFilm()
         detailsFilmPresenter.setGallery()
+        detailsFilmPresenter.setSimilar()
     }
 }
 
 extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
+    func similarWereAdd() {
+        collectionSimilarFilms.reloadData()
+    }
 
     func imagesWasAdded(images: [GalleryImage]) {
         galleryDisplayManager.collectionGallery?.reloadData()

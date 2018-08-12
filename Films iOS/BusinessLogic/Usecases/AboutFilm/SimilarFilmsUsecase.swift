@@ -10,5 +10,24 @@ import Foundation
 import PromiseKit
 
 protocol ISimilarFilmsUsecase: class {
-    //func getSimilar(relativeURL: String) -> Promise
+    func getSimilar(relativeURL: String) -> Promise<[FilmCard]>
+}
+
+final class SimilarFilmsUsecase: ISimilarFilmsUsecase {
+    private var makeRequestGatewaySimilar: IMakeRequestGateway
+
+    init(makeRequestGatewaySimilar: IMakeRequestGateway) {
+        self.makeRequestGatewaySimilar = makeRequestGatewaySimilar
+    }
+
+    func getSimilar(relativeURL: String) -> Promise<[FilmCard]> {
+        return Promise<[FilmCard]> { seal in
+            makeRequestGatewaySimilar.getResults(relativeURL: relativeURL).done { (films: Films) in
+                seal.fulfill(films.results)
+            }
+            .catch { error in
+                seal.reject(error)
+            }
+        }
+    }
 }

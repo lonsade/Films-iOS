@@ -11,11 +11,13 @@ import Foundation
 protocol IDetailsFilmDataSourceInput: class {
     func addDetails(details: FilmDetail)
     func addImages(images: [GalleryImage])
+    func addSimilar(films: [FilmCard])
 }
 
 protocol IDetailsFilmDataSourceOutput: class {
     var details: FilmDetail? { get }
     var images: [GalleryImage] { get }
+    var similar: [FilmCard] { get }
     var delegate: DetailsFilmDataSourceDelegate? { get set }
 }
 
@@ -33,11 +35,18 @@ final class DetailsFilmDataSource: IDetailsFilmDataSourceInput, IDetailsFilmData
         delegate?.imagesWasAdded(images: images)
     }
 
+    func addSimilar(films: [FilmCard]) {
+        self.similar = films
+        delegate?.similarWereAdd()
+    }
+
     var details: FilmDetail?
     var images: [GalleryImage]
+    var similar: [FilmCard]
 
     init() {
         images = []
+        similar = []
     }
 
 }
@@ -45,4 +54,5 @@ final class DetailsFilmDataSource: IDetailsFilmDataSourceInput, IDetailsFilmData
 protocol DetailsFilmDataSourceDelegate: class {
     func detailsWasAdded(details: FilmDetail)
     func imagesWasAdded(images: [GalleryImage])
+    func similarWereAdd()
 }

@@ -14,13 +14,19 @@ final class InfoFilmUsecaseAssembly: Assembly {
 
     var detailFilmUsecaseAssembly: IDetailsFilmUsecase {
         return define(scope: .lazySingleton, init:
-            DetailsFilmUsecase(makeRequestGatewayFilmDetail: self.infoFilmGatewayAssembly.detailGatewayAssembly)
+            DetailsFilmUsecase(makeRequestGatewayFilmDetail: self.infoFilmGatewayAssembly.detailGateway)
         )
     }
 
     var galleryFilmUsecaseAssembly: IGalleryUsecase {
         return define(scope: .lazySingleton, init:
-            GalleryUsecase(makeRequestGatewayGallery: self.infoFilmGatewayAssembly.galleryGatewayAssembly)
+            GalleryUsecase(makeRequestGatewayGallery: self.infoFilmGatewayAssembly.galleryGateway)
+        )
+    }
+
+    var similarUsecaseAssembly: ISimilarFilmsUsecase {
+        return define(scope: .lazySingleton, init:
+            SimilarFilmsUsecase(makeRequestGatewaySimilar: self.infoFilmGatewayAssembly.similarGateway)
         )
     }
 
