@@ -16,12 +16,12 @@ final class CastFilmPresenter: ICastFilmPresenter {
 
     private var castFilmUsecase: ICastUsecase
     private var castFilmDataSource: ICastFilmDataSourceInput
-    private var moviesRouting: MoviesRoutingOutput
+    private var moviesRouting: BaseMoviesRoutingOutput
 
     init(
         castFilmUsecase: ICastUsecase,
         castFilmDataSource: ICastFilmDataSourceInput,
-        moviesRouting: MoviesRoutingOutput
+        moviesRouting: BaseMoviesRoutingOutput
     ) {
         self.castFilmUsecase = castFilmUsecase
         self.castFilmDataSource = castFilmDataSource

@@ -10,7 +10,7 @@ import Foundation
 import EasyDi
 
 final class PopularFilmsDSAssembly: Assembly {
-    var popularFilmsDS: IListPopularDataSourceOutput & IListPopularDataSourceInput {
-        return define(scope: .lazySingleton, init: ListPopularDataSource())
+    var popularFilmsDS: BaseMoviesDataSourceOutput & BaseMoviesDataSourceInput {
+        return define(scope: .lazySingleton, init: BaseMoviesDataSource())
     }
 }

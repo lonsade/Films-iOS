@@ -1,22 +1,22 @@
 //
-//  MoviesRouting.swift
+//  BaseMoviesRouting.swift
 //  Films iOS
 //
-//  Created by Nikita Zhudin on 10.08.2018.
+//  Created by Nikita Zhudin on 12.08.2018.
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
 import UIKit
 
-protocol MoviesRoutingProtocol: class {
+protocol BaseMoviesRoutingProtocol: class {
     func set(viewController: BaseViewController)
 }
 
-protocol MoviesRoutingOutput: class {
+protocol BaseMoviesRoutingOutput: class {
     var selectFilmId: Int? { get }
 }
 
-final class MoviesRouting: MoviesRoutingProtocol, MoviesRoutingOutput {
+final class BaseMoviesRouting: BaseMoviesRoutingProtocol, BaseMoviesRoutingOutput {
 
     private var currentViewController: BaseViewController?
 
@@ -24,27 +24,24 @@ final class MoviesRouting: MoviesRoutingProtocol, MoviesRoutingOutput {
         currentViewController = viewController
     }
 
-    private var filmCollectionDisplayManager: FilmCollectionDisplayManager
+    private var filmCollectionDisplayManager: BaseMoviesDisplayManager
 
-    private var filmCollectionDataSource: IListPopularDataSourceOutput
+    private var filmCollectionDataSource: BaseMoviesDataSourceOutput
 
     init (
-        filmCollectionDisplayManager: FilmCollectionDisplayManager,
-        filmCollectionDataSource: IListPopularDataSourceOutput
+        filmCollectionDisplayManager: BaseMoviesDisplayManager,
+        filmCollectionDataSource: BaseMoviesDataSourceOutput
     ) {
         self.filmCollectionDisplayManager = filmCollectionDisplayManager
         self.filmCollectionDataSource = filmCollectionDataSource
         filmCollectionDisplayManager.delegate = self
     }
-
     var selectFilmId: Int?
 }
 
-extension MoviesRouting: FilmCollectionDisplayManagerDelegate {
+extension BaseMoviesRouting: FilmCollectionDisplayManagerDelegate {
     func filmWasSelected(at indexPath: IndexPath) {
         selectFilmId = filmCollectionDataSource.films[indexPath.item].id
-
         currentViewController?.openModule(withName: "AboutFilm")
-
     }
 }

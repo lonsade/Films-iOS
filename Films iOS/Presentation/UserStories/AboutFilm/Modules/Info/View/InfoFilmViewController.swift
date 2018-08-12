@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InfoFilmViewController: UIViewController {
+class InfoFilmViewController: BaseViewController {
 
     var detailsFilmDataSource: IDetailsFilmDataSourceOutput!
     var detailsFilmPresenter: IDetailsFilmPresenter!
@@ -112,11 +112,13 @@ class InfoFilmViewController: UIViewController {
         }
     }
 
-    var similarDisplayManager: SimilarFilmsDisplayManager! {
+    var similarDisplayManager: BaseMoviesDisplayManager! {
         didSet {
-            similarDisplayManager.collectionSimilar = collectionSimilarFilms
+            similarDisplayManager.collectionFilms = collectionSimilarFilms
         }
     }
+
+    var movieRouting: BaseMoviesRoutingProtocol!
 
     @IBOutlet weak var collectionSimilarFilms: UICollectionView!
 
@@ -127,6 +129,7 @@ class InfoFilmViewController: UIViewController {
         detailsFilmPresenter.setDetailsFilm()
         detailsFilmPresenter.setGallery()
         detailsFilmPresenter.setSimilar()
+        movieRouting.set(viewController: self)
     }
 }
 

@@ -16,12 +16,12 @@ final class ArtistFilmsPresenter: IArtistFilmsPresenter {
 
     private var castRouting: CastRoutingProtocolOutput
     private var artistFilmsUsecase: IArtistFilmsUsecase
-    private var artistFilmsDataSource: IArtistFilmsDataSourceInput
+    private var artistFilmsDataSource: BaseMoviesDataSourceInput
 
     init(
         castRouting: CastRoutingProtocolOutput,
         artistFilmsUsecase: IArtistFilmsUsecase,
-        artistFilmsDataSource: IArtistFilmsDataSourceInput
+        artistFilmsDataSource: BaseMoviesDataSourceInput
     ) {
         self.artistFilmsDataSource = artistFilmsDataSource
         self.artistFilmsUsecase = artistFilmsUsecase
@@ -32,7 +32,7 @@ final class ArtistFilmsPresenter: IArtistFilmsPresenter {
         guard let castId = castRouting.selectArtistId else { fatalError("Cast id doesnt exist") }
 
         artistFilmsUsecase.getFilms(relativeURL: "/person/\(castId)/movie_credits").done { films in
-            self.artistFilmsDataSource.add(artistFilms: films)
+            self.artistFilmsDataSource.add(films: films)
         }
         .catch { error in
             fatalError(error.localizedDescription)

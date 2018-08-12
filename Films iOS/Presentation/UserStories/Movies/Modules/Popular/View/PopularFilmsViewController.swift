@@ -12,16 +12,15 @@ class PopularFilmsViewController: BaseViewController {
 
     @IBOutlet weak var filmCollection: UICollectionView!
 
-    var filmCollectionDisplayManager: FilmCollectionDisplayManager! {
+    var filmCollectionDisplayManager: BaseMoviesDisplayManager! {
         didSet {
             filmCollectionDisplayManager.collectionFilms = filmCollection
-            //filmCollectionDisplayManager.delegate = self
         }
     }
 
     var popularFilmsPresenter: IPopularFilmsPresenter!
 
-    var moviesRouting: MoviesRoutingProtocol!
+    var moviesRouting: BaseMoviesRoutingProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()

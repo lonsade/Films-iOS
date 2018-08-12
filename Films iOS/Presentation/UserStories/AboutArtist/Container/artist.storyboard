@@ -105,7 +105,7 @@
                                     <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="artistFilms" id="6m4-7q-o5O" customClass="FilmCollectionViewCell" customModule="Films_iOS" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="filmCard" id="6m4-7q-o5O" customClass="FilmCollectionViewCell" customModule="Films_iOS" customModuleProvider="target">
                                         <rect key="frame" x="16" y="0.0" width="163" height="298"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -176,11 +176,20 @@
                     </view>
                     <connections>
                         <outlet property="artistFilmsCollectionView" destination="9Aa-cV-hrs" id="Ipj-vc-glq"/>
+                        <segue destination="u31-c9-3f4" kind="show" identifier="AboutFilm" id="9a9-KQ-tIw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9v-1J-p9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1222" y="-877"/>
+        </scene>
+        <!--film-->
+        <scene sceneID="PZg-qL-FYR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="film" id="u31-c9-3f4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tb0-7W-pMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1818" y="-832"/>
         </scene>
         <!--Artist Bio View Controller-->
         <scene sceneID="LkU-Ns-4ZS">

@@ -16,12 +16,15 @@ class InfoViewAssembly: Assembly {
 
     lazy var infoFilmDisplayManagerAssembly: InfoFilmDisplayManagerAssembly = InfoFilmDisplayManagerAssembly.instance()
 
+    lazy var moviesRotingAssembly = InfoMoviesRoutingAssembly.instance()
+
     func inject(into mvc: InfoFilmViewController) {
         defineInjection(into: mvc) {
             $0.detailsFilmDataSource = self.detailsFilmDataSourceAssembly.detailsFilmDataSource
             $0.detailsFilmPresenter = self.detailsFilmPresenterAssembly.detailsFilmPresenter
             $0.galleryDisplayManager = self.infoFilmDisplayManagerAssembly.galleryDisplayManager
             $0.similarDisplayManager = self.infoFilmDisplayManagerAssembly.similarDisplayManager
+            $0.movieRouting = self.moviesRotingAssembly.infoMoviesRouting
             return $0
         }
     }

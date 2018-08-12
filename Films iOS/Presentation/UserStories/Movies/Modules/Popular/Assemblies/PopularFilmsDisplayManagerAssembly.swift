@@ -13,11 +13,9 @@ final class PopularFilmsDisplayManagerAssembly: Assembly {
 
     lazy var popularFilmsDSAssembly: PopularFilmsDSAssembly = self.context.assembly()
 
-    var popularFilmsDisplayManager: FilmCollectionDisplayManager {
+    var popularFilmsDisplayManager: BaseMoviesDisplayManager {
         return define(scope: .lazySingleton, init:
-            FilmCollectionDisplayManager(
-                listPopularDataSource: self.popularFilmsDSAssembly.popularFilmsDS
-            )
+            BaseMoviesDisplayManager(filmsDataSource: self.popularFilmsDSAssembly.popularFilmsDS)
         )
     }
 
