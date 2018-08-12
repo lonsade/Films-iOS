@@ -69,13 +69,19 @@ class ArtistBioViewController: UIViewController {
 
     var artistBioPresenter: IArtistBioPresenter!
 
+    var artistPhotosDisplayManager: ArtistPhotosDisplayManager! {
+        didSet {
+            artistPhotosDisplayManager.collectionPhotos = artistPhotosCollectionView
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Временно
         view.backgroundColor = UIColor.FMainBackgroundColor
         ArtistViewAssembly.instance().inject(into: self)
         artistBioPresenter.setBio()
-
+        artistBioPresenter.setGallery()
     }
 }
 
@@ -89,10 +95,10 @@ extension ArtistBioViewController: ArtistBioDataSourceDelegate {
 
         artistBioTextView.text = bio.biography
 
-        artistImageView.downloadedFrom(link: bio.profilePath, contentMode: .scaleToFill)
+        artistImageView.downloadedFrom(link: bio.profilePath, contentMode: .scaleAspectFill)
     }
 
-    func photosWereAdd(photos: [ArtistPhoto]) {
-        return
+    func photosWereAdd() {
+        artistPhotosDisplayManager.collectionPhotos?.reloadData()
     }
 }

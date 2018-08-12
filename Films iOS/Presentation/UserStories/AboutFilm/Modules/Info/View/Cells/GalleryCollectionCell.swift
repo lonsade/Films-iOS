@@ -11,7 +11,7 @@ import UIKit
 class GalleryCollectionCell: UICollectionViewCell {
 
     func setImage(imageUrl: String) {
-        image.downloadedFrom(link: imageUrl, contentMode: .scaleToFill)
+        image.downloadedFrom(link: imageUrl, contentMode: .scaleAspectFill)
     }
 
     @IBOutlet weak var image: UIImageView! {

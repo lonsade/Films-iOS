@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PopularFilms: Codable {
+struct Films: Codable {
     //let page: Int
     let results: [FilmCard]
     //let totalResults: Int

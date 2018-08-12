@@ -29,7 +29,7 @@ final class ArtistBioDataSource: IArtistBioDataSourceInput, IArtistBioDataSource
     }
     func add(artistPhotos: [ArtistPhoto]) {
         self.artistPhotos = artistPhotos
-        delegate?.photosWereAdd(photos: artistPhotos)
+        delegate?.photosWereAdd()
     }
 
     var artistPhotos: [ArtistPhoto]
@@ -43,5 +43,5 @@ final class ArtistBioDataSource: IArtistBioDataSourceInput, IArtistBioDataSource
 
 protocol ArtistBioDataSourceDelegate: class {
     func bioWasAdd(bio: Artist)
-    func photosWereAdd(photos: [ArtistPhoto])
+    func photosWereAdd()
 }

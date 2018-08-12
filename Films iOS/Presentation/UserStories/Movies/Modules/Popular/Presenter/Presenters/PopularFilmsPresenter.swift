@@ -15,16 +15,16 @@ protocol IPopularFilmsPresenter: class {
 final class PopularFilmsPresenter: IPopularFilmsPresenter {
 
     private var listPopularFilmsUsecase: IListPopularFilmsUsecase
-    private var dataSource: IListPopularDataSourceInput
+    private var dataSource: BaseMoviesDataSourceInput
 
-    init(listPopularFilmsUsecase: IListPopularFilmsUsecase, dataSource: IListPopularDataSourceInput) {
+    init(listPopularFilmsUsecase: IListPopularFilmsUsecase, dataSource: BaseMoviesDataSourceInput) {
         self.listPopularFilmsUsecase = listPopularFilmsUsecase
         self.dataSource = dataSource
     }
 
     func setPopularFilms() {
         listPopularFilmsUsecase.getPopularFilms(relativeURL: "/movie/popular").done { films in
-            self.dataSource.addFilms(films: films)
+            self.dataSource.add(films: films)
         }
         .catch { error in
             fatalError(error.localizedDescription)

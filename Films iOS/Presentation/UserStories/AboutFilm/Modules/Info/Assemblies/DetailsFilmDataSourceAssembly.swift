@@ -12,4 +12,7 @@ final class DetailsFilmDataSourceAssembly: Assembly {
     var detailsFilmDataSource: IDetailsFilmDataSourceOutput & IDetailsFilmDataSourceInput {
         return define(scope: .lazySingleton, init: DetailsFilmDataSource())
     }
+    var similarFilmDataSource: BaseMoviesDataSourceOutput & BaseMoviesDataSourceInput {
+        return define(scope: .lazySingleton, init: BaseMoviesDataSource())
+    }
 }

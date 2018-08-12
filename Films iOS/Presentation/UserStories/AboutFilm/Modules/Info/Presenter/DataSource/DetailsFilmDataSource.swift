@@ -9,8 +9,8 @@
 import Foundation
 
 protocol IDetailsFilmDataSourceInput: class {
-    func addDetails(details: FilmDetail)
-    func addImages(images: [GalleryImage])
+    func add(details: FilmDetail)
+    func add(images: [GalleryImage])
 }
 
 protocol IDetailsFilmDataSourceOutput: class {
@@ -23,12 +23,12 @@ final class DetailsFilmDataSource: IDetailsFilmDataSourceInput, IDetailsFilmData
 
     weak var delegate: DetailsFilmDataSourceDelegate?
 
-    func addDetails(details: FilmDetail) {
+    func add(details: FilmDetail) {
         self.details = details
         delegate?.detailsWasAdded(details: details)
     }
 
-    func addImages(images: [GalleryImage]) {
+    func add(images: [GalleryImage]) {
         self.images = images
         delegate?.imagesWasAdded(images: images)
     }

@@ -20,9 +20,11 @@ final class DetailsFilmPresenterAssembly: Assembly {
         return define(scope: .lazySingleton, init:
             DetailsFilmPresenter(
                 detailsFilmUsecase: self.infoFilmUsecaseAssembly.detailFilmUsecaseAssembly,
-                dataSource: self.infoFilmDataSourceAssembly.detailsFilmDataSource,
+                dataSourceForDetails: self.infoFilmDataSourceAssembly.detailsFilmDataSource,
                 galleryUsecase: self.infoFilmUsecaseAssembly.galleryFilmUsecaseAssembly,
-                moviesRouting: self.moviesRoutingAssembly.moviesRoting
+                moviesRouting: self.moviesRoutingAssembly.moviesRoting,
+                similarUsecase: self.infoFilmUsecaseAssembly.similarUsecaseAssembly,
+                dataSourceForSimilar: self.infoFilmDataSourceAssembly.similarFilmDataSource
             )
         )
     }

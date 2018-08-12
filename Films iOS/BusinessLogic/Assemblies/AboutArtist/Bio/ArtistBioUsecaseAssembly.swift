@@ -8,13 +8,19 @@
 
 import EasyDi
 
-final class ArtistBioUsecaseAssembly: Assembly {
+final class ArtistBioAndPhotosUsecaseAssembly: Assembly {
 
-    lazy var artistBioGatewayAssembly: ArtistBioGatewayAssembly = self.context.assembly()
+    lazy var artistBioAndPhotosGatewayAssembly: ArtistBioAndPhotosGatewayAssembly = self.context.assembly()
 
     var artistBioUsecase: IAboutArtistUsecase {
         return define(scope: .lazySingleton, init:
-            AboutArtistUsecase(makeRequestGatewayCast: self.artistBioGatewayAssembly.artistBoiGateway)
+            AboutArtistUsecase(makeRequestGatewayCast: self.artistBioAndPhotosGatewayAssembly.artistBioGateway)
+        )
+    }
+
+    var artistPhotosUsecase: IArtistPhotosUsecase {
+        return define(scope: .lazySingleton, init:
+            ArtistPhotosUsecase(makeRequestGatewayPhotos: self.artistBioAndPhotosGatewayAssembly.artistPhotosGateway)
         )
     }
 

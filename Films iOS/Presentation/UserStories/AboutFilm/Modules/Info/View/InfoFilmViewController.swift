@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InfoFilmViewController: UIViewController {
+class InfoFilmViewController: BaseViewController {
 
     var detailsFilmDataSource: IDetailsFilmDataSourceOutput!
     var detailsFilmPresenter: IDetailsFilmPresenter!
@@ -112,16 +112,34 @@ class InfoFilmViewController: UIViewController {
         }
     }
 
+    var similarDisplayManager: BaseMoviesDisplayManager! {
+        didSet {
+            similarDisplayManager.collectionFilms = collectionSimilarFilms
+        }
+    }
+
+    var movieRouting: BaseMoviesRoutingProtocol!
+
+    @IBOutlet weak var collectionSimilarFilms: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         InfoViewAssembly.instance().inject(into: self)
         detailsFilmDataSource.delegate = self
         detailsFilmPresenter.setDetailsFilm()
         detailsFilmPresenter.setGallery()
+        detailsFilmPresenter.setSimilar()
+        movieRouting.set(viewController: self)
     }
 }
 
 extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
+    func similarWereAdd() {
+        collectionSimilarFilms.reloadData()
+
+        //* Фикс высоты коллекции *//
+
+    }
 
     func imagesWasAdded(images: [GalleryImage]) {
         galleryDisplayManager.collectionGallery?.reloadData()
@@ -149,7 +167,7 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
             duration.text = "No Information"
         }
 
-        poster.downloadedFrom(link: details.posterPath, contentMode: .scaleToFill)
+        poster.downloadedFrom(link: details.posterPath, contentMode: .scaleAspectFill)
 
         // RAting
         rating.setRating(equal: details.voteAverage)
