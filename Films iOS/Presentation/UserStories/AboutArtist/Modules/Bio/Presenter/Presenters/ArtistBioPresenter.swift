@@ -10,6 +10,7 @@ import Foundation
 
 protocol IArtistBioPresenter: class {
     func setBio()
+    func setGallery()
 }
 
 final class ArtistBioPresenter: IArtistBioPresenter {
@@ -17,15 +18,18 @@ final class ArtistBioPresenter: IArtistBioPresenter {
     private var artistBioUsecase: IAboutArtistUsecase
     private var artistBioDataSource: IArtistBioDataSourceInput
     private var castRouting: CastRoutingProtocolOutput
+    private var artistGalleryUsecase: IArtistPhotosUsecase
 
     init(
         artistBioUsecase: IAboutArtistUsecase,
         artistBioDataSource: IArtistBioDataSourceInput,
-        castRouting: CastRoutingProtocolOutput
+        castRouting: CastRoutingProtocolOutput,
+        artistGalleryUsecase: IArtistPhotosUsecase
     ) {
         self.artistBioUsecase = artistBioUsecase
         self.artistBioDataSource = artistBioDataSource
         self.castRouting = castRouting
+        self.artistGalleryUsecase = artistGalleryUsecase
     }
 
     func setBio() {
@@ -34,6 +38,18 @@ final class ArtistBioPresenter: IArtistBioPresenter {
 
         artistBioUsecase.getArtist(relativeURL: "/person/\(castId)").done { artist in
             self.artistBioDataSource.add(bio: artist)
+        }
+        .catch { error in
+            fatalError(error.localizedDescription)
+        }
+    }
+
+    func setGallery() {
+
+        guard let castId = castRouting.selectArtistId else { fatalError("Cast id doesnt exist") }
+
+        artistGalleryUsecase.getPhotos(relativeURL: "/person/\(castId)/images").done { photos in
+            self.artistBioDataSource.add(artistPhotos: photos)
         }
         .catch { error in
             fatalError(error.localizedDescription)

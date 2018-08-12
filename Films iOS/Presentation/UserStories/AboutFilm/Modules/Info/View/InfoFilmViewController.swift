@@ -149,7 +149,7 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
             duration.text = "No Information"
         }
 
-        poster.downloadedFrom(link: details.posterPath, contentMode: .scaleToFill)
+        poster.downloadedFrom(link: details.posterPath, contentMode: .scaleAspectFill)
 
         // RAting
         rating.setRating(equal: details.voteAverage)

@@ -10,7 +10,7 @@ import EasyDi
 
 final class ArtistBioPresenterAssembly: Assembly {
 
-    lazy var artistBioUsecaseAssembly: ArtistBioUsecaseAssembly = ArtistBioUsecaseAssembly.instance()
+    lazy var artistBioAndPhotosUsecaseAssembly: ArtistBioAndPhotosUsecaseAssembly = ArtistBioAndPhotosUsecaseAssembly.instance()
 
     lazy var artistBioDataSourceAssembly: ArtistBioDataSourceAssembly = ArtistBioDataSourceAssembly.instance()
 
@@ -19,9 +19,10 @@ final class ArtistBioPresenterAssembly: Assembly {
     var artistBioPresenter: IArtistBioPresenter {
         return define(scope: .lazySingleton, init:
             ArtistBioPresenter(
-                artistBioUsecase: self.artistBioUsecaseAssembly.artistBioUsecase,
+                artistBioUsecase: self.artistBioAndPhotosUsecaseAssembly.artistBioUsecase,
                 artistBioDataSource: self.artistBioDataSourceAssembly.artistBioDataSource,
-                castRouting: self.castRoutingAssembly.castRouting
+                castRouting: self.castRoutingAssembly.castRouting,
+                artistGalleryUsecase: self.artistBioAndPhotosUsecaseAssembly.artistPhotosUsecase
             )
         )
     }
