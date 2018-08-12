@@ -23,7 +23,7 @@ final class ListPopularFilmsUsecase: IListPopularFilmsUsecase {
 
     func getPopularFilms(relativeURL: String) -> Promise<[FilmCard]> {
         return Promise<[FilmCard]> { seal in
-            makeRequestGatewayListPopular.getResults(relativeURL: relativeURL).done { (films: PopularFilms) in
+            makeRequestGatewayListPopular.getResults(relativeURL: relativeURL).done { (films: Films) in
                 seal.fulfill(films.results)
             }.catch { error in
                 seal.reject(error)
