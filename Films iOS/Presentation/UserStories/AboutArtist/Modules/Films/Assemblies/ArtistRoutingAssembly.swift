@@ -10,14 +10,9 @@ import EasyDi
 
 class ArtistRoutingAssembly: Assembly {
 
-    lazy var filmCollectionDM = ArtistFilmsDisplayManagerAssembly.instance()
-
-    var artistRouting: BaseMoviesRoutingProtocol & BaseMoviesRoutingOutput {
+    var artistRouting: ArtistFilmsRouting {
         return define(scope: .lazySingleton, init:
-            BaseMoviesRouting(
-                filmCollectionDisplayManager: self.filmCollectionDM.artistFilmsDisplayManager,
-                filmCollectionDataSource: self.filmCollectionDM.artistFilmsDataSourceAssembly.artistFilmsDataSource
-            )
+            ArtistFilmsRouting()
         )
     }
 

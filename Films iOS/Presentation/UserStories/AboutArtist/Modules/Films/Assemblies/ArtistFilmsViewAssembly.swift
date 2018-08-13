@@ -22,8 +22,8 @@ final class ArtistFilmsViewAssembly: Assembly {
         defineInjection(into: mvc) {
             $0.artistFilmsDataSource = self.artistFilmsDataSourceAssembly.artistFilmsDataSource
             $0.artistFilmsDisplayManager = self.artistFilmsDMAssembly.artistFilmsDisplayManager
-            $0.artistFilmsPresenter = self.artistFilmsPresenterAssembly.artistFilmsPresenter
-            $0.moviesRouting = self.artistRoutingAssembly.artistRouting
+            $0.presenter = self.artistFilmsPresenterAssembly.artistFilmsPresenter
+            $0.router = self.artistRoutingAssembly.artistRouting
             return $0
         }
     }

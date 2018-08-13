@@ -14,6 +14,10 @@ open class BaseViewController: UIViewController, BaseHandlerController {
         self.performSegue(withIdentifier: name, sender: nil)
     }
 
+    func openModule(withName name: String, configurationClosure: Any) {
+        self.performSegue(withIdentifier: name, sender: configurationClosure)
+    }
+
     func closeModule() {
         if let navc = navigationController {
             if navc.viewControllers.count > 1 {
@@ -29,4 +33,5 @@ open class BaseViewController: UIViewController, BaseHandlerController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+
 }

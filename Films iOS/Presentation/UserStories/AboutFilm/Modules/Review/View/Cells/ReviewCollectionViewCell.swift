@@ -41,5 +41,8 @@ class ReviewCollectionViewCell: UICollectionViewCell {
         }
     }
 
-//    func setContent(image: String?, name: String, rating: )
+    func setContent(name: String, content: String) {
+        review.text = content
+        self.name.text = name
+    }
 }

@@ -18,9 +18,9 @@ class CastViewAssembly: Assembly {
 
     func inject(into mvc: CastViewController) {
         defineInjection(into: mvc) {
-            $0.castFilmPresenter = self.castFilmPresenterAssembly.castFilmPresenter
+            $0.presenter = self.castFilmPresenterAssembly.castFilmPresenter
             $0.castDisplayManager = self.castDisplayManagerAssembly.castDisplayManager
-            $0.castRouting = self.castRoutingAssembly.castRouting
+            $0.router = self.castRoutingAssembly.castRouting
             return $0
         }
     }

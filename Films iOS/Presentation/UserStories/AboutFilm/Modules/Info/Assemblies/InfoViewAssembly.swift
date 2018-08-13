@@ -20,11 +20,11 @@ class InfoViewAssembly: Assembly {
 
     func inject(into mvc: InfoFilmViewController) {
         defineInjection(into: mvc) {
-            $0.detailsFilmDataSource = self.detailsFilmDataSourceAssembly.detailsFilmDataSource
-            $0.detailsFilmPresenter = self.detailsFilmPresenterAssembly.detailsFilmPresenter
+            $0.datasource = self.detailsFilmDataSourceAssembly.detailsFilmDataSource
+            $0.presenter = self.detailsFilmPresenterAssembly.detailsFilmPresenter
             $0.galleryDisplayManager = self.infoFilmDisplayManagerAssembly.galleryDisplayManager
             $0.similarDisplayManager = self.infoFilmDisplayManagerAssembly.similarDisplayManager
-            $0.movieRouting = self.moviesRotingAssembly.infoMoviesRouting
+            $0.router = self.moviesRotingAssembly.infoMoviesRouting
             return $0
         }
     }

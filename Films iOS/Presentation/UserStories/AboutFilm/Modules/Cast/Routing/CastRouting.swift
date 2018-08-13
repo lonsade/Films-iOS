@@ -8,41 +8,15 @@
 
 import UIKit
 
-protocol CastRoutingProtocol {
-    func set(viewController: BaseViewController)
+protocol CastRoutingInput {
+    func navigateToAboutArtist(withId id: Int)
 }
 
-protocol CastRoutingProtocolOutput {
-    var selectArtistId: Int? { get }
-}
+final class CastRouting: CastRoutingInput {
 
-final class CastRouting: CastRoutingProtocol, CastRoutingProtocolOutput {
+    weak var viewController: CastViewController!
 
-    private var currentViewController: BaseViewController?
-
-    func set(viewController: BaseViewController) {
-        currentViewController = viewController
-    }
-
-    private var castDisplayManager: CastDisplayManager
-
-    private var castFilmDataSourceOutput: ICastFilmDataSourceOutput
-
-    init (
-        castDisplayManager: CastDisplayManager,
-        castFilmDataSourceOutput: ICastFilmDataSourceOutput
-    ) {
-        self.castDisplayManager = castDisplayManager
-        self.castFilmDataSourceOutput = castFilmDataSourceOutput
-        castDisplayManager.delegate = self
-    }
-
-    var selectArtistId: Int?
-}
-
-extension CastRouting: FilmCastCollectionDisplayManager {
-    func castWasSelected(at index: Int) {
-        selectArtistId = castFilmDataSourceOutput.credits[index].id
-        currentViewController?.openModule(withName: "AboutArtist")
+    func navigateToAboutArtist(withId id: Int) {
+        viewController.openModule(withName: "AboutArtist")
     }
 }
