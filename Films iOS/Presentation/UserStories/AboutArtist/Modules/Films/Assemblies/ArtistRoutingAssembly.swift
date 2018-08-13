@@ -12,13 +12,11 @@ class ArtistRoutingAssembly: Assembly {
 
     lazy var filmCollectionDM = ArtistFilmsDisplayManagerAssembly.instance()
 
-    lazy var filmCoolectionDS = ArtistFilmsDataSourceAssembly.instance()
-
     var artistRouting: BaseMoviesRoutingProtocol & BaseMoviesRoutingOutput {
         return define(scope: .lazySingleton, init:
             BaseMoviesRouting(
                 filmCollectionDisplayManager: self.filmCollectionDM.artistFilmsDisplayManager,
-                filmCollectionDataSource: self.filmCoolectionDS.artistFilmsDataSource
+                filmCollectionDataSource: self.filmCollectionDM.artistFilmsDataSourceAssembly.artistFilmsDataSource
             )
         )
     }

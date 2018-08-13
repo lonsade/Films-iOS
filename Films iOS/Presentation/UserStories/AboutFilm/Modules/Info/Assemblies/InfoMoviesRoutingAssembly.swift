@@ -14,7 +14,7 @@ class InfoMoviesRoutingAssembly: Assembly {
 
     lazy var filmCoolectionDS = DetailsFilmDataSourceAssembly.instance()
 
-    var infoMoviesRouting: BaseMoviesRoutingProtocol & BaseMoviesRoutingOutput {
+    var infoMoviesRouting: BaseMoviesRoutingProtocol {
         return define(scope: .lazySingleton, init:
             BaseMoviesRouting(
                 filmCollectionDisplayManager: self.filmCollectionDM.similarDisplayManager,

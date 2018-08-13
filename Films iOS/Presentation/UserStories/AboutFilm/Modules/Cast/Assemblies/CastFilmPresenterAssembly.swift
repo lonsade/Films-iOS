@@ -21,7 +21,7 @@ final class CastFilmPresenterAssembly: Assembly {
             CastFilmPresenter(
                 castFilmUsecase: self.castFilmUsecaseAssembly.castFilmUsecase,
                 castFilmDataSource: self.castFilmDataSourceAssembly.castFilmDataSource,
-                moviesRouting: self.moviesRoutingAssembly.moviesRoting
+                collectionMoviesRouting: self.moviesRoutingAssembly.moviesRoting
             )
         )
     }

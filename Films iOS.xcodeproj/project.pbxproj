@@ -357,13 +357,6 @@
 			path = Presenters;
 			sourceTree = "<group>";
 		};
-		BD119EEA21206A54002BBAD1 /* Routing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Routing;
-			sourceTree = "<group>";
-		};
 		BD700C34211ABDC500C51220 /* AboutFilm */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,7 +647,6 @@
 		BDD85B53211C193300256E60 /* Films */ = {
 			isa = PBXGroup;
 			children = (
-				BD119EEA21206A54002BBAD1 /* Routing */,
 				BD119EC121204D8D002BBAD1 /* Presenter */,
 				BD119EC021204D7B002BBAD1 /* Assemblies */,
 				BD119EBE21204D60002BBAD1 /* View */,

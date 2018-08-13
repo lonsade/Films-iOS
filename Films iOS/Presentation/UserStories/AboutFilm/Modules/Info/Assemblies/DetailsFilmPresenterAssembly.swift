@@ -16,6 +16,8 @@ final class DetailsFilmPresenterAssembly: Assembly {
 
     lazy var moviesRoutingAssembly = MoviesRotingAssembly.instance()
 
+//    lazy var artistRoutingAssembly = ArtistRoutingAssembly.instance()
+
     var detailsFilmPresenter: IDetailsFilmPresenter {
         return define(scope: .lazySingleton, init:
             DetailsFilmPresenter(

@@ -13,15 +13,18 @@ protocol BaseMoviesRoutingProtocol: class {
 }
 
 protocol BaseMoviesRoutingOutput: class {
-    var selectFilmId: Int? { get }
+    var filmId: Int? { get }
 }
 
-final class BaseMoviesRouting: BaseMoviesRoutingProtocol, BaseMoviesRoutingOutput {
+class BaseMoviesRouting: BaseMoviesRoutingProtocol, BaseMoviesRoutingOutput {
 
     private var currentViewController: BaseViewController?
 
+    var filmId: Int?
+
     func set(viewController: BaseViewController) {
         currentViewController = viewController
+        filmCollectionDisplayManager.delegate = self
     }
 
     private var filmCollectionDisplayManager: BaseMoviesDisplayManager
@@ -34,14 +37,12 @@ final class BaseMoviesRouting: BaseMoviesRoutingProtocol, BaseMoviesRoutingOutpu
     ) {
         self.filmCollectionDisplayManager = filmCollectionDisplayManager
         self.filmCollectionDataSource = filmCollectionDataSource
-        filmCollectionDisplayManager.delegate = self
     }
-    var selectFilmId: Int?
 }
 
 extension BaseMoviesRouting: FilmCollectionDisplayManagerDelegate {
     func filmWasSelected(at indexPath: IndexPath) {
-        selectFilmId = filmCollectionDataSource.films[indexPath.item].id
+        filmId = filmCollectionDataSource.films[indexPath.item].id
         currentViewController?.openModule(withName: "AboutFilm")
     }
 }
