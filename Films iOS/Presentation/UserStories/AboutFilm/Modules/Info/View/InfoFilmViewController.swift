@@ -113,6 +113,7 @@ class InfoFilmViewController: BaseViewController {
         didSet {
             similarDisplayManager.collectionFilms = collectionSimilarFilms
             similarDisplayManager.delegate = self
+            similarDisplayManager.isSeeAlso = true
         }
     }
 
@@ -135,12 +136,6 @@ class InfoFilmViewController: BaseViewController {
 }
 
 extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
-    func similarWereAdd() {
-        collectionSimilarFilms.reloadData()
-
-        //* Фикс высоты коллекции *//
-
-    }
 
     func imagesWasAdded(images: [GalleryImage]) {
         galleryDisplayManager.collectionGallery?.reloadData()

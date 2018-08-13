@@ -16,6 +16,7 @@ class PopularFilmsViewController: BaseViewController {
         didSet {
             filmCollectionDisplayManager.collectionFilms = filmCollection
             filmCollectionDisplayManager.delegate = self
+            filmCollectionDisplayManager.isSeeAlso = false
         }
     }
 

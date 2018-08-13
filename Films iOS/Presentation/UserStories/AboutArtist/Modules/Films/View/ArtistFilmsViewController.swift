@@ -18,6 +18,7 @@ class ArtistFilmsViewController: BaseViewController {
         didSet {
             artistFilmsDisplayManager.collectionFilms = artistFilmsCollectionView
             artistFilmsDisplayManager.delegate = self
+            artistFilmsDisplayManager.isSeeAlso = false
         }
     }
 

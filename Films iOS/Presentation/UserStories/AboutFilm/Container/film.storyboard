@@ -275,14 +275,14 @@
             <objects>
                 <viewController storyboardIdentifier="page0" id="TCa-hi-m5R" customClass="InfoFilmViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aey-Ku-dgE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Df3-Pg-QgY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="880"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Df3-Pg-QgY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="980"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="plg-GS-3UY" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plg-GS-3UY" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u8h-xu-Ddd">
                                                 <rect key="frame" x="0.0" y="2" width="375" height="150"/>
@@ -395,20 +395,20 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.93051225729999998" green="1" blue="0.19995064139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </stackView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Описание" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5P-zL-EHb">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Описание" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5P-zL-EHb">
                                                 <rect key="frame" x="16" y="332" width="343" height="33"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSE-OO-LXq">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSE-OO-LXq">
                                                 <rect key="frame" x="16" y="379" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UG0-gS-8bE">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UG0-gS-8bE">
                                                 <rect key="frame" x="0.0" y="410.5" width="375" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -446,18 +446,15 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="See also" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CI-zh-tBv">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See also" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CI-zh-tBv">
                                                 <rect key="frame" x="16" y="488.5" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-CE-63t">
-                                                <rect key="frame" x="0.0" y="521" width="375" height="363"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-CE-63t">
+                                                <rect key="frame" x="0.0" y="521" width="375" height="463"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="300" id="7Eu-DH-Zoz"/>
-                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="Ya7-MC-ccP">
                                                     <size key="itemSize" width="163" height="298"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -544,8 +541,8 @@
                                             <constraint firstItem="j5P-zL-EHb" firstAttribute="leading" secondItem="plg-GS-3UY" secondAttribute="leading" constant="16" id="oB2-eL-3Fd"/>
                                             <constraint firstAttribute="trailing" secondItem="u8h-xu-Ddd" secondAttribute="trailing" id="oaU-ML-KSc"/>
                                             <constraint firstItem="u8h-xu-Ddd" firstAttribute="top" secondItem="plg-GS-3UY" secondAttribute="top" constant="2" id="oec-00-GWO"/>
-                                            <constraint firstAttribute="bottom" secondItem="Vga-CE-63t" secondAttribute="bottom" constant="16" id="pvq-Oe-ulh"/>
                                             <constraint firstItem="Vga-CE-63t" firstAttribute="leading" secondItem="plg-GS-3UY" secondAttribute="leading" id="qD3-L4-AiC"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vga-CE-63t" secondAttribute="bottom" constant="16" id="rPC-wK-paI"/>
                                             <constraint firstAttribute="trailing" secondItem="mKd-IC-z0c" secondAttribute="trailing" constant="16" id="tRY-Cq-sKS"/>
                                             <constraint firstAttribute="trailing" secondItem="Vga-CE-63t" secondAttribute="trailing" id="veu-EC-pJh"/>
                                             <constraint firstAttribute="trailing" secondItem="j5P-zL-EHb" secondAttribute="trailing" constant="16" id="yV3-Sg-b3h"/>
@@ -571,7 +568,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zgN-m3-zre"/>
                     </view>
-                    <size key="freeformSize" width="375" height="900"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="age" destination="Rkd-K4-3Lh" id="tgj-Bv-qsQ"/>
                         <outlet property="collectionSimilarFilms" destination="Vga-CE-63t" id="MFA-Dl-vII"/>

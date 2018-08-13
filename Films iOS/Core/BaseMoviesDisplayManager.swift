@@ -16,6 +16,9 @@ class BaseMoviesDisplayManager: NSObject {
 
     private let reuseIdentifier = "filmCard"
 
+    // для идентификации дисплея менеджера, предназначенного для отображения See Also
+    var isSeeAlso = false
+
     private var filmsDataSource: BaseMoviesDataSourceOutput
 
     init(filmsDataSource: BaseMoviesDataSourceOutput) {
@@ -37,6 +40,33 @@ class BaseMoviesDisplayManager: NSObject {
 extension BaseMoviesDisplayManager: BaseMoviesDataSourceDelegate {
     func moviesWereAdd() {
         collectionFilms?.reloadData()
+
+        //* Фикс высоты коллекции для see also *//
+
+        if isSeeAlso {
+
+            let heightCell = 298
+
+            let space = 16
+
+            let countRows = filmsDataSource.films.count / 2
+
+            let heightCollection = heightCell * countRows + space * (countRows - 1)
+
+            let heightConstraint = NSLayoutConstraint(
+                item: collectionFilms,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: CGFloat(heightCollection)
+            )
+
+            collectionFilms?.addConstraint(heightConstraint)
+
+        }
+
     }
 }
 
