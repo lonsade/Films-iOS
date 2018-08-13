@@ -10,9 +10,6 @@ import UIKit
 
 class InfoFilmViewController: BaseViewController {
 
-    var detailsFilmDataSource: IDetailsFilmDataSourceOutput!
-    var detailsFilmPresenter: IDetailsFilmPresenter!
-
     private func costomizeInfoTitle(label: UILabel) {
         label.font = UIFont.FAboutFilmInfoTitleAndDesc
         label.textColor = UIColor.FTitleTextColor
@@ -115,31 +112,30 @@ class InfoFilmViewController: BaseViewController {
     var similarDisplayManager: BaseMoviesDisplayManager! {
         didSet {
             similarDisplayManager.collectionFilms = collectionSimilarFilms
+            similarDisplayManager.delegate = self
+            similarDisplayManager.isSeeAlso = true
         }
     }
 
-    var movieRouting: BaseMoviesRoutingProtocol!
+    var router: InfoRouting!
+    var datasource: IDetailsFilmDataSourceOutput!
+    var presenter: IDetailsFilmPresenter!
 
     @IBOutlet weak var collectionSimilarFilms: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         InfoViewAssembly.instance().inject(into: self)
-        detailsFilmDataSource.delegate = self
-        detailsFilmPresenter.setDetailsFilm()
-        detailsFilmPresenter.setGallery()
-        detailsFilmPresenter.setSimilar()
-        movieRouting.set(viewController: self)
+        router.viewController = self
+        datasource.delegate = self
+        presenter.setDetailsFilm()
+        presenter.setGallery()
+        presenter.setSimilar()
     }
+
 }
 
 extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
-    func similarWereAdd() {
-        collectionSimilarFilms.reloadData()
-
-        //* Фикс высоты коллекции *//
-
-    }
 
     func imagesWasAdded(images: [GalleryImage]) {
         galleryDisplayManager.collectionGallery?.reloadData()
@@ -172,6 +168,12 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
         // RAting
         rating.setRating(equal: details.voteAverage)
 
+    }
+}
+
+extension InfoFilmViewController: FilmCollectionDisplayManagerDelegate {
+    func filmWasSelected(withId id: Int) {
+        router.navigateToAboutFilm(withId: id)
     }
 }
 

@@ -20,8 +20,8 @@ class PopularFilmsViewAssembly: Assembly {
     func inject(into pvc: PopularFilmsViewController) {
         defineInjection(into: pvc) {
             $0.filmCollectionDisplayManager = self.filmCollectionDisplayManager.popularFilmsDisplayManager
-            $0.popularFilmsPresenter = self.popularFilmsPresenterAssembly.popularFilmsPresenter
-            $0.moviesRouting = self.moviesRoutingAssembly.moviesRoting
+            $0.presenter = self.popularFilmsPresenterAssembly.popularFilmsPresenter
+            $0.router = self.moviesRoutingAssembly.moviesRoting
             return $0
         }
     }

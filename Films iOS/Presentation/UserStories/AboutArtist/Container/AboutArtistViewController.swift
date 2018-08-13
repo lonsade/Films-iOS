@@ -13,13 +13,6 @@ class AboutArtistViewController: UIViewController {
     private let pages = ["bio", "films"]
     private let storybordName = "artist"
 
-    /*Кастомизация линии под сегмент контролем*/
-    @IBOutlet weak var lineUnderTabs: UIView! {
-        didSet {
-            lineUnderTabs.backgroundColor = UIColor.FHRColor
-        }
-    }
-
     @IBOutlet weak var tdbBarForFilm: UIStackView! {
         didSet {
             tdbBarForFilm.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)

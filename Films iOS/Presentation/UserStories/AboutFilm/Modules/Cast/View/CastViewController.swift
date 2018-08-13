@@ -15,17 +15,24 @@ class CastViewController: BaseViewController {
     var castDisplayManager: CastDisplayManager! {
         didSet {
             castDisplayManager.collectionCast = self.collectionCast
+            castDisplayManager.delegate = self
         }
     }
 
-    var castRouting: CastRoutingProtocol!
-    var castFilmPresenter: ICastFilmPresenter!
+    var router: CastRouting!
+    var presenter: ICastFilmPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         CastViewAssembly.instance().inject(into: self)
-        castFilmPresenter.setCredits()
-        castRouting.set(viewController: self)
+        router.viewController = self
+        presenter.setCredits()
     }
 
+}
+
+extension CastViewController: FilmCastCollectionDisplayManager {
+    func castWasSelected(withId id: Int) {
+        router.navigateToAboutArtist(withId: id)
+    }
 }

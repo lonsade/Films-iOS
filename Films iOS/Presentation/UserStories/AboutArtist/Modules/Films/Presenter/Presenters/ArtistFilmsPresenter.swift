@@ -14,22 +14,21 @@ protocol IArtistFilmsPresenter: class {
 
 final class ArtistFilmsPresenter: IArtistFilmsPresenter {
 
-    private var castRouting: CastRoutingProtocolOutput
     private var artistFilmsUsecase: IArtistFilmsUsecase
     private var artistFilmsDataSource: BaseMoviesDataSourceInput
 
     init(
-        castRouting: CastRoutingProtocolOutput,
         artistFilmsUsecase: IArtistFilmsUsecase,
         artistFilmsDataSource: BaseMoviesDataSourceInput
     ) {
         self.artistFilmsDataSource = artistFilmsDataSource
         self.artistFilmsUsecase = artistFilmsUsecase
-        self.castRouting = castRouting
     }
 
     func setArtistFilms() {
-        guard let castId = castRouting.selectArtistId else { fatalError("Cast id doesnt exist") }
+//        guard let castId = castRouting.selectArtistId else { fatalError("Cast id doesnt exist") }
+
+        let castId = 287
 
         artistFilmsUsecase.getFilms(relativeURL: "/person/\(castId)/movie_credits").done { films in
             self.artistFilmsDataSource.add(films: films)

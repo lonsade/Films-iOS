@@ -10,15 +10,10 @@ import UIKit
 
 class AboutFilmViewController: UIViewController {
 
+    var filmId: Int?
+
     private let pages = ["page0", "page1", "page2"]
     private let storybordName = "film"
-
-    /*Кастомизация линии под сегмент контролем*/
-    @IBOutlet weak var lineUnderTabs: UIView! {
-        didSet {
-            lineUnderTabs.backgroundColor = UIColor.FHRColor
-        }
-    }
 
     @IBOutlet weak var tdbBarForFilm: UIStackView! {
         didSet {

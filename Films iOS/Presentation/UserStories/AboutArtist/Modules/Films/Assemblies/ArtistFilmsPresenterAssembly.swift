@@ -14,12 +14,9 @@ final class ArtistFilmsPresenterAssembly: Assembly {
 
     lazy var artistFilmsDataSourceAssembly = ArtistFilmsDataSourceAssembly.instance()
 
-    lazy var castRoutingAssembly = CastRoutingAssembly.instance()
-
     var artistFilmsPresenter: IArtistFilmsPresenter {
         return define(scope: .lazySingleton, init:
             ArtistFilmsPresenter(
-                castRouting: self.castRoutingAssembly.castRouting,
                 artistFilmsUsecase: self.artistFilmsUsecaseAssembly.artistFilmsUsecase,
                 artistFilmsDataSource: self.artistFilmsDataSourceAssembly.artistFilmsDataSource
             )

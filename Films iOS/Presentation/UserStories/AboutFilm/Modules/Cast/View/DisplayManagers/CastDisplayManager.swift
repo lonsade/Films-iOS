@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FilmCastCollectionDisplayManager: class {
-    func castWasSelected(at index: Int)
+    func castWasSelected(withId id: Int)
 }
 
 final class CastDisplayManager: NSObject {
@@ -37,7 +37,7 @@ final class CastDisplayManager: NSObject {
 
 extension CastDisplayManager: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.castWasSelected(at: indexPath.item)
+        delegate?.castWasSelected(withId: self.castDataSource.credits[indexPath.item].id)
     }
 }
 
