@@ -33,7 +33,7 @@ class PopularFilmsViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AboutFilm" {
             if let aboutFilm = segue.destination as? AboutFilmViewController {
-
+                
             }
 
         }
