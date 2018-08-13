@@ -85,7 +85,7 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0L-sf-TKa">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0L-sf-TKa" customClass="CustomHR" customModule="Films_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="40" width="375" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -124,7 +124,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="borderView" destination="O0L-sf-TKa" id="6gd-yH-7hC"/>
                         <outlet property="collectionTabNames" destination="sfu-Re-Isi" id="yhS-7T-stv"/>
                         <outlet property="navigationBar" destination="pEl-IG-axs" id="Txa-IT-3Ls"/>
                     </connections>
@@ -243,8 +242,8 @@
         <!--film-->
         <scene sceneID="GQ2-Ub-EtP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6lo-Sz-2Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="film" id="jbk-zS-6H3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6lo-Sz-2Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2534" y="-557"/>
         </scene>

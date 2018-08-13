@@ -14,9 +14,13 @@ protocol IDetailsFilmPresenter: class {
     func setSimilar()
 }
 
-protocol InfoModuleInput {
-
-}
+//protocol InfoInputProvider {
+//    var infoInput: InfoInput { get set }
+//}
+//
+//protocol InfoInput {
+//    var filmId: Int? { get set }
+//}
 
 final class DetailsFilmPresenter: IDetailsFilmPresenter {
 
@@ -26,7 +30,7 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
     private var galleryUsecase: IGalleryUsecase
     private var similarUsecase: ISimilarFilmsUsecase
 
-    private var filmId: Int?
+    var filmId: Int?
 
     init(
         detailsFilmUsecase: IDetailsFilmUsecase,

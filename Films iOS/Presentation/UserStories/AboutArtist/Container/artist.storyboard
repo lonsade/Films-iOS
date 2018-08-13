@@ -36,7 +36,7 @@
                                             <constraint firstAttribute="height" constant="27" id="7Tm-3x-zRD"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ffn-ar-Uc5">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ffn-ar-Uc5" customClass="CustomHR" customModule="Films_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="41" width="375" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -70,7 +70,6 @@
                         <viewLayoutGuide key="safeArea" id="zDC-xS-LNH"/>
                     </view>
                     <connections>
-                        <outlet property="lineUnderTabs" destination="Ffn-ar-Uc5" id="dGa-cJ-Dxk"/>
                         <outlet property="tabsSegmentControl" destination="ocl-AQ-AgR" id="vgh-LZ-bTl"/>
                         <outlet property="tdbBarForFilm" destination="CMd-10-jV5" id="4b0-RV-7Dh"/>
                     </connections>
@@ -176,7 +175,7 @@
                     </view>
                     <connections>
                         <outlet property="artistFilmsCollectionView" destination="9Aa-cV-hrs" id="Ipj-vc-glq"/>
-                        <segue destination="u31-c9-3f4" kind="show" identifier="AboutFilm" id="9a9-KQ-tIw"/>
+                        <segue destination="u31-c9-3f4" kind="show" identifier="AboutArtistFilm" id="9a9-KQ-tIw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9v-1J-p9X" userLabel="First Responder" sceneMemberID="firstResponder"/>

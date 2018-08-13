@@ -8,20 +8,17 @@
 
 import EasyDi
 
-//class CastViewAssembly: Assembly {
-//    
-//    lazy var castFilmPresenterAssembly: CastFilmPresenterAssembly = CastFilmPresenterAssembly.instance()
-//    
-//    lazy var castDisplayManagerAssembly: CastDisplayManagerAssembly = CastDisplayManagerAssembly.instance()
-//    
-//    lazy var castRoutingAssembly = CastRoutingAssembly.instance()
-//    
-//    func inject(into mvc: CastViewController) {
-//        defineInjection(into: mvc) {
-//            $0.castFilmPresenter = self.castFilmPresenterAssembly.castFilmPresenter
-//            $0.castDisplayManager = self.castDisplayManagerAssembly.castDisplayManager
-//            $0.castRouting = self.castRoutingAssembly.castRouting
-//            return $0
-//        }
-//    }
-//}
+class ReviewViewAssembly: Assembly {
+
+    lazy var presenterAssembly = ReviewPresenterAssembly.instance()
+
+    lazy var displayManagerAssembly = ReviewDisplayManagerAssembly.instance()
+
+    func inject(into mvc: ReviewViewController) {
+        defineInjection(into: mvc) {
+            $0.presenter = self.presenterAssembly.reviewPresenter
+            $0.reviewDisplayManager = self.displayManagerAssembly.reviewDisplayManager
+            return $0
+        }
+    }
+}

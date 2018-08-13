@@ -18,6 +18,7 @@ final class ReviewDisplayManager: NSObject {
         didSet {
             reviewDataSource.delegate = self
             collectionReview?.dataSource = self
+            collectionReview?.delegate = self
         }
     }
 
@@ -46,6 +47,19 @@ extension ReviewDisplayManager: UICollectionViewDataSource {
         return cell
     }
 
+}
+
+extension ReviewDisplayManager: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CGSize(
+            width: reviewDataSource.reviews[indexPath.item].content.getSizeWithFormating(font: UIFont.FTabName).width,
+            height: reviewDataSource.reviews[indexPath.item].content.getSizeWithFormating(font: UIFont.FTabName).height + 100
+        )
+    }
 }
 
 extension ReviewDisplayManager: ReviewDataSourceDelegate {

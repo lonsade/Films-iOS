@@ -29,6 +29,15 @@ class PopularFilmsViewController: BaseViewController {
         presenter.setPopularFilms()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AboutFilm" {
+            if let aboutFilm = segue.destination as? AboutFilmViewController {
+
+            }
+
+        }
+    }
+
 }
 
 extension PopularFilmsViewController: FilmCollectionDisplayManagerDelegate {

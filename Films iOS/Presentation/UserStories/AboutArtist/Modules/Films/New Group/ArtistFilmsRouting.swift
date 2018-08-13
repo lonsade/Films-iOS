@@ -16,6 +16,6 @@ final class ArtistFilmsRouting: ArtistFilmsRoutingInput {
     weak var viewController: ArtistFilmsViewController!
 
     func navigateToAboutFilm(withId id: Int) {
-        viewController.openModule(withName: "AboutFilm")
+        viewController.openModule(withName: "AboutArtistFilm")
     }
 }

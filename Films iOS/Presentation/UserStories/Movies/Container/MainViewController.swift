@@ -24,12 +24,6 @@ final class MainViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var borderView: UIView! {
-        didSet {
-            borderView.backgroundColor = UIColor.FHRColor
-        }
-    }
-
     @IBOutlet weak var collectionTabNames: UICollectionView!
 
     /* кастомизация navigationBar и установка главного фона */

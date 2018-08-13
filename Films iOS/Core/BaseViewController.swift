@@ -14,7 +14,7 @@ open class BaseViewController: UIViewController, BaseHandlerController {
         self.performSegue(withIdentifier: name, sender: nil)
     }
 
-    func openModule(withName name: String, configurationClosure: Any) {
+    func openModule(withName name: String, configurationClosure: (Int?) -> Void) {
         self.performSegue(withIdentifier: name, sender: configurationClosure)
     }
 

@@ -12,4 +12,18 @@ class ReviewViewController: UIViewController {
 
     @IBOutlet weak var reviewCollection: UICollectionView!
 
+    var reviewDisplayManager: ReviewDisplayManager! {
+        didSet {
+            reviewDisplayManager.collectionReview = self.reviewCollection
+        }
+    }
+
+    var presenter: IReviewPresenter!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ReviewViewAssembly.instance().inject(into: self)
+        presenter.setReview()
+    }
+
 }
