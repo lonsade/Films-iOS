@@ -5,9 +5,9 @@ stages:
 build_project:
   stage: build
   script:
-    - fastlane cocoapods
+    - bundle exec fastlane install_depencies
 
 test_project:
-  stage: archive
+  stage: test
   script:
-    - fastlane tests
+    - bundle exec fastlane tests
