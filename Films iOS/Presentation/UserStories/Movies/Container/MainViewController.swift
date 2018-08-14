@@ -8,7 +8,15 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+protocol MainModuleInput {
+
+}
+
+final class MainViewController: UIViewController, FilmsModuleOutput {
+
+    func userDidTap(film: FilmCard) {
+
+    }
 
     private let pages = ["Popular", "in cinema"]
     private let storybordName = "Main"

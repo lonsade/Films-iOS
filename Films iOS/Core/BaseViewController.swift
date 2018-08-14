@@ -9,13 +9,26 @@
 import Foundation
 import UIKit
 
-open class BaseViewController: UIViewController, BaseHandlerController {
+open class BaseViewController: UIViewController, BaseHandlerController, ModuleInputProvider {
+    var moduleInput: ModuleInput!
+
     func openModule(withName name: String) {
         self.performSegue(withIdentifier: name, sender: nil)
     }
 
-    func openModule(withName name: String, configurationClosure: (Int?) -> Void) {
+    func openModule(withName name: String, configurationClosure: @escaping ConfigurationClosure) {
         self.performSegue(withIdentifier: name, sender: configurationClosure)
+    }
+
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let viewController = segue.destination as? ModuleInputProvider else {
+            fatalError("Could not cust viewController to ModuleInputProvider")
+        }
+        guard let custSender = sender as? ConfigurationClosure else {
+            fatalError("Could not cust sender to ConfigurationClosure")
+
+        }
+        custSender(viewController.moduleInput)
     }
 
     func closeModule() {

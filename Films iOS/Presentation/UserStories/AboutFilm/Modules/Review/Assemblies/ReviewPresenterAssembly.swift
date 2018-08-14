@@ -14,11 +14,14 @@ final class ReviewPresenterAssembly: Assembly {
 
     lazy var reviewDataSourceAssembly: ReviewDataSourceAssembly = ReviewDataSourceAssembly.instance()
 
+    lazy var presenterAssembly = AboutFilmPresenterAssembly.instance()
+
     var reviewPresenter: IReviewPresenter {
         return define(scope: .lazySingleton, init:
             ReviewPresenter(
                 reviewUsecase: self.reviewUsecaseAssembly.reviewUsecase,
-                reviewDataSource: self.reviewDataSourceAssembly.reviewDataSource
+                reviewDataSource: self.reviewDataSourceAssembly.reviewDataSource,
+                aboutFilmPresenter: self.presenterAssembly.aboutFilmPresenter
             )
         )
     }

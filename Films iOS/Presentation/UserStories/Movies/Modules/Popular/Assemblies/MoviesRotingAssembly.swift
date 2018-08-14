@@ -9,5 +9,12 @@
 import EasyDi
 
 class MoviesRotingAssembly: Assembly {
-    var moviesRoting: MoviesRouting { return define(scope: .lazySingleton, init: MoviesRouting()) }
+
+    lazy var filmsPresenter = PopularFilmsPresenterAssembly.instance()
+
+    var moviesRoting: MoviesRouting {
+        return define(scope: .lazySingleton, init:
+            MoviesRouting(presenter: self.filmsPresenter.popularFilmsPresenter)
+        )
+    }
 }
