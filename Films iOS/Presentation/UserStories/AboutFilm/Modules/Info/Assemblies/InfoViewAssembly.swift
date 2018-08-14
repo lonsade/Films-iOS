@@ -10,11 +10,11 @@ import EasyDi
 
 class InfoViewAssembly: Assembly {
 
-    lazy var detailsFilmPresenterAssembly: DetailsFilmPresenterAssembly = DetailsFilmPresenterAssembly.instance()
+    lazy var detailsFilmPresenterAssembly = DetailsFilmPresenterAssembly.instance()
 
-    lazy var detailsFilmDataSourceAssembly: DetailsFilmDataSourceAssembly = DetailsFilmDataSourceAssembly.instance()
+    lazy var detailsFilmDataSourceAssembly = DetailsFilmDataSourceAssembly.instance()
 
-    lazy var infoFilmDisplayManagerAssembly: InfoFilmDisplayManagerAssembly = InfoFilmDisplayManagerAssembly.instance()
+    lazy var infoFilmDisplayManagerAssembly = InfoFilmDisplayManagerAssembly.instance()
 
     lazy var moviesRotingAssembly = InfoMoviesRoutingAssembly.instance()
 

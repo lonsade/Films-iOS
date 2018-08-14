@@ -8,9 +8,13 @@
 
 import UIKit
 
+protocol MainModuleInput {
+
+}
+
 final class MainViewController: UIViewController {
 
-    private let pages = ["Popular", "in cinema"]
+    private let pages = ["Films"]
     private let storybordName = "Main"
 
     private var prevSelectedCell: TabNameCollectionViewCell?

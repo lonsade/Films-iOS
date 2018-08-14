@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReviewViewController: UIViewController {
+class ReviewViewController: BaseViewController {
 
     @IBOutlet weak var reviewCollection: UICollectionView!
 

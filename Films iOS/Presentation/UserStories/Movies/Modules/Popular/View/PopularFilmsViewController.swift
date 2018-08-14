@@ -30,19 +30,19 @@ class PopularFilmsViewController: BaseViewController {
         presenter.setPopularFilms()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AboutFilm" {
-            if let aboutFilm = segue.destination as? AboutFilmViewController {
-
-            }
-
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+////        if segue.identifier == "AboutFilm" {
+//            guard let aboutFilm = segue.destination as? ModuleInputProvider else {
+//                fatalError()
+//            }
+//
+////        }
+//    }
 
 }
 
 extension PopularFilmsViewController: FilmCollectionDisplayManagerDelegate {
-    func filmWasSelected(withId id: Int) {
-        router.navigateToAboutFilm(withId: id)
+    func filmWasSelected(withIndex id: Int) {
+        router.navigateToAboutFilm(onIndex: id)
     }
 }

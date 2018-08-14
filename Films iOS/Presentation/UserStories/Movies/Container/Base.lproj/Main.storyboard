@@ -135,7 +135,7 @@
         <!--Popular Films View Controller-->
         <scene sceneID="DaQ-5G-td1">
             <objects>
-                <viewController storyboardIdentifier="Popular" id="JtH-VU-9pV" customClass="PopularFilmsViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Films" id="JtH-VU-9pV" customClass="PopularFilmsViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="center" restorationIdentifier="Page 1" id="A8D-QF-7Pc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,30 +246,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lo-Sz-2Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2534" y="-557"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="OlP-76-MlL">
-            <objects>
-                <viewController storyboardIdentifier="in cinema" id="icl-jj-tZb" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="12e-jc-YMq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POPULAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYo-oK-EYm">
-                                <rect key="frame" x="218" y="223" width="77" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Ozc-mN-kJq"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HVF-ZL-Uhu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1872" y="244"/>
         </scene>
         <!--Base Page View Controller-->
         <scene sceneID="s7J-Bq-GwU">

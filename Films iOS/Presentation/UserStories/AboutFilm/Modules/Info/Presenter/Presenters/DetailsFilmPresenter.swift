@@ -14,14 +14,6 @@ protocol IDetailsFilmPresenter: class {
     func setSimilar()
 }
 
-//protocol InfoInputProvider {
-//    var infoInput: InfoInput { get set }
-//}
-//
-//protocol InfoInput {
-//    var filmId: Int? { get set }
-//}
-
 final class DetailsFilmPresenter: IDetailsFilmPresenter {
 
     private var detailsFilmUsecase: IDetailsFilmUsecase
@@ -29,28 +21,27 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
     private var dataSourceForSimilar: BaseMoviesDataSourceInput
     private var galleryUsecase: IGalleryUsecase
     private var similarUsecase: ISimilarFilmsUsecase
-
-    var filmId: Int?
+    private var aboutFilmPresenter: AboutFilmInput
 
     init(
         detailsFilmUsecase: IDetailsFilmUsecase,
         dataSourceForDetails: IDetailsFilmDataSourceInput,
         galleryUsecase: IGalleryUsecase,
         similarUsecase: ISimilarFilmsUsecase,
-        dataSourceForSimilar: BaseMoviesDataSourceInput
+        dataSourceForSimilar: BaseMoviesDataSourceInput,
+        aboutFilmPresenter: AboutFilmInput
     ) {
         self.detailsFilmUsecase = detailsFilmUsecase
         self.dataSourceForDetails = dataSourceForDetails
         self.galleryUsecase = galleryUsecase
         self.similarUsecase = similarUsecase
         self.dataSourceForSimilar = dataSourceForSimilar
+        self.aboutFilmPresenter = aboutFilmPresenter
     }
 
     func setDetailsFilm() {
 
-//        guard let filmId = filmId else { fatalError("Film id doesnt exist") }
-
-        let filmId = 550
+        guard let filmId = aboutFilmPresenter.id else { fatalError("Film id doesnt exist") }
 
         detailsFilmUsecase.getFilmDetails(relativeURL: "/movie/\(filmId)").done { details in
             self.dataSourceForDetails.add(details: details)
@@ -62,9 +53,7 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
 
     func setGallery() {
 
-//        guard let filmId = filmId else { fatalError("Film id doesnt exist") }
-
-        let filmId = 550
+        guard let filmId = aboutFilmPresenter.id else { fatalError("Film id doesnt exist") }
 
         galleryUsecase.getGallery(relativeURL: "/movie/\(filmId))/images").done { images in
             self.dataSourceForDetails.add(images: images)
@@ -75,9 +64,8 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
     }
 
     func setSimilar() {
-//        guard let filmId = filmId else { fatalError("Film id doesnt exist") }
 
-        let filmId = 550
+        guard let filmId = aboutFilmPresenter.id else { fatalError("Film id doesnt exist") }
 
         similarUsecase.getSimilar(relativeURL: "/movie/\(filmId))/similar").done { films in
             self.dataSourceForSimilar.add(films: films)

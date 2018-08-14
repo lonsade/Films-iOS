@@ -41,6 +41,8 @@
 		BD1DCF6C21132308001B48EF /* TabName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6B21132308001B48EF /* TabName.swift */; };
 		BD1DCF7221132939001B48EF /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF7121132939001B48EF /* Genres.swift */; };
 		BD3D14D02122F0D300F5BD1E /* Films_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D14CF2122F0D300F5BD1E /* Films_iOSTests.swift */; };
+		BD3D14DC21231F3F00F5BD1E /* AboutFilmViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D14DB21231F3F00F5BD1E /* AboutFilmViewAssembly.swift */; };
+		BD3D14DE21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D14DD21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift */; };
 		BD47CFD92112F47E007339C8 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47CFD82112F47E007339C8 /* Networking.swift */; };
 		BD47CFDC2112FE15007339C8 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47CFDB2112FE15007339C8 /* NetworkingError.swift */; };
 		BD5292A22114783700870328 /* TabNamesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5292A12114783700870328 /* TabNamesPresenter.swift */; };
@@ -194,6 +196,8 @@
 		BD3D14CD2122F0D300F5BD1E /* Films_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Films_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3D14CF2122F0D300F5BD1E /* Films_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films_iOSTests.swift; sourceTree = "<group>"; };
 		BD3D14D12122F0D300F5BD1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD3D14DB21231F3F00F5BD1E /* AboutFilmViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFilmViewAssembly.swift; sourceTree = "<group>"; };
+		BD3D14DD21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFilmPresenterAssembly.swift; sourceTree = "<group>"; };
 		BD47CFD82112F47E007339C8 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		BD47CFDB2112FE15007339C8 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		BD5292A12114783700870328 /* TabNamesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesPresenter.swift; sourceTree = "<group>"; };
@@ -838,6 +842,8 @@
 			children = (
 				BDF19549211863320093D236 /* film.storyboard */,
 				BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */,
+				BD3D14DB21231F3F00F5BD1E /* AboutFilmViewAssembly.swift */,
+				BD3D14DD21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -1507,6 +1513,7 @@
 				BD119EB6212036A8002BBAD1 /* SimilarFilmsUsecase.swift in Sources */,
 				BD6C97F321217EF800E5660A /* ReviewPresenter.swift in Sources */,
 				BD6C97E721217CB600E5660A /* ReviewUsecase.swift in Sources */,
+				BD3D14DC21231F3F00F5BD1E /* AboutFilmViewAssembly.swift in Sources */,
 				BDD85B70211C311400256E60 /* InfoFilmUsecaseAssembly.swift in Sources */,
 				BD700C65211B30E700C51220 /* CastViewAssembly.swift in Sources */,
 				BD700C5D211B2B7400C51220 /* CastUsecase.swift in Sources */,
@@ -1538,6 +1545,7 @@
 				BD119ED721205460002BBAD1 /* ArtistFilmsDisplayManagerAssembly.swift in Sources */,
 				BDF83D6A2111FF35001596EA /* CALayerApplySketchShadow.swift in Sources */,
 				BD119ED9212054F3002BBAD1 /* ArtistFilmsPresenterAssembly.swift in Sources */,
+				BD3D14DE21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift in Sources */,
 				BDD85B9E211C4D7600256E60 /* ArtistPhotos.swift in Sources */,
 				BD700C3E211AF00400C51220 /* GalleryDisplayManager.swift in Sources */,
 				BD119ECF212050BC002BBAD1 /* ArtistFilmsPresenter.swift in Sources */,

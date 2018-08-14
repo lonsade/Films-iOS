@@ -8,7 +8,11 @@
 
 import Foundation
 
+typealias ConfigurationClosure = (ModuleInput) -> Void
+
 protocol BaseHandlerController {
     func openModule(withName name: String)
+    func openModule(withName name: String, configurationClosure: @escaping ConfigurationClosure)
     func closeModule()
+
 }

@@ -8,9 +8,27 @@
 
 import UIKit
 
-class AboutFilmViewController: UIViewController {
+protocol ModuleInputProvider {
+    var moduleInput: ModuleInput! { get }
+}
 
-    var filmId: Int?
+protocol AboutFilmInput: ModuleInput {
+    var id: Int? { get }
+    func set(id: Int)
+}
+
+class AboutFilmPresenter: AboutFilmInput {
+
+    var id: Int?
+
+    func set(id: Int) {
+        self.id = id
+    }
+}
+
+final class AboutFilmViewController: UIViewController, ModuleInputProvider {
+
+    var moduleInput: ModuleInput!
 
     private let pages = ["page0", "page1", "page2"]
     private let storybordName = "film"
@@ -37,6 +55,7 @@ class AboutFilmViewController: UIViewController {
             pageView.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
 
             pageView.pageDelegate = self
+
         }
     }
 
@@ -53,8 +72,14 @@ class AboutFilmViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .FTitleTextColor
 
     }
+
+    override func awakeFromNib() {
+        AboutFilmViewAssembly.instance().inject(into: self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         costomize()
     }
 

@@ -12,12 +12,16 @@ protocol IPopularFilmsPresenter: class {
     func setPopularFilms()
 }
 
-final class PopularFilmsPresenter: IPopularFilmsPresenter {
+protocol FilmsPresenterInput {
+    var dataSource: BaseMoviesDataSource { get }
+}
+
+final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
 
     private var listPopularFilmsUsecase: IListPopularFilmsUsecase
-    private var dataSource: BaseMoviesDataSourceInput
+    internal var dataSource: BaseMoviesDataSource
 
-    init(listPopularFilmsUsecase: IListPopularFilmsUsecase, dataSource: BaseMoviesDataSourceInput) {
+    init(listPopularFilmsUsecase: IListPopularFilmsUsecase, dataSource: BaseMoviesDataSource) {
         self.listPopularFilmsUsecase = listPopularFilmsUsecase
         self.dataSource = dataSource
     }

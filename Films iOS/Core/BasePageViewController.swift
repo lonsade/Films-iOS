@@ -18,7 +18,9 @@ protocol BasePageViewControllerDelegate: class {
     func pageWasChanged(at index: Int)
 }
 
-class BasePageViewController: UIPageViewController, BasePageViewControllerHandler {
+class BasePageViewController: UIPageViewController, BasePageViewControllerHandler, ModuleInputProvider {
+
+    var moduleInput: ModuleInput!
 
     private var storyboardName: String = "Main"
 
@@ -48,6 +50,21 @@ class BasePageViewController: UIPageViewController, BasePageViewControllerHandle
     // Текущий индекс
     private var currentIndex: Int?
     private var pendingIndex: Int?
+
+//    var pagedViewControllers: [String: UIViewController] = [:]
+//
+//    func openModule(withName name: String) {
+//
+//    }
+//
+//    func closeModule() {
+//
+//    }
+//
+//    func configureModule(withName name: String, configurationClosure: @escaping ConfigurationClosure) {
+//        guard let vc = pagedViewControllers[name] as? ModuleInputProvider else { fatalError("") }
+//        configurationClosure(vc.moduleInput)
+//    }
 
 }
 

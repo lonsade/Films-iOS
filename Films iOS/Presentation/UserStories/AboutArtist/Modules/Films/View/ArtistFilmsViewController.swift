@@ -46,7 +46,7 @@ extension ArtistFilmsViewController: BaseMoviesDataSourceDelegate {
 }
 
 extension ArtistFilmsViewController: FilmCollectionDisplayManagerDelegate {
-    func filmWasSelected(withId id: Int) {
+    func filmWasSelected(withIndex id: Int) {
         router.navigateToAboutFilm(withId: id)
     }
 }

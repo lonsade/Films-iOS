@@ -172,7 +172,7 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
 }
 
 extension InfoFilmViewController: FilmCollectionDisplayManagerDelegate {
-    func filmWasSelected(withId id: Int) {
+    func filmWasSelected(withIndex id: Int) {
         router.navigateToAboutFilm(withId: id)
     }
 }
