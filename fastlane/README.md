@@ -21,9 +21,9 @@ or alternatively using `brew cask install fastlane`
 fastlane ios tests
 ```
 Make tests
-### ios cocoapods
+### ios install_depencies
 ```
-fastlane ios cocoapods
+fastlane ios install_depencies
 ```
 Make cocoapods
 

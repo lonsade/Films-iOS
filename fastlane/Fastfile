@@ -21,12 +21,12 @@ platform :ios do
 		run_tests(
 			workspace: "Films iOS.xcworkspace",
 			devices: ["iPhone 8"],
-			scheme: "Films iOS tetss"
+			scheme: "Films iOS"
 		)
 	end
 
 	desc "Make cocoapods"
-	lane :cocoapods do
+	lane :install_depencies do
 		cocoapods(
 			clean: true,
 			podfile: "./Podfile"

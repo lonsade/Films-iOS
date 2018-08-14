@@ -2,12 +2,23 @@ stages:
   - build
   - test
 
+cache:
+  paths:
+    - Pods/
+
+before_script:
+  - bundle install
+
 build_project:
   stage: build
   script:
-    - fastlane cocoapods
+    - bundle exec fastlane install_depencies
+  tags: 
+    - ios
 
 test_project:
-  stage: archive
+  stage: test
   script:
-    - fastlane tests
+    - bundle exec fastlane tests
+  tags: 
+    - ios
