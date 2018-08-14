@@ -12,13 +12,9 @@ protocol MainModuleInput {
 
 }
 
-final class MainViewController: UIViewController, FilmsModuleOutput {
+final class MainViewController: UIViewController {
 
-    func userDidTap(film: FilmCard) {
-
-    }
-
-    private let pages = ["Popular", "in cinema"]
+    private let pages = ["Films"]
     private let storybordName = "Main"
 
     private var prevSelectedCell: TabNameCollectionViewCell?

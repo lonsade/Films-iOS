@@ -8,14 +8,6 @@
 
 import UIKit
 
-protocol FilmsModuleInput {
-
-}
-
-protocol FilmsModuleOutput {
-    func userDidTap(film: FilmCard)
-}
-
 class PopularFilmsViewController: BaseViewController {
 
     @IBOutlet weak var filmCollection: UICollectionView!
