@@ -6,10 +6,12 @@ build_project:
   stage: build
   script:
     - bundle exec fastlane install_depencies
-  tags: ios
+  tags: 
+    - ios
 
 test_project:
   stage: test
   script:
     - bundle exec fastlane tests
-  tags: ios
+  tags: 
+    - ios
