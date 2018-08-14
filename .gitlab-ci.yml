@@ -4,7 +4,7 @@ stages:
 
 cache:
   paths:
-    - Pods
+    - Pods/
 
 before_script:
   - bundle install
