@@ -8,15 +8,22 @@
 
 import Foundation
 
-protocol IPopularFilmsPresenter: class {
+protocol IPopularFilmsPresenter: ModuleInput {
     func setPopularFilms()
 }
 
-protocol FilmsPresenterInput {
+protocol FilmsPresenterInput: ModuleInput {
     var dataSource: BaseMoviesDataSource { get }
+    func set(genre: TabName)
 }
 
 final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
+
+    func set(genre: TabName) {
+        self.genre = genre
+    }
+
+    private var genre: TabName!
 
     private var listPopularFilmsUsecase: IListPopularFilmsUsecase
     internal var dataSource: BaseMoviesDataSource
@@ -27,12 +34,7 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
     }
 
     func setPopularFilms() {
-        listPopularFilmsUsecase.getPopularFilms(relativeURL: "/movie/popular").done { films in
-            self.dataSource.add(films: films)
-        }
-        .catch { error in
-            fatalError(error.localizedDescription)
-        }
+        self.dataSource.filter(genre: self.genre)
     }
 
 }

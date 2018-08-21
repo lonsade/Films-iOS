@@ -92,6 +92,9 @@
 		BD700C5D211B2B7400C51220 /* CastUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD700C5C211B2B7400C51220 /* CastUsecase.swift */; };
 		BD700C5F211B2BF400C51220 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD700C5E211B2BF400C51220 /* Credits.swift */; };
 		BD700C65211B30E700C51220 /* CastViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD700C64211B30E700C51220 /* CastViewAssembly.swift */; };
+		BDAC1016212BD73600A2DA9B /* BaseMainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAC1015212BD73600A2DA9B /* BaseMainPageViewController.swift */; };
+		BDAC101B212C34A300A2DA9B /* FilmsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAC101A212C34A300A2DA9B /* FilmsPresenter.swift */; };
+		BDAC101D212C367300A2DA9B /* FilmsPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAC101C212C367300A2DA9B /* FilmsPresenterAssembly.swift */; };
 		BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC941CA210EE861005C5041 /* AppDelegate.swift */; };
 		BDC941D0210EE861005C5041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDC941CE210EE861005C5041 /* Main.storyboard */; };
 		BDC941D2210EE864005C5041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC941D1210EE864005C5041 /* Assets.xcassets */; };
@@ -247,6 +250,9 @@
 		BD700C5C211B2B7400C51220 /* CastUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastUsecase.swift; sourceTree = "<group>"; };
 		BD700C5E211B2BF400C51220 /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
 		BD700C64211B30E700C51220 /* CastViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewAssembly.swift; sourceTree = "<group>"; };
+		BDAC1015212BD73600A2DA9B /* BaseMainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMainPageViewController.swift; sourceTree = "<group>"; };
+		BDAC101A212C34A300A2DA9B /* FilmsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsPresenter.swift; sourceTree = "<group>"; };
+		BDAC101C212C367300A2DA9B /* FilmsPresenterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsPresenterAssembly.swift; sourceTree = "<group>"; };
 		BDC941C7210EE861005C5041 /* Films iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Films iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDC941CA210EE861005C5041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDC941CF210EE861005C5041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -579,6 +585,7 @@
 				BDFCE2D9211D8AA100C70770 /* BasePageViewController.swift */,
 				BD119EED21206B8B002BBAD1 /* BaseMoviesDataSourceProtocols.swift */,
 				BD119EEF21206C54002BBAD1 /* BaseMoviesDisplayManager.swift */,
+				BDAC1015212BD73600A2DA9B /* BaseMainPageViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1140,6 +1147,8 @@
 			children = (
 				BDC941FB210F2ADE005C5041 /* MainViewController.swift */,
 				BDC941CE210EE861005C5041 /* Main.storyboard */,
+				BDAC101A212C34A300A2DA9B /* FilmsPresenter.swift */,
+				BDAC101C212C367300A2DA9B /* FilmsPresenterAssembly.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -1435,6 +1444,7 @@
 				BD700C50211B168500C51220 /* InfoFilmDisplayManagerAssembly.swift in Sources */,
 				BDD85BA8211C545A00256E60 /* ArtistBioViewController.swift in Sources */,
 				BD119EDB212055B4002BBAD1 /* ArtistFilmsViewAssembly.swift in Sources */,
+				BDAC101B212C34A300A2DA9B /* FilmsPresenter.swift in Sources */,
 				BD47CFD92112F47E007339C8 /* Networking.swift in Sources */,
 				BD119EF221207FF9002BBAD1 /* InfoMoviesRoutingAssembly.swift in Sources */,
 				BDD85B9A211C4CA500256E60 /* ArtistPhotosUsecase.swift in Sources */,
@@ -1510,9 +1520,11 @@
 				BD700C57211B289B00C51220 /* CastDisplayManager.swift in Sources */,
 				BD6C98082121AA5C00E5660A /* ArtistFilmsRouting.swift in Sources */,
 				BDD85B4E211C12C600256E60 /* ReviewViewController.swift in Sources */,
+				BDAC101D212C367300A2DA9B /* FilmsPresenterAssembly.swift in Sources */,
 				BD119EB6212036A8002BBAD1 /* SimilarFilmsUsecase.swift in Sources */,
 				BD6C97F321217EF800E5660A /* ReviewPresenter.swift in Sources */,
 				BD6C97E721217CB600E5660A /* ReviewUsecase.swift in Sources */,
+				BDAC1016212BD73600A2DA9B /* BaseMainPageViewController.swift in Sources */,
 				BD3D14DC21231F3F00F5BD1E /* AboutFilmViewAssembly.swift in Sources */,
 				BDD85B70211C311400256E60 /* InfoFilmUsecaseAssembly.swift in Sources */,
 				BD700C65211B30E700C51220 /* CastViewAssembly.swift in Sources */,

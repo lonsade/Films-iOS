@@ -9,10 +9,12 @@
 import Foundation
 
 protocol BaseMoviesDataSourceInput: class {
-    func add(films: [FilmCard])
+    func filter(genre: TabName?)
+    func load(base: [FilmCard])
 }
 
 protocol BaseMoviesDataSourceOutput: class {
+    var base: [FilmCard] { get }
     var films: [FilmCard] { get }
     var delegate: BaseMoviesDataSourceDelegate? { get set }
 }
@@ -23,10 +25,25 @@ protocol BaseMoviesDataSourceDelegate: class {
 
 final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourceOutput {
 
+    var base: [FilmCard]
+
     weak var delegate: BaseMoviesDataSourceDelegate?
 
-    func add(films: [FilmCard]) {
-        self.films = films
+    func load(base: [FilmCard]) {
+        self.base = base
+        self.films = base
+        delegate?.moviesWereAdd()
+    }
+
+    func filter(genre: TabName?) {
+
+        if let genre = genre {
+            self.films = base.filter {
+                return $0.genreIds.contains(genre.id)
+            }
+        } else {
+            self.films = base
+        }
         delegate?.moviesWereAdd()
     }
 
@@ -34,5 +51,6 @@ final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourc
 
     init() {
         films = []
+        base = []
     }
 }

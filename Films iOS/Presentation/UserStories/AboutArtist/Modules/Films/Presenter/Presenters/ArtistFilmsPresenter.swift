@@ -31,7 +31,7 @@ final class ArtistFilmsPresenter: IArtistFilmsPresenter {
         let castId = 287
 
         artistFilmsUsecase.getFilms(relativeURL: "/person/\(castId)/movie_credits").done { films in
-            self.artistFilmsDataSource.add(films: films)
+            self.artistFilmsDataSource.load(base: films)
         }
         .catch { error in
             fatalError(error.localizedDescription)

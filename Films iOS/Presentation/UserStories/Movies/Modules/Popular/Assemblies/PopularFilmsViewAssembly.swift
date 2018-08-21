@@ -22,6 +22,7 @@ class PopularFilmsViewAssembly: Assembly {
             $0.filmCollectionDisplayManager = self.filmCollectionDisplayManager.popularFilmsDisplayManager
             $0.presenter = self.popularFilmsPresenterAssembly.popularFilmsPresenter
             $0.router = self.moviesRoutingAssembly.moviesRoting
+            $0.moduleInput = self.popularFilmsPresenterAssembly.popularFilmsPresenter
             return $0
         }
     }

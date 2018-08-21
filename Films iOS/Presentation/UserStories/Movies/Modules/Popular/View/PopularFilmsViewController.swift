@@ -14,7 +14,6 @@ class PopularFilmsViewController: BaseViewController {
 
     var filmCollectionDisplayManager: BaseMoviesDisplayManager! {
         didSet {
-            filmCollectionDisplayManager.collectionFilms = filmCollection
             filmCollectionDisplayManager.delegate = self
             filmCollectionDisplayManager.isSeeAlso = false
         }
@@ -23,21 +22,19 @@ class PopularFilmsViewController: BaseViewController {
     var presenter: IPopularFilmsPresenter!
     var router: MoviesRouting!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func awakeFromNib() {
+        super.awakeFromNib()
         PopularFilmsViewAssembly.instance().inject(into: self)
-        router.viewController = self
-        presenter.setPopularFilms()
+        //presenter.setPopularFilms()
     }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-////        if segue.identifier == "AboutFilm" {
-//            guard let aboutFilm = segue.destination as? ModuleInputProvider else {
-//                fatalError()
-//            }
-//
-////        }
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        router.viewController = self
+        filmCollectionDisplayManager.collectionFilms = filmCollection
+        presenter.setPopularFilms()
+
+    }
 
 }
 

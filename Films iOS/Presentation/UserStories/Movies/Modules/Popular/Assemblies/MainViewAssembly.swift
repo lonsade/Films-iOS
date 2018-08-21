@@ -15,10 +15,19 @@ class MainViewAssembly: Assembly {
 
     lazy var tabNamesPresenterAssembly: TabNamesPresenterAssembly = TabNamesPresenterAssembly.instance()
 
+    lazy var genresDataSourceAssembly = TabNamesDataSourceAssembly.instance()
+
+    lazy var presenterFilmsAssembly = FilmsPresenterAssembly.instance()
+
+    lazy var dataSourceAssembly = PopularFilmsDSAssembly.instance()
+
     func inject(into mvc: MainViewController) {
         defineInjection(into: mvc) {
             $0.tabDisplayManager = self.tabDisplayManager.tabDisplayManager
             $0.tabNamesPresenter = self.tabNamesPresenterAssembly.tabNamesPresenter
+            $0.genresDataSource = self.genresDataSourceAssembly.tabNamesDataSource
+            $0.filmsPresenter = self.presenterFilmsAssembly.filmsPresenter
+            $0.filmsDataSource = self.dataSourceAssembly.popularFilmsDS
             return $0
         }
     }

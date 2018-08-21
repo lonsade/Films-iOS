@@ -247,10 +247,10 @@
             </objects>
             <point key="canvasLocation" x="2534" y="-557"/>
         </scene>
-        <!--Base Page View Controller-->
+        <!--Base Main Page View Controller-->
         <scene sceneID="s7J-Bq-GwU">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Prs-Ka-bVV" customClass="BasePageViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Prs-Ka-bVV" customClass="BaseMainPageViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gS5-S4-AfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1036" y="-352"/>

@@ -14,7 +14,7 @@ struct FilmCard: Codable {
     //let adult: Bool
     //let overview: String
     //let releaseDate: String
-    //let genreIds: [Int]
+    let genreIds: [Int]
     let id: Int
     //let originalTitle: String
     //let originalLanguage: String
@@ -30,7 +30,7 @@ struct FilmCard: Codable {
         //case adult
         //case overview
         //case releaseDate = "release_date"
-        //case genreIds = "genre_ids"
+        case genreIds = "genre_ids"
         case id
         //case originalTitle = "original_title"
         //case originalLanguage = "original_language"

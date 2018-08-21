@@ -22,7 +22,7 @@ class BasePageViewController: UIPageViewController, BasePageViewControllerHandle
 
     var moduleInput: ModuleInput!
 
-    private var storyboardName: String = "Main"
+    var storyboardName: String = "Main"
 
     var viewPages: [UIViewController] = []
 
@@ -33,7 +33,7 @@ class BasePageViewController: UIPageViewController, BasePageViewControllerHandle
         }
     }
 
-    private func getViewController(withIdentifier identifier: String) -> UIViewController {
+    func getViewController(withIdentifier identifier: String) -> UIViewController {
         return UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: identifier)
     }
 
@@ -45,26 +45,9 @@ class BasePageViewController: UIPageViewController, BasePageViewControllerHandle
         delegate = self
     }
 
-    //setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
-
     // Текущий индекс
     private var currentIndex: Int?
     private var pendingIndex: Int?
-
-//    var pagedViewControllers: [String: UIViewController] = [:]
-//
-//    func openModule(withName name: String) {
-//
-//    }
-//
-//    func closeModule() {
-//
-//    }
-//
-//    func configureModule(withName name: String, configurationClosure: @escaping ConfigurationClosure) {
-//        guard let vc = pagedViewControllers[name] as? ModuleInputProvider else { fatalError("") }
-//        configurationClosure(vc.moduleInput)
-//    }
 
 }
 
@@ -94,6 +77,7 @@ extension BasePageViewController: UIPageViewControllerDelegate {
 }
 
 extension BasePageViewController: UIPageViewControllerDataSource {
+
     func pageViewController(
         _ pageViewController: UIPageViewController,
         viewControllerBefore viewController: UIViewController
