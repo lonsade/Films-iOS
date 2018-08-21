@@ -6,7 +6,6 @@
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
-import Foundation
 import EasyDi
 
 final class TabNamesDataSourceAssembly: Assembly {

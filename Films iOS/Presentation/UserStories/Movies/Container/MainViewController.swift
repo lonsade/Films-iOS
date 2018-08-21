@@ -18,6 +18,8 @@ final class MainViewController: UIViewController {
 
     private var prevSelectedCell: TabNameCollectionViewCell?
 
+    private var firstPage: UIViewController!
+
     var tabNamesPresenter: ITabNamesPresenter!
 
     var tabDisplayManager: TabDisplayManager! {
@@ -58,7 +60,7 @@ final class MainViewController: UIViewController {
 
     var filmsPresenter: IFilmsPresenter!
 
-    var filmsDataSource: BaseMoviesDataSourceOutput!
+    var filmsDataSource: BaseFilmsDataSourceOutput!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,17 +73,9 @@ final class MainViewController: UIViewController {
 
 }
 
-extension MainViewController: BaseMoviesDataSourceDelegate {
-    func moviesWereAdd() {
-
-    }
-}
-
 extension MainViewController: TabNamesDSDelegate {
     func tabNamesWasAdded(names: [TabName]) {
-
-        tabDisplayManager.collectionTabNames?.reloadData()
-
+        collectionTabNames?.reloadData()
         filmsPresenter.loadPopularFilms()
 
         pageViewController.set(pages: names, storyboardName: storybordName)
@@ -94,9 +88,9 @@ extension MainViewController: TabNamesDSDelegate {
         guard let firstPage = pageViewController.pagedViewControllers[names[1]] else {
             fatalError("Could not put first page)")
         }
-        pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
+        self.firstPage = firstPage
         pageViewController.pageDelegate = self
-
+        pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
     }
 }
 
@@ -105,10 +99,12 @@ extension MainViewController: TabDisplayManagerDelegate {
     func tabWasSelected(at indexPath: IndexPath) {
 
         guard let selectedCell = collectionTabNames.cellForItem(at: indexPath) as? TabNameCollectionViewCell
-            else { fatalError("Error cell tab name with index: \(indexPath.item)") }
+        else { fatalError("Error cell tab name with index: \(indexPath.item)") }
 
         if let psc = prevSelectedCell {
             psc.changeActive(active: false)
+        } else {
+            (collectionTabNames.cellForItem(at: IndexPath(item: 1, section: 0)) as? TabNameCollectionViewCell)?.changeActive(active: false)
         }
 
         selectedCell.changeActive(active: true)
@@ -132,4 +128,10 @@ extension MainViewController: BasePageViewControllerDelegate {
 
     }
 
+}
+
+extension MainViewController: BaseMoviesDataSourceDelegate {
+    func moviesWereAdd() {
+
+    }
 }

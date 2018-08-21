@@ -24,7 +24,7 @@ final class TabNamesDataSource: ITabNamesDataSourceInput, ITabNamesDataSourceOut
 
     func addNames(names: [TabName]) {
         self.names += names
-        delegate?.tabNamesWasAdded(names: names)
+        delegate?.tabNamesWasAdded(names: self.names)
     }
 
     init() {
