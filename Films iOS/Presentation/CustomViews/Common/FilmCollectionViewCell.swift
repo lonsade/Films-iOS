@@ -53,12 +53,12 @@ class FilmCollectionViewCell: UICollectionViewCell {
         )
     }
 
-    func setContent(image: String?, title: String, vote: Float, age: Int) {
+    func setContent(image: String?, title: String, vote: Float, adult: Bool) {
 
         imagePoster.downloadedFrom(link: image, contentMode: .scaleAspectFill)
         self.title.text = title
         voteAverage.text = String(vote).withTMDb()
-        ageLabel.text = String(age)
+        ageLabel.text = (adult) ? "18+" : "0+"
 
     }
 }

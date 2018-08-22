@@ -23,7 +23,7 @@ final class CastUsecase: ICastUsecase {
 
     func getCast(relativeURL: String) -> Promise<[Cast]> {
         return Promise<[Cast]> { seal in
-            makeRequestGatewayCast.getResults(relativeURL: relativeURL).done { (credits: Credits) in
+            makeRequestGatewayCast.getResults(relativeURL: relativeURL, parameters: nil).done { (credits: Credits) in
                 seal.fulfill(credits.cast)
             }.catch { error in
                 seal.reject(error)

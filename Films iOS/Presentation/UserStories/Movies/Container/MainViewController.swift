@@ -71,24 +71,14 @@ final class MainViewController: UIViewController {
         filmsDataSource.delegate = self
     }
 
+    var genres: [TabName]!
+
 }
 
 extension MainViewController: TabNamesDSDelegate {
     func tabNamesWasAdded(names: [TabName]) {
         collectionTabNames?.reloadData()
-
-        pageViewController.set(pages: names, storyboardName: storybordName)
-        pageViewController.configureModule(withName: names[1]) { moduleInput in
-            guard let filmsInput = moduleInput as? FilmsPresenterInput else {
-                fatalError("Could not cust moduleInput to FilmsPresenterInput")
-            }
-            filmsInput.set(genre: names[1])
-        }
-        guard let firstPage = pageViewController.pagedViewControllers[names[1]] else {
-            fatalError("Could not put first page)")
-        }
-        self.firstPage = firstPage
-        pageViewController.pageDelegate = self
+        self.genres = names
         filmsPresenter.loadPopularFilms(firstly: true)
     }
 }
@@ -131,6 +121,18 @@ extension MainViewController: BasePageViewControllerDelegate {
 
 extension MainViewController: BaseFilmsDataSourceDelegate {
     func baseWasAdd() {
+        pageViewController.set(pages: genres, storyboardName: storybordName)
+        pageViewController.configureModule(withName: genres[1]) { moduleInput in
+            guard let filmsInput = moduleInput as? FilmsPresenterInput else {
+                fatalError("Could not cust moduleInput to FilmsPresenterInput")
+            }
+            filmsInput.set(genre: self.genres[1])
+        }
+        guard let firstPage = pageViewController.pagedViewControllers[genres[1]] else {
+            fatalError("Could not put first page)")
+        }
+        self.firstPage = firstPage
+        pageViewController.pageDelegate = self
         pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
     }
 }

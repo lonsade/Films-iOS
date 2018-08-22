@@ -22,7 +22,7 @@ final class SimilarFilmsUsecase: ISimilarFilmsUsecase {
 
     func getSimilar(relativeURL: String) -> Promise<[FilmCard]> {
         return Promise<[FilmCard]> { seal in
-            makeRequestGatewaySimilar.getResults(relativeURL: relativeURL).done { (films: Films) in
+            makeRequestGatewaySimilar.getResults(relativeURL: relativeURL, parameters: nil).done { (films: Films) in
                 seal.fulfill(films.results)
             }
             .catch { error in

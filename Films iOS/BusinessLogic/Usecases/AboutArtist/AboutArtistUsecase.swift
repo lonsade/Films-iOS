@@ -22,6 +22,6 @@ final class AboutArtistUsecase: IAboutArtistUsecase {
     }
 
     func getArtist(relativeURL: String) -> Promise<Artist> {
-        return makeRequestGatewayCast.getResults(relativeURL: relativeURL)
+        return makeRequestGatewayCast.getResults(relativeURL: relativeURL, parameters: nil)
     }
 }

@@ -21,7 +21,7 @@ class PopularFilmsViewController: BaseViewController {
 
     var presenter: IPopularFilmsPresenter!
     var router: MoviesRouting!
-    var dataSource: BaseMoviesDataSourceOutput!
+    var dataSource: BaseFilmsDataSourceOutput!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +33,7 @@ class PopularFilmsViewController: BaseViewController {
         router.viewController = self
         filmCollectionDisplayManager.collectionFilms = filmCollection
         presenter.setPopularFilms()
-        dataSource.filmsDelegate = self
+        dataSource.delegate = self
     }
 
 }

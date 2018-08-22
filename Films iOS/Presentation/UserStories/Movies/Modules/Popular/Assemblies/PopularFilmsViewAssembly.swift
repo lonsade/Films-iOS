@@ -17,13 +17,15 @@ class PopularFilmsViewAssembly: Assembly {
 
     lazy var moviesRoutingAssembly = MoviesRotingAssembly.instance()
 
+    lazy var baseDataSourceAssembly = BaseFilmsDataSourceAssembly.instance()
+
     func inject(into pvc: PopularFilmsViewController) {
         defineInjection(into: pvc) {
             $0.filmCollectionDisplayManager = self.filmCollectionDisplayManager.popularFilmsDisplayManager
             $0.presenter = self.popularFilmsPresenterAssembly.popularFilmsPresenter
             $0.router = self.moviesRoutingAssembly.moviesRoting
             $0.moduleInput = self.popularFilmsPresenterAssembly.popularFilmsPresenter
-            $0.dataSource = self.popularFilmsPresenterAssembly.popularFilmsDSAssembly.popularFilmsDS
+            $0.dataSource = self.baseDataSourceAssembly.baseFilmsDataSource
             return $0
         }
     }

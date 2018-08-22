@@ -23,7 +23,7 @@ final class ArtistPhotosUsecase: IArtistPhotosUsecase {
 
     func getPhotos(relativeURL: String) -> Promise<[ArtistPhoto]> {
         return Promise<[ArtistPhoto]> { seal in
-            makeRequestGatewayPhotos.getResults(relativeURL: relativeURL).done { (photos: ArtistPhotos) in
+            makeRequestGatewayPhotos.getResults(relativeURL: relativeURL, parameters: nil).done { (photos: ArtistPhotos) in
                 seal.fulfill(photos.profiles)
             }.catch { error in
                 seal.reject(error)

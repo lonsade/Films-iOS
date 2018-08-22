@@ -15,6 +15,8 @@ protocol IListPopularFilmsUsecase: class {
 
 final class ListPopularFilmsUsecase: IListPopularFilmsUsecase {
 
+    private var page = 0
+
     private var makeRequestGatewayListPopular: IMakeRequestGateway
 
     init(makeRequestGatewayListPopular: IMakeRequestGateway) {
@@ -22,8 +24,9 @@ final class ListPopularFilmsUsecase: IListPopularFilmsUsecase {
     }
 
     func getPopularFilms(relativeURL: String) -> Promise<[FilmCard]> {
+        page += 1
         return Promise<[FilmCard]> { seal in
-            makeRequestGatewayListPopular.getResults(relativeURL: relativeURL).done { (films: Films) in
+            makeRequestGatewayListPopular.getResults(relativeURL: relativeURL, parameters: ["page": page]).done { (films: Films) in
                 seal.fulfill(films.results)
             }.catch { error in
                 seal.reject(error)

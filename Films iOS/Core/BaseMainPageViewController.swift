@@ -54,6 +54,10 @@ final class BaseMainPageViewController: UIPageViewController, BaseMainPageViewCo
         configurationClosure(vc.moduleInput)
     }
 
+    // Текущий индекс
+    private var currentIndex: Int?
+    private var pendingIndex: Int?
+
 }
 
 extension BaseMainPageViewController: UIPageViewControllerDataSource {
@@ -101,5 +105,31 @@ extension BaseMainPageViewController: UIPageViewControllerDataSource {
 }
 
 extension BaseMainPageViewController: UIPageViewControllerDelegate {
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        willTransitionTo pendingViewControllers: [UIViewController]
+    ) {
+        pendingIndex = viewPages.index(of: pendingViewControllers.first!)
 
+    }
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers: [UIViewController],
+        transitionCompleted completed: Bool
+        ) {
+//        if completed {
+//            currentIndex = pendingIndex
+//            if let index = currentIndex {
+//                if let pageController = pageViewController as? BaseMainPageViewController {
+//                    pageController.configureModule(withName: pageController.genres[index]) { moduleInput in
+//                        guard let filmsInput = moduleInput as? FilmsPresenterInput else {
+//                            fatalError("Could not cust moduleInput to FilmsPresenterInput")
+//                        }
+//                        filmsInput.set(genre: pageController.genres[index])
+//                    }
+//                }
+//            }
+//        }
+    }
 }

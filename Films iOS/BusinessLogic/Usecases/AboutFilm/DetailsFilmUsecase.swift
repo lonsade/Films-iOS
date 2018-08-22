@@ -22,6 +22,6 @@ final class DetailsFilmUsecase: IDetailsFilmUsecase {
     }
 
     func getFilmDetails(relativeURL: String) -> Promise<FilmDetail> {
-        return makeRequestGatewayFilmDetail.getResults(relativeURL: relativeURL)
+        return makeRequestGatewayFilmDetail.getResults(relativeURL: relativeURL, parameters: nil)
     }
 }

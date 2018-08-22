@@ -14,11 +14,16 @@ protocol IPopularFilmsPresenter: ModuleInput {
 
 protocol FilmsPresenterInput: ModuleInput {
     var dataSource: BaseMoviesDataSource { get }
+    func setAndUpdate(genre: TabName)
     func set(genre: TabName)
 }
 
 final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
 
+    func setAndUpdate(genre: TabName) {
+        self.genre = genre
+        setPopularFilms()
+    }
     func set(genre: TabName) {
         self.genre = genre
     }

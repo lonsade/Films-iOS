@@ -108,7 +108,7 @@ extension BaseMoviesDisplayManager: UICollectionViewDataSource {
             image: filmsDataSource.films[indexPath.item].posterPath,
             title: filmsDataSource.films[indexPath.item].title,
             vote: filmsDataSource.films[indexPath.item].voteAverage,
-            age: filmsDataSource.films[indexPath.item].id
+            adult: filmsDataSource.films[indexPath.item].adult
         )
 
         return cell

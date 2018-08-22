@@ -23,7 +23,7 @@ final class ArtistFilmsUsecase: IArtistFilmsUsecase {
 
     func getFilms(relativeURL: String) -> Promise<[FilmCard]> {
         return Promise<[FilmCard]> { seal in
-            makeRequestGatewayArtistFilms.getResults(relativeURL: relativeURL).done { (films: ArtistFilms) in
+            makeRequestGatewayArtistFilms.getResults(relativeURL: relativeURL, parameters: nil).done { (films: ArtistFilms) in
                 seal.fulfill(films.cast)
             }.catch { error in
                     seal.reject(error)
