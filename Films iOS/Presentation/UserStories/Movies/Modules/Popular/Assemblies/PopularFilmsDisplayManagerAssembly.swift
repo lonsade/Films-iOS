@@ -14,7 +14,7 @@ final class PopularFilmsDisplayManagerAssembly: Assembly {
     lazy var popularFilmsDSAssembly: PopularFilmsDSAssembly = self.context.assembly()
 
     var popularFilmsDisplayManager: BaseMoviesDisplayManager {
-        return define(scope: .lazySingleton, init:
+        return define(scope: .objectGraph, init:
             BaseMoviesDisplayManager(filmsDataSource: self.popularFilmsDSAssembly.popularFilmsDS)
         )
     }

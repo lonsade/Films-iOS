@@ -16,6 +16,8 @@ final class DetailsFilmPresenterAssembly: Assembly {
 
     lazy var aboutFilmPresenter = AboutFilmPresenterAssembly.instance()
 
+    lazy var baseFilmsDataSourceAssembly = BaseFilmsDataSourceAssembly.instance()
+
     var detailsFilmPresenter: IDetailsFilmPresenter {
         return define(scope: .lazySingleton, init:
             DetailsFilmPresenter(
@@ -23,7 +25,7 @@ final class DetailsFilmPresenterAssembly: Assembly {
                 dataSourceForDetails: self.infoFilmDataSourceAssembly.detailsFilmDataSource,
                 galleryUsecase: self.infoFilmUsecaseAssembly.galleryFilmUsecaseAssembly,
                 similarUsecase: self.infoFilmUsecaseAssembly.similarUsecaseAssembly,
-                dataSourceForSimilar: self.infoFilmDataSourceAssembly.similarFilmDataSource,
+                dataSourceForSimilar: self.baseFilmsDataSourceAssembly.baseFilmsDataSource,
                 aboutFilmPresenter: self.aboutFilmPresenter.aboutFilmPresenter
 
             )

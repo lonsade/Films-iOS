@@ -90,7 +90,7 @@ extension MainViewController: TabNamesDSDelegate {
         }
         self.firstPage = firstPage
         pageViewController.pageDelegate = self
-        pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
+
     }
 }
 
@@ -130,8 +130,8 @@ extension MainViewController: BasePageViewControllerDelegate {
 
 }
 
-extension MainViewController: BaseMoviesDataSourceDelegate {
-    func moviesWereAdd() {
-
+extension MainViewController: BaseFilmsDataSourceDelegate {
+    func baseWasAdd() {
+        pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
     }
 }

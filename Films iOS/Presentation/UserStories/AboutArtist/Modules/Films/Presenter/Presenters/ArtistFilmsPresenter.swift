@@ -15,11 +15,11 @@ protocol IArtistFilmsPresenter: class {
 final class ArtistFilmsPresenter: IArtistFilmsPresenter {
 
     private var artistFilmsUsecase: IArtistFilmsUsecase
-    private var artistFilmsDataSource: BaseMoviesDataSourceInput
+    private var artistFilmsDataSource: BaseFilmsDataSourceInput
 
     init(
         artistFilmsUsecase: IArtistFilmsUsecase,
-        artistFilmsDataSource: BaseMoviesDataSourceInput
+        artistFilmsDataSource: BaseFilmsDataSourceInput
     ) {
         self.artistFilmsDataSource = artistFilmsDataSource
         self.artistFilmsUsecase = artistFilmsUsecase

@@ -15,7 +15,7 @@ final class PopularFilmsPresenterAssembly: Assembly {
     lazy var popularFilmsDSAssembly: PopularFilmsDSAssembly = PopularFilmsDSAssembly.instance()
 
     var popularFilmsPresenter: IPopularFilmsPresenter & FilmsPresenterInput {
-        return define(scope: .lazySingleton, init:
+        return define(scope: .objectGraph, init:
             PopularFilmsPresenter(
                 listPopularFilmsUsecase: self.moviesUsecaseAssembly.listPopularFilmsUsecase,
                 dataSource: self.popularFilmsDSAssembly.popularFilmsDS

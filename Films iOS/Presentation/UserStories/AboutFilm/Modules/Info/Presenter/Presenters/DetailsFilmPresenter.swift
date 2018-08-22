@@ -18,7 +18,7 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
 
     private var detailsFilmUsecase: IDetailsFilmUsecase
     private var dataSourceForDetails: IDetailsFilmDataSourceInput
-    private var dataSourceForSimilar: BaseMoviesDataSourceInput
+    private var dataSourceForSimilar: BaseFilmsDataSourceInput
     private var galleryUsecase: IGalleryUsecase
     private var similarUsecase: ISimilarFilmsUsecase
     private var aboutFilmPresenter: AboutFilmInput
@@ -28,7 +28,7 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
         dataSourceForDetails: IDetailsFilmDataSourceInput,
         galleryUsecase: IGalleryUsecase,
         similarUsecase: ISimilarFilmsUsecase,
-        dataSourceForSimilar: BaseMoviesDataSourceInput,
+        dataSourceForSimilar: BaseFilmsDataSourceInput,
         aboutFilmPresenter: AboutFilmInput
     ) {
         self.detailsFilmUsecase = detailsFilmUsecase

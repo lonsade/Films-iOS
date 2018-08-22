@@ -9,7 +9,7 @@
 import Foundation
 
 protocol BaseMoviesDataSourceInput: class {
-    func filter(genre: TabName?)
+    func filter(genre: TabName)
 }
 
 protocol BaseMoviesDataSourceOutput: class {
@@ -28,9 +28,9 @@ final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourc
 
     weak var delegate: BaseMoviesDataSourceDelegate?
 
-    func filter(genre: TabName?) {
+    func filter(genre: TabName) {
 
-        if let genre = genre {
+        if genre.id != -1 {
             self.films = baseFilmsDataSource.base.filter {
                 return $0.genreIds.contains(genre.id)
             }

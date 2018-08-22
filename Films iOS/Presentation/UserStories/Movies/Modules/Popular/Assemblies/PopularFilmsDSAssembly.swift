@@ -10,7 +10,12 @@ import Foundation
 import EasyDi
 
 final class PopularFilmsDSAssembly: Assembly {
+
+    lazy var baseFilmsDataSourceAssembly = BaseFilmsDataSourceAssembly.instance()
+
     var popularFilmsDS: BaseMoviesDataSource {
-        return define(scope: .lazySingleton, init: BaseMoviesDataSource())
+        return define(scope: .objectGraph, init: BaseMoviesDataSource(
+            baseFilmsDataSource: self.baseFilmsDataSourceAssembly.baseFilmsDataSource
+        ))
     }
 }
