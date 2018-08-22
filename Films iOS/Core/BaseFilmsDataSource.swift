@@ -8,8 +8,13 @@
 
 import Foundation
 
+extension Notification.Name {
+    static let BaseOfFilmsWasAdded
+        = NSNotification.Name("BaseOfFilmsWasAdded")
+}
+
 protocol BaseFilmsDataSourceInput: class {
-    func load(base: [FilmCard])
+    func load(base: [FilmCard], firstly: Bool)
 }
 
 protocol BaseFilmsDataSourceOutput: class {
@@ -27,8 +32,12 @@ final class BaseFilmsDataSource: BaseFilmsDataSourceInput, BaseFilmsDataSourceOu
 
     weak var delegate: BaseFilmsDataSourceDelegate?
 
-    func load(base: [FilmCard]) {
-        self.base = base
+    func load(base: [FilmCard], firstly: Bool) {
+        if firstly {
+            self.base = base
+        } else {
+            self.base += base
+        }
         delegate?.baseWasAdd()
     }
 

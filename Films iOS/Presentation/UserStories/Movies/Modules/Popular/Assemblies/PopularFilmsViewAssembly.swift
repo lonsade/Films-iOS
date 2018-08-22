@@ -23,6 +23,7 @@ class PopularFilmsViewAssembly: Assembly {
             $0.presenter = self.popularFilmsPresenterAssembly.popularFilmsPresenter
             $0.router = self.moviesRoutingAssembly.moviesRoting
             $0.moduleInput = self.popularFilmsPresenterAssembly.popularFilmsPresenter
+            $0.dataSource = self.popularFilmsPresenterAssembly.popularFilmsDSAssembly.popularFilmsDS
             return $0
         }
     }

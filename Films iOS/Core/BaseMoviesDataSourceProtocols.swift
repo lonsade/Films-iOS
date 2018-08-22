@@ -28,6 +28,8 @@ final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourc
 
     weak var delegate: BaseMoviesDataSourceDelegate?
 
+    weak var filmsDelegate: BaseFilmsDataSourceDelegate?
+
     func filter(genre: TabName) {
 
         if genre.id != -1 {

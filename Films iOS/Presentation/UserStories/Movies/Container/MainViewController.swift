@@ -76,7 +76,6 @@ final class MainViewController: UIViewController {
 extension MainViewController: TabNamesDSDelegate {
     func tabNamesWasAdded(names: [TabName]) {
         collectionTabNames?.reloadData()
-        filmsPresenter.loadPopularFilms()
 
         pageViewController.set(pages: names, storyboardName: storybordName)
         pageViewController.configureModule(withName: names[1]) { moduleInput in
@@ -90,7 +89,7 @@ extension MainViewController: TabNamesDSDelegate {
         }
         self.firstPage = firstPage
         pageViewController.pageDelegate = self
-
+        filmsPresenter.loadPopularFilms(firstly: true)
     }
 }
 

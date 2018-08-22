@@ -9,7 +9,7 @@
 import Foundation
 
 protocol IFilmsPresenter: class {
-    func loadPopularFilms()
+    func loadPopularFilms(firstly: Bool)
 }
 
 final class FilmsPresenter: IFilmsPresenter {
@@ -22,10 +22,10 @@ final class FilmsPresenter: IFilmsPresenter {
         self.dataSource = dataSource
     }
 
-    func loadPopularFilms() {
+    func loadPopularFilms(firstly: Bool) {
 
         listPopularFilmsUsecase.getPopularFilms(relativeURL: "/movie/popular").done { films in
-            self.dataSource.load(base: films)
+            self.dataSource.load(base: films, firstly: firstly)
         }
         .catch { error in
             fatalError(error.localizedDescription)

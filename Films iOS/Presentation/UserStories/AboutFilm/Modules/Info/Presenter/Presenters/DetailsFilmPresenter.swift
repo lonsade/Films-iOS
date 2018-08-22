@@ -68,7 +68,7 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
         guard let filmId = aboutFilmPresenter.id else { fatalError("Film id doesnt exist") }
 
         similarUsecase.getSimilar(relativeURL: "/movie/\(filmId))/similar").done { films in
-            self.dataSourceForSimilar.load(base: films)
+            self.dataSourceForSimilar.load(base: films, firstly: true)
         }
         .catch { error in
             fatalError(error.localizedDescription)

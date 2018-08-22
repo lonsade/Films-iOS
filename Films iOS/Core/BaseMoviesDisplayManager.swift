@@ -20,9 +20,11 @@ class BaseMoviesDisplayManager: NSObject {
     var isSeeAlso = false
 
     private var filmsDataSource: BaseMoviesDataSourceOutput
+    private var filmsPresenter: IFilmsPresenter
 
-    init(filmsDataSource: BaseMoviesDataSourceOutput) {
+    init(filmsDataSource: BaseMoviesDataSourceOutput, filmsPresenter: IFilmsPresenter) {
         self.filmsDataSource = filmsDataSource
+        self.filmsPresenter = filmsPresenter
     }
 
     weak var delegate: FilmCollectionDisplayManagerDelegate?
@@ -35,6 +37,20 @@ class BaseMoviesDisplayManager: NSObject {
         }
     }
 
+}
+
+extension BaseMoviesDisplayManager: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+
+        if deltaOffset <= 0 {
+            filmsPresenter.loadPopularFilms(firstly: false)
+        }
+
+    }
 }
 
 extension BaseMoviesDisplayManager: BaseMoviesDataSourceDelegate {
@@ -77,6 +93,7 @@ extension BaseMoviesDisplayManager: UICollectionViewDelegate {
 }
 
 extension BaseMoviesDisplayManager: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.filmsDataSource.films.count
     }
