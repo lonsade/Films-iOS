@@ -18,7 +18,6 @@ class TabNameCollectionViewCell: UICollectionViewCell {
             .font: UIFont.FTabName
         ])
         tabName.attributedText = attrStr
-        tabName.sizeToFit()
     }
 
     func changeActive(active: Bool) {
