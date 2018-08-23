@@ -83,10 +83,6 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-    }
-
     var genres: [TabName]!
 
 }

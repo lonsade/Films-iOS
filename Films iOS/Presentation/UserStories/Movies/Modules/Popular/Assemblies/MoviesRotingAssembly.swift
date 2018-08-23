@@ -13,7 +13,7 @@ class MoviesRotingAssembly: Assembly {
     lazy var filmsPresenter = PopularFilmsPresenterAssembly.instance()
 
     var moviesRoting: MoviesRouting {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             MoviesRouting(presenter: self.filmsPresenter.popularFilmsPresenter)
         )
     }

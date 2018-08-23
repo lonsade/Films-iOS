@@ -16,7 +16,7 @@ final class PopularFilmsDisplayManagerAssembly: Assembly {
     lazy var filmsPresenterAssembly = FilmsPresenterAssembly.instance()
 
     var popularFilmsDisplayManager: BaseMoviesDisplayManager {
-        return define(scope: .objectGraph, init:
+        return define(init:
             BaseMoviesDisplayManager(
                 filmsDataSource: self.popularFilmsDSAssembly.popularFilmsDS,
                 filmsPresenter: self.filmsPresenterAssembly.filmsPresenter
