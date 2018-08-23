@@ -7,14 +7,11 @@
 //
 
 import UIKit
+import InteractiveSideMenu
 
-protocol MainModuleInput {
+final class MainViewController: UIViewController, SideMenuItemContent, Storyboardable {
 
-}
-
-final class MainViewController: UIViewController {
-
-    private let storybordName = "Main"
+    private let storybordName = "MainViewController"
 
     private var prevSelectedCell: TabNameCollectionViewCell?
 
@@ -29,6 +26,10 @@ final class MainViewController: UIViewController {
         }
     }
 
+    @IBAction func showMenu(_ sender: CustomMenuBarButtonItem) {
+        showSideMenu()
+    }
+
     @IBOutlet weak var collectionTabNames: UICollectionView!
 
     /* кастомизация navigationBar и установка главного фона */
@@ -38,9 +39,12 @@ final class MainViewController: UIViewController {
     func customize() {
         view.backgroundColor = UIColor.FMainBackgroundColor
 
-//        UINavigationBar.appearance().backgroundColor = UIColor.clear
+        // Прозрачный navbar
 
-//        navigationController?.navigationBar.barTintColor = UIColor.FMainBackgroundColor
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
 
         navigationController?.navigationBar.titleTextAttributes = [
             .foregroundColor: UIColor.FTitleTextColor,
@@ -69,6 +73,11 @@ final class MainViewController: UIViewController {
         customize()
         genresDataSource.delegate = self
         filmsDataSource.delegate = self
+
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
     }
 
     var genres: [TabName]!
@@ -99,6 +108,10 @@ extension MainViewController: TabDisplayManagerDelegate {
         selectedCell.changeActive(active: true)
 
         prevSelectedCell = selectedCell
+
+//        let openPage = pageViewController.pagedViewControllers[genres[indexPath.item]]
+
+//        pageViewController.setViewControllers([openPage!], direction: .forward, animated: true, completion: nil)
 
 //        guard let tabTitle = selectedCell.tabName.text?.lowercased() else { fatalError("Genres are not loaded") }
 //

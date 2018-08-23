@@ -14,7 +14,8 @@
         <!--Navigation Controller-->
         <scene sceneID="c89-xY-AYh">
             <objects>
-                <navigationController id="b6s-S5-fde" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ako-TY-QtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="MainViewController" id="b6s-S5-fde" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="trB-R9-r59">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -25,7 +26,6 @@
                         <segue destination="HHy-2x-2AX" kind="relationship" relationship="rootViewController" id="toc-RG-pxE"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ako-TY-QtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-777" y="-351"/>
         </scene>
@@ -118,7 +118,11 @@
                         <viewLayoutGuide key="safeArea" id="0OR-vW-RmD"/>
                     </view>
                     <navigationItem key="navigationItem" title="Films iOS" id="pEl-IG-axs">
-                        <barButtonItem key="leftBarButtonItem" title="menu" image="menuIcon" id="X3z-eS-a85" customClass="CustomMenuBarButtonItem" customModule="Films_iOS" customModuleProvider="target"/>
+                        <barButtonItem key="leftBarButtonItem" title="menu" image="menuIcon" id="X3z-eS-a85" customClass="CustomMenuBarButtonItem" customModule="Films_iOS" customModuleProvider="target">
+                            <connections>
+                                <action selector="showMenu:" destination="HHy-2x-2AX" id="70R-lz-1zb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="icSort" id="eLz-sk-WBa">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
