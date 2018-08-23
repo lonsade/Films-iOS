@@ -136,11 +136,15 @@ extension MainViewController: TabDisplayManagerDelegate {
     }
 }
 
-extension MainViewController: BasePageViewControllerDelegate {
-    func pageWasChanged(at index: Int) {
-
+extension MainViewController: BaseMainPageViewControllerDelegate {
+    func pageWasChanged(to toIndex: Int, from fromIndex: Int) {
+        if let cell = collectionTabNames.cellForItem(at: IndexPath(item: toIndex, section: 0)) as? TabNameCollectionViewCell {
+            cell.changeActive(active: true)
+        }
+        if let cell = collectionTabNames.cellForItem(at: IndexPath(item: fromIndex, section: 0)) as? TabNameCollectionViewCell {
+            cell.changeActive(active: false)
+        }
     }
-
 }
 
 extension MainViewController: BaseFilmsDataSourceDelegate {

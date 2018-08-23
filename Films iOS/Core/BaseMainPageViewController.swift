@@ -10,15 +10,19 @@ import UIKit
 
 protocol BaseMainPageViewControllerHandler: class {
     func set(pages: [TabName], storyboardName: String)
-    var pageDelegate: BasePageViewControllerDelegate? { get set }
+    var pageDelegate: BaseMainPageViewControllerDelegate? { get set }
     var pagedViewControllers: [TabName: UIViewController] { get }
     var genres: [TabName] { get }
     var viewPages: [UIViewController] { get }
 }
 
+protocol BaseMainPageViewControllerDelegate: class {
+    func pageWasChanged(to toIndex: Int, from fromIndex: Int)
+}
+
 final class BaseMainPageViewController: UIPageViewController, BaseMainPageViewControllerHandler, ModuleInputProvider {
 
-    var pageDelegate: BasePageViewControllerDelegate?
+    weak var pageDelegate: BaseMainPageViewControllerDelegate?
 
     var pagedViewControllers: [TabName: UIViewController] = [:]
 
@@ -64,8 +68,8 @@ final class BaseMainPageViewController: UIPageViewController, BaseMainPageViewCo
     }
 
     func configureModule(withName name: TabName, configurationClosure: @escaping ConfigurationClosure) {
-        guard let vc = pagedViewControllers[name] as? ModuleInputProvider else { fatalError("") }
-        configurationClosure(vc.moduleInput)
+        guard let pagedvc = pagedViewControllers[name] as? ModuleInputProvider else { fatalError("") }
+        configurationClosure(pagedvc.moduleInput)
     }
 
     // Текущий индекс
@@ -131,19 +135,12 @@ extension BaseMainPageViewController: UIPageViewControllerDelegate {
         didFinishAnimating finished: Bool,
         previousViewControllers: [UIViewController],
         transitionCompleted completed: Bool
-        ) {
-//        if completed {
-//            currentIndex = pendingIndex
-//            if let index = currentIndex {
-//                if let pageController = pageViewController as? BaseMainPageViewController {
-//                    pageController.configureModule(withName: pageController.genres[index]) { moduleInput in
-//                        guard let filmsInput = moduleInput as? FilmsPresenterInput else {
-//                            fatalError("Could not cust moduleInput to FilmsPresenterInput")
-//                        }
-//                        filmsInput.set(genre: pageController.genres[index])
-//                    }
-//                }
-//            }
-//        }
+    ) {
+        if completed {
+            currentIndex = pendingIndex
+            if let index = currentIndex {
+                pageDelegate?.pageWasChanged(to: index, from: viewPages.index(of: previousViewControllers.last!)!)
+            }
+        }
     }
 }
