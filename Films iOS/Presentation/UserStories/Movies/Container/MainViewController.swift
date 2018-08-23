@@ -13,7 +13,12 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     private let storybordName = "MainViewController"
 
-    private var prevSelectedCell: TabNameCollectionViewCell?
+    private lazy var prevSelectedCell: TabNameCollectionViewCell = {
+        guard let cell = collectionTabNames.cellForItem(at: IndexPath(item: 1, section: 0)) as? TabNameCollectionViewCell else {
+            fatalError("Cell error")
+        }
+        return cell
+    }()
 
     private var firstPage: UIViewController!
 
@@ -99,13 +104,10 @@ extension MainViewController: TabDisplayManagerDelegate {
         guard let selectedCell = collectionTabNames.cellForItem(at: indexPath) as? TabNameCollectionViewCell
         else { fatalError("Error cell tab name with index: \(indexPath.item)") }
 
-        if let psc = prevSelectedCell {
-            psc.changeActive(active: false)
-        } else {
-            (collectionTabNames.cellForItem(at: IndexPath(item: 1, section: 0)) as? TabNameCollectionViewCell)?.changeActive(active: false)
-        }
+        prevSelectedCell.changeActive(active: false)
 
         selectedCell.changeActive(active: true)
+        collectionTabNames.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 
         prevSelectedCell = selectedCell
 
@@ -122,8 +124,8 @@ extension MainViewController: TabDisplayManagerDelegate {
             guard
                 let openPage = openPage,
                 let currentPage = self.pageViewController.currentViewController
-            else {
-                fatalError("Current page or openning page are nil")
+                else {
+                    fatalError("Current page or openning page are nil")
             }
             let index = self.pageViewController.viewPages.index(of: currentPage)
             guard let validIndex = index else {
@@ -140,10 +142,14 @@ extension MainViewController: BaseMainPageViewControllerDelegate {
     func pageWasChanged(to toIndex: Int, from fromIndex: Int) {
         if let cell = collectionTabNames.cellForItem(at: IndexPath(item: toIndex, section: 0)) as? TabNameCollectionViewCell {
             cell.changeActive(active: true)
+            prevSelectedCell = cell
         }
         if let cell = collectionTabNames.cellForItem(at: IndexPath(item: fromIndex, section: 0)) as? TabNameCollectionViewCell {
             cell.changeActive(active: false)
         }
+
+        collectionTabNames.scrollToItem(at: IndexPath(item: toIndex, section: 0), at: .centeredHorizontally, animated: true)
+
     }
 }
 

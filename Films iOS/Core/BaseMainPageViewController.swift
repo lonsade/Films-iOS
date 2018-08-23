@@ -73,8 +73,11 @@ final class BaseMainPageViewController: UIPageViewController, BaseMainPageViewCo
     }
 
     // Текущий индекс
-    private var currentIndex: Int?
+    var currentIndex: Int = 1   // Popular
     private var pendingIndex: Int?
+
+    //Предыдущий индекс
+    var prevIndex: Int = 1  // Popular
 
 }
 
@@ -137,9 +140,10 @@ extension BaseMainPageViewController: UIPageViewControllerDelegate {
         transitionCompleted completed: Bool
     ) {
         if completed {
-            currentIndex = pendingIndex
-            if let index = currentIndex {
-                pageDelegate?.pageWasChanged(to: index, from: viewPages.index(of: previousViewControllers.last!)!)
+            if let index = pendingIndex {
+                currentIndex = index
+                prevIndex = viewPages.index(of: previousViewControllers.last!)!
+                pageDelegate?.pageWasChanged(to: index, from: prevIndex)
             }
         }
     }
