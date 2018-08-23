@@ -13,6 +13,8 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     private let storybordName = "MainViewController"
 
+    // Изначально активный таб на Popular
+
     private lazy var prevSelectedCell: TabNameCollectionViewCell = {
         guard let cell = collectionTabNames.cellForItem(at: IndexPath(item: 1, section: 0)) as? TabNameCollectionViewCell else {
             fatalError("Cell error")
@@ -168,5 +170,8 @@ extension MainViewController: BaseFilmsDataSourceDelegate {
         self.firstPage = firstPage
         pageViewController.pageDelegate = self
         pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
+
+        // Изначально Popular активна
+        prevSelectedCell.changeActive(active: true)
     }
 }
