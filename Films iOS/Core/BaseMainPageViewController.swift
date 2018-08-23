@@ -28,7 +28,21 @@ final class BaseMainPageViewController: UIPageViewController, BaseMainPageViewCo
 
     var moduleInput: ModuleInput!
 
+    var currentViewController: UIViewController?
+
     private var storyboardName: String!
+
+    override func setViewControllers(
+        _ viewControllers: [UIViewController]?,
+        direction: UIPageViewControllerNavigationDirection,
+        animated: Bool,
+        completion: ((Bool) -> Void)? = nil) {
+        super.setViewControllers(viewControllers, direction: direction, animated: animated, completion: completion)
+        guard let viewController = viewControllers?.first else {
+            fatalError("Could not set empty viewController")
+        }
+        currentViewController = viewController
+    }
 
     private func getViewController(withIdentifier identifier: String) -> UIViewController {
         return UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: identifier)

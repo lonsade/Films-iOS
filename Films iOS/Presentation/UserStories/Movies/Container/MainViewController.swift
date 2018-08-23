@@ -109,18 +109,29 @@ extension MainViewController: TabDisplayManagerDelegate {
 
         prevSelectedCell = selectedCell
 
-//        let openPage = pageViewController.pagedViewControllers[genres[indexPath.item]]
+        // Конфигурирование нового модуля
 
-//        pageViewController.setViewControllers([openPage!], direction: .forward, animated: true, completion: nil)
+        let openPage = pageViewController.pagedViewControllers[genres[indexPath.item]]
+        pageViewController.configureModule(withName: genres[indexPath.item]) { moduleInput in
+            guard let filmsInput = moduleInput as? FilmsPresenterInput else {
+                fatalError("Could not cust moduleInput to FilmsPresenterInput")
+            }
+            filmsInput.set(genre: self.genres[indexPath.item])
 
-//        guard let tabTitle = selectedCell.tabName.text?.lowercased() else { fatalError("Genres are not loaded") }
-//
-//        pageViewController.configureModule(withName: tabTitle) { moduleInput in
-//            guard let filmsInput = moduleInput as? FilmsPresenterInput else {
-//                fatalError("Could not cust moduleInput to FilmsPresenterInput")
-//            }
-//            filmsInput.set(genre: tabTitle)
-//        }
+            // Определение направления анимации смены контроллера и его установка
+            guard
+                let openPage = openPage,
+                let currentPage = self.pageViewController.currentViewController
+            else {
+                fatalError("Current page or openning page are nil")
+            }
+            let index = self.pageViewController.viewPages.index(of: currentPage)
+            guard let validIndex = index else {
+                fatalError("Current page into under range of viewPages")
+            }
+            let direction: UIPageViewControllerNavigationDirection = (validIndex < indexPath.item) ? .forward : .reverse
+            self.pageViewController.setViewControllers([openPage], direction: direction, animated: true, completion: nil)
+        }
 
     }
 }
