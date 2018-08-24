@@ -33,7 +33,7 @@ class ArtistFilmsViewController: BaseViewController {
 }
 
 extension ArtistFilmsViewController: ArtistMoviesDisplayManagerDelegate {
-    func filmWasSelected(withIndex id: Int) {
+    func filmWasSelected(withId id: Int) {
         router.navigateToAboutFilm(withId: id)
     }
 }

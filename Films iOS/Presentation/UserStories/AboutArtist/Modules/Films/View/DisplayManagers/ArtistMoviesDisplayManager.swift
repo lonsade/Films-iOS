@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ArtistMoviesDisplayManagerDelegate: class {
-    func filmWasSelected(withIndex index: Int)
+    func filmWasSelected(withId id: Int)
 }
 
 class ArtistMoviesDisplayManager: NSObject {
@@ -44,7 +44,7 @@ extension ArtistMoviesDisplayManager: ArtistFilmsDataSourceDelegate {
 
 extension ArtistMoviesDisplayManager: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.filmWasSelected(withIndex: indexPath.item)
+        delegate?.filmWasSelected(withId: filmsDataSource.base[indexPath.item].id)
     }
 }
 

@@ -10,11 +10,7 @@ import EasyDi
 
 class MoviesRotingAssembly: Assembly {
 
-    lazy var filmsPresenter = PopularFilmsPresenterAssembly.instance()
-
     var moviesRoting: MoviesRouting {
-        return define(init:
-            MoviesRouting(presenter: self.filmsPresenter.popularFilmsPresenter)
-        )
+        return define(init: MoviesRouting())
     }
 }

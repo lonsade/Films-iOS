@@ -44,7 +44,7 @@ extension SimilarFilmsDisplayManager: SimilarFilmsDataSourceDelegate {
 
 extension SimilarFilmsDisplayManager: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.filmWasSelected(withIndex: indexPath.item)
+        delegate?.filmWasSelected(withId: filmsDataSource.base[indexPath.item].id)
     }
 }
 

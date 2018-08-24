@@ -45,7 +45,7 @@ extension PopularFilmsViewController: BaseFilmsDataSourceDelegate {
 }
 
 extension PopularFilmsViewController: FilmCollectionDisplayManagerDelegate {
-    func filmWasSelected(withIndex id: Int) {
-        router.navigateToAboutFilm(onIndex: id)
+    func filmWasSelected(withId id: Int) {
+        router.navigateToAboutFilm(onId: id)
     }
 }
