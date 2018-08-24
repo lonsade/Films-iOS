@@ -469,6 +469,80 @@
 			path = DisplayManagers;
 			sourceTree = "<group>";
 		};
+		BD312075213025E100FDA3B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD312076213025FE00FDA3B9 /* Menu */,
+				BDC941CE210EE861005C5041 /* MainViewController.storyboard */,
+				BDC941FB210F2ADE005C5041 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BD312076213025FE00FDA3B9 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				BD569A62212DB6D5003F0B31 /* MenuViewController.swift */,
+				BD569A64212DB781003F0B31 /* Storyboardable.swift */,
+				BD569A66212DB812003F0B31 /* SampleMenuViewController.storyboard */,
+				BD96F8A2212E818B0070579E /* HostViewController.swift */,
+				BD96F8A4212E83350070579E /* Host.storyboard */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		BD3120772130262700FDA3B9 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				BDAC101A212C34A300A2DA9B /* FilmsPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		BD3120782130263900FDA3B9 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				BDAC101C212C367300A2DA9B /* FilmsPresenterAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		BD3120792130265700FDA3B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDF19549211863320093D236 /* film.storyboard */,
+				BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */,
+				BD3D14DB21231F3F00F5BD1E /* AboutFilmViewAssembly.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BD31207A2130265F00FDA3B9 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				BD3D14DD21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		BD31207B2130267A00FDA3B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDD85B58211C1AB800256E60 /* AboutArtistViewController.swift */,
+				BDD85BA3211C51D300256E60 /* artist.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BD31207C2130269600FDA3B9 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				BD312064213007BC00FDA3B9 /* AboutArtistViewControllerAssembly.swift */,
+				BD3120662130080900FDA3B9 /* AboutArtistPresenterAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
 		BD3D14CE2122F0D300F5BD1E /* Films_iOSTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -897,10 +971,8 @@
 		BDD85B5F211C2F1500256E60 /* Container */ = {
 			isa = PBXGroup;
 			children = (
-				BDF19549211863320093D236 /* film.storyboard */,
-				BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */,
-				BD3D14DB21231F3F00F5BD1E /* AboutFilmViewAssembly.swift */,
-				BD3D14DD21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift */,
+				BD31207A2130265F00FDA3B9 /* Assemblies */,
+				BD3120792130265700FDA3B9 /* View */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -1035,10 +1107,8 @@
 		BDD85B6E211C304B00256E60 /* Container */ = {
 			isa = PBXGroup;
 			children = (
-				BDD85B58211C1AB800256E60 /* AboutArtistViewController.swift */,
-				BDD85BA3211C51D300256E60 /* artist.storyboard */,
-				BD312064213007BC00FDA3B9 /* AboutArtistViewControllerAssembly.swift */,
-				BD3120662130080900FDA3B9 /* AboutArtistPresenterAssembly.swift */,
+				BD31207C2130269600FDA3B9 /* Assemblies */,
+				BD31207B2130267A00FDA3B9 /* View */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -1199,15 +1269,9 @@
 		BDFCE2C1211D5F3700C70770 /* Container */ = {
 			isa = PBXGroup;
 			children = (
-				BDC941FB210F2ADE005C5041 /* MainViewController.swift */,
-				BDC941CE210EE861005C5041 /* MainViewController.storyboard */,
-				BDAC101A212C34A300A2DA9B /* FilmsPresenter.swift */,
-				BDAC101C212C367300A2DA9B /* FilmsPresenterAssembly.swift */,
-				BD569A62212DB6D5003F0B31 /* MenuViewController.swift */,
-				BD569A64212DB781003F0B31 /* Storyboardable.swift */,
-				BD569A66212DB812003F0B31 /* SampleMenuViewController.storyboard */,
-				BD96F8A2212E818B0070579E /* HostViewController.swift */,
-				BD96F8A4212E83350070579E /* Host.storyboard */,
+				BD3120782130263900FDA3B9 /* Assemblies */,
+				BD3120772130262700FDA3B9 /* Presenters */,
+				BD312075213025E100FDA3B9 /* View */,
 			);
 			path = Container;
 			sourceTree = "<group>";
