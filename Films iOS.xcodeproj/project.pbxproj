@@ -40,6 +40,8 @@
 		BD1DCF6821131EA6001B48EF /* TabNamesUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6721131EA6001B48EF /* TabNamesUsecase.swift */; };
 		BD1DCF6C21132308001B48EF /* TabName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6B21132308001B48EF /* TabName.swift */; };
 		BD1DCF7221132939001B48EF /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF7121132939001B48EF /* Genres.swift */; };
+		BD312065213007BC00FDA3B9 /* AboutArtistViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD312064213007BC00FDA3B9 /* AboutArtistViewControllerAssembly.swift */; };
+		BD3120672130080900FDA3B9 /* AboutArtistPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3120662130080900FDA3B9 /* AboutArtistPresenterAssembly.swift */; };
 		BD3D14D02122F0D300F5BD1E /* Films_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D14CF2122F0D300F5BD1E /* Films_iOSTests.swift */; };
 		BD3D14DC21231F3F00F5BD1E /* AboutFilmViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D14DB21231F3F00F5BD1E /* AboutFilmViewAssembly.swift */; };
 		BD3D14DE21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D14DD21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift */; };
@@ -203,6 +205,8 @@
 		BD1DCF6721131EA6001B48EF /* TabNamesUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesUsecase.swift; sourceTree = "<group>"; };
 		BD1DCF6B21132308001B48EF /* TabName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabName.swift; sourceTree = "<group>"; };
 		BD1DCF7121132939001B48EF /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		BD312064213007BC00FDA3B9 /* AboutArtistViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutArtistViewControllerAssembly.swift; sourceTree = "<group>"; };
+		BD3120662130080900FDA3B9 /* AboutArtistPresenterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutArtistPresenterAssembly.swift; sourceTree = "<group>"; };
 		BD3D14CD2122F0D300F5BD1E /* Films_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Films_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3D14CF2122F0D300F5BD1E /* Films_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films_iOSTests.swift; sourceTree = "<group>"; };
 		BD3D14D12122F0D300F5BD1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1001,6 +1005,8 @@
 			children = (
 				BDD85B58211C1AB800256E60 /* AboutArtistViewController.swift */,
 				BDD85BA3211C51D300256E60 /* artist.storyboard */,
+				BD312064213007BC00FDA3B9 /* AboutArtistViewControllerAssembly.swift */,
+				BD3120662130080900FDA3B9 /* AboutArtistPresenterAssembly.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -1468,6 +1474,7 @@
 				BD700C59211B296A00C51220 /* Cast.swift in Sources */,
 				BD700C50211B168500C51220 /* InfoFilmDisplayManagerAssembly.swift in Sources */,
 				BDD85BA8211C545A00256E60 /* ArtistBioViewController.swift in Sources */,
+				BD312065213007BC00FDA3B9 /* AboutArtistViewControllerAssembly.swift in Sources */,
 				BD119EDB212055B4002BBAD1 /* ArtistFilmsViewAssembly.swift in Sources */,
 				BDAC101B212C34A300A2DA9B /* FilmsPresenter.swift in Sources */,
 				BD47CFD92112F47E007339C8 /* Networking.swift in Sources */,
@@ -1519,6 +1526,7 @@
 				BD700C5B211B2AE800C51220 /* CastDisplayAssembly.swift in Sources */,
 				BD52F3E6211700C70063DEB1 /* PopularFilmsPresenter.swift in Sources */,
 				BDFCE2DF211DA4F600C70770 /* CastRoutingAssembly.swift in Sources */,
+				BD3120672130080900FDA3B9 /* AboutArtistPresenterAssembly.swift in Sources */,
 				BD6C97F121217E3D00E5660A /* ReviewDataSource.swift in Sources */,
 				BDD85B85211C492200256E60 /* AboutArtistUsecase.swift in Sources */,
 				BD52F3DE2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift in Sources */,

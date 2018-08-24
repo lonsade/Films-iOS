@@ -18,24 +18,24 @@ final class ArtistBioPresenter: IArtistBioPresenter {
     private var artistBioUsecase: IAboutArtistUsecase
     private var artistBioDataSource: IArtistBioDataSourceInput
     private var artistGalleryUsecase: IArtistPhotosUsecase
+    private var aboutArtistPresenter: AboutArtistInput
 
     init(
         artistBioUsecase: IAboutArtistUsecase,
         artistBioDataSource: IArtistBioDataSourceInput,
-        artistGalleryUsecase: IArtistPhotosUsecase
+        artistGalleryUsecase: IArtistPhotosUsecase,
+        aboutArtistPresenter: AboutArtistInput
     ) {
         self.artistBioUsecase = artistBioUsecase
         self.artistBioDataSource = artistBioDataSource
         self.artistGalleryUsecase = artistGalleryUsecase
+        self.aboutArtistPresenter = aboutArtistPresenter
     }
 
     func setBio() {
+        guard let artistId = aboutArtistPresenter.id else { fatalError("Artist id doesnt exist") }
 
-//        guard let castId = castRouting.selectArtistId else { fatalError("Cast id doesnt exist") }
-
-        let castId = 287
-
-        artistBioUsecase.getArtist(relativeURL: "/person/\(castId)").done { artist in
+        artistBioUsecase.getArtist(relativeURL: "/person/\(artistId)").done { artist in
             self.artistBioDataSource.add(bio: artist)
         }
         .catch { error in

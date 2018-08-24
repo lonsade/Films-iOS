@@ -25,9 +25,9 @@ class HostViewController: MenuContainerViewController {
         super.viewDidLoad()
 
         var options = TransitionOptions()
-        options.duration = 2
+        options.duration = 0.4
         options.visibleContentWidth = view.bounds.width / 8
-        options.contentScale = 1
+        //options.contentScale = 0.8
 
         currentItemOptions.cornerRadius = 8
         currentItemOptions.shadow = .init(color: .black, opacity: 0.71, offset: CGSize(width: 0, height: 0), radius: 30)

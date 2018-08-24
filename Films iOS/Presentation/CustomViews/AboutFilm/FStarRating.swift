@@ -15,8 +15,8 @@ final class FStarRating: UIView {
 
     lazy private var maskRating: CALayer = .init()
 
-    public var backStars = "group2"
-    public var frontStars = "group2"
+    public var backStars = "stars"
+    public var frontStars = "stars"
 
     override func awakeFromNib() {
 

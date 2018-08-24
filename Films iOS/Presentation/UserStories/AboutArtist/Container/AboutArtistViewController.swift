@@ -8,7 +8,23 @@
 
 import UIKit
 
-class AboutArtistViewController: UIViewController {
+protocol AboutArtistInput: ModuleInput {
+    var id: Int? { get }
+    func set(id: Int)
+}
+
+class AboutArtistPresenter: AboutArtistInput {
+
+    var id: Int?
+
+    func set(id: Int) {
+        self.id = id
+    }
+}
+
+class AboutArtistViewController: UIViewController, ModuleInputProvider {
+
+    var moduleInput: ModuleInput!
 
     private let pages = ["bio", "films"]
     private let storybordName = "artist"
@@ -52,6 +68,11 @@ class AboutArtistViewController: UIViewController {
         super.viewDidLoad()
 
         costomize()
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        AboutArtistViewControllerAssembly.instance().inject(into: self)
     }
 
 }
