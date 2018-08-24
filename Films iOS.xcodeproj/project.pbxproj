@@ -105,8 +105,6 @@
 		BD96F8A3212E818B0070579E /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96F8A2212E818B0070579E /* HostViewController.swift */; };
 		BD96F8A5212E83350070579E /* Host.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD96F8A4212E83350070579E /* Host.storyboard */; };
 		BDAC1016212BD73600A2DA9B /* BaseMainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAC1015212BD73600A2DA9B /* BaseMainPageViewController.swift */; };
-		BDAC101B212C34A300A2DA9B /* FilmsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAC101A212C34A300A2DA9B /* FilmsPresenter.swift */; };
-		BDAC101D212C367300A2DA9B /* FilmsPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAC101C212C367300A2DA9B /* FilmsPresenterAssembly.swift */; };
 		BDAC101F212C509800A2DA9B /* BaseFilmsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAC101E212C509800A2DA9B /* BaseFilmsDataSource.swift */; };
 		BDAC1021212C512600A2DA9B /* BaseFilmsDataSourceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAC1020212C512600A2DA9B /* BaseFilmsDataSourceAssembly.swift */; };
 		BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC941CA210EE861005C5041 /* AppDelegate.swift */; };
@@ -277,8 +275,6 @@
 		BD96F8A2212E818B0070579E /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
 		BD96F8A4212E83350070579E /* Host.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Host.storyboard; sourceTree = "<group>"; };
 		BDAC1015212BD73600A2DA9B /* BaseMainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMainPageViewController.swift; sourceTree = "<group>"; };
-		BDAC101A212C34A300A2DA9B /* FilmsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsPresenter.swift; sourceTree = "<group>"; };
-		BDAC101C212C367300A2DA9B /* FilmsPresenterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsPresenterAssembly.swift; sourceTree = "<group>"; };
 		BDAC101E212C509800A2DA9B /* BaseFilmsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFilmsDataSource.swift; sourceTree = "<group>"; };
 		BDAC1020212C512600A2DA9B /* BaseFilmsDataSourceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFilmsDataSourceAssembly.swift; sourceTree = "<group>"; };
 		BDC941C7210EE861005C5041 /* Films iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Films iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -489,22 +485,6 @@
 				BD96F8A4212E83350070579E /* Host.storyboard */,
 			);
 			path = Menu;
-			sourceTree = "<group>";
-		};
-		BD3120772130262700FDA3B9 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				BDAC101A212C34A300A2DA9B /* FilmsPresenter.swift */,
-			);
-			path = Presenters;
-			sourceTree = "<group>";
-		};
-		BD3120782130263900FDA3B9 /* Assemblies */ = {
-			isa = PBXGroup;
-			children = (
-				BDAC101C212C367300A2DA9B /* FilmsPresenterAssembly.swift */,
-			);
-			path = Assemblies;
 			sourceTree = "<group>";
 		};
 		BD3120792130265700FDA3B9 /* View */ = {
@@ -1269,8 +1249,6 @@
 		BDFCE2C1211D5F3700C70770 /* Container */ = {
 			isa = PBXGroup;
 			children = (
-				BD3120782130263900FDA3B9 /* Assemblies */,
-				BD3120772130262700FDA3B9 /* Presenters */,
 				BD312075213025E100FDA3B9 /* View */,
 			);
 			path = Container;
@@ -1572,7 +1550,6 @@
 				BDD85BA8211C545A00256E60 /* ArtistBioViewController.swift in Sources */,
 				BD312065213007BC00FDA3B9 /* AboutArtistViewControllerAssembly.swift in Sources */,
 				BD119EDB212055B4002BBAD1 /* ArtistFilmsViewAssembly.swift in Sources */,
-				BDAC101B212C34A300A2DA9B /* FilmsPresenter.swift in Sources */,
 				BD31207221301E9B00FDA3B9 /* SimilarFilmsDataSource.swift in Sources */,
 				BD47CFD92112F47E007339C8 /* Networking.swift in Sources */,
 				BD119EF221207FF9002BBAD1 /* InfoMoviesRoutingAssembly.swift in Sources */,
@@ -1656,7 +1633,6 @@
 				BD6C98082121AA5C00E5660A /* ArtistFilmsRouting.swift in Sources */,
 				BD569A65212DB781003F0B31 /* Storyboardable.swift in Sources */,
 				BDD85B4E211C12C600256E60 /* ReviewViewController.swift in Sources */,
-				BDAC101D212C367300A2DA9B /* FilmsPresenterAssembly.swift in Sources */,
 				BD119EB6212036A8002BBAD1 /* SimilarFilmsUsecase.swift in Sources */,
 				BD31206D213019E300FDA3B9 /* ArtistFilmsDataSource.swift in Sources */,
 				BD6C97F321217EF800E5660A /* ReviewPresenter.swift in Sources */,

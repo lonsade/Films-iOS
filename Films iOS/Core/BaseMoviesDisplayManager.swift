@@ -17,9 +17,9 @@ class BaseMoviesDisplayManager: NSObject {
     private let reuseIdentifier = "filmCard"
 
     private var filmsDataSource: BaseMoviesDataSourceOutput
-    private var filmsPresenter: IFilmsPresenter
+    private var filmsPresenter: IPopularFilmsPresenter
 
-    init(filmsDataSource: BaseMoviesDataSourceOutput, filmsPresenter: IFilmsPresenter) {
+    init(filmsDataSource: BaseMoviesDataSourceOutput, filmsPresenter: IPopularFilmsPresenter) {
         self.filmsDataSource = filmsDataSource
         self.filmsPresenter = filmsPresenter
     }
@@ -31,10 +31,17 @@ class BaseMoviesDisplayManager: NSObject {
             collectionFilms?.dataSource = self
             collectionFilms?.delegate = self
             filmsDataSource.delegate = self
+//            filmsDataSource.loadDelegate = self
         }
     }
 
 }
+
+//extension BaseMoviesDisplayManager: BaseMoviesDataSourceLoadDelegate {
+//    func notEnoughMovies() {
+//        filmsPresenter.loadPopularFilms(firstly: false)
+//    }
+//}
 
 extension BaseMoviesDisplayManager: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -44,7 +51,7 @@ extension BaseMoviesDisplayManager: UIScrollViewDelegate {
         let deltaOffset = maximumOffset - currentOffset
 
         if deltaOffset <= 0 {
-            filmsPresenter.loadPopularFilms(firstly: false)
+            filmsPresenter.setFilms()
         }
 
     }
@@ -52,6 +59,16 @@ extension BaseMoviesDisplayManager: UIScrollViewDelegate {
 
 extension BaseMoviesDisplayManager: BaseMoviesDataSourceDelegate {
     func moviesWereAdd() {
+
+//        var indexPaths = [IndexPath]()
+//
+//        for index in firstIndex...lastIndex {
+//            indexPaths.append(IndexPath(item: index, section: 0))
+//        }
+//
+//
+//        collectionFilms?.insertItems(at: indexPaths)
+
         collectionFilms?.reloadData()
     }
 }

@@ -28,7 +28,7 @@ final class TabNamesDataSource: ITabNamesDataSourceInput, ITabNamesDataSourceOut
     }
 
     init() {
-        names = [TabName(name: "In cinema", id: -1), TabName(name: "Popular", id: -1)]
+        names = [TabName(name: "In cinema", id: -2), TabName(name: "Popular", id: -1)]
     }
 }
 

@@ -13,13 +13,13 @@ final class PopularFilmsDisplayManagerAssembly: Assembly {
 
     lazy var popularFilmsDSAssembly: PopularFilmsDSAssembly = self.context.assembly()
 
-    lazy var filmsPresenterAssembly = FilmsPresenterAssembly.instance()
+    lazy var filmsPresenterAssembly = PopularFilmsPresenterAssembly.instance()
 
     var popularFilmsDisplayManager: BaseMoviesDisplayManager {
         return define(init:
             BaseMoviesDisplayManager(
                 filmsDataSource: self.popularFilmsDSAssembly.popularFilmsDS,
-                filmsPresenter: self.filmsPresenterAssembly.filmsPresenter
+                filmsPresenter: self.filmsPresenterAssembly.popularFilmsPresenter
             )
         )
     }

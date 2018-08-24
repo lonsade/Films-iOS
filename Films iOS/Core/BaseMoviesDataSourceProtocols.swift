@@ -10,15 +10,21 @@ import Foundation
 
 protocol BaseMoviesDataSourceInput: class {
     func filter(genre: TabName?)
+    func load(films: [FilmCard])
 }
 
 protocol BaseMoviesDataSourceOutput: class {
     var films: [FilmCard] { get }
     var delegate: BaseMoviesDataSourceDelegate? { get set }
+    var loadDelegate: BaseMoviesDataSourceLoadDelegate? { get set }
 }
 
 protocol BaseMoviesDataSourceDelegate: class {
     func moviesWereAdd()
+}
+
+protocol BaseMoviesDataSourceLoadDelegate: class {
+    func notEnoughMovies()
 }
 
 final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourceOutput {
@@ -28,7 +34,11 @@ final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourc
 
     weak var delegate: BaseMoviesDataSourceDelegate?
 
+    weak var loadDelegate: BaseMoviesDataSourceLoadDelegate?
+
     weak var filmsDelegate: BaseFilmsDataSourceDelegate?
+
+    private var countVisibleFilms = 20
 
     func filter(genre: TabName?) {
 
@@ -41,6 +51,19 @@ final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourc
         } else {
             self.films = baseFilmsDataSource.base
         }
+
+        if countVisibleFilms <= self.films.count {
+            self.films = Array(self.films[0..<countVisibleFilms])
+            countVisibleFilms += 10
+            delegate?.moviesWereAdd()
+        } else {
+            loadDelegate?.notEnoughMovies()
+        }
+
+    }
+
+    func load(films: [FilmCard]) {
+        self.films += films
         delegate?.moviesWereAdd()
     }
 

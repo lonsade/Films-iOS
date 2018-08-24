@@ -69,17 +69,12 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     var genresDataSource: ITabNamesDataSourceOutput!
 
-    var filmsPresenter: IFilmsPresenter!
-
-    var filmsDataSource: BaseFilmsDataSourceOutput!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         MainViewAssembly.instance().inject(into: self)
         tabNamesPresenter.setTabNames()
         customize()
         genresDataSource.delegate = self
-        filmsDataSource.delegate = self
 
     }
 
@@ -91,7 +86,24 @@ extension MainViewController: TabNamesDSDelegate {
     func tabNamesWasAdded(names: [TabName]) {
         collectionTabNames?.reloadData()
         self.genres = names
-        filmsPresenter.loadPopularFilms(firstly: true)
+
+        pageViewController.set(pages: genres, storyboardName: storybordName)
+        pageViewController.configureModule(withName: genres[1]) { moduleInput in
+            guard let filmsInput = moduleInput as? FilmsPresenterInput else {
+                fatalError("Could not cust moduleInput to FilmsPresenterInput")
+            }
+            filmsInput.set(genre: self.genres[1])
+        }
+        guard let firstPage = pageViewController.pagedViewControllers[genres[1]] else {
+            fatalError("Could not put first page)")
+        }
+        self.firstPage = firstPage
+        pageViewController.pageDelegate = self
+        pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
+
+        // Изначально Popular активна
+//        prevSelectedCell.changeActive(active: true)
+
     }
 }
 
@@ -148,26 +160,5 @@ extension MainViewController: BaseMainPageViewControllerDelegate {
 
         collectionTabNames.scrollToItem(at: IndexPath(item: toIndex, section: 0), at: .centeredHorizontally, animated: true)
 
-    }
-}
-
-extension MainViewController: BaseFilmsDataSourceDelegate {
-    func baseWasAdd() {
-        pageViewController.set(pages: genres, storyboardName: storybordName)
-        pageViewController.configureModule(withName: genres[1]) { moduleInput in
-            guard let filmsInput = moduleInput as? FilmsPresenterInput else {
-                fatalError("Could not cust moduleInput to FilmsPresenterInput")
-            }
-            filmsInput.set(genre: self.genres[1])
-        }
-        guard let firstPage = pageViewController.pagedViewControllers[genres[1]] else {
-            fatalError("Could not put first page)")
-        }
-        self.firstPage = firstPage
-        pageViewController.pageDelegate = self
-        pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
-
-        // Изначально Popular активна
-        prevSelectedCell.changeActive(active: true)
     }
 }

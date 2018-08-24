@@ -17,8 +17,6 @@ class MainViewAssembly: Assembly {
 
     lazy var genresDataSourceAssembly = TabNamesDataSourceAssembly.instance()
 
-    lazy var presenterFilmsAssembly = FilmsPresenterAssembly.instance()
-
     lazy var dataSourceAssembly = BaseFilmsDataSourceAssembly.instance()
 
     func inject(into mvc: MainViewController) {
@@ -26,8 +24,6 @@ class MainViewAssembly: Assembly {
             $0.tabDisplayManager = self.tabDisplayManager.tabDisplayManager
             $0.tabNamesPresenter = self.tabNamesPresenterAssembly.tabNamesPresenter
             $0.genresDataSource = self.genresDataSourceAssembly.tabNamesDataSource
-            $0.filmsPresenter = self.presenterFilmsAssembly.filmsPresenter
-            $0.filmsDataSource = self.dataSourceAssembly.baseFilmsDataSource
             return $0
         }
     }

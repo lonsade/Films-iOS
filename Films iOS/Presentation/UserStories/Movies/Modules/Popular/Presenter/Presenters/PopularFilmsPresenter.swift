@@ -9,21 +9,16 @@
 import Foundation
 
 protocol IPopularFilmsPresenter: ModuleInput {
-    func setPopularFilms()
+    func setFilms()
 }
 
 protocol FilmsPresenterInput: ModuleInput {
-    var dataSource: BaseMoviesDataSource { get }
-    func setAndUpdate(genre: TabName)
+    var dataSource: BaseMoviesDataSourceInput { get }
     func set(genre: TabName)
 }
 
 final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
 
-    func setAndUpdate(genre: TabName) {
-        self.genre = genre
-        setPopularFilms()
-    }
     func set(genre: TabName) {
         self.genre = genre
     }
@@ -31,15 +26,36 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
     private var genre: TabName!
 
     private var listPopularFilmsUsecase: IListPopularFilmsUsecase
-    internal var dataSource: BaseMoviesDataSource
+    internal var dataSource: BaseMoviesDataSourceInput
 
-    init(listPopularFilmsUsecase: IListPopularFilmsUsecase, dataSource: BaseMoviesDataSource) {
+    init(listPopularFilmsUsecase: IListPopularFilmsUsecase, dataSource: BaseMoviesDataSourceInput) {
         self.listPopularFilmsUsecase = listPopularFilmsUsecase
         self.dataSource = dataSource
     }
 
-    func setPopularFilms() {
-        self.dataSource.filter(genre: self.genre)
+    private var page = 0
+
+    func setFilms() {
+        page += 1
+
+        var parameters: [String: Any] = ["page": page]
+        var relativeURL: String = "/discover/movie"
+
+        if genre.id > -1 {
+            parameters["with_genres"] = String(genre.id)
+        } else if genre.id == -2 {
+            relativeURL = "/movie/now_playing"
+        }
+
+        listPopularFilmsUsecase.getPopularFilms(
+            relativeURL: relativeURL,
+            parameters: parameters
+        ).done { films in
+            self.dataSource.load(films: films)
+        }
+        .catch { error in
+            fatalError(error.localizedDescription)
+        }
     }
 
 }
