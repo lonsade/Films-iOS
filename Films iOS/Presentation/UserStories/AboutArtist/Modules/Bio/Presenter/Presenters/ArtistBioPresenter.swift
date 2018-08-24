@@ -44,12 +44,9 @@ final class ArtistBioPresenter: IArtistBioPresenter {
     }
 
     func setGallery() {
+        guard let artistId = aboutArtistPresenter.id else { fatalError("Artist id doesnt exist") }
 
-//        guard let castId = castRouting.selectArtistId else { fatalError("Cast id doesnt exist") }
-
-        let castId = 287
-
-        artistGalleryUsecase.getPhotos(relativeURL: "/person/\(castId)/images").done { photos in
+        artistGalleryUsecase.getPhotos(relativeURL: "/person/\(artistId)/images").done { photos in
             self.artistBioDataSource.add(artistPhotos: photos)
         }
         .catch { error in

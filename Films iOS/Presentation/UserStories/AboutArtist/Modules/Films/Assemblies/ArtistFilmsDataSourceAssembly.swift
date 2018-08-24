@@ -10,11 +10,7 @@ import EasyDi
 
 final class ArtistFilmsDataSourceAssembly: Assembly {
 
-    lazy var baseFilmsDataSourceAssembly = BaseFilmsDataSourceAssembly.instance()
-
-    var artistFilmsDataSource: BaseMoviesDataSourceOutput & BaseMoviesDataSourceInput {
-        return define(scope: .lazySingleton, init: BaseMoviesDataSource(
-            baseFilmsDataSource: self.baseFilmsDataSourceAssembly.baseFilmsDataSource
-        ))
+    var artistFilmsDataSource: ArtistFilmsDataSourceOutput & ArtistFilmsDataSourceInput {
+        return define(scope: .lazySingleton, init: ArtistFilmsDataSource())
     }
 }

@@ -18,13 +18,13 @@ final class InfoFilmDisplayManagerAssembly: Assembly {
         )
     }
 
-    lazy var filmsPresenterAssembly = FilmsPresenterAssembly.instance()
+    lazy var filmsPresenterAssembly = DetailsFilmPresenterAssembly.instance()
 
-    var similarDisplayManager: BaseMoviesDisplayManager {
+    var similarDisplayManager: SimilarFilmsDisplayManager {
         return define(scope: .lazySingleton, init:
-            BaseMoviesDisplayManager(
+            SimilarFilmsDisplayManager(
                 filmsDataSource: self.detailsFilmDataSourceAssembly.similarFilmDataSource,
-                filmsPresenter: self.filmsPresenterAssembly.filmsPresenter
+                filmsPresenter: self.filmsPresenterAssembly.detailsFilmPresenter
             )
         )
     }

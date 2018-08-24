@@ -9,18 +9,18 @@
 import Foundation
 
 protocol IArtistFilmsPresenter: class {
-    func setArtistFilms()
+    func loadArtistFilms()
 }
 
 final class ArtistFilmsPresenter: IArtistFilmsPresenter {
 
     private var artistFilmsUsecase: IArtistFilmsUsecase
-    private var artistFilmsDataSource: BaseFilmsDataSourceInput
+    private var artistFilmsDataSource: ArtistFilmsDataSourceInput
     private var aboutArtistPresenter: AboutArtistInput
 
     init(
         artistFilmsUsecase: IArtistFilmsUsecase,
-        artistFilmsDataSource: BaseFilmsDataSourceInput,
+        artistFilmsDataSource: ArtistFilmsDataSourceInput,
         aboutArtistPresenter: AboutArtistInput
     ) {
         self.artistFilmsDataSource = artistFilmsDataSource
@@ -28,11 +28,11 @@ final class ArtistFilmsPresenter: IArtistFilmsPresenter {
         self.aboutArtistPresenter = aboutArtistPresenter
     }
 
-    func setArtistFilms() {
+    func loadArtistFilms() {
         guard let artistId = aboutArtistPresenter.id else { fatalError("Artist id doesnt exist") }
 
         artistFilmsUsecase.getFilms(relativeURL: "/person/\(artistId)/movie_credits").done { films in
-            self.artistFilmsDataSource.load(base: films, firstly: true)
+            self.artistFilmsDataSource.load(base: films)
         }
         .catch { error in
             fatalError(error.localizedDescription)

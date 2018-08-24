@@ -12,7 +12,7 @@ final class ArtistFilmsPresenterAssembly: Assembly {
 
     lazy var artistFilmsUsecaseAssembly = ArtistFilmsUsecaseAssembly.instance()
 
-    lazy var baseFilmsDataSourceAssembly = BaseFilmsDataSourceAssembly.instance()
+    lazy var artistFilmsDataSourceAssembly = ArtistFilmsDataSourceAssembly.instance()
 
     lazy var aboutArtistPresenterAssembly = AboutArtistPresenterAssembly.instance()
 
@@ -20,7 +20,7 @@ final class ArtistFilmsPresenterAssembly: Assembly {
         return define(scope: .lazySingleton, init:
             ArtistFilmsPresenter(
                 artistFilmsUsecase: self.artistFilmsUsecaseAssembly.artistFilmsUsecase,
-                artistFilmsDataSource: self.baseFilmsDataSourceAssembly.baseFilmsDataSource,
+                artistFilmsDataSource: self.artistFilmsDataSourceAssembly.artistFilmsDataSource,
                 aboutArtistPresenter: self.aboutArtistPresenterAssembly.aboutArtistPresenter
             )
         )

@@ -13,11 +13,7 @@ final class DetailsFilmDataSourceAssembly: Assembly {
         return define(scope: .lazySingleton, init: DetailsFilmDataSource())
     }
 
-    lazy var baseFilmsDataSourceAssembly = BaseFilmsDataSourceAssembly.instance()
-
-    var similarFilmDataSource: BaseMoviesDataSourceOutput & BaseMoviesDataSourceInput {
-        return define(scope: .lazySingleton, init: BaseMoviesDataSource(
-            baseFilmsDataSource: self.baseFilmsDataSourceAssembly.baseFilmsDataSource
-        ))
+    var similarFilmDataSource: SimilarFilmsDataSourceOutput & SimilarFilmsDataSourceInput {
+        return define(scope: .lazySingleton, init: SimilarFilmsDataSource())
     }
 }

@@ -91,6 +91,11 @@ extension AboutArtistViewController: FSegmentControlDelegate {
         if let prevIndex = tabsSegmentControl.prevSelectedIndex, prevIndex > index {
             direction = .reverse
         }
-        pageViewController?.setViewControllers([(pageViewController?.viewPages[index])!], direction: direction, animated: true, completion: nil)
+
+        guard let validIndex = pageViewController?.viewPages[index] else {
+            fatalError("Invalid index: \(index)")
+        }
+
+        pageViewController?.setViewControllers([validIndex], direction: direction, animated: true, completion: nil)
     }
 }

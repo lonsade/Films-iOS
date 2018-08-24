@@ -18,7 +18,7 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
 
     private var detailsFilmUsecase: IDetailsFilmUsecase
     private var dataSourceForDetails: IDetailsFilmDataSourceInput
-    private var dataSourceForSimilar: BaseFilmsDataSourceInput
+    private var dataSourceForSimilar: SimilarFilmsDataSourceInput
     private var galleryUsecase: IGalleryUsecase
     private var similarUsecase: ISimilarFilmsUsecase
     private var aboutFilmPresenter: AboutFilmInput
@@ -28,7 +28,7 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
         dataSourceForDetails: IDetailsFilmDataSourceInput,
         galleryUsecase: IGalleryUsecase,
         similarUsecase: ISimilarFilmsUsecase,
-        dataSourceForSimilar: BaseFilmsDataSourceInput,
+        dataSourceForSimilar: SimilarFilmsDataSourceInput,
         aboutFilmPresenter: AboutFilmInput
     ) {
         self.detailsFilmUsecase = detailsFilmUsecase
@@ -68,7 +68,7 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
         guard let filmId = aboutFilmPresenter.id else { fatalError("Film id doesnt exist") }
 
         similarUsecase.getSimilar(relativeURL: "/movie/\(filmId))/similar").done { films in
-            self.dataSourceForSimilar.load(base: films, firstly: true)
+            self.dataSourceForSimilar.load(base: films)
         }
         .catch { error in
             fatalError(error.localizedDescription)

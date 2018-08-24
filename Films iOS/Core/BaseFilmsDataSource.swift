@@ -36,8 +36,6 @@ final class BaseFilmsDataSource: BaseFilmsDataSourceInput, BaseFilmsDataSourceOu
         delegate?.baseWasAdd()
     }
 
-    static let addedFilmsKey = "addedFilms"
-
     init() {
         base = []
     }

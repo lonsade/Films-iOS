@@ -17,7 +17,10 @@ final class FilmsPresenter: IFilmsPresenter {
     private var listPopularFilmsUsecase: IListPopularFilmsUsecase
     private var dataSource: BaseFilmsDataSourceInput
 
-    init(listPopularFilmsUsecase: IListPopularFilmsUsecase, dataSource: BaseFilmsDataSourceInput) {
+    init(
+        listPopularFilmsUsecase: IListPopularFilmsUsecase,
+        dataSource: BaseFilmsDataSourceInput
+    ) {
         self.listPopularFilmsUsecase = listPopularFilmsUsecase
         self.dataSource = dataSource
     }

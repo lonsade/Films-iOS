@@ -109,11 +109,10 @@ class InfoFilmViewController: BaseViewController {
         }
     }
 
-    var similarDisplayManager: BaseMoviesDisplayManager! {
+    var similarDisplayManager: SimilarFilmsDisplayManager! {
         didSet {
             similarDisplayManager.collectionFilms = collectionSimilarFilms
             similarDisplayManager.delegate = self
-            similarDisplayManager.isSeeAlso = true
         }
     }
 
@@ -171,7 +170,7 @@ extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
     }
 }
 
-extension InfoFilmViewController: FilmCollectionDisplayManagerDelegate {
+extension InfoFilmViewController: ArtistMoviesDisplayManagerDelegate {
     func filmWasSelected(withIndex id: Int) {
         router.navigateToAboutFilm(withId: id)
     }
