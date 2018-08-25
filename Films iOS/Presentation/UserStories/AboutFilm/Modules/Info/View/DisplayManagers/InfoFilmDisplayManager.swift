@@ -16,6 +16,8 @@ final class InfoFilmDisplayManager: NSObject {
 
     private var filmsDataSource: SimilarFilmsDataSourceOutput
 
+    private var filmsPresenter: IDetailsFilmPresenter
+
     weak var infoFilmCollectionView: UICollectionView? {
         didSet {
             infoFilmCollectionView?.delegate = self
@@ -49,11 +51,13 @@ final class InfoFilmDisplayManager: NSObject {
     init(
         detailFilm: IDetailsFilmDataSourceOutput,
         galleryDisplayManager: GalleryDisplayManager,
-        filmsDataSource: SimilarFilmsDataSourceOutput
+        filmsDataSource: SimilarFilmsDataSourceOutput,
+        filmsPresenter: IDetailsFilmPresenter
     ) {
         self.detailFilm = detailFilm
         self.galleryDisplayManager = galleryDisplayManager
         self.filmsDataSource = filmsDataSource
+        self.filmsPresenter = filmsPresenter
     }
 
 }
@@ -76,6 +80,20 @@ extension InfoFilmDisplayManager: DetailsFilmDataSourceDelegate {
 
 extension InfoFilmDisplayManager: UICollectionViewDelegate {
 
+}
+
+extension InfoFilmDisplayManager: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+
+        if deltaOffset <= 0 {
+            filmsPresenter.setSimilar()
+        }
+
+    }
 }
 
 extension InfoFilmDisplayManager: UICollectionViewDataSource {
@@ -179,7 +197,12 @@ extension InfoFilmDisplayManager: UICollectionViewDelegateFlowLayout {
         referenceSizeForHeaderInSection section: Int
     ) -> CGSize {
         if section == 0 {
-            return CGSize(width: collectionView.frame.size.width, height: 150)
+
+            if let details = detailFilm.details, details.video {
+                return CGSize(width: collectionView.frame.size.width, height: 150)
+            } else {
+                return CGSize(width: 0, height: 0)
+            }
         } else if section == 1 {
             if let details = detailFilm.details, let info = details.overview {
 

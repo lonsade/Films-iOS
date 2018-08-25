@@ -46,7 +46,6 @@
 		BD31206D213019E300FDA3B9 /* ArtistFilmsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD31206C213019E300FDA3B9 /* ArtistFilmsDataSource.swift */; };
 		BD31207021301B5700FDA3B9 /* ArtistMoviesDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD31206F21301B5700FDA3B9 /* ArtistMoviesDisplayManager.swift */; };
 		BD31207221301E9B00FDA3B9 /* SimilarFilmsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD31207121301E9B00FDA3B9 /* SimilarFilmsDataSource.swift */; };
-		BD31207421301F8D00FDA3B9 /* SimilarFilmsDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD31207321301F8D00FDA3B9 /* SimilarFilmsDisplayManager.swift */; };
 		BD3D14D02122F0D300F5BD1E /* Films_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D14CF2122F0D300F5BD1E /* Films_iOSTests.swift */; };
 		BD3D14DC21231F3F00F5BD1E /* AboutFilmViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D14DB21231F3F00F5BD1E /* AboutFilmViewAssembly.swift */; };
 		BD3D14DE21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D14DD21231F7200F5BD1E /* AboutFilmPresenterAssembly.swift */; };
@@ -225,7 +224,6 @@
 		BD31206C213019E300FDA3B9 /* ArtistFilmsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistFilmsDataSource.swift; sourceTree = "<group>"; };
 		BD31206F21301B5700FDA3B9 /* ArtistMoviesDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMoviesDisplayManager.swift; sourceTree = "<group>"; };
 		BD31207121301E9B00FDA3B9 /* SimilarFilmsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarFilmsDataSource.swift; sourceTree = "<group>"; };
-		BD31207321301F8D00FDA3B9 /* SimilarFilmsDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarFilmsDisplayManager.swift; sourceTree = "<group>"; };
 		BD3D14CD2122F0D300F5BD1E /* Films_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Films_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3D14CF2122F0D300F5BD1E /* Films_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films_iOSTests.swift; sourceTree = "<group>"; };
 		BD3D14D12122F0D300F5BD1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1075,7 +1073,6 @@
 			children = (
 				BD700C3D211AF00400C51220 /* GalleryDisplayManager.swift */,
 				BD8B972121318E13005D8F00 /* InfoFilmDisplayManager.swift */,
-				BD31207321301F8D00FDA3B9 /* SimilarFilmsDisplayManager.swift */,
 			);
 			path = DisplayManagers;
 			sourceTree = "<group>";
@@ -1629,7 +1626,6 @@
 				BD8B972221318E13005D8F00 /* InfoFilmDisplayManager.swift in Sources */,
 				BDD16047211985920063650A /* InfoFilmViewController.swift in Sources */,
 				BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */,
-				BD31207421301F8D00FDA3B9 /* SimilarFilmsDisplayManager.swift in Sources */,
 				BDD85B9C211C4D4C00256E60 /* ArtistPhoto.swift in Sources */,
 				BD1DCF6C21132308001B48EF /* TabName.swift in Sources */,
 				BD05FCCE2119C552008B5AC5 /* DetailsFilmUsecase.swift in Sources */,

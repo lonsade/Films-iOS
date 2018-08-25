@@ -31,7 +31,6 @@ class BaseMoviesDisplayManager: NSObject {
             collectionFilms?.dataSource = self
             collectionFilms?.delegate = self
             filmsDataSource.delegate = self
-//            filmsDataSource.loadDelegate = self
 
             collectionFilms?.register(UINib(nibName: "FilmCard", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
 
@@ -39,12 +38,6 @@ class BaseMoviesDisplayManager: NSObject {
     }
 
 }
-
-//extension BaseMoviesDisplayManager: BaseMoviesDataSourceLoadDelegate {
-//    func notEnoughMovies() {
-//        filmsPresenter.loadPopularFilms(firstly: false)
-//    }
-//}
 
 extension BaseMoviesDisplayManager: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
