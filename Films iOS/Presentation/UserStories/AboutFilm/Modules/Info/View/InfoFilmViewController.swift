@@ -134,7 +134,7 @@ class InfoFilmViewController: BaseViewController {
         router.viewController = self
 //        datasource.delegate = self
         presenter.setDetailsFilm()
-//        presenter.setGallery()
+        presenter.setGallery()
 //        presenter.setSimilar()
     }
 

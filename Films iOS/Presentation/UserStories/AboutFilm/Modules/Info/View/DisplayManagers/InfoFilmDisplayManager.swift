@@ -10,9 +10,9 @@ import UIKit
 
 final class InfoFilmDisplayManager: NSObject {
 
-//    private let reuseIdentifier = "images"
-
     private var detailFilm: IDetailsFilmDataSourceOutput
+
+    private var galleryDisplayManager: GalleryDisplayManager
 
     weak var infoFilmCollectionView: UICollectionView? {
         didSet {
@@ -31,14 +31,19 @@ final class InfoFilmDisplayManager: NSObject {
                 forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                 withReuseIdentifier: "FilmInfo"
             )
-
+            infoFilmCollectionView?.register(
+                UINib(nibName: "FilmGallery", bundle: nil),
+                forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                withReuseIdentifier: "FilmGallery"
+            )
         }
     }
 
     //weak var delegate: FilmDetailCollectionDisplayManager?
 
-    init(detailFilm: IDetailsFilmDataSourceOutput) {
+    init(detailFilm: IDetailsFilmDataSourceOutput, galleryDisplayManager: GalleryDisplayManager) {
         self.detailFilm = detailFilm
+        self.galleryDisplayManager = galleryDisplayManager
     }
 
 }
@@ -46,8 +51,6 @@ final class InfoFilmDisplayManager: NSObject {
 extension InfoFilmDisplayManager: DetailsFilmDataSourceDelegate {
     func detailsWasAdded(details: FilmDetail) {
         infoFilmCollectionView?.reloadData()
-//        infoFilmCollectionView?.reloadInputViews()
-//        infoFilmCollectionView?.sizeToFit()
     }
 
     func imagesWasAdded(images: [GalleryImage]) {
@@ -65,11 +68,19 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        fatalError("")
+        var cell = UICollectionViewCell()
+//        if let galleryCell = collectionView.dequeueReusableCell(
+//            withReuseIdentifier: "GalleryCollectionCell",
+//            for: indexPath
+//        ) as? GalleryCollectionCell {
+//            galleryCell.setImage(imageUrl: detailFilm.images[indexPath.item].filePath)
+//            cell = galleryCell
+//        }
+        return cell
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
 
     func collectionView(
@@ -81,17 +92,24 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
         if (kind == UICollectionElementKindSectionHeader) {
             switch (indexPath.section) {
             case 0:
-                guard let firstheader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilmVideos", for: indexPath) as? FilmVideos else { fatalError("") }
+                guard let filmVideos = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilmVideos", for: indexPath) as? FilmVideos else { fatalError("") }
 
-                reusableview = firstheader
+                reusableview = filmVideos
             case 1:
-                guard let secondHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilmInfo", for: indexPath) as? FilmInfo else { fatalError("") }
+                guard let filmInfo = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilmInfo", for: indexPath) as? FilmInfo else { fatalError("") }
 
                 if let details = detailFilm.details {
-                    secondHeader.set(details: details)
+                    filmInfo.set(details: details)
                 }
 
-                reusableview = secondHeader
+                reusableview = filmInfo
+            case 2:
+                guard let filmGallery = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilmGallery", for: indexPath) as? FilmGallery else { fatalError("") }
+
+                if !detailFilm.images.isEmpty {
+                    galleryDisplayManager.collectionGallery = filmGallery.galleryCollectionView
+                }
+                reusableview = filmGallery
             default:
                 return reusableview
 
@@ -125,6 +143,14 @@ extension InfoFilmDisplayManager: UICollectionViewDelegateFlowLayout {
             } else {
                 return CGSize(width: collectionView.frame.size.width, height: 200)
             }
+        } else if section == 2 {
+
+            let hLabel: CGFloat = 24
+            let hConstraint1: CGFloat = 14
+            let hConstraint2: CGFloat = 11
+            let hcollection: CGFloat = 60
+
+            return CGSize(width: collectionView.frame.size.width, height: hLabel + hConstraint1 + hConstraint2 + hcollection)
         }
         return CGSize(width: collectionView.frame.size.width, height: 0)
     }
