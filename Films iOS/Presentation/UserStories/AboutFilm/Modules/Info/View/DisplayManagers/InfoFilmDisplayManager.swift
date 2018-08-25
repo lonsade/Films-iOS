@@ -39,11 +39,8 @@ final class InfoFilmDisplayManager: NSObject {
                 forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                 withReuseIdentifier: "FilmGallery"
             )
-            infoFilmCollectionView?.register(
-                UINib(nibName: "FilmSimilar", bundle: nil),
-                forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
-                withReuseIdentifier: "FilmSimilar"
-            )
+
+            infoFilmCollectionView?.register(UINib(nibName: "FilmCard", bundle: nil), forCellWithReuseIdentifier: "filmCard")
         }
     }
 
@@ -123,11 +120,19 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
         if (kind == UICollectionElementKindSectionHeader) {
             switch (indexPath.section) {
             case 0:
-                guard let filmVideos = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilmVideos", for: indexPath) as? FilmVideos else { fatalError("") }
+                guard let filmVideos = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: "FilmVideos",
+                    for: indexPath
+                ) as? FilmVideos else { fatalError("") }
 
                 reusableview = filmVideos
             case 1:
-                guard let filmInfo = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilmInfo", for: indexPath) as? FilmInfo else { fatalError("") }
+                guard let filmInfo = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: "FilmInfo",
+                    for: indexPath
+                ) as? FilmInfo else { fatalError("") }
 
                 if let details = detailFilm.details {
                     filmInfo.set(details: details)
@@ -135,19 +140,17 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
 
                 reusableview = filmInfo
             case 2:
-                guard let filmGallery = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilmGallery", for: indexPath) as? FilmGallery else { fatalError("") }
+                guard let filmGallery = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: "FilmGallery",
+                    for: indexPath
+                ) as? FilmGallery else { fatalError("") }
 
                 if !detailFilm.images.isEmpty {
                     galleryDisplayManager.collectionGallery = filmGallery.galleryCollectionView
                 }
                 reusableview = filmGallery
-            case 3:
-                guard let filmSimilar = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilmSimilar", for: indexPath) as? FilmSimilar else { fatalError("") }
 
-                if !filmsDataSource.base.isEmpty {
-                    //galleryDisplayManager.collectionGallery = filmGallery.galleryCollectionView
-                }
-                reusableview = filmSimilar
             default:
                 return reusableview
 
@@ -158,6 +161,18 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
 }
 
 extension InfoFilmDisplayManager: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
+        if section == 3 {
+            return UIEdgeInsets(top: 11, left: 16, bottom: 16, right: 16)
+        }
+        return UIEdgeInsets.zero
+    }
+
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -183,20 +198,13 @@ extension InfoFilmDisplayManager: UICollectionViewDelegateFlowLayout {
             }
         } else if section == 2 {
 
-            let hLabel: CGFloat = 24
+            let hLabel: CGFloat = 24 * 2
             let hConstraint1: CGFloat = 14
             let hConstraint2: CGFloat = 11
+            let hConstraint3: CGFloat = 18
             let hcollection: CGFloat = 60
 
-            return CGSize(width: collectionView.frame.size.width, height: hLabel + hConstraint1 + hConstraint2 + hcollection)
-        } else if section == 3 {
-
-            let hLabel: CGFloat = 24
-            let hConstraint1: CGFloat = 14
-            let hConstraint2: CGFloat = 11
-            let hcollection: CGFloat = 60
-
-            return CGSize(width: collectionView.frame.size.width, height: hLabel + hConstraint1 + hConstraint2 + hcollection)
+            return CGSize(width: collectionView.frame.size.width, height: hLabel + hConstraint1 + hConstraint2 + hcollection + hConstraint3)
         }
         return CGSize(width: collectionView.frame.size.width, height: 0)
     }

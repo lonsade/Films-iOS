@@ -36,20 +36,30 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYy-NO-MqQ">
+                    <rect key="frame" x="16" y="144" width="343" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="b9I-Iz-TYx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="FWx-Lc-xPQ"/>
                 <constraint firstItem="n0c-Y6-kPk" firstAttribute="top" secondItem="b9I-Iz-TYx" secondAttribute="bottom" constant="11" id="HLv-RW-egP"/>
+                <constraint firstItem="iYy-NO-MqQ" firstAttribute="top" secondItem="n0c-Y6-kPk" secondAttribute="bottom" constant="18" id="SmT-Tu-4KU"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="b9I-Iz-TYx" secondAttribute="trailing" constant="16" id="hTz-p9-y4p"/>
                 <constraint firstItem="b9I-Iz-TYx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="14" id="jCY-kd-Fes"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="n0c-Y6-kPk" secondAttribute="trailing" id="jU5-5W-M5c"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iYy-NO-MqQ" secondAttribute="trailing" constant="16" id="r7v-mF-doe"/>
+                <constraint firstItem="iYy-NO-MqQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="u2J-4C-mhj"/>
                 <constraint firstItem="n0c-Y6-kPk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="z4w-xB-oL0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="galleryCollectionView" destination="n0c-Y6-kPk" id="Ft5-3H-rft"/>
                 <outlet property="galleryLabel" destination="b9I-Iz-TYx" id="d2l-hb-ADd"/>
+                <outlet property="similarLabel" destination="iYy-NO-MqQ" id="Evh-dH-9mN"/>
             </connections>
             <point key="canvasLocation" x="26" y="30"/>
         </view>

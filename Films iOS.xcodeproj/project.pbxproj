@@ -112,8 +112,6 @@
 		BD8B97262131BD4B005D8F00 /* FilmGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B97252131BD4B005D8F00 /* FilmGallery.swift */; };
 		BD8B97282131BD5F005D8F00 /* FilmGallery.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD8B97272131BD5F005D8F00 /* FilmGallery.xib */; };
 		BD8B972A2131C0CD005D8F00 /* GalleryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD8B97292131C0CD005D8F00 /* GalleryCollectionCell.xib */; };
-		BD8B972C2131C8B9005D8F00 /* FilmSimilar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD8B972B2131C8B9005D8F00 /* FilmSimilar.xib */; };
-		BD8B972E2131C8C2005D8F00 /* FilmSimilar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B972D2131C8C2005D8F00 /* FilmSimilar.swift */; };
 		BD8B97302131CF69005D8F00 /* FilmCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD8B972F2131CF69005D8F00 /* FilmCard.xib */; };
 		BD96F8A3212E818B0070579E /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96F8A2212E818B0070579E /* HostViewController.swift */; };
 		BD96F8A5212E83350070579E /* Host.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD96F8A4212E83350070579E /* Host.storyboard */; };
@@ -295,8 +293,6 @@
 		BD8B97252131BD4B005D8F00 /* FilmGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmGallery.swift; sourceTree = "<group>"; };
 		BD8B97272131BD5F005D8F00 /* FilmGallery.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmGallery.xib; sourceTree = "<group>"; };
 		BD8B97292131C0CD005D8F00 /* GalleryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionCell.xib; sourceTree = "<group>"; };
-		BD8B972B2131C8B9005D8F00 /* FilmSimilar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmSimilar.xib; sourceTree = "<group>"; };
-		BD8B972D2131C8C2005D8F00 /* FilmSimilar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSimilar.swift; sourceTree = "<group>"; };
 		BD8B972F2131CF69005D8F00 /* FilmCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCard.xib; sourceTree = "<group>"; };
 		BD96F8A2212E818B0070579E /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
 		BD96F8A4212E83350070579E /* Host.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Host.storyboard; sourceTree = "<group>"; };
@@ -894,8 +890,6 @@
 				BD8B97272131BD5F005D8F00 /* FilmGallery.xib */,
 				BD8B971D21315359005D8F00 /* FilmInfo.swift */,
 				BD8B971F21315366005D8F00 /* FilmInfo.xib */,
-				BD8B972D2131C8C2005D8F00 /* FilmSimilar.swift */,
-				BD8B972B2131C8B9005D8F00 /* FilmSimilar.xib */,
 				BD8B971B213152E8005D8F00 /* FilmVideos.swift */,
 				BD8B9719213151B6005D8F00 /* FilmVideos.xib */,
 			);
@@ -1504,7 +1498,6 @@
 				BDC941D0210EE861005C5041 /* MainViewController.storyboard in Resources */,
 				BD8B972021315366005D8F00 /* FilmInfo.xib in Resources */,
 				BD96F8A5212E83350070579E /* Host.storyboard in Resources */,
-				BD8B972C2131C8B9005D8F00 /* FilmSimilar.xib in Resources */,
 				BD05FCE82119E4C4008B5AC5 /* Segoe UI, Regular.ttf in Resources */,
 				BD8B97302131CF69005D8F00 /* FilmCard.xib in Resources */,
 			);
@@ -1658,7 +1651,6 @@
 				BD6C97F92121822400E5660A /* ReviewPresenterAssembly.swift in Sources */,
 				BD6C97FD2121827800E5660A /* ReviewViewAssembly.swift in Sources */,
 				BDD85B98211C4C5200256E60 /* ArtistBioDataSource.swift in Sources */,
-				BD8B972E2131C8C2005D8F00 /* FilmSimilar.swift in Sources */,
 				BDAC1021212C512600A2DA9B /* BaseFilmsDataSourceAssembly.swift in Sources */,
 				BDF83D682111F24F001596EA /* PopularFilmsViewController.swift in Sources */,
 				BD52F3D82116D3CA0063DEB1 /* TabNamesPresenterAssembly.swift in Sources */,

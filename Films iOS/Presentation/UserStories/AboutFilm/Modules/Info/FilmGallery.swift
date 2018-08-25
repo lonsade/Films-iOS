@@ -17,5 +17,13 @@ class FilmGallery: UICollectionReusableView {
             galleryLabel.text = "Gallery"
         }
     }
+
+    @IBOutlet weak var similarLabel: UILabel! {
+        didSet {
+            similarLabel.font = UIFont.FAboutFilmTitles
+            similarLabel.textColor = UIColor.FTitleTextColor
+            similarLabel.text = "See also"
+        }
+    }
     @IBOutlet weak var galleryCollectionView: UICollectionView!
 }
