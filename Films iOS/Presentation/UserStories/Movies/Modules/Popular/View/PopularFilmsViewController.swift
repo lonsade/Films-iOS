@@ -14,35 +14,29 @@ class PopularFilmsViewController: BaseViewController {
 
     var filmCollectionDisplayManager: BaseMoviesDisplayManager! {
         didSet {
-            filmCollectionDisplayManager.collectionFilms = filmCollection
             filmCollectionDisplayManager.delegate = self
-            filmCollectionDisplayManager.isSeeAlso = false
         }
     }
 
     var presenter: IPopularFilmsPresenter!
     var router: MoviesRouting!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func awakeFromNib() {
+        super.awakeFromNib()
         PopularFilmsViewAssembly.instance().inject(into: self)
-        router.viewController = self
-        presenter.setPopularFilms()
     }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-////        if segue.identifier == "AboutFilm" {
-//            guard let aboutFilm = segue.destination as? ModuleInputProvider else {
-//                fatalError()
-//            }
-//
-////        }
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        router.viewController = self
+        filmCollectionDisplayManager.collectionFilms = filmCollection
+        presenter.setFilms()
+    }
 
 }
 
 extension PopularFilmsViewController: FilmCollectionDisplayManagerDelegate {
-    func filmWasSelected(withIndex id: Int) {
-        router.navigateToAboutFilm(onIndex: id)
+    func filmWasSelected(withId id: Int) {
+        router.navigateToAboutFilm(onId: id)
     }
 }

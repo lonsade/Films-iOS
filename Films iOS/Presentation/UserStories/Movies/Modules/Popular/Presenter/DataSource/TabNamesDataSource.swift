@@ -24,11 +24,11 @@ final class TabNamesDataSource: ITabNamesDataSourceInput, ITabNamesDataSourceOut
 
     func addNames(names: [TabName]) {
         self.names += names
-        delegate?.tabNamesWasAdded(names: names)
+        delegate?.tabNamesWasAdded(names: self.names)
     }
 
     init() {
-        names = [TabName(name: "In cinema", id: -1), TabName(name: "Popular", id: -1)]
+        names = [TabName(name: "In cinema", id: -2), TabName(name: "Popular", id: -1)]
     }
 }
 

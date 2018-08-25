@@ -8,7 +8,23 @@
 
 import UIKit
 
-class AboutArtistViewController: UIViewController {
+protocol AboutArtistInput: ModuleInput {
+    var id: Int? { get }
+    func set(id: Int)
+}
+
+class AboutArtistPresenter: AboutArtistInput {
+
+    var id: Int?
+
+    func set(id: Int) {
+        self.id = id
+    }
+}
+
+class AboutArtistViewController: UIViewController, ModuleInputProvider {
+
+    var moduleInput: ModuleInput!
 
     private let pages = ["bio", "films"]
     private let storybordName = "artist"
@@ -50,8 +66,25 @@ class AboutArtistViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Для изменения кнопки back
+        NotificationCenter.default.addObserver(self, selector: #selector(filmWasSelected), name: .beforeSegueDone, object: nil)
         costomize()
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        AboutArtistViewControllerAssembly.instance().inject(into: self)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "Artist"
+    }
+
+    // Для изменения кнопки back
+    @objc
+    private func filmWasSelected() {
+        navigationItem.title = nil
     }
 
 }
@@ -70,6 +103,11 @@ extension AboutArtistViewController: FSegmentControlDelegate {
         if let prevIndex = tabsSegmentControl.prevSelectedIndex, prevIndex > index {
             direction = .reverse
         }
-        pageViewController?.setViewControllers([(pageViewController?.viewPages[index])!], direction: direction, animated: true, completion: nil)
+
+        guard let validIndex = pageViewController?.viewPages[index] else {
+            fatalError("Invalid index: \(index)")
+        }
+
+        pageViewController?.setViewControllers([validIndex], direction: direction, animated: true, completion: nil)
     }
 }

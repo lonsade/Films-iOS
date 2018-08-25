@@ -6,7 +6,6 @@
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
-import Foundation
 import PromiseKit
 
 protocol ITabNamesUsecase: class {
@@ -23,7 +22,7 @@ final class TabNamesUsecase: ITabNamesUsecase {
 
     func getTabNames(relativeURL: String) -> Promise<[TabName]> {
         return Promise<[TabName]> { seal in
-            makeRequestGatewayTabNames.getResults(relativeURL: relativeURL).done { (tabs: Genres) in
+            makeRequestGatewayTabNames.getResults(relativeURL: relativeURL, parameters: nil).done { (tabs: Genres) in
                 seal.fulfill(tabs.genres)
             }.catch { error in
                 seal.reject(error)

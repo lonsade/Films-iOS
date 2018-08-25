@@ -6,7 +6,6 @@
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
-import Foundation
 import EasyDi
 
 final class PopularFilmsPresenterAssembly: Assembly {
@@ -16,7 +15,7 @@ final class PopularFilmsPresenterAssembly: Assembly {
     lazy var popularFilmsDSAssembly: PopularFilmsDSAssembly = PopularFilmsDSAssembly.instance()
 
     var popularFilmsPresenter: IPopularFilmsPresenter & FilmsPresenterInput {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             PopularFilmsPresenter(
                 listPopularFilmsUsecase: self.moviesUsecaseAssembly.listPopularFilmsUsecase,
                 dataSource: self.popularFilmsDSAssembly.popularFilmsDS

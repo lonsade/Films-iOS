@@ -20,7 +20,6 @@ final class TabDisplayManager: NSObject {
 
     weak var collectionTabNames: UICollectionView? {
         didSet {
-            tabNamesDataSource.delegate = self
             collectionTabNames?.delegate = self
             collectionTabNames?.dataSource = self
         }
@@ -66,13 +65,7 @@ extension TabDisplayManager: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         return CGSize(
             width: tabNamesDataSource.names[indexPath.item].name.getSizeWithFormating(font: UIFont.FTabName).width + 20,
-            height: tabNamesDataSource.names[indexPath.item].name.getSizeWithFormating(font: UIFont.FTabName).height
+            height: 32
         )
-    }
-}
-
-extension TabDisplayManager: TabNamesDSDelegate {
-    func tabNamesWasAdded(names: [TabName]) {
-        collectionTabNames?.reloadData()
     }
 }

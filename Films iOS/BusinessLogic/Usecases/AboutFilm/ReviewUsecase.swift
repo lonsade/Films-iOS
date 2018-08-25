@@ -23,7 +23,7 @@ final class ReviewUsecase: IReviewUsecase {
 
     func getReview(relativeURL: String) -> Promise<[Review]> {
         return Promise<[Review]> { seal in
-            makeRequestGatewayCast.getResults(relativeURL: relativeURL).done { (reviews: Reviews) in
+            makeRequestGatewayCast.getResults(relativeURL: relativeURL, parameters: nil).done { (reviews: Reviews) in
                 seal.fulfill(reviews.results)
             }.catch { error in
                     seal.reject(error)

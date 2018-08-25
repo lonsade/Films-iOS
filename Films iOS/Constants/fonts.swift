@@ -50,6 +50,8 @@ extension UIFont {
 
     static let FArtistName = getFont(named: "SegoeUI-Regular", of: 20)
 
+    static let FMenuItem = getFont(named: "SegoeUI-Regular", of: 18)
+
 }
 
 // swiftlint:enable identifier_name line_length type_body_length

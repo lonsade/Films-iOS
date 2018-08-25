@@ -9,20 +9,19 @@
 import UIKit
 
 protocol FilmCollectionDisplayManagerDelegate: class {
-    func filmWasSelected(withIndex index: Int)
+    func filmWasSelected(withId id: Int)
 }
 
 class BaseMoviesDisplayManager: NSObject {
 
     private let reuseIdentifier = "filmCard"
 
-    // для идентификации дисплея менеджера, предназначенного для отображения See Also
-    var isSeeAlso = false
-
     private var filmsDataSource: BaseMoviesDataSourceOutput
+    private var filmsPresenter: IPopularFilmsPresenter
 
-    init(filmsDataSource: BaseMoviesDataSourceOutput) {
+    init(filmsDataSource: BaseMoviesDataSourceOutput, filmsPresenter: IPopularFilmsPresenter) {
         self.filmsDataSource = filmsDataSource
+        self.filmsPresenter = filmsPresenter
     }
 
     weak var delegate: FilmCollectionDisplayManagerDelegate?
@@ -32,51 +31,56 @@ class BaseMoviesDisplayManager: NSObject {
             collectionFilms?.dataSource = self
             collectionFilms?.delegate = self
             filmsDataSource.delegate = self
+//            filmsDataSource.loadDelegate = self
         }
     }
 
 }
 
-extension BaseMoviesDisplayManager: BaseMoviesDataSourceDelegate {
-    func moviesWereAdd() {
-        collectionFilms?.reloadData()
+//extension BaseMoviesDisplayManager: BaseMoviesDataSourceLoadDelegate {
+//    func notEnoughMovies() {
+//        filmsPresenter.loadPopularFilms(firstly: false)
+//    }
+//}
 
-        //* Фикс высоты коллекции для see also *//
+extension BaseMoviesDisplayManager: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
-        if isSeeAlso {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
 
-            let heightCell = 298
-
-            let space = 16
-
-            let countRows = filmsDataSource.films.count / 2
-
-            let heightCollection = heightCell * countRows + space * (countRows - 1)
-
-            let heightConstraint = NSLayoutConstraint(
-                item: collectionFilms,
-                attribute: .height,
-                relatedBy: .equal,
-                toItem: nil,
-                attribute: .notAnAttribute,
-                multiplier: 1,
-                constant: CGFloat(heightCollection)
-            )
-
-            collectionFilms?.addConstraint(heightConstraint)
-
+        if deltaOffset <= 0 {
+            filmsPresenter.setFilms()
         }
 
+    }
+}
+
+extension BaseMoviesDisplayManager: BaseMoviesDataSourceDelegate {
+    func moviesWereAdd() {
+
+//        var indexPaths = [IndexPath]()
+//
+//        for index in firstIndex...lastIndex {
+//            indexPaths.append(IndexPath(item: index, section: 0))
+//        }
+//
+//
+//        collectionFilms?.insertItems(at: indexPaths)
+
+        collectionFilms?.reloadData()
     }
 }
 
 extension BaseMoviesDisplayManager: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.filmWasSelected(withIndex: indexPath.item)
+        delegate?.filmWasSelected(withId: self.filmsDataSource.films[indexPath.item].id)
     }
 }
 
 extension BaseMoviesDisplayManager: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.filmsDataSource.films.count
     }
@@ -91,7 +95,7 @@ extension BaseMoviesDisplayManager: UICollectionViewDataSource {
             image: filmsDataSource.films[indexPath.item].posterPath,
             title: filmsDataSource.films[indexPath.item].title,
             vote: filmsDataSource.films[indexPath.item].voteAverage,
-            age: filmsDataSource.films[indexPath.item].id
+            adult: filmsDataSource.films[indexPath.item].adult
         )
 
         return cell

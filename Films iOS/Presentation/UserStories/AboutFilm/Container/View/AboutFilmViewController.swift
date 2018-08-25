@@ -67,20 +67,30 @@ final class AboutFilmViewController: UIViewController, ModuleInputProvider {
 
     private func costomize() {
         view.backgroundColor = UIColor.FMainBackgroundColor
-        navigationItem.title = "Film"
-        navigationController?.navigationBar.topItem?.title = "Back"
         navigationController?.navigationBar.tintColor = .FTitleTextColor
-
     }
 
     override func awakeFromNib() {
+        super.awakeFromNib()
         AboutFilmViewAssembly.instance().inject(into: self)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "Film"
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Для изменения кнопки back
+        NotificationCenter.default.addObserver(self, selector: #selector(filmWasSelected), name: .beforeSegueDone, object: nil)
         costomize()
+    }
+
+    // Для изменения кнопки back
+    @objc
+    private func filmWasSelected() {
+        navigationItem.title = nil
     }
 
 }

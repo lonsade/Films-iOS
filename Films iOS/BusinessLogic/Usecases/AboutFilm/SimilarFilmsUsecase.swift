@@ -16,13 +16,16 @@ protocol ISimilarFilmsUsecase: class {
 final class SimilarFilmsUsecase: ISimilarFilmsUsecase {
     private var makeRequestGatewaySimilar: IMakeRequestGateway
 
+    private var page = 0
+
     init(makeRequestGatewaySimilar: IMakeRequestGateway) {
         self.makeRequestGatewaySimilar = makeRequestGatewaySimilar
     }
 
     func getSimilar(relativeURL: String) -> Promise<[FilmCard]> {
+        page += 1
         return Promise<[FilmCard]> { seal in
-            makeRequestGatewaySimilar.getResults(relativeURL: relativeURL).done { (films: Films) in
+            makeRequestGatewaySimilar.getResults(relativeURL: relativeURL, parameters: ["page": page]).done { (films: Films) in
                 seal.fulfill(films.results)
             }
             .catch { error in

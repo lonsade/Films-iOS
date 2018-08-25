@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TabName: Codable {
+struct TabName: Codable, Hashable {
     let name: String
     let id: Int
 }

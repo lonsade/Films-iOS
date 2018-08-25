@@ -14,17 +14,10 @@ class ArtistFilmsViewController: BaseViewController {
 
     var router: ArtistFilmsRouting!
 
-    var artistFilmsDisplayManager: BaseMoviesDisplayManager! {
+    var artistFilmsDisplayManager: ArtistMoviesDisplayManager! {
         didSet {
             artistFilmsDisplayManager.collectionFilms = artistFilmsCollectionView
             artistFilmsDisplayManager.delegate = self
-            artistFilmsDisplayManager.isSeeAlso = false
-        }
-    }
-
-    var artistFilmsDataSource: BaseMoviesDataSourceOutput! {
-        didSet {
-            artistFilmsDataSource.delegate = self
         }
     }
 
@@ -33,20 +26,14 @@ class ArtistFilmsViewController: BaseViewController {
         view.backgroundColor = .FMainBackgroundColor
         ArtistFilmsViewAssembly.instance().inject(into: self)
         router.viewController = self
-        presenter.setArtistFilms()
+        presenter.loadArtistFilms()
     }
 
     @IBOutlet weak var artistFilmsCollectionView: UICollectionView!
 }
 
-extension ArtistFilmsViewController: BaseMoviesDataSourceDelegate {
-    func moviesWereAdd() {
-        artistFilmsDisplayManager.collectionFilms?.reloadData()
-    }
-}
-
-extension ArtistFilmsViewController: FilmCollectionDisplayManagerDelegate {
-    func filmWasSelected(withIndex id: Int) {
+extension ArtistFilmsViewController: ArtistMoviesDisplayManagerDelegate {
+    func filmWasSelected(withId id: Int) {
         router.navigateToAboutFilm(withId: id)
     }
 }

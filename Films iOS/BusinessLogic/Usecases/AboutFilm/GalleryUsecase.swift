@@ -23,7 +23,7 @@ final class GalleryUsecase: IGalleryUsecase {
 
     func getGallery(relativeURL: String) -> Promise<[GalleryImage]> {
         return Promise<[GalleryImage]> { seal in
-            makeRequestGatewayGallery.getResults(relativeURL: relativeURL).done { (gallery: Gallery) in
+            makeRequestGatewayGallery.getResults(relativeURL: relativeURL, parameters: nil).done { (gallery: Gallery) in
                 seal.fulfill(gallery.backdrops)
             }.catch { error in
                 seal.reject(error)

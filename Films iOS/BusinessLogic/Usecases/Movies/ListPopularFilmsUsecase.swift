@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 
 protocol IListPopularFilmsUsecase: class {
-    func getPopularFilms(relativeURL: String) -> Promise<[FilmCard]>
+    func getPopularFilms(relativeURL: String, parameters: [String: Any]?) -> Promise<[FilmCard]>
 }
 
 final class ListPopularFilmsUsecase: IListPopularFilmsUsecase {
@@ -21,9 +21,9 @@ final class ListPopularFilmsUsecase: IListPopularFilmsUsecase {
         self.makeRequestGatewayListPopular = makeRequestGatewayListPopular
     }
 
-    func getPopularFilms(relativeURL: String) -> Promise<[FilmCard]> {
+    func getPopularFilms(relativeURL: String, parameters: [String: Any]?) -> Promise<[FilmCard]> {
         return Promise<[FilmCard]> { seal in
-            makeRequestGatewayListPopular.getResults(relativeURL: relativeURL).done { (films: Films) in
+            makeRequestGatewayListPopular.getResults(relativeURL: relativeURL, parameters: parameters).done { (films: Films) in
                 seal.fulfill(films.results)
             }.catch { error in
                 seal.reject(error)

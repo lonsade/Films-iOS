@@ -9,24 +9,19 @@
 import UIKit
 
 protocol MoviesRoutingInput {
-    func navigateToAboutFilm(onIndex index: Int)
+    func navigateToAboutFilm(onId id: Int)
 }
 
 final class MoviesRouting: MoviesRoutingInput {
 
-    private var presenter: FilmsPresenterInput
     var viewController: BaseHandlerController?
 
-    init (presenter: FilmsPresenterInput) {
-        self.presenter = presenter
-    }
-
-    func navigateToAboutFilm(onIndex index: Int) {
+    func navigateToAboutFilm(onId id: Int) {
         viewController?.openModule(withName: "AboutFilm") { moduleInput in
             guard let aboutFilminput = moduleInput as? AboutFilmInput else {
                 fatalError("Could not cust moduleInput to AboutFilmInput")
             }
-            aboutFilminput.set(id: self.presenter.dataSource.films[index].id)
+            aboutFilminput.set(id: id)
         }
     }
 }
