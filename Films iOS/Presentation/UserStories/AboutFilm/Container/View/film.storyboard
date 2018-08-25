@@ -71,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qyw-wg-W96" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-738.39999999999998" y="-246.02698650674665"/>
+            <point key="canvasLocation" x="-719" y="-7"/>
         </scene>
         <!--Base Page View Controller-->
         <scene sceneID="7Ur-T2-UjI">
@@ -79,7 +79,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="KQ8-I4-dgd" customClass="BasePageViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2b-wf-oB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="-246"/>
+            <point key="canvasLocation" x="34" y="104"/>
         </scene>
         <!--Cast View Controller-->
         <scene sceneID="zkb-Hx-OeC">
@@ -302,11 +302,12 @@
                     </view>
                     <connections>
                         <outlet property="aboutFilmCollectionView" destination="hYR-xU-IfD" id="5Yq-3q-HZJ"/>
+                        <segue destination="OL9-ba-FQO" kind="show" identifier="AboutFilm" id="KcZ-UI-KJm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8S3-vs-NqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716" y="-671.06446776611699"/>
+            <point key="canvasLocation" x="690" y="-670"/>
         </scene>
     </scenes>
 </document>

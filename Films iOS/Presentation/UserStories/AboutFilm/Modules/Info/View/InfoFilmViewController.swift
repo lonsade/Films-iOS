@@ -13,6 +13,7 @@ class InfoFilmViewController: BaseViewController {
     var infoFilmDisplayManager: InfoFilmDisplayManager! {
         didSet {
             infoFilmDisplayManager.infoFilmCollectionView = aboutFilmCollectionView
+            infoFilmDisplayManager.delegate = self
         }
     }
 
@@ -32,7 +33,7 @@ class InfoFilmViewController: BaseViewController {
 
 }
 
-extension InfoFilmViewController: ArtistMoviesDisplayManagerDelegate {
+extension InfoFilmViewController: InfoFilmDisplayManagerDelegate {
     func filmWasSelected(withId id: Int) {
         router.navigateToAboutFilm(withId: id)
     }

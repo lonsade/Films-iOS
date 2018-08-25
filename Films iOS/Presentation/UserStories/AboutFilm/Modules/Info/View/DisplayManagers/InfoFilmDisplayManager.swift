@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol InfoFilmDisplayManagerDelegate: class {
+    func filmWasSelected(withId id: Int)
+}
+
 final class InfoFilmDisplayManager: NSObject {
 
     private var detailFilm: IDetailsFilmDataSourceOutput
@@ -46,7 +50,7 @@ final class InfoFilmDisplayManager: NSObject {
         }
     }
 
-    //weak var delegate: FilmDetailCollectionDisplayManager?
+    weak var delegate: InfoFilmDisplayManagerDelegate?
 
     init(
         detailFilm: IDetailsFilmDataSourceOutput,
@@ -79,7 +83,9 @@ extension InfoFilmDisplayManager: DetailsFilmDataSourceDelegate {
 }
 
 extension InfoFilmDisplayManager: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.filmWasSelected(withId: filmsDataSource.base[indexPath.item].id)
+    }
 }
 
 extension InfoFilmDisplayManager: UIScrollViewDelegate {
@@ -166,6 +172,9 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
 
                 if !detailFilm.images.isEmpty {
                     galleryDisplayManager.collectionGallery = filmGallery.galleryCollectionView
+                } else {
+//                    filmGallery.galleryCollectionView.isHidden = true
+//                    filmGallery.galleryLabel.isHidden = true
                 }
                 reusableview = filmGallery
 
