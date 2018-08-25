@@ -116,6 +116,12 @@ class InfoFilmViewController: BaseViewController {
         }
     }
 
+    var infoFilmDisplayManager: InfoFilmDisplayManager! {
+        didSet {
+            infoFilmDisplayManager.infoFilmCollectionView = aboutFilmCollectionView
+        }
+    }
+
     var router: InfoRouting!
     var datasource: IDetailsFilmDataSourceOutput!
     var presenter: IDetailsFilmPresenter!
@@ -126,60 +132,18 @@ class InfoFilmViewController: BaseViewController {
         super.viewDidLoad()
         InfoViewAssembly.instance().inject(into: self)
         router.viewController = self
-        datasource.delegate = self
+//        datasource.delegate = self
         presenter.setDetailsFilm()
-        presenter.setGallery()
-        presenter.setSimilar()
+//        presenter.setGallery()
+//        presenter.setSimilar()
     }
 
-}
+    @IBOutlet weak var aboutFilmCollectionView: UICollectionView!
 
-extension InfoFilmViewController: DetailsFilmDataSourceDelegate {
-
-    func imagesWasAdded(images: [GalleryImage]) {
-        galleryDisplayManager.collectionGallery?.reloadData()
-    }
-
-    func detailsWasAdded(details: FilmDetail) {
-        filmTitle.text = details.title
-        country.text = details.productionCountries[0].name
-        descriptionFilm.text = details.overview
-        filmMark.text = String(details.voteAverage).withTMDb()
-
-        var validYear: Int
-        if !details.releaseDate.isEmpty, let yearInt = details.releaseDate.getDate(withFormat: "yyyy-MM-dd").year {
-            validYear = yearInt
-        } else {
-            validYear = 1448
-        }
-        year.text = String(validYear)
-
-        if let runtime = details.runtime {
-            let time = runtime.getTimeFromIntDuration()
-            // TODO: сделать через форматер
-            duration.text = String(time.0)+"h "+String(time.1)+"min"
-        } else {
-            duration.text = "No Information"
-        }
-
-        poster.downloadedFrom(link: details.posterPath, contentMode: .scaleAspectFill)
-
-        // RAting
-        rating.setRating(equal: details.voteAverage)
-
-    }
 }
 
 extension InfoFilmViewController: ArtistMoviesDisplayManagerDelegate {
     func filmWasSelected(withId id: Int) {
         router.navigateToAboutFilm(withId: id)
-    }
-}
-
-private extension Int {
-    func getTimeFromIntDuration() -> (Int, Int) {
-        let hours: Int = self / 60
-        let minutes = self - (hours * 60)
-        return (hours, minutes)
     }
 }

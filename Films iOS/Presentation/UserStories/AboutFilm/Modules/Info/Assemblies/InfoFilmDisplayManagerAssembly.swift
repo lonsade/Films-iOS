@@ -29,4 +29,10 @@ final class InfoFilmDisplayManagerAssembly: Assembly {
         )
     }
 
+    var infoFilmDisplayManager: InfoFilmDisplayManager {
+        return define(scope: .lazySingleton, init:
+            InfoFilmDisplayManager(detailFilm: self.detailsFilmDataSourceAssembly.detailsFilmDataSource)
+        )
+    }
+
 }
