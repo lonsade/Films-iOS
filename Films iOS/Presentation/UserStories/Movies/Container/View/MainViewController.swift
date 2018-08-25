@@ -57,6 +57,7 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
             .foregroundColor: UIColor.FTitleTextColor,
             .font: UIFont.FAppName
         ]
+
     }
 
     private var pageViewController: BaseMainPageViewController!
@@ -72,10 +73,25 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
     override func viewDidLoad() {
         super.viewDidLoad()
         MainViewAssembly.instance().inject(into: self)
+
+        // Для изменения кнопки back
+        NotificationCenter.default.addObserver(self, selector: #selector(filmWasSelected), name: .beforeSegueDone, object: nil)
+
         tabNamesPresenter.setTabNames()
         customize()
         genresDataSource.delegate = self
 
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "Films iOS"
+    }
+
+    // Для изменения кнопки back
+    @objc
+    private func filmWasSelected() {
+        navigationItem.title = nil
     }
 
     var genres: [TabName]!
