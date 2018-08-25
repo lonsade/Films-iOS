@@ -31,6 +31,7 @@ class ArtistMoviesDisplayManager: NSObject {
             collectionFilms?.dataSource = self
             collectionFilms?.delegate = self
             filmsDataSource.delegate = self
+            collectionFilms?.register(UINib(nibName: "FilmCard", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         }
     }
 

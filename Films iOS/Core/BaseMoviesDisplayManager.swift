@@ -14,7 +14,7 @@ protocol FilmCollectionDisplayManagerDelegate: class {
 
 class BaseMoviesDisplayManager: NSObject {
 
-    private let reuseIdentifier = "filmCard"
+    private let reuseIdentifier = "FilmCard"
 
     private var filmsDataSource: BaseMoviesDataSourceOutput
     private var filmsPresenter: IPopularFilmsPresenter
@@ -32,6 +32,9 @@ class BaseMoviesDisplayManager: NSObject {
             collectionFilms?.delegate = self
             filmsDataSource.delegate = self
 //            filmsDataSource.loadDelegate = self
+
+            collectionFilms?.register(UINib(nibName: "FilmCard", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+
         }
     }
 

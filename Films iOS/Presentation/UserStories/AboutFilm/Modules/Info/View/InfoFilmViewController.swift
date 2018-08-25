@@ -109,12 +109,12 @@ class InfoFilmViewController: BaseViewController {
         }
     }
 
-    var similarDisplayManager: SimilarFilmsDisplayManager! {
-        didSet {
-            similarDisplayManager.collectionFilms = collectionSimilarFilms
-            similarDisplayManager.delegate = self
-        }
-    }
+//    var similarDisplayManager: SimilarFilmsDisplayManager! {
+//        didSet {
+//            similarDisplayManager.collectionFilms = collectionSimilarFilms
+//            similarDisplayManager.delegate = self
+//        }
+//    }
 
     var infoFilmDisplayManager: InfoFilmDisplayManager! {
         didSet {
@@ -135,7 +135,7 @@ class InfoFilmViewController: BaseViewController {
 //        datasource.delegate = self
         presenter.setDetailsFilm()
         presenter.setGallery()
-//        presenter.setSimilar()
+        presenter.setSimilar()
     }
 
     @IBOutlet weak var aboutFilmCollectionView: UICollectionView!

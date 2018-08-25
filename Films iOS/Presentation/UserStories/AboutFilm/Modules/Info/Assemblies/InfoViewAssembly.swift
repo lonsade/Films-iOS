@@ -23,7 +23,7 @@ class InfoViewAssembly: Assembly {
             $0.datasource = self.detailsFilmDataSourceAssembly.detailsFilmDataSource
             $0.presenter = self.detailsFilmPresenterAssembly.detailsFilmPresenter
             $0.galleryDisplayManager = self.infoFilmDisplayManagerAssembly.galleryDisplayManager
-            $0.similarDisplayManager = self.infoFilmDisplayManagerAssembly.similarDisplayManager
+//            $0.similarDisplayManager = self.infoFilmDisplayManagerAssembly.similarDisplayManager
             $0.router = self.moviesRotingAssembly.infoMoviesRouting
             $0.infoFilmDisplayManager = self.infoFilmDisplayManagerAssembly.infoFilmDisplayManager
             return $0
