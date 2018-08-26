@@ -12,17 +12,20 @@ class TabNameCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var tabName: UILabel!
 
+    var isActive: Bool = false
+
     func setTitle(title: String) {
         let attrStr = NSAttributedString(string: title.uppercased(), attributes: [
             .foregroundColor: UIColor.FTabNameColor,
             .font: UIFont.FTabName
         ])
         tabName.attributedText = attrStr
+        tabName.textColor = (isActive) ? UIColor.FActiveTextColor : UIColor.FTabNameColor
     }
 
-    func changeActive(active: Bool) {
-        let color = (active) ? UIColor.FActiveTextColor : UIColor.FTabNameColor
-        tabName.textColor = color
+    func changeActive(_ active: Bool) {
+        isActive = active
+        tabName.textColor = (isActive) ? UIColor.FActiveTextColor : UIColor.FTabNameColor
     }
 
 }

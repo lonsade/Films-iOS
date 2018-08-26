@@ -15,12 +15,7 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     // Изначально активный таб на Popular
 
-    private lazy var prevSelectedCell: TabNameCollectionViewCell = {
-        guard let cell = collectionTabNames.cellForItem(at: IndexPath(item: 1, section: 0)) as? TabNameCollectionViewCell else {
-            fatalError("Cell error")
-        }
-        return cell
-    }()
+    private var prevSelectedCell: TabNameCollectionViewCell?
 
     private var firstPage: UIViewController!
 
@@ -118,15 +113,17 @@ extension MainViewController: TabDisplayManagerDelegate {
 
     func tabWasSelected(at indexPath: IndexPath) {
 
+//        guard let selectedCell = collectionTabNames.cellForItem(at: indexPath) as? TabNameCollectionViewCell
+
         guard let selectedCell = collectionTabNames.cellForItem(at: indexPath) as? TabNameCollectionViewCell
         else { fatalError("Error cell tab name with index: \(indexPath.item)") }
 
-        prevSelectedCell.changeActive(active: false)
+//        prevSelectedCell?.changeActive(false)
 
-        selectedCell.changeActive(active: true)
+        selectedCell.changeActive(true)
         collectionTabNames.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 
-        prevSelectedCell = selectedCell
+//        prevSelectedCell = selectedCell
 
         // Конфигурирование нового модуля
 
@@ -158,11 +155,11 @@ extension MainViewController: TabDisplayManagerDelegate {
 extension MainViewController: BaseMainPageViewControllerDelegate {
     func pageWasChanged(to toIndex: Int, from fromIndex: Int) {
         if let cell = collectionTabNames.cellForItem(at: IndexPath(item: toIndex, section: 0)) as? TabNameCollectionViewCell {
-            cell.changeActive(active: true)
+//            cell.isActive = true
             prevSelectedCell = cell
         }
         if let cell = collectionTabNames.cellForItem(at: IndexPath(item: fromIndex, section: 0)) as? TabNameCollectionViewCell {
-            cell.changeActive(active: false)
+//            cell.isActive = false
         }
 
         collectionTabNames.scrollToItem(at: IndexPath(item: toIndex, section: 0), at: .centeredHorizontally, animated: true)
