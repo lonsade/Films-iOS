@@ -37,6 +37,10 @@ extension UIColor {
 
     static let FInactiveTabTitleColorAboutFilm = FTitleTextColor
 
+    static let FSearchTextFieldBackgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.05)
+
+    static let FSearchTextColor = #colorLiteral(red: 0.5568627451, green: 0.5568627451, blue: 0.5764705882, alpha: 1)
+
 }
 
 // swiftlint:enable identifier_name line_length type_body_length

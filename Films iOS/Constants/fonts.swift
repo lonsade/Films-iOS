@@ -52,6 +52,8 @@ extension UIFont {
 
     static let FMenuItem = getFont(named: "SegoeUI-Regular", of: 18)
 
+    static let FSearchPlaceholder = getFont(named: "SegoeUI-Regular", of: 17)
+
 }
 
 // swiftlint:enable identifier_name line_length type_body_length

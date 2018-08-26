@@ -17,6 +17,8 @@
 		BD05FCDF2119CD08008B5AC5 /* DetailsFilmDataSourceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05FCDE2119CD08008B5AC5 /* DetailsFilmDataSourceAssembly.swift */; };
 		BD05FCE12119CDCE008B5AC5 /* InfoViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD05FCE02119CDCE008B5AC5 /* InfoViewAssembly.swift */; };
 		BD05FCE82119E4C4008B5AC5 /* Segoe UI, Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD05FCE72119E4C4008B5AC5 /* Segoe UI, Regular.ttf */; };
+		BD0678BF2132915300463DEC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0678BE2132915300463DEC /* SearchViewController.swift */; };
+		BD0678C12132917000463DEC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0678C02132917000463DEC /* Search.storyboard */; };
 		BD119EB021202A59002BBAD1 /* ArtistPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD119EAF21202A59002BBAD1 /* ArtistPhotosCollectionViewCell.swift */; };
 		BD119EB221202B9A002BBAD1 /* ArtistPhotosDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD119EB121202B9A002BBAD1 /* ArtistPhotosDisplayManager.swift */; };
 		BD119EB421202ED5002BBAD1 /* ArtistPhotosDisplayManagerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD119EB321202ED5002BBAD1 /* ArtistPhotosDisplayManagerAssembly.swift */; };
@@ -158,6 +160,14 @@
 		BDD85BAA211C56BD00256E60 /* ArtistViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD85BA9211C56BD00256E60 /* ArtistViewAssembly.swift */; };
 		BDE164EB21119D57002E0A14 /* TabDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */; };
 		BDE164ED2111A0DA002E0A14 /* StringWithFormating.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE164EC2111A0DA002E0A14 /* StringWithFormating.swift */; };
+		BDE5323021329FBD00A6D283 /* SearchFilmsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5322F21329FBD00A6D283 /* SearchFilmsDataSource.swift */; };
+		BDE532322132A10100A6D283 /* SearchFilmsDataSourceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE532312132A10100A6D283 /* SearchFilmsDataSourceAssembly.swift */; };
+		BDE532342132A16B00A6D283 /* SearchFilmsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE532332132A16B00A6D283 /* SearchFilmsPresenter.swift */; };
+		BDE532372132A2D600A6D283 /* SearchFilmsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE532362132A2D600A6D283 /* SearchFilmsUsecase.swift */; };
+		BDE5323B2132A51600A6D283 /* SearchFilmsUsecaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5323A2132A51600A6D283 /* SearchFilmsUsecaseAssembly.swift */; };
+		BDE5323D2132A77100A6D283 /* SearchFilmsPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5323C2132A77100A6D283 /* SearchFilmsPresenterAssembly.swift */; };
+		BDE5323F2132AAD100A6D283 /* SearchViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5323E2132AAD100A6D283 /* SearchViewControllerAssembly.swift */; };
+		BDE532422132AD8C00A6D283 /* SearchFilmsDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE532412132AD8C00A6D283 /* SearchFilmsDisplayManager.swift */; };
 		BDF1954A211863320093D236 /* film.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF19549211863320093D236 /* film.storyboard */; };
 		BDF1954C21186DDB0093D236 /* AboutFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */; };
 		BDF1954E211877760093D236 /* UIButtonChangeContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF1954D211877750093D236 /* UIButtonChangeContent.swift */; };
@@ -195,6 +205,8 @@
 		BD05FCDE2119CD08008B5AC5 /* DetailsFilmDataSourceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFilmDataSourceAssembly.swift; sourceTree = "<group>"; };
 		BD05FCE02119CDCE008B5AC5 /* InfoViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewAssembly.swift; sourceTree = "<group>"; };
 		BD05FCE72119E4C4008B5AC5 /* Segoe UI, Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI, Regular.ttf"; sourceTree = "<group>"; };
+		BD0678BE2132915300463DEC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BD0678C02132917000463DEC /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		BD119EAF21202A59002BBAD1 /* ArtistPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD119EB121202B9A002BBAD1 /* ArtistPhotosDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPhotosDisplayManager.swift; sourceTree = "<group>"; };
 		BD119EB321202ED5002BBAD1 /* ArtistPhotosDisplayManagerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPhotosDisplayManagerAssembly.swift; sourceTree = "<group>"; };
@@ -340,6 +352,14 @@
 		BDD85BA9211C56BD00256E60 /* ArtistViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewAssembly.swift; sourceTree = "<group>"; };
 		BDE164EA21119D57002E0A14 /* TabDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDisplayManager.swift; sourceTree = "<group>"; };
 		BDE164EC2111A0DA002E0A14 /* StringWithFormating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringWithFormating.swift; sourceTree = "<group>"; };
+		BDE5322F21329FBD00A6D283 /* SearchFilmsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsDataSource.swift; sourceTree = "<group>"; };
+		BDE532312132A10100A6D283 /* SearchFilmsDataSourceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsDataSourceAssembly.swift; sourceTree = "<group>"; };
+		BDE532332132A16B00A6D283 /* SearchFilmsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsPresenter.swift; sourceTree = "<group>"; };
+		BDE532362132A2D600A6D283 /* SearchFilmsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsUsecase.swift; sourceTree = "<group>"; };
+		BDE5323A2132A51600A6D283 /* SearchFilmsUsecaseAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsUsecaseAssembly.swift; sourceTree = "<group>"; };
+		BDE5323C2132A77100A6D283 /* SearchFilmsPresenterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsPresenterAssembly.swift; sourceTree = "<group>"; };
+		BDE5323E2132AAD100A6D283 /* SearchViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerAssembly.swift; sourceTree = "<group>"; };
+		BDE532412132AD8C00A6D283 /* SearchFilmsDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsDisplayManager.swift; sourceTree = "<group>"; };
 		BDF19549211863320093D236 /* film.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = film.storyboard; sourceTree = "<group>"; };
 		BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFilmViewController.swift; sourceTree = "<group>"; };
 		BDF1954D211877750093D236 /* UIButtonChangeContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonChangeContent.swift; sourceTree = "<group>"; };
@@ -402,6 +422,53 @@
 				BD05FCE02119CDCE008B5AC5 /* InfoViewAssembly.swift */,
 			);
 			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		BD0678B9213290E900463DEC /* SearchFilms */ = {
+			isa = PBXGroup;
+			children = (
+				BD0678BD2132911A00463DEC /* View */,
+				BD0678BC2132911300463DEC /* Routing */,
+				BD0678BB2132910A00463DEC /* Presenter */,
+				BD0678BA2132910100463DEC /* Assemblies */,
+			);
+			path = SearchFilms;
+			sourceTree = "<group>";
+		};
+		BD0678BA2132910100463DEC /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				BDE532312132A10100A6D283 /* SearchFilmsDataSourceAssembly.swift */,
+				BDE5323C2132A77100A6D283 /* SearchFilmsPresenterAssembly.swift */,
+				BDE5323E2132AAD100A6D283 /* SearchViewControllerAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		BD0678BB2132910A00463DEC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5322E21329F8300A6D283 /* Presenters */,
+				BDE5322D21329F7900A6D283 /* DataSource */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BD0678BC2132911300463DEC /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		BD0678BD2132911A00463DEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDE532402132AD1A00A6D283 /* DisplayManagers */,
+				BD0678BE2132915300463DEC /* SearchViewController.swift */,
+				BD0678C02132917000463DEC /* Search.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BD119EAD21202A0C002BBAD1 /* DisplayManagers */ = {
@@ -763,6 +830,7 @@
 		BDC941E5210EF0DE005C5041 /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
+				BDE532392132A4DB00A6D283 /* SearchFilms */,
 				BDD85B89211C4ACE00256E60 /* AboutArtist */,
 				BD700C41211AF36000C51220 /* AboutFilm */,
 				BD700C51211B24E300C51220 /* Movies */,
@@ -773,6 +841,7 @@
 		BDC941E6210EF0ED005C5041 /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
+				BDE532352132A28E00A6D283 /* SearchFilms */,
 				BDD85B83211C48C600256E60 /* AboutArtist */,
 				BDFCE2CE211D617D00C70770 /* AboutFilm */,
 				BDFCE2CF211D618600C70770 /* Movies */,
@@ -826,6 +895,7 @@
 		BDC941EB210EF14E005C5041 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				BD0678B9213290E900463DEC /* SearchFilms */,
 				BDD85B51211C190700256E60 /* AboutArtist */,
 				BDF19548211863080093D236 /* AboutFilm */,
 				BDC94204210F57EA005C5041 /* Movies */,
@@ -1257,6 +1327,46 @@
 			path = DisplayManagers;
 			sourceTree = "<group>";
 		};
+		BDE5322D21329F7900A6D283 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5322F21329FBD00A6D283 /* SearchFilmsDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		BDE5322E21329F8300A6D283 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				BDE532332132A16B00A6D283 /* SearchFilmsPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		BDE532352132A28E00A6D283 /* SearchFilms */ = {
+			isa = PBXGroup;
+			children = (
+				BDE532362132A2D600A6D283 /* SearchFilmsUsecase.swift */,
+			);
+			path = SearchFilms;
+			sourceTree = "<group>";
+		};
+		BDE532392132A4DB00A6D283 /* SearchFilms */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5323A2132A51600A6D283 /* SearchFilmsUsecaseAssembly.swift */,
+			);
+			path = SearchFilms;
+			sourceTree = "<group>";
+		};
+		BDE532402132AD1A00A6D283 /* DisplayManagers */ = {
+			isa = PBXGroup;
+			children = (
+				BDE532412132AD8C00A6D283 /* SearchFilmsDisplayManager.swift */,
+			);
+			path = DisplayManagers;
+			sourceTree = "<group>";
+		};
 		BDF19548211863080093D236 /* AboutFilm */ = {
 			isa = PBXGroup;
 			children = (
@@ -1496,6 +1606,7 @@
 				BD8B972021315366005D8F00 /* FilmInfo.xib in Resources */,
 				BD96F8A5212E83350070579E /* Host.storyboard in Resources */,
 				BD05FCE82119E4C4008B5AC5 /* Segoe UI, Regular.ttf in Resources */,
+				BD0678C12132917000463DEC /* Search.storyboard in Resources */,
 				BD8B97302131CF69005D8F00 /* FilmCard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1580,6 +1691,7 @@
 				BD1DCF6821131EA6001B48EF /* TabNamesUsecase.swift in Sources */,
 				BD700C59211B296A00C51220 /* Cast.swift in Sources */,
 				BD700C50211B168500C51220 /* InfoFilmDisplayManagerAssembly.swift in Sources */,
+				BDE532342132A16B00A6D283 /* SearchFilmsPresenter.swift in Sources */,
 				BDD85BA8211C545A00256E60 /* ArtistBioViewController.swift in Sources */,
 				BD312065213007BC00FDA3B9 /* AboutArtistViewControllerAssembly.swift in Sources */,
 				BD119EDB212055B4002BBAD1 /* ArtistFilmsViewAssembly.swift in Sources */,
@@ -1589,6 +1701,7 @@
 				BDD85B9A211C4CA500256E60 /* ArtistPhotosUsecase.swift in Sources */,
 				BD6C97E321217C8E00E5660A /* ReviewGatewayAssembly.swift in Sources */,
 				BDFCE2CB211D60AB00C70770 /* MoviesGatewayAssembly.swift in Sources */,
+				BDE5323B2132A51600A6D283 /* SearchFilmsUsecaseAssembly.swift in Sources */,
 				BD52F3F7211711660063DEB1 /* UIImageLoadFromURL+cornerRadius.swift in Sources */,
 				BDD85B76211C337B00256E60 /* CastFilmUsecaseAssembly.swift in Sources */,
 				BD6C98052121A8FA00E5660A /* InfoRouting.swift in Sources */,
@@ -1602,9 +1715,12 @@
 				BDE164EB21119D57002E0A14 /* TabDisplayManager.swift in Sources */,
 				BDD85B72211C313E00256E60 /* InfoFilmGatewayAssembly.swift in Sources */,
 				BD700C3C211AE24100C51220 /* FStarRating.swift in Sources */,
+				BD0678BF2132915300463DEC /* SearchViewController.swift in Sources */,
 				BDC94202210F52F6005C5041 /* CustomMenuBarButtonItem.swift in Sources */,
 				BDD85B8D211C4B1300256E60 /* ArtistBioUsecaseAssembly.swift in Sources */,
 				BD6C97EB21217D1100E5660A /* Reviews.swift in Sources */,
+				BDE532322132A10100A6D283 /* SearchFilmsDataSourceAssembly.swift in Sources */,
+				BDE5323021329FBD00A6D283 /* SearchFilmsDataSource.swift in Sources */,
 				BD8B971C213152E8005D8F00 /* FilmVideos.swift in Sources */,
 				BD119EC521204E69002BBAD1 /* ArtistFilmsUsecaseAssembly.swift in Sources */,
 				BD31207021301B5700FDA3B9 /* ArtistMoviesDisplayManager.swift in Sources */,
@@ -1628,6 +1744,7 @@
 				BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */,
 				BDD85B9C211C4D4C00256E60 /* ArtistPhoto.swift in Sources */,
 				BD1DCF6C21132308001B48EF /* TabName.swift in Sources */,
+				BDE532372132A2D600A6D283 /* SearchFilmsUsecase.swift in Sources */,
 				BD05FCCE2119C552008B5AC5 /* DetailsFilmUsecase.swift in Sources */,
 				BDFCE2DD211DA2FE00C70770 /* CastRouting.swift in Sources */,
 				BD1DCF6321131A38001B48EF /* NetworkingAssembly.swift in Sources */,
@@ -1642,6 +1759,7 @@
 				BDD85B85211C492200256E60 /* AboutArtistUsecase.swift in Sources */,
 				BD52F3DE2116EDC70063DEB1 /* TabNamesDataSourceAssembly.swift in Sources */,
 				BDFCE2CD211D611700C70770 /* MoviesUsecaseAssembly.swift in Sources */,
+				BDE532422132AD8C00A6D283 /* SearchFilmsDisplayManager.swift in Sources */,
 				BD700C5F211B2BF400C51220 /* Credits.swift in Sources */,
 				BD700C46211AF49B00C51220 /* GalleryImage.swift in Sources */,
 				BD6C97F92121822400E5660A /* ReviewPresenterAssembly.swift in Sources */,
@@ -1668,6 +1786,7 @@
 				BD700C57211B289B00C51220 /* CastDisplayManager.swift in Sources */,
 				BD6C98082121AA5C00E5660A /* ArtistFilmsRouting.swift in Sources */,
 				BD569A65212DB781003F0B31 /* Storyboardable.swift in Sources */,
+				BDE5323D2132A77100A6D283 /* SearchFilmsPresenterAssembly.swift in Sources */,
 				BDD85B4E211C12C600256E60 /* ReviewViewController.swift in Sources */,
 				BD119EB6212036A8002BBAD1 /* SimilarFilmsUsecase.swift in Sources */,
 				BD31206D213019E300FDA3B9 /* ArtistFilmsDataSource.swift in Sources */,
@@ -1690,6 +1809,7 @@
 				BDD85BA0211C505900256E60 /* ArtistBioDataSourceAssembly.swift in Sources */,
 				BDD85B82211C3C8D00256E60 /* CastFilmDataSourceAssembly.swift in Sources */,
 				BD119EB421202ED5002BBAD1 /* ArtistPhotosDisplayManagerAssembly.swift in Sources */,
+				BDE5323F2132AAD100A6D283 /* SearchViewControllerAssembly.swift in Sources */,
 				BDFCE2D8211D7D5000C70770 /* MoviesRotingAssembly.swift in Sources */,
 				BD52F3F1211704930063DEB1 /* PopularFilmsDSAssembly.swift in Sources */,
 				BD52F3E42116FE980063DEB1 /* Films.swift in Sources */,
