@@ -17,7 +17,7 @@ final class DetailsFilmPresenterAssembly: Assembly {
     lazy var aboutFilmPresenter = AboutFilmPresenterAssembly.instance()
 
     var detailsFilmPresenter: IDetailsFilmPresenter {
-        return define(scope: .objectGraph, init:
+        return define(init:
             DetailsFilmPresenter(
                 detailsFilmUsecase: self.infoFilmUsecaseAssembly.detailFilmUsecaseAssembly,
                 dataSourceForDetails: self.infoFilmDataSourceAssembly.detailsFilmDataSource,

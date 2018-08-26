@@ -13,7 +13,7 @@ final class ReviewDisplayManagerAssembly: Assembly {
     lazy var reviewDataSourceAssembly = ReviewDataSourceAssembly.instance()
 
     var reviewDisplayManager: ReviewDisplayManager {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             ReviewDisplayManager(reviewDataSource: self.reviewDataSourceAssembly.reviewDataSource)
         )
     }

@@ -9,11 +9,9 @@
 import EasyDi
 
 class ArtistRoutingAssembly: Assembly {
-
     var artistRouting: ArtistFilmsRouting {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             ArtistFilmsRouting()
         )
     }
-
 }

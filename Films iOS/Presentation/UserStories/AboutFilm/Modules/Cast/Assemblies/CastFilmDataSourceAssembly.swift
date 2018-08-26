@@ -10,6 +10,6 @@ import EasyDi
 
 final class CastFilmDataSourceAssembly: Assembly {
     var castFilmDataSource: ICastFilmDataSourceOutput & ICastFilmDataSourceInput {
-        return define(scope: .lazySingleton, init: CastFilmDataSource())
+        return define(init: CastFilmDataSource())
     }
 }

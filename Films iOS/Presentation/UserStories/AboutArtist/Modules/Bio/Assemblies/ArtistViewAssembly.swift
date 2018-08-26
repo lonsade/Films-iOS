@@ -10,11 +10,11 @@ import EasyDi
 
 final class ArtistViewAssembly: Assembly {
 
-    lazy var artistBioPresenterAssembly: ArtistBioPresenterAssembly = ArtistBioPresenterAssembly.instance()
+    lazy var artistBioPresenterAssembly = ArtistBioPresenterAssembly.instance()
 
-    lazy var artistBioDataSourceAssembly: ArtistBioDataSourceAssembly = ArtistBioDataSourceAssembly.instance()
+    lazy var artistBioDataSourceAssembly = ArtistBioDataSourceAssembly.instance()
 
-    lazy var artistPhotosDMAssembly: ArtistPhotosDisplayManagerAssembly = ArtistPhotosDisplayManagerAssembly.instance()
+    lazy var artistPhotosDMAssembly = ArtistPhotosDisplayManagerAssembly.instance()
 
     func inject(into mvc: ArtistBioViewController) {
         defineInjection(into: mvc) {

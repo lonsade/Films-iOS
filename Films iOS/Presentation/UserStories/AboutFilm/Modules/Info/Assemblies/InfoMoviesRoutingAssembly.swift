@@ -11,7 +11,7 @@ import EasyDi
 class InfoMoviesRoutingAssembly: Assembly {
 
     var infoMoviesRouting: InfoRouting {
-        return define(scope: .objectGraph, init:
+        return define(init:
             InfoRouting()
         )
     }

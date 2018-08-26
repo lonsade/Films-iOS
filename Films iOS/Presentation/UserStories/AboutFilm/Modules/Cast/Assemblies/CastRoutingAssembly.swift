@@ -11,7 +11,7 @@ import EasyDi
 class CastRoutingAssembly: Assembly {
 
     var castRouting: CastRouting {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             CastRouting()
         )
     }
