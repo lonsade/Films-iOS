@@ -24,9 +24,14 @@ final class ArtistBioAssembly: Assembly {
                 artistBioUsecase: self.aboutArtistLogicAssembly.artistBioUsecase,
                 artistBioDataSource: self.artistBioDataSource,
                 artistGalleryUsecase: self.aboutArtistLogicAssembly.artistPhotosUsecase,
-                aboutArtistPresenter: self.aboutArtistPresenterAssembly.aboutArtistPresenter
+                aboutArtistPresenter: self.aboutArtistPresenterAssembly.aboutArtistPresenter,
+                router: self.routing
             )
         )
+    }
+
+    var routing: ArtistBioRoutingInput {
+        return define(init: ArtistBioRouting())
     }
 
     var artistPhotosDisplayManager: ArtistPhotosDisplayManager {
@@ -40,6 +45,7 @@ final class ArtistBioAssembly: Assembly {
             $0.artistBioPresenter = self.artistBioPresenter
             $0.artistBioDataSource = self.artistBioDataSource
             $0.artistPhotosDisplayManager = self.artistPhotosDisplayManager
+            $0.router = self.routing
             return $0
         }
     }

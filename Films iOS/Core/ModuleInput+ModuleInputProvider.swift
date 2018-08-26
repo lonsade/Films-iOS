@@ -8,5 +8,10 @@
 
 import Foundation
 
-protocol ModuleInput {
+protocol ModuleInput: class {
+
+}
+
+protocol ModuleInputProvider: class {
+    var moduleInput: ModuleInput! { get }
 }

@@ -12,7 +12,7 @@ class ArtistFilmsViewController: BaseViewController {
 
     var presenter: IArtistFilmsPresenter!
 
-    var router: ArtistFilmsRouting!
+    var router: ArtistFilmsRoutingInput!
 
     var artistFilmsDisplayManager: ArtistMoviesDisplayManager! {
         didSet {

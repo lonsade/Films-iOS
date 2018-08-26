@@ -19,7 +19,7 @@ final class MoviesRouting: MoviesRoutingInput {
     func navigateToAboutFilm(onId id: Int) {
         viewController?.openModule(withName: "AboutFilm") { moduleInput in
             guard let aboutFilminput = moduleInput as? AboutFilmInput else {
-                fatalError("Could not cust moduleInput to AboutFilmInput")
+                return assertionFailure("Could not cast this moduleInput to \(String(describing: AboutFilmInput.self)).")
             }
             aboutFilminput.set(id: id)
         }

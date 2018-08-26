@@ -20,7 +20,6 @@ final class CastDisplayManager: NSObject {
 
     weak var collectionCast: UICollectionView? {
         didSet {
-            castDataSource.delegate = self
             collectionCast?.delegate = self
             collectionCast?.dataSource = self
             collectionCast?.showsVerticalScrollIndicator = false
@@ -31,6 +30,8 @@ final class CastDisplayManager: NSObject {
 
     init(castDataSource: ICastFilmDataSourceOutput) {
         self.castDataSource = castDataSource
+        super.init()
+        castDataSource.delegate = self
     }
 
 }

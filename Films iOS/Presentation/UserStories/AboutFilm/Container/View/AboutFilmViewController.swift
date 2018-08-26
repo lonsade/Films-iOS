@@ -8,24 +8,6 @@
 
 import UIKit
 
-protocol ModuleInputProvider {
-    var moduleInput: ModuleInput! { get }
-}
-
-protocol AboutFilmInput: ModuleInput {
-    var id: Int? { get }
-    func set(id: Int)
-}
-
-class AboutFilmPresenter: AboutFilmInput {
-
-    var id: Int?
-
-    func set(id: Int) {
-        self.id = id
-    }
-}
-
 final class AboutFilmViewController: UIViewController, ModuleInputProvider {
 
     var moduleInput: ModuleInput!

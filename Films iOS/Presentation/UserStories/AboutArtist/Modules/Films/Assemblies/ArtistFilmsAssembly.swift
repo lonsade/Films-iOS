@@ -29,7 +29,8 @@ final class ArtistFilmsAssembly: Assembly {
             ArtistFilmsPresenter(
                 artistFilmsUsecase: self.artistFilmsLogicAssembly.artistFilmsUsecase,
                 artistFilmsDataSource: self.artistFilmsDataSource,
-                aboutArtistPresenter: self.aboutArtistPresenterAssembly.aboutArtistPresenter
+                aboutArtistPresenter: self.aboutArtistPresenterAssembly.aboutArtistPresenter,
+                router: self.artistRouting
             )
         )
     }

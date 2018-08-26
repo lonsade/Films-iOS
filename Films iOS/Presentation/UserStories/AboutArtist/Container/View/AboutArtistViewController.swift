@@ -8,21 +8,6 @@
 
 import UIKit
 
-// TODO: В отдельный файлик.
-protocol AboutArtistInput: ModuleInput {
-    var id: Int? { get }
-    func set(id: Int)
-}
-
-class AboutArtistPresenter: AboutArtistInput {
-
-    var id: Int?
-
-    func set(id: Int) {
-        self.id = id
-    }
-}
-
 class AboutArtistViewController: UIViewController, ModuleInputProvider {
 
     var moduleInput: ModuleInput!

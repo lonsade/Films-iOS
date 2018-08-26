@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArtistBioViewController: UIViewController {
+class ArtistBioViewController: BaseViewController {
 
     @IBOutlet weak var artistImageView: UIImageView! {
         didSet {
@@ -68,6 +68,7 @@ class ArtistBioViewController: UIViewController {
     }
 
     var artistBioPresenter: IArtistBioPresenter!
+    var router: ArtistBioRoutingInput!
 
     var artistPhotosDisplayManager: ArtistPhotosDisplayManager! {
         didSet {
@@ -77,9 +78,9 @@ class ArtistBioViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Временно
         view.backgroundColor = UIColor.FMainBackgroundColor
         ArtistBioAssembly.instance().inject(into: self)
+        router.viewController = self
         artistBioPresenter.setBio()
         artistBioPresenter.setGallery()
     }

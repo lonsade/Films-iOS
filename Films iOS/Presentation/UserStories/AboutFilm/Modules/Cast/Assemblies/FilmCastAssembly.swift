@@ -27,7 +27,8 @@ class FilmCastAssembly: Assembly {
             CastFilmPresenter(
                 castFilmUsecase: self.usecaseAssembly.castFilmUsecase,
                 castFilmDataSource: self.castFilmDataSource,
-                aboutFilmPresenter: self.presenterAssembly.aboutFilmPresenter
+                aboutFilmPresenter: self.presenterAssembly.aboutFilmPresenter,
+                router: self.castRouting
             )
         )
     }

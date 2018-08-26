@@ -34,7 +34,8 @@ class FilmInfoAssembly: Assembly {
                 galleryUsecase: self.usecaseAssembly.galleryFilmUsecase,
                 similarUsecase: self.usecaseAssembly.similarUsecase,
                 dataSourceForSimilar: self.similarFilmDataSource,
-                aboutFilmPresenter: self.filmsPresenterAssembly.aboutFilmPresenter
+                aboutFilmPresenter: self.filmsPresenterAssembly.aboutFilmPresenter,
+                router: self.infoMoviesRouting
             )
         )
     }

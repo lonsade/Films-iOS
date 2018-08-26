@@ -25,8 +25,6 @@ final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourc
 
     weak var delegate: BaseMoviesDataSourceDelegate?
 
-    weak var filmsDelegate: BaseFilmsDataSourceDelegate?
-
     func load(films: [FilmCard]) {
         self.films += films
         delegate?.moviesWereAdd()

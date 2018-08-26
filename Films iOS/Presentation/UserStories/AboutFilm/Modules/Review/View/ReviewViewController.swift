@@ -19,10 +19,12 @@ class ReviewViewController: BaseViewController {
     }
 
     var presenter: IReviewPresenter!
+    var router: ReviewRoutingInput!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         FilmReviewAssembly.instance().inject(into: self)
+        router.viewController = self
         presenter.setReview()
     }
 

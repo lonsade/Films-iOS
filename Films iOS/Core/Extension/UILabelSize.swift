@@ -8,7 +8,6 @@
 
 import UIKit
 
-// FIXME: Это нигде не используется.
 public extension UILabel {
     public class func size(withText text: String, forWidth width: CGFloat, withFont font: UIFont) -> CGSize {
         let measurementLabel = UILabel()
