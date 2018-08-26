@@ -10,10 +10,10 @@ import EasyDi
 
 final class DetailsFilmDataSourceAssembly: Assembly {
     var detailsFilmDataSource: IDetailsFilmDataSourceOutput & IDetailsFilmDataSourceInput {
-        return define(scope: .lazySingleton, init: DetailsFilmDataSource())
+        return define(scope: .objectGraph, init: DetailsFilmDataSource())
     }
 
     var similarFilmDataSource: SimilarFilmsDataSourceOutput & SimilarFilmsDataSourceInput {
-        return define(scope: .lazySingleton, init: SimilarFilmsDataSource())
+        return define(scope: .objectGraph, init: SimilarFilmsDataSource())
     }
 }
