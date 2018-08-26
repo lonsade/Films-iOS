@@ -26,7 +26,7 @@ final class ReviewUsecase: IReviewUsecase {
             makeRequestGatewayCast.getResults(relativeURL: relativeURL, parameters: nil).done { (reviews: Reviews) in
                 seal.fulfill(reviews.results)
             }.catch { error in
-                    seal.reject(error)
+                seal.reject(error)
             }
         }
     }

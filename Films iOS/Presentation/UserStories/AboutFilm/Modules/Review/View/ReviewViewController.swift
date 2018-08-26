@@ -22,7 +22,7 @@ class ReviewViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ReviewViewAssembly.instance().inject(into: self)
+        FilmReviewAssembly.instance().inject(into: self)
         presenter.setReview()
     }
 

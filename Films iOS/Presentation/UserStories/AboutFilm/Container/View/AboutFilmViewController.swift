@@ -72,7 +72,7 @@ final class AboutFilmViewController: UIViewController, ModuleInputProvider {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        AboutFilmViewAssembly.instance().inject(into: self)
+        AboutFilmContainerAssembly.instance().inject(into: self)
     }
 
     override func viewWillAppear(_ animated: Bool) {

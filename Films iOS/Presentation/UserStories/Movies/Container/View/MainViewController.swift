@@ -72,7 +72,7 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MainViewAssembly.instance().inject(into: self)
+        MoviesContainerAssembly.instance().inject(into: self)
 
         // Для изменения кнопки back
         NotificationCenter.default.addObserver(self, selector: #selector(filmWasSelected), name: .beforeSegueDone, object: nil)

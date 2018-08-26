@@ -74,7 +74,7 @@ class AboutArtistViewController: UIViewController, ModuleInputProvider {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        AboutArtistViewControllerAssembly.instance().inject(into: self)
+        AboutArtistContainerAssembly.instance().inject(into: self)
     }
 
     override func viewWillAppear(_ animated: Bool) {

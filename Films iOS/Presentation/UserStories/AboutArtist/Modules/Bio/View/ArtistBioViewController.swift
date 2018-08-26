@@ -79,7 +79,7 @@ class ArtistBioViewController: UIViewController {
         super.viewDidLoad()
         // Временно
         view.backgroundColor = UIColor.FMainBackgroundColor
-        ArtistViewAssembly.instance().inject(into: self)
+        ArtistBioAssembly.instance().inject(into: self)
         artistBioPresenter.setBio()
         artistBioPresenter.setGallery()
     }

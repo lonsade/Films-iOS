@@ -24,7 +24,7 @@ class CastViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        CastViewAssembly.instance().inject(into: self)
+        FilmCastAssembly.instance().inject(into: self)
         router.viewController = self
         presenter.setCredits()
     }
