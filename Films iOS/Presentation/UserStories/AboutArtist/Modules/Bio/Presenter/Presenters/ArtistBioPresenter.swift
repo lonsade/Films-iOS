@@ -18,6 +18,7 @@ final class ArtistBioPresenter: IArtistBioPresenter {
     private var artistBioUsecase: IAboutArtistUsecase
     private var artistBioDataSource: IArtistBioDataSourceInput
     private var artistGalleryUsecase: IArtistPhotosUsecase
+    // FIXME: Reference cycle.
     private var aboutArtistPresenter: AboutArtistInput
 
     init(
@@ -33,6 +34,11 @@ final class ArtistBioPresenter: IArtistBioPresenter {
     }
 
     func setBio() {
+        // FIXME: Лучше закрыть модуль, если происходит такого рода ошибка.
+        // guard let artistId = aboutArtistPresenter.id else {
+        //     assertionFailure("Artist id doesnt exist")
+        //     router.closeCurrentModule()
+        // }
         guard let artistId = aboutArtistPresenter.id else { fatalError("Artist id doesnt exist") }
 
         artistBioUsecase.getArtist(relativeURL: "/person/\(artistId)").done { artist in

@@ -13,6 +13,7 @@ protocol ArtistFilmsRoutingInput {
 }
 
 final class ArtistFilmsRouting: ArtistFilmsRoutingInput {
+    // FIXME: Хранить как BaseHandlerController.
     weak var viewController: ArtistFilmsViewController!
 
     func navigateToAboutFilm(withId id: Int) {

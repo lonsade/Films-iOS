@@ -8,6 +8,7 @@
 
 import UIKit
 
+// TODO: В отдельный файлик.
 protocol AboutArtistInput: ModuleInput {
     var id: Int? { get }
     func set(id: Int)

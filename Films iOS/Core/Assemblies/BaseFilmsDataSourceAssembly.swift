@@ -8,6 +8,7 @@
 
 import EasyDi
 
+// TODO: Вынести в ассембли соответствующего модуля.
 final class BaseFilmsDataSourceAssembly: Assembly {
     var baseFilmsDataSource: BaseFilmsDataSourceInput & BaseFilmsDataSourceOutput {
         return define(scope: .lazySingleton, init: BaseFilmsDataSource())

@@ -8,6 +8,8 @@
 
 import Foundation
 
+// TODO: Переместить с соответствующий модуль.
+
 protocol BaseFilmsDataSourceInput: class {
     func load(base: [FilmCard], firstly: Bool)
 }

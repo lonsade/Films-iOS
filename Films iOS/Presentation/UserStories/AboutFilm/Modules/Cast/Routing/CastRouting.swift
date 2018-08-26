@@ -19,6 +19,8 @@ final class CastRouting: CastRoutingInput {
     func navigateToAboutArtist(withId id: Int) {
         viewController.openModule(withName: "AboutArtist") { moduleInput in
             guard let aboutArtistPresenter = moduleInput as? AboutArtistPresenter else {
+                // TODO: Можно сделать вот так.
+                // return assertionFailure("Could not cast this moduleInput to \(String(describing: AboutArtistPresenter.self)).")
                 fatalError("Could not cast this moduleInput to AboutArtistPresenter")
             }
             aboutArtistPresenter.set(id: id)

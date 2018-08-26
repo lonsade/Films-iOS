@@ -30,6 +30,8 @@ class ArtistMoviesDisplayManager: NSObject {
         didSet {
             collectionFilms?.dataSource = self
             collectionFilms?.delegate = self
+            // FIXME: Это лучше вынести в инициализатор.
+            // Вообще, лучше всего в didSet переменной настраивать только объект, который хранится в этой самой переменной.
             filmsDataSource.delegate = self
             collectionFilms?.register(UINib(nibName: "FilmCard", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         }
