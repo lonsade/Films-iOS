@@ -55,10 +55,18 @@ extension ReviewDisplayManager: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(
-            width: reviewDataSource.reviews[indexPath.item].content.getSizeWithFormating(font: UIFont.FTabName).width,
-            height: reviewDataSource.reviews[indexPath.item].content.getSizeWithFormating(font: UIFont.FTabName).height + 100
+
+        let sizeText = UILabel.size(
+            withText: reviewDataSource.reviews[indexPath.item].content,
+            forWidth: collectionView.frame.size.width,
+            withFont: .FTabName
         )
+
+        let heightImage: CGFloat = 40
+        let heightConstraint: CGFloat = 10
+        let bottomHeightConstraint: CGFloat = 16
+
+        return CGSize(width: sizeText.width, height: sizeText.height + heightImage + heightConstraint + bottomHeightConstraint + 7)
     }
 }
 

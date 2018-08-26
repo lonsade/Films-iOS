@@ -13,7 +13,7 @@ final class CastDisplayManagerAssembly: Assembly {
     lazy var castFilmDataSourceAssembly: CastFilmDataSourceAssembly = CastFilmDataSourceAssembly.instance()
 
     var castDisplayManager: CastDisplayManager {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             CastDisplayManager(castDataSource: self.castFilmDataSourceAssembly.castFilmDataSource)
         )
     }

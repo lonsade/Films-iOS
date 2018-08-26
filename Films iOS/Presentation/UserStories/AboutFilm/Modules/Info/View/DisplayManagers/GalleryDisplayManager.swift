@@ -10,20 +10,19 @@ import UIKit
 
 final class GalleryDisplayManager: NSObject {
 
-    private let reuseIdentifier = "images"
-
     private var detailFilm: IDetailsFilmDataSourceOutput
 
     weak var collectionGallery: UICollectionView? {
         didSet {
-            //detailFilm.infoDelegate = self
-            //collectionGallery?.delegate = self
             collectionGallery?.dataSource = self
-            collectionGallery?.showsVerticalScrollIndicator = false
+
+            collectionGallery?.register(
+                UINib(nibName: "GalleryCollectionCell", bundle: nil),
+                forCellWithReuseIdentifier: "GalleryCollectionCell"
+            )
+
         }
     }
-
-    //weak var delegate: FilmDetailCollectionDisplayManager?
 
     init(detailFilm: IDetailsFilmDataSourceOutput) {
         self.detailFilm = detailFilm
@@ -38,7 +37,7 @@ extension GalleryDisplayManager: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: self.reuseIdentifier,
+            withReuseIdentifier: "GalleryCollectionCell",
             for: indexPath
         ) as? GalleryCollectionCell else { fatalError("Error cell gallery image") }
 

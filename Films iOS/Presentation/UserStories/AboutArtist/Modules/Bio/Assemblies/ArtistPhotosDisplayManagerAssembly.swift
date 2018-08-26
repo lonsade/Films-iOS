@@ -10,10 +10,10 @@ import EasyDi
 
 final class ArtistPhotosDisplayManagerAssembly: Assembly {
 
-    lazy var artistBioDataSourceAssembly: ArtistBioDataSourceAssembly = ArtistBioDataSourceAssembly.instance()
+    lazy var artistBioDataSourceAssembly = ArtistBioDataSourceAssembly.instance()
 
     var artistPhotosDisplayManager: ArtistPhotosDisplayManager {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             ArtistPhotosDisplayManager(artistBioDataSource: self.artistBioDataSourceAssembly.artistBioDataSource)
         )
     }

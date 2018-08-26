@@ -17,7 +17,7 @@ final class ArtistFilmsPresenterAssembly: Assembly {
     lazy var aboutArtistPresenterAssembly = AboutArtistPresenterAssembly.instance()
 
     var artistFilmsPresenter: IArtistFilmsPresenter {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             ArtistFilmsPresenter(
                 artistFilmsUsecase: self.artistFilmsUsecaseAssembly.artistFilmsUsecase,
                 artistFilmsDataSource: self.artistFilmsDataSourceAssembly.artistFilmsDataSource,

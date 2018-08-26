@@ -17,7 +17,7 @@ final class ReviewPresenterAssembly: Assembly {
     lazy var presenterAssembly = AboutFilmPresenterAssembly.instance()
 
     var reviewPresenter: IReviewPresenter {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             ReviewPresenter(
                 reviewUsecase: self.reviewUsecaseAssembly.reviewUsecase,
                 reviewDataSource: self.reviewDataSourceAssembly.reviewDataSource,

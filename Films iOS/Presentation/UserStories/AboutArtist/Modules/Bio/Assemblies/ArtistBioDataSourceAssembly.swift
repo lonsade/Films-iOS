@@ -10,6 +10,6 @@ import EasyDi
 
 final class ArtistBioDataSourceAssembly: Assembly {
     var artistBioDataSource: IArtistBioDataSourceOutput & IArtistBioDataSourceInput {
-        return define(scope: .lazySingleton, init: ArtistBioDataSource())
+        return define(init: ArtistBioDataSource())
     }
 }

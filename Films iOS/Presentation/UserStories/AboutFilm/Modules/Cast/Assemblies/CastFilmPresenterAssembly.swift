@@ -17,7 +17,7 @@ final class CastFilmPresenterAssembly: Assembly {
     lazy var presenterAssembly = AboutFilmPresenterAssembly.instance()
 
     var castFilmPresenter: ICastFilmPresenter {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             CastFilmPresenter(
                 castFilmUsecase: self.castFilmUsecaseAssembly.castFilmUsecase,
                 castFilmDataSource: self.castFilmDataSourceAssembly.castFilmDataSource,

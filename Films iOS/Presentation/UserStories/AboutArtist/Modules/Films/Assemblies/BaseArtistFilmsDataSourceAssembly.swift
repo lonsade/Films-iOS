@@ -9,9 +9,7 @@
 import EasyDi
 
 class BaseArtistFilmsDataSourceAssembly: Assembly {
-
     var baseArtistFilmsDataSource: BaseFilmsDataSourceOutput & BaseFilmsDataSourceInput {
-        return define(scope: .lazySingleton, init: BaseFilmsDataSource())
+        return define(init: BaseFilmsDataSource())
     }
-
 }

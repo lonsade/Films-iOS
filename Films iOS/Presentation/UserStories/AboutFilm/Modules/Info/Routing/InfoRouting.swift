@@ -17,6 +17,11 @@ final class InfoRouting: InfoRoutingInput {
     weak var viewController: InfoFilmViewController!
 
     func navigateToAboutFilm(withId id: Int) {
-        viewController.openModule(withName: "AboutFilm")
+        viewController.openModule(withName: "AboutFilm") { moduleInput in
+            guard let aboutFilmPresenter = moduleInput as? AboutFilmInput else {
+                fatalError("Could not cast this moduleInput to AboutFilmInput")
+            }
+            aboutFilmPresenter.set(id: id)
+        }
     }
 }

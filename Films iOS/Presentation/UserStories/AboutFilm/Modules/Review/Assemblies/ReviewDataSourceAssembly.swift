@@ -10,6 +10,6 @@ import EasyDi
 
 final class ReviewDataSourceAssembly: Assembly {
     var reviewDataSource: IReviewDataSourceOutput & IReviewDataSourceInput {
-        return define(scope: .lazySingleton, init: ReviewDataSource())
+        return define(init: ReviewDataSource())
     }
 }
