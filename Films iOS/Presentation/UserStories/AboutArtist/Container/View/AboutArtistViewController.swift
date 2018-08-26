@@ -52,8 +52,6 @@ class AboutArtistViewController: UIViewController, ModuleInputProvider {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Для изменения кнопки back
-        NotificationCenter.default.addObserver(self, selector: #selector(filmWasSelected), name: .beforeSegueDone, object: nil)
         costomize()
     }
 
@@ -65,12 +63,6 @@ class AboutArtistViewController: UIViewController, ModuleInputProvider {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Artist"
-    }
-
-    // Для изменения кнопки back
-    @objc
-    private func filmWasSelected() {
-        navigationItem.title = nil
     }
 
 }

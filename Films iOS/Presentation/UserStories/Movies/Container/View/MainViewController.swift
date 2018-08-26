@@ -74,9 +74,6 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
         super.viewDidLoad()
         MoviesContainerAssembly.instance().inject(into: self)
 
-        // Для изменения кнопки back
-        NotificationCenter.default.addObserver(self, selector: #selector(filmWasSelected), name: .beforeSegueDone, object: nil)
-
         tabNamesPresenter.setTabNames()
         customize()
         genresDataSource.delegate = self
@@ -86,12 +83,6 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = "Films iOS"
-    }
-
-    // Для изменения кнопки back
-    @objc
-    private func filmWasSelected() {
-        navigationItem.title = nil
     }
 
     var genres: [TabName]!
