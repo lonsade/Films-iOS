@@ -168,6 +168,8 @@
 		BDE5323D2132A77100A6D283 /* SearchFilmsPresenterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5323C2132A77100A6D283 /* SearchFilmsPresenterAssembly.swift */; };
 		BDE5323F2132AAD100A6D283 /* SearchViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE5323E2132AAD100A6D283 /* SearchViewControllerAssembly.swift */; };
 		BDE532422132AD8C00A6D283 /* SearchFilmsDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE532412132AD8C00A6D283 /* SearchFilmsDisplayManager.swift */; };
+		BDE532452132B13C00A6D283 /* SearchFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE532442132B13C00A6D283 /* SearchFilmCell.swift */; };
+		BDE532472132B5D700A6D283 /* SearchFilmsDisplayManagerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE532462132B5D700A6D283 /* SearchFilmsDisplayManagerAssembly.swift */; };
 		BDF1954A211863320093D236 /* film.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF19549211863320093D236 /* film.storyboard */; };
 		BDF1954C21186DDB0093D236 /* AboutFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */; };
 		BDF1954E211877760093D236 /* UIButtonChangeContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF1954D211877750093D236 /* UIButtonChangeContent.swift */; };
@@ -360,6 +362,8 @@
 		BDE5323C2132A77100A6D283 /* SearchFilmsPresenterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsPresenterAssembly.swift; sourceTree = "<group>"; };
 		BDE5323E2132AAD100A6D283 /* SearchViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerAssembly.swift; sourceTree = "<group>"; };
 		BDE532412132AD8C00A6D283 /* SearchFilmsDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsDisplayManager.swift; sourceTree = "<group>"; };
+		BDE532442132B13C00A6D283 /* SearchFilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmCell.swift; sourceTree = "<group>"; };
+		BDE532462132B5D700A6D283 /* SearchFilmsDisplayManagerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilmsDisplayManagerAssembly.swift; sourceTree = "<group>"; };
 		BDF19549211863320093D236 /* film.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = film.storyboard; sourceTree = "<group>"; };
 		BDF1954B21186DDB0093D236 /* AboutFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFilmViewController.swift; sourceTree = "<group>"; };
 		BDF1954D211877750093D236 /* UIButtonChangeContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonChangeContent.swift; sourceTree = "<group>"; };
@@ -441,6 +445,7 @@
 				BDE532312132A10100A6D283 /* SearchFilmsDataSourceAssembly.swift */,
 				BDE5323C2132A77100A6D283 /* SearchFilmsPresenterAssembly.swift */,
 				BDE5323E2132AAD100A6D283 /* SearchViewControllerAssembly.swift */,
+				BDE532462132B5D700A6D283 /* SearchFilmsDisplayManagerAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 		BD0678BD2132911A00463DEC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BDE532432132B12600A6D283 /* Cells */,
 				BDE532402132AD1A00A6D283 /* DisplayManagers */,
 				BD0678BE2132915300463DEC /* SearchViewController.swift */,
 				BD0678C02132917000463DEC /* Search.storyboard */,
@@ -1367,6 +1373,14 @@
 			path = DisplayManagers;
 			sourceTree = "<group>";
 		};
+		BDE532432132B12600A6D283 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BDE532442132B13C00A6D283 /* SearchFilmCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		BDF19548211863080093D236 /* AboutFilm */ = {
 			isa = PBXGroup;
 			children = (
@@ -1703,6 +1717,7 @@
 				BDFCE2CB211D60AB00C70770 /* MoviesGatewayAssembly.swift in Sources */,
 				BDE5323B2132A51600A6D283 /* SearchFilmsUsecaseAssembly.swift in Sources */,
 				BD52F3F7211711660063DEB1 /* UIImageLoadFromURL+cornerRadius.swift in Sources */,
+				BDE532472132B5D700A6D283 /* SearchFilmsDisplayManagerAssembly.swift in Sources */,
 				BDD85B76211C337B00256E60 /* CastFilmUsecaseAssembly.swift in Sources */,
 				BD6C98052121A8FA00E5660A /* InfoRouting.swift in Sources */,
 				BDD85B7E211C3B6100256E60 /* CastFilmPresenter.swift in Sources */,
@@ -1744,6 +1759,7 @@
 				BDC941CB210EE861005C5041 /* AppDelegate.swift in Sources */,
 				BDD85B9C211C4D4C00256E60 /* ArtistPhoto.swift in Sources */,
 				BD1DCF6C21132308001B48EF /* TabName.swift in Sources */,
+				BDE532452132B13C00A6D283 /* SearchFilmCell.swift in Sources */,
 				BDE532372132A2D600A6D283 /* SearchFilmsUsecase.swift in Sources */,
 				BD05FCCE2119C552008B5AC5 /* DetailsFilmUsecase.swift in Sources */,
 				BDFCE2DD211DA2FE00C70770 /* CastRouting.swift in Sources */,

@@ -40,7 +40,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qxo-AA-O1a">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchFilmCell" id="qxo-AA-O1a" customClass="SearchFilmCell" customModule="Films_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qxo-AA-O1a" id="e0z-Fl-2v1">
@@ -114,6 +114,13 @@
                                                 <constraint firstItem="jjr-OZ-LYb" firstAttribute="top" secondItem="e0z-Fl-2v1" secondAttribute="top" id="fku-L0-g5n"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ageLabel" destination="CRE-x4-13L" id="ZTv-uT-aq4"/>
+                                            <outlet property="overviewTextView" destination="sbb-Hh-u5H" id="xhx-7Z-Qvy"/>
+                                            <outlet property="posterImageView" destination="jjr-OZ-LYb" id="KBm-Ry-u58"/>
+                                            <outlet property="titleTextView" destination="7h6-52-ay6" id="aTb-FM-np3"/>
+                                            <outlet property="voteLabel" destination="dJI-CN-SYK" id="Iaa-mQ-ToX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>

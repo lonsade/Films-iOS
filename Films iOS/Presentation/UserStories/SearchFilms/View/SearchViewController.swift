@@ -35,6 +35,11 @@ class SearchViewController: UIViewController {
     }
 
     var presenter: SearchFilmsPresenterInput!
+    var displayManager: SearchFilmsDisplayManagerOutput! {
+        didSet {
+            displayManager.searchFilmsTableView = resultsTableView
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,7 +13,7 @@ protocol SearchFilmsDataSourceInput: class {
 }
 
 protocol SearchFilmsDataSourceOutput: class {
-    var dataSource: [FilmCard] { get }
+    var data: [FilmCard] { get }
     var delegate: SearchFilmsDataSourceDelegate? { get set }
 }
 
@@ -22,16 +22,16 @@ protocol SearchFilmsDataSourceDelegate: class {
 }
 
 final class SearchFilmsDataSource: SearchFilmsDataSourceOutput, SearchFilmsDataSourceInput {
-    var dataSource: [FilmCard]
+    var data: [FilmCard]
 
     weak var delegate: SearchFilmsDataSourceDelegate?
 
     func add(films: [FilmCard]) {
-        dataSource += films
+        data += films
         delegate?.filmsWereAdd()
     }
 
     init() {
-        dataSource = []
+        data = []
     }
 }
