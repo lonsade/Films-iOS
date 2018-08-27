@@ -13,30 +13,18 @@
         <!--Search View Controller-->
         <scene sceneID="aZ6-Od-KKo">
             <objects>
-                <viewController id="Xiu-pC-cyZ" customClass="SearchViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="Xiu-pC-cyZ" customClass="SearchViewController" customModule="Films_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hbY-7N-kih">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="GfK-kK-ePA">
-                                <rect key="frame" x="7" y="20" width="361" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="Kev-uv-RYg"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCy-w6-n6p" customClass="CustomHR" customModule="Films_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="68" width="375" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="qdn-8J-1Xe"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="161" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9js-aK-amR">
-                                <rect key="frame" x="0.0" y="69" width="375" height="598"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="161" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9js-aK-amR">
+                                <rect key="frame" x="0.0" y="21" width="375" height="646"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchFilmCell" rowHeight="145" id="qxo-AA-O1a" customClass="SearchFilmCell" customModule="Films_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="145"/>
@@ -117,21 +105,15 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AZz-Gb-gRW" firstAttribute="trailing" secondItem="9js-aK-amR" secondAttribute="trailing" id="0WT-OO-pxZ"/>
-                            <constraint firstItem="GfK-kK-ePA" firstAttribute="top" secondItem="AZz-Gb-gRW" secondAttribute="top" id="5wu-9i-4gh"/>
                             <constraint firstItem="9js-aK-amR" firstAttribute="leading" secondItem="AZz-Gb-gRW" secondAttribute="leading" id="M2T-5q-UqK"/>
-                            <constraint firstItem="AZz-Gb-gRW" firstAttribute="trailing" secondItem="nCy-w6-n6p" secondAttribute="trailing" id="N3z-q2-UAx"/>
                             <constraint firstItem="AZz-Gb-gRW" firstAttribute="bottom" secondItem="9js-aK-amR" secondAttribute="bottom" id="PwT-PY-X8V"/>
-                            <constraint firstItem="nCy-w6-n6p" firstAttribute="leading" secondItem="AZz-Gb-gRW" secondAttribute="leading" id="TO0-9y-I4S"/>
-                            <constraint firstItem="9js-aK-amR" firstAttribute="top" secondItem="nCy-w6-n6p" secondAttribute="bottom" id="aaq-71-HBP"/>
-                            <constraint firstItem="nCy-w6-n6p" firstAttribute="top" secondItem="GfK-kK-ePA" secondAttribute="bottom" constant="12" id="kRf-DV-GNq"/>
-                            <constraint firstItem="AZz-Gb-gRW" firstAttribute="trailing" secondItem="GfK-kK-ePA" secondAttribute="trailing" constant="7" id="pyU-bg-ADv"/>
-                            <constraint firstItem="GfK-kK-ePA" firstAttribute="leading" secondItem="AZz-Gb-gRW" secondAttribute="leading" constant="7" id="r9O-Eo-TWN"/>
+                            <constraint firstItem="9js-aK-amR" firstAttribute="top" secondItem="AZz-Gb-gRW" secondAttribute="top" constant="1" id="r3H-VW-u1R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AZz-Gb-gRW"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <connections>
                         <outlet property="resultsTableView" destination="9js-aK-amR" id="Zqt-fK-Xsa"/>
-                        <outlet property="searchBar" destination="GfK-kK-ePA" id="ueo-rq-bbH"/>
                         <outlet property="searchDisplayController" destination="0OY-pk-HsN" id="bt8-Vs-v1c"/>
                         <segue destination="VTT-9g-okU" kind="show" identifier="AboutFilm" id="ZEE-9j-0sG"/>
                     </connections>

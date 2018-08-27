@@ -71,6 +71,8 @@ internal enum L10n {
     internal static let aboutArtistFilm = L10n.tr("Localizable", "module.about_artist_film")
     /// AboutFilm
     internal static let aboutFilm = L10n.tr("Localizable", "module.about_film")
+    /// search
+    internal static let search = L10n.tr("Localizable", "module.search")
   }
 
   internal enum Movies {

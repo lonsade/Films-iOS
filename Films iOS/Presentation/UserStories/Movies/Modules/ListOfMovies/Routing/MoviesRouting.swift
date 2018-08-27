@@ -6,8 +6,6 @@
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
-import UIKit
-
 protocol MoviesRoutingInput {
     func navigateToAboutFilm(onId id: Int)
 }

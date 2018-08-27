@@ -27,7 +27,7 @@ final class SearchFilmsDataSource: SearchFilmsDataSourceOutput, SearchFilmsDataS
     weak var delegate: SearchFilmsDataSourceDelegate?
 
     func add(films: [FilmCard]) {
-        data += films
+        data = films
         delegate?.filmsWereAdd()
     }
 

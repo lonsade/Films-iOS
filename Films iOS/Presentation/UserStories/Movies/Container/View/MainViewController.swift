@@ -9,13 +9,14 @@
 import UIKit
 import InteractiveSideMenu
 
-final class MainViewController: UIViewController, SideMenuItemContent, Storyboardable {
+final class MainViewController: BaseViewController, SideMenuItemContent, Storyboardable {
 
     private let storybordName = L10n.Movies.storybordName
 
     private var firstPage: UIViewController!
 
     var tabNamesPresenter: ITabNamesPresenter!
+    var router: MoviesContainerRoutingInput!
 
     var tabDisplayManager: TabDisplayManager! {
         didSet {
@@ -68,6 +69,7 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
         tabNamesPresenter.setTabNames()
         customize()
         genresDataSource.delegate = self
+        router.viewController = self
 
     }
 
@@ -78,6 +80,9 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     var genres: [TabName]!
 
+    @IBAction func doSearch(_ sender: UIBarButtonItem) {
+        router.navigateToSearch()
+    }
 }
 
 extension MainViewController: TabNamesDSDelegate {

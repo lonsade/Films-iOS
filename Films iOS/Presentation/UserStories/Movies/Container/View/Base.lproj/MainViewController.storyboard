@@ -115,13 +115,14 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="icSort" id="eLz-sk-WBa">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="aZt-Gt-72b" kind="show" identifier="search" id="zFa-Wv-d31"/>
+                                <action selector="doSearch:" destination="HHy-2x-2AX" id="JGb-6c-fOZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionTabNames" destination="utv-UP-JYE" id="tWr-FD-uMl"/>
                         <outlet property="navigationBar" destination="pEl-IG-axs" id="Txa-IT-3Ls"/>
+                        <segue destination="aZt-Gt-72b" kind="show" identifier="search" id="27k-Zg-0CG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ig-ry-oav" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,7 +190,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Search" storyboardName="Search" id="aZt-Gt-72b" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yp5-S2-Dhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="796" y="-793"/>
+            <point key="canvasLocation" x="855" y="-777"/>
         </scene>
         <!--Base Main Page View Controller-->
         <scene sceneID="s7J-Bq-GwU">
