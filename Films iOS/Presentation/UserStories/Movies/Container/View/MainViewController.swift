@@ -11,7 +11,7 @@ import InteractiveSideMenu
 
 final class MainViewController: UIViewController, SideMenuItemContent, Storyboardable {
 
-    private let storybordName = "MainViewController"
+    private let storybordName = L10n.Movies.storybordName
 
     private var firstPage: UIViewController!
 
@@ -73,7 +73,7 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "Films iOS"
+        navigationItem.title = L10n.Movies.navigationTitle
     }
 
     var genres: [TabName]!

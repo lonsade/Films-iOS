@@ -14,7 +14,7 @@ class CastCollectionCell: UICollectionViewCell {
         if let imageUrl = imageUrl {
             image.downloadedFrom(link: imageUrl, contentMode: .scaleAspectFill)
         } else {
-            image.image = #imageLiteral(resourceName: "defaultAva")
+            image.image = Asset.defaultAva.image
         }
     }
 

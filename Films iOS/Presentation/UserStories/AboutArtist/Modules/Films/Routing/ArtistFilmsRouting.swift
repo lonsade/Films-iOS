@@ -15,7 +15,7 @@ final class ArtistFilmsRouting: ArtistFilmsRoutingInput {
     weak var viewController: BaseHandlerController?
 
     func navigateToAboutFilm(withId id: Int) {
-        viewController?.openModule(withName: "AboutArtistFilm") { moduleInput in
+        viewController?.openModule(withName: L10n.Module.aboutArtistFilm) { moduleInput in
             guard let aboutFilmPresenter = moduleInput as? AboutFilmPresenter else {
                 return assertionFailure("Could not cast this moduleInput to \(String(describing: AboutFilmPresenter.self)).")
             }

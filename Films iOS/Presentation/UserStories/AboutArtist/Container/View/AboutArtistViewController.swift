@@ -12,8 +12,8 @@ class AboutArtistViewController: UIViewController, ModuleInputProvider {
 
     var moduleInput: ModuleInput!
 
-    private let pages = ["bio", "films"]
-    private let storybordName = "artist"
+    private let pages = [L10n.AboutArtist.page1, L10n.AboutArtist.page2]
+    private let storybordName = L10n.AboutArtist.storybordName
 
     @IBOutlet weak var tdbBarForFilm: UIStackView! {
         didSet {
@@ -62,7 +62,7 @@ class AboutArtistViewController: UIViewController, ModuleInputProvider {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "Artist"
+        navigationItem.title = L10n.AboutArtist.navigationTitle
     }
 
 }

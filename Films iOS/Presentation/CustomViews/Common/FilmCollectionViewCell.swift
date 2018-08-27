@@ -58,7 +58,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
         imagePoster.downloadedFrom(link: image, contentMode: .scaleAspectFill)
         self.title.text = title
         voteAverage.text = String(vote).withTMDb()
-        ageLabel.text = (adult) ? "18+" : "0+"
+        ageLabel.text = (adult) ? L10n.adult : L10n.notAdult
 
     }
 }

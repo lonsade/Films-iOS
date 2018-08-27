@@ -13,7 +13,7 @@ class ArtistPhotosCollectionViewCell: UICollectionViewCell {
         if let imageUrl = imageUrl {
             artistPhotoImageView.downloadedFrom(link: imageUrl, contentMode: .scaleAspectFill)
         } else {
-            artistPhotoImageView.image = #imageLiteral(resourceName: "defaultAva")
+            artistPhotoImageView.image = Asset.defaultAva.image
         }
     }
     @IBOutlet weak var artistPhotoImageView: UIImageView! {

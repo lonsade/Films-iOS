@@ -17,7 +17,7 @@ final class MoviesRouting: MoviesRoutingInput {
     var viewController: BaseHandlerController?
 
     func navigateToAboutFilm(onId id: Int) {
-        viewController?.openModule(withName: "AboutFilm") { moduleInput in
+        viewController?.openModule(withName: L10n.Module.aboutFilm) { moduleInput in
             guard let aboutFilminput = moduleInput as? AboutFilmInput else {
                 return assertionFailure("Could not cast this moduleInput to \(String(describing: AboutFilmInput.self)).")
             }

@@ -90,9 +90,9 @@ extension ArtistBioViewController: ArtistBioDataSourceDelegate {
     func bioWasAdd(bio: Artist) {
         artistNameLabel.text = bio.name
 
-        artistBirthdayLabel.text = bio.birthday?.getStringDate(newFormat: "yyyy, d MMMM", oldFormat: "yyyy-MM-dd") ?? "No information"
+        artistBirthdayLabel.text = bio.birthday?.getStringDate(newFormat: "yyyy, d MMMM", oldFormat: "yyyy-MM-dd") ?? L10n.notInformation
 
-        artistPlaceOfBirthLabel.text = bio.placeOfBirth ?? "No information"
+        artistPlaceOfBirthLabel.text = bio.placeOfBirth ?? L10n.notInformation
 
         artistBioTextView.text = bio.biography
 

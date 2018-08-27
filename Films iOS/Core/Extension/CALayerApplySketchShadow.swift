@@ -26,8 +26,8 @@ extension CALayer {
         if spread == 0 {
             self.shadowPath = nil
         } else {
-            let dx = -spread
-            let rect = bounds.insetBy(dx: dx, dy: dx)
+            let ddx = -spread
+            let rect = bounds.insetBy(dx: ddx, dy: ddx)
             self.shadowPath = UIBezierPath(rect: rect).cgPath
         }
     }

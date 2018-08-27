@@ -15,7 +15,7 @@ extension String {
         return attrStr.size()
     }
     func withTMDb() -> String {
-        return "TMDb "+self
+        return "\(L10n.markSystem) \(self)"
     }
 
     func getDate(withFormat format: String) -> DateComponents {

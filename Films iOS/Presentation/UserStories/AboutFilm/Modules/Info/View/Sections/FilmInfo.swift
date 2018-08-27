@@ -79,7 +79,7 @@ class FilmInfo: UICollectionReusableView {
 
     func set(details: FilmDetail) {
         titleTextView.text = details.title
-        coutryLabel.text = (!details.productionCountries.isEmpty) ? details.productionCountries[0].name : "No information"
+        coutryLabel.text = (!details.productionCountries.isEmpty) ? details.productionCountries[0].name : L10n.notInformation
         descriptionTextView.text = details.overview
         markLabel.text = String(details.voteAverage).withTMDb()
 
@@ -96,7 +96,7 @@ class FilmInfo: UICollectionReusableView {
             // TODO: сделать через форматер
             runtimeLabel.text = String(time.0)+"h "+String(time.1)+"min"
         } else {
-            runtimeLabel.text = "No Information"
+            runtimeLabel.text = L10n.notInformation
         }
 
         posterImageView.downloadedFrom(link: details.posterPath, contentMode: .scaleAspectFill)

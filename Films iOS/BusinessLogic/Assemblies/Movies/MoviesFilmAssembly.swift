@@ -19,7 +19,7 @@ final class MoviesFilmAssembly: Assembly {
             MakeRequestGateway(
                 networking: self.networking.networking,
                 parameters: [
-                    "api_key": "7e768e8012161bc9c4ca59f1e4f5979e",
+                    "api_key": L10n.apiKey,
                     "language": "en-US"
                 ],
                 headers: [
@@ -36,7 +36,7 @@ final class MoviesFilmAssembly: Assembly {
             MakeRequestGateway(
                 networking: self.networking.networking,
                 parameters: [
-                    "api_key": "7e768e8012161bc9c4ca59f1e4f5979e",
+                    "api_key": L10n.apiKey,
                     "language": "en-US"
                 ],
                 headers: [

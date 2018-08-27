@@ -26,12 +26,10 @@ extension UIImageView {
     }
     func downloadedFrom(link: String?, contentMode mode: UIViewContentMode = .scaleAspectFit) {
 
-        let baseUrl = "https://image.tmdb.org/t/p/w500"
-
-        if let link = link, let url = URL(string: baseUrl + link) {
+        if let link = link, let url = URL(string: L10n.baseURLForImages + link) {
             downloadedFrom(url: url, contentMode: mode)
         } else {
-            self.image = #imageLiteral(resourceName: "group")
+            self.image = Asset.examplePoster.image
         }
     }
 

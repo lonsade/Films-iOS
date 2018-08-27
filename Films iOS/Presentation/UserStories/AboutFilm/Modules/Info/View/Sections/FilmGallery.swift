@@ -14,7 +14,7 @@ class FilmGallery: UICollectionReusableView {
         didSet {
             galleryLabel.font = UIFont.FAboutFilmTitles
             galleryLabel.textColor = UIColor.FTitleTextColor
-            galleryLabel.text = "Gallery"
+            galleryLabel.text = L10n.AboutFilm.Info.galleryLabel
         }
     }
 
@@ -22,7 +22,7 @@ class FilmGallery: UICollectionReusableView {
         didSet {
             similarLabel.font = UIFont.FAboutFilmTitles
             similarLabel.textColor = UIColor.FTitleTextColor
-            similarLabel.text = "See also"
+            similarLabel.text = L10n.AboutFilm.Info.seeAlsoLabel
         }
     }
     @IBOutlet weak var galleryCollectionView: UICollectionView!

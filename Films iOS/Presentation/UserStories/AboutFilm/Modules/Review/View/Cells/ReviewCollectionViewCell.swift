@@ -10,8 +10,6 @@ import UIKit
 
 class ReviewCollectionViewCell: UICollectionViewCell {
 
-    private let baseUrl = "https://image.tmdb.org/t/p/w500"
-
     @IBOutlet weak var personImage: UIImageView! {
         didSet {
             personImage.setCornerRadius(byRoundingCorners: [.allCorners], size: 45)

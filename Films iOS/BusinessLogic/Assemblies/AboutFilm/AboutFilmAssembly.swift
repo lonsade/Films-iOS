@@ -18,7 +18,7 @@ final class AboutFilmAssembly: Assembly {
         return define(scope: .lazySingleton, init:
             MakeRequestGateway(
                 networking: self.networking.networking,
-                parameters: ["api_key": "7e768e8012161bc9c4ca59f1e4f5979e", "language": "en-US"],
+                parameters: ["api_key": L10n.apiKey, "language": "en-US"],
                 headers: ["Content-Type": "application/json", "Accept": "application/json"],
                 method: RequestMethod.GET
             )
@@ -29,7 +29,7 @@ final class AboutFilmAssembly: Assembly {
         return define(scope: .lazySingleton, init:
             MakeRequestGateway(
                 networking: self.networking.networking,
-                parameters: ["api_key": "7e768e8012161bc9c4ca59f1e4f5979e", "language": "en-US"],
+                parameters: ["api_key": L10n.apiKey, "language": "en-US"],
                 headers: ["Content-Type": "application/json", "Accept": "application/json"],
                 method: RequestMethod.GET
             )
@@ -40,7 +40,7 @@ final class AboutFilmAssembly: Assembly {
         return define(scope: .lazySingleton, init:
             MakeRequestGateway(
                 networking: self.networking.networking,
-                parameters: ["api_key": "7e768e8012161bc9c4ca59f1e4f5979e", "language": "en-US"],
+                parameters: ["api_key": L10n.apiKey, "language": "en-US"],
                 headers: ["Content-Type": "application/json", "Accept": "application/json"],
                 method: RequestMethod.GET
             )

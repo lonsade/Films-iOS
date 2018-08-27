@@ -16,22 +16,22 @@ class SampleMenuViewController: MenuViewController, Storyboardable {
 
     @IBOutlet weak var homeImageView: UIImageView! {
         didSet {
-            homeImageView.image = #imageLiteral(resourceName: "home")
+            homeImageView.image = Asset.home.image
         }
     }
     @IBOutlet weak var moviesImageView: UIImageView! {
         didSet {
-            moviesImageView.image = #imageLiteral(resourceName: "movie")
+            moviesImageView.image = Asset.movie.image
         }
     }
     @IBOutlet weak var tvImageView: UIImageView! {
         didSet {
-            tvImageView.image = #imageLiteral(resourceName: "tvShows")
+            tvImageView.image = Asset.tvShows.image
         }
     }
     @IBOutlet weak var favoritesImageView: UIImageView! {
         didSet {
-            favoritesImageView.image = #imageLiteral(resourceName: "favorites")
+            favoritesImageView.image = Asset.favorites.image
         }
     }
 
@@ -43,22 +43,22 @@ class SampleMenuViewController: MenuViewController, Storyboardable {
 
     @IBOutlet weak var homeLabel: UILabel! {
         didSet {
-            customize(label: homeLabel, text: "HOME")
+            customize(label: homeLabel, text: L10n.Menu.home)
         }
     }
     @IBOutlet weak var moviesLabel: UILabel! {
         didSet {
-            customize(label: moviesLabel, text: "MOVIES")
+            customize(label: moviesLabel, text: L10n.Menu.movies)
         }
     }
     @IBOutlet weak var tvLabel: UILabel! {
         didSet {
-            customize(label: tvLabel, text: "TV SHOWS")
+            customize(label: tvLabel, text: L10n.Menu.tvShow)
         }
     }
     @IBOutlet weak var favoritesLabel: UILabel! {
         didSet {
-            customize(label: favoritesLabel, text: "FAVORITES")
+            customize(label: favoritesLabel, text: L10n.Menu.favorites)
         }
     }
 
@@ -72,6 +72,6 @@ class SampleMenuViewController: MenuViewController, Storyboardable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "group2"))
+        view.backgroundColor = UIColor(patternImage: Asset.group2.image)
     }
 }
