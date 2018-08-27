@@ -19,9 +19,8 @@ class SearchFilmCell: UITableViewCell {
         didSet {
             titleTextView.textContainerInset = .zero
             titleTextView.textContainer.lineFragmentPadding = 0
-            titleTextView.textColor = .FTitleTextColor
-            titleTextView.font = .FAboutFilmTitles
-            overviewTextView.isScrollEnabled = false
+            titleTextView.isScrollEnabled = false
+            titleTextView.isSelectable = false
         }
     }
     @IBOutlet weak var overviewTextView: UITextView! {
@@ -31,6 +30,7 @@ class SearchFilmCell: UITableViewCell {
             overviewTextView.textColor = .FContentTextColor
             overviewTextView.font = .FSearchCardOverview
             overviewTextView.isScrollEnabled = false
+            overviewTextView.isSelectable = false
         }
     }
     @IBOutlet weak var voteLabel: UILabel! {
@@ -47,6 +47,7 @@ class SearchFilmCell: UITableViewCell {
     }
 
     override func awakeFromNib() {
+        super.awakeFromNib()
         self.layer.applySketchShadow(
             color: .FShadowColor,
             alpha: 0.6,
@@ -56,16 +57,28 @@ class SearchFilmCell: UITableViewCell {
             spread: 0
         )
         self.layer.cornerRadius = 8
+        self.backgroundColor = .FBackgroundColorPoster
     }
 
     func setContent(image: String?, title: String, overview: String, vote: Float, adult: Bool) {
 
         posterImageView.downloadedFrom(link: image, contentMode: .scaleAspectFill)
         titleTextView.text = title
+        titleTextView.setLineHeight(21, withAttributes: [.foregroundColor: UIColor.FTitleTextColor, .font: UIFont.FAboutFilmTitles])
         overviewTextView.text = overview
         voteLabel.text = String(vote).withTMDb()
         ageLabel.text = (adult) ? "18+" : "0+"
 
     }
 
+}
+
+private extension UITextView {
+    func setLineHeight(_ amount: CGFloat, withAttributes attributes: [NSAttributedStringKey: Any]) {
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 21
+        var selfAttributes = attributes
+        selfAttributes[NSAttributedStringKey.paragraphStyle] = style
+        self.attributedText = NSAttributedString(string: self.text, attributes: selfAttributes)
+    }
 }

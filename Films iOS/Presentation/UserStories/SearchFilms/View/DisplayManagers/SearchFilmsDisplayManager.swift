@@ -44,6 +44,7 @@ extension SearchFilmsDisplayManager: SearchFilmsDataSourceDelegate {
 }
 
 extension SearchFilmsDisplayManager: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.data.count
     }
