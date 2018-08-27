@@ -21,7 +21,7 @@ final class SearchAssembly: Assembly {
     }
 
     var searchFilmsDisplayManager: SearchFilmsDisplayManagerOutput {
-        return define(init: SearchFilmsDisplayManager(dataSource: self.searchFilmsDataSource))
+        return define(init: SearchFilmsDisplayManager(dataSource: self.searchFilmsDataSource, presenter: self.searchFilmsPresenter))
     }
 
     var searchFilmsPresenter: SearchFilmsPresenterInput {

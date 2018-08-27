@@ -10,6 +10,8 @@ import Foundation
 
 protocol SearchFilmsDataSourceInput: class {
     func add(films: [FilmCard])
+    func set(films: [FilmCard])
+    func clear()
 }
 
 protocol SearchFilmsDataSourceOutput: class {
@@ -27,7 +29,17 @@ final class SearchFilmsDataSource: SearchFilmsDataSourceOutput, SearchFilmsDataS
     weak var delegate: SearchFilmsDataSourceDelegate?
 
     func add(films: [FilmCard]) {
+        data += films
+        delegate?.filmsWereAdd()
+    }
+
+    func set(films: [FilmCard]) {
         data = films
+        delegate?.filmsWereAdd()
+    }
+
+    func clear() {
+        data = []
         delegate?.filmsWereAdd()
     }
 

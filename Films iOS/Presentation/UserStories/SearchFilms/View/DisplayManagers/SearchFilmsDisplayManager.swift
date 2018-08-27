@@ -20,6 +20,7 @@ protocol SearchFilmsDisplayManagerOutput: class {
 final class SearchFilmsDisplayManager: NSObject, SearchFilmsDisplayManagerOutput {
 
     private var dataSource: SearchFilmsDataSourceOutput
+    private var presenter: SearchFilmsPresenterInput
 
     weak var delegate: SearchFilmsDisplayManagerDelegate?
 
@@ -31,8 +32,9 @@ final class SearchFilmsDisplayManager: NSObject, SearchFilmsDisplayManagerOutput
         }
     }
 
-    init(dataSource: SearchFilmsDataSourceOutput) {
+    init(dataSource: SearchFilmsDataSourceOutput, presenter: SearchFilmsPresenterInput) {
         self.dataSource = dataSource
+        self.presenter = presenter
     }
 
 }
@@ -62,6 +64,20 @@ extension SearchFilmsDisplayManager: UITableViewDataSource {
         )
 
         return cell
+    }
+}
+
+extension SearchFilmsDisplayManager: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+
+        if deltaOffset <= 0 {
+            presenter.loadMore()
+        }
+
     }
 }
 
