@@ -15,24 +15,21 @@ class SearchFilmCell: UITableViewCell {
             posterImageView.setCornerRadius(byRoundingCorners: [.bottomLeft, .topLeft], size: 8)
         }
     }
-    @IBOutlet weak var titleTextView: UITextView! {
+
+    @IBOutlet weak var titleLabel: UILabel! {
         didSet {
-            titleTextView.textContainerInset = .zero
-            titleTextView.textContainer.lineFragmentPadding = 0
-            titleTextView.isScrollEnabled = false
-            titleTextView.isSelectable = false
+            titleLabel.textColor = .FTitleTextColor
+            titleLabel.font = .FAboutFilmTitles
         }
     }
-    @IBOutlet weak var overviewTextView: UITextView! {
+
+    @IBOutlet weak var overviewLabel: UILabel! {
         didSet {
-            overviewTextView.textContainerInset = .zero
-            overviewTextView.textContainer.lineFragmentPadding = 0
-            overviewTextView.textColor = .FContentTextColor
-            overviewTextView.font = .FSearchCardOverview
-            overviewTextView.isScrollEnabled = false
-            overviewTextView.isSelectable = false
+            overviewLabel.textColor = .FContentTextColor
+            overviewLabel.font = .FSearchCardOverview
         }
     }
+
     @IBOutlet weak var voteLabel: UILabel! {
         didSet {
             voteLabel.textColor = .FActiveTextColor
@@ -46,39 +43,29 @@ class SearchFilmCell: UITableViewCell {
         }
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.layer.applySketchShadow(
-            color: .FShadowColor,
-            alpha: 0.6,
-            x: 0,
-            y: 0,
-            blur: 2,
-            spread: 0
-        )
-        self.layer.cornerRadius = 8
-        self.backgroundColor = .FBackgroundColorPoster
-    }
-
     func setContent(image: String?, title: String, overview: String, vote: Float, adult: Bool) {
 
         posterImageView.downloadedFrom(link: image, contentMode: .scaleAspectFill)
-        titleTextView.text = title
-        titleTextView.setLineHeight(21, withAttributes: [.foregroundColor: UIColor.FTitleTextColor, .font: UIFont.FAboutFilmTitles])
-        overviewTextView.text = overview
+        titleLabel.text = title
+        overviewLabel.text = overview
         voteLabel.text = String(vote).withTMDb()
         ageLabel.text = (adult) ? "18+" : "0+"
 
     }
 
-}
-
-private extension UITextView {
-    func setLineHeight(_ amount: CGFloat, withAttributes attributes: [NSAttributedStringKey: Any]) {
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 21
-        var selfAttributes = attributes
-        selfAttributes[NSAttributedStringKey.paragraphStyle] = style
-        self.attributedText = NSAttributedString(string: self.text, attributes: selfAttributes)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = UIEdgeInsetsInsetRect(contentView.frame, UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16))
+        contentView.layer.cornerRadius = 8
+        contentView.backgroundColor = .FBackgroundColorPoster
+        contentView.layer.applySketchShadow(
+            color: .FShadowColor,
+            alpha: 1,
+            x: 0,
+            y: 1,
+            blur: 6,
+            spread: 0
+        )
     }
+
 }

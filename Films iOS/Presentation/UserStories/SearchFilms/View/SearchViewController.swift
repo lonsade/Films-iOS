@@ -18,22 +18,13 @@ class SearchViewController: UIViewController {
         }
     }
 
-//    
-//    
-//    @IBOutlet weak var searchTextField: UITextField! {
-//        didSet {
-//            searchTextField.layer.cornerRadius = 10
-//            searchTextField.backgroundColor = .FSearchTextFieldBackgroundColor
-//            searchTextField.font = .FSearchPlaceholder
-//            searchTextField.textColor = .FSearchTextColor
-//            searchTextField.attributedPlaceholder = NSAttributedString(
-//                string: "Search",
-//                attributes: [.foregroundColor: UIColor.FSearchTextColor]
-//            )
-//
-//        }
-//    }
-    @IBOutlet weak var resultsTableView: UITableView!
+    @IBOutlet weak var resultsTableView: UITableView! {
+        didSet {
+
+            resultsTableView.contentInset.top = 16
+
+        }
+    }
 
     func customize() {
         view.backgroundColor = .FMainBackgroundColor
