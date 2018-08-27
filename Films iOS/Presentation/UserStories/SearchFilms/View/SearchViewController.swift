@@ -46,7 +46,7 @@ class SearchViewController: UIViewController {
 
         customize()
 
-        SearchViewControllerAssembly.instance().inject(into: self)
+        SearchAssembly.instance().inject(into: self)
 
         presenter.setSearchFilms(onText: "Age")
     }
