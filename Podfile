@@ -9,5 +9,6 @@ target 'Films iOS' do
   pod 'Alamofire', '~> 4.7'
   pod 'AlamofireNetworkActivityLogger', '~> 2.3'
   pod 'InteractiveSideMenu'
+  pod 'SwiftGen'
 
 end
