@@ -133,6 +133,7 @@
                         <outlet property="resultsTableView" destination="9js-aK-amR" id="Zqt-fK-Xsa"/>
                         <outlet property="searchBar" destination="GfK-kK-ePA" id="ueo-rq-bbH"/>
                         <outlet property="searchDisplayController" destination="0OY-pk-HsN" id="bt8-Vs-v1c"/>
+                        <segue destination="VTT-9g-okU" kind="show" identifier="AboutFilm" id="ZEE-9j-0sG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ge8-xQ-rrG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -146,6 +147,14 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-255.19999999999999" y="70.614692653673174"/>
+        </scene>
+        <!--film-->
+        <scene sceneID="c0E-ki-R2j">
+            <objects>
+                <viewControllerPlaceholder storyboardName="film" id="VTT-9g-okU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ou7-px-40P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343" y="-47"/>
         </scene>
     </scenes>
 </document>

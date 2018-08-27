@@ -8,13 +8,15 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController {
 
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.tintColor = .FSearchTextColor
             searchBar.placeholder = "Search"
             searchBar.barTintColor = .FSearchTextFieldBackgroundColor
+            
+            
         }
     }
 
@@ -31,9 +33,11 @@ class SearchViewController: UIViewController {
     }
 
     var presenter: SearchFilmsPresenterInput!
+    var router: SearchFilmsRoutingInput!
     var displayManager: SearchFilmsDisplayManagerOutput! {
         didSet {
             displayManager.searchFilmsTableView = resultsTableView
+            displayManager.delegate = self
         }
     }
 
@@ -44,7 +48,15 @@ class SearchViewController: UIViewController {
 
         SearchAssembly.instance().inject(into: self)
 
+        router.viewController = self
+
         presenter.setSearchFilms(onText: "Age")
     }
 
+}
+
+extension SearchViewController: SearchFilmsDisplayManagerDelegate {
+    func filmWasSelected(withId id: Int) {
+        router.navigateToAboutFilm(withId: id)
+    }
 }

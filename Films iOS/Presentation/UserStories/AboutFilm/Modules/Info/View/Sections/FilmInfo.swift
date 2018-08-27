@@ -28,6 +28,9 @@ class FilmInfo: UICollectionReusableView {
             )
         }
     }
+
+    // FIXME: название не помещается полностью
+
     @IBOutlet weak var titleTextView: UITextView! {
         didSet {
             titleTextView.font = UIFont.FAboutFilmTitle
