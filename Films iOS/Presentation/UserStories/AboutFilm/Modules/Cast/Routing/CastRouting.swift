@@ -6,20 +6,22 @@
 //  Copyright © 2018 Nikita Zhudin. All rights reserved.
 //
 
-import UIKit
-
-protocol CastRoutingInput {
+protocol CastRoutingInput: BaseRoutingProtocol {
     func navigateToAboutArtist(withId id: Int)
 }
 
 final class CastRouting: CastRoutingInput {
 
-    weak var viewController: CastViewController!
+    weak var viewController: BaseHandlerController?
+
+    func closeCurrentModule() {
+        viewController?.closeModule()
+    }
 
     func navigateToAboutArtist(withId id: Int) {
-        viewController.openModule(withName: "AboutArtist") { moduleInput in
+        viewController?.openModule(withName: L10n.Module.aboutArtist) { moduleInput in
             guard let aboutArtistPresenter = moduleInput as? AboutArtistPresenter else {
-                fatalError("Could not cast this moduleInput to AboutArtistPresenter")
+                 return assertionFailure("Could not cast this moduleInput to \(String(describing: AboutArtistPresenter.self)).")
             }
             aboutArtistPresenter.set(id: id)
         }

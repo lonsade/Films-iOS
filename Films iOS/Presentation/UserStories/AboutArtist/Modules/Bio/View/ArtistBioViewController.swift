@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArtistBioViewController: UIViewController {
+class ArtistBioViewController: BaseViewController {
 
     @IBOutlet weak var artistImageView: UIImageView! {
         didSet {
@@ -68,6 +68,7 @@ class ArtistBioViewController: UIViewController {
     }
 
     var artistBioPresenter: IArtistBioPresenter!
+    var router: ArtistBioRoutingInput!
 
     var artistPhotosDisplayManager: ArtistPhotosDisplayManager! {
         didSet {
@@ -77,9 +78,9 @@ class ArtistBioViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Временно
         view.backgroundColor = UIColor.FMainBackgroundColor
-        ArtistViewAssembly.instance().inject(into: self)
+        ArtistBioAssembly.instance().inject(into: self)
+        router.viewController = self
         artistBioPresenter.setBio()
         artistBioPresenter.setGallery()
     }
@@ -89,9 +90,9 @@ extension ArtistBioViewController: ArtistBioDataSourceDelegate {
     func bioWasAdd(bio: Artist) {
         artistNameLabel.text = bio.name
 
-        artistBirthdayLabel.text = bio.birthday?.getStringDate(newFormat: "yyyy, d MMMM", oldFormat: "yyyy-MM-dd") ?? "No information"
+        artistBirthdayLabel.text = bio.birthday?.getStringDate(newFormat: "yyyy, d MMMM", oldFormat: "yyyy-MM-dd") ?? L10n.notInformation
 
-        artistPlaceOfBirthLabel.text = bio.placeOfBirth ?? "No information"
+        artistPlaceOfBirthLabel.text = bio.placeOfBirth ?? L10n.notInformation
 
         artistBioTextView.text = bio.biography
 

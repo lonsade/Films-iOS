@@ -8,26 +8,12 @@
 
 import UIKit
 
-protocol AboutArtistInput: ModuleInput {
-    var id: Int? { get }
-    func set(id: Int)
-}
-
-class AboutArtistPresenter: AboutArtistInput {
-
-    var id: Int?
-
-    func set(id: Int) {
-        self.id = id
-    }
-}
-
 class AboutArtistViewController: UIViewController, ModuleInputProvider {
 
     var moduleInput: ModuleInput!
 
-    private let pages = ["bio", "films"]
-    private let storybordName = "artist"
+    private let pages = [L10n.AboutArtist.page1, L10n.AboutArtist.page2]
+    private let storybordName = L10n.AboutArtist.storybordName
 
     @IBOutlet weak var tdbBarForFilm: UIStackView! {
         didSet {
@@ -66,25 +52,17 @@ class AboutArtistViewController: UIViewController, ModuleInputProvider {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Для изменения кнопки back
-        NotificationCenter.default.addObserver(self, selector: #selector(filmWasSelected), name: .beforeSegueDone, object: nil)
         costomize()
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        AboutArtistViewControllerAssembly.instance().inject(into: self)
+        AboutArtistContainerAssembly.instance().inject(into: self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "Artist"
-    }
-
-    // Для изменения кнопки back
-    @objc
-    private func filmWasSelected() {
-        navigationItem.title = nil
+        navigationItem.title = L10n.AboutArtist.navigationTitle
     }
 
 }

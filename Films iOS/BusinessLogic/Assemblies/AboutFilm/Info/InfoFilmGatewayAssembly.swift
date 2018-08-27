@@ -34,13 +34,11 @@ final class InfoFilmGatewayAssembly: Assembly {
         )
     }
 
-    // TODO: перенести page в параметр (для дальнейшей динамической подгрузки фильмов)
-
     var similarGateway: IMakeRequestGateway {
         return define(scope: .lazySingleton, init:
             MakeRequestGateway(
                 networking: self.networking.networking,
-                parameters: ["api_key": "7e768e8012161bc9c4ca59f1e4f5979e", "language": "en-US", "page": "1"],
+                parameters: ["api_key": "7e768e8012161bc9c4ca59f1e4f5979e", "language": "en-US"],
                 headers: ["Content-Type": "application/json", "Accept": "application/json"],
                 method: RequestMethod.GET
             )

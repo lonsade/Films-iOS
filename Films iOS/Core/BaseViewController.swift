@@ -23,7 +23,7 @@ open class BaseViewController: UIViewController, BaseHandlerController, ModuleIn
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         // Для изменения кнопки back
-        NotificationCenter.default.post(name: .beforeSegueDone, object: nil)
+        navigationController?.topViewController?.navigationItem.title = nil
 
         guard let viewController = segue.destination as? ModuleInputProvider else {
             fatalError("Could not cust viewController to ModuleInputProvider")

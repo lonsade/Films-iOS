@@ -18,22 +18,28 @@ final class ArtistBioPresenter: IArtistBioPresenter {
     private var artistBioUsecase: IAboutArtistUsecase
     private var artistBioDataSource: IArtistBioDataSourceInput
     private var artistGalleryUsecase: IArtistPhotosUsecase
-    private var aboutArtistPresenter: AboutArtistInput
+    private var router: ArtistBioRoutingInput
+    private weak var aboutArtistPresenter: AboutArtistInput?
 
     init(
         artistBioUsecase: IAboutArtistUsecase,
         artistBioDataSource: IArtistBioDataSourceInput,
         artistGalleryUsecase: IArtistPhotosUsecase,
-        aboutArtistPresenter: AboutArtistInput
+        aboutArtistPresenter: AboutArtistInput,
+        router: ArtistBioRoutingInput
     ) {
         self.artistBioUsecase = artistBioUsecase
         self.artistBioDataSource = artistBioDataSource
         self.artistGalleryUsecase = artistGalleryUsecase
         self.aboutArtistPresenter = aboutArtistPresenter
+        self.router = router
     }
 
     func setBio() {
-        guard let artistId = aboutArtistPresenter.id else { fatalError("Artist id doesnt exist") }
+        guard let artistId = aboutArtistPresenter?.id else {
+            router.closeCurrentModule()
+            return assertionFailure("Artist id doesnt exist")
+        }
 
         artistBioUsecase.getArtist(relativeURL: "/person/\(artistId)").done { artist in
             self.artistBioDataSource.add(bio: artist)
@@ -44,7 +50,10 @@ final class ArtistBioPresenter: IArtistBioPresenter {
     }
 
     func setGallery() {
-        guard let artistId = aboutArtistPresenter.id else { fatalError("Artist id doesnt exist") }
+        guard let artistId = aboutArtistPresenter?.id else {
+            router.closeCurrentModule()
+            return assertionFailure("Artist id doesnt exist")
+        }
 
         artistGalleryUsecase.getPhotos(relativeURL: "/person/\(artistId)/images").done { photos in
             self.artistBioDataSource.add(artistPhotos: photos)

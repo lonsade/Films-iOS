@@ -22,7 +22,7 @@ class InfoFilmViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        InfoViewAssembly.instance().inject(into: self)
+        FilmInfoAssembly.instance().inject(into: self)
         router.viewController = self
         presenter.setDetailsFilm()
         presenter.setGallery()

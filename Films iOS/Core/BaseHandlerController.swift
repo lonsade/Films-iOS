@@ -10,7 +10,7 @@ import Foundation
 
 typealias ConfigurationClosure = (ModuleInput) -> Void
 
-protocol BaseHandlerController {
+protocol BaseHandlerController: class {
     func openModule(withName name: String)
     func openModule(withName name: String, configurationClosure: @escaping ConfigurationClosure)
     func closeModule()

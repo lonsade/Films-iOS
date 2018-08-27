@@ -11,7 +11,7 @@ import Foundation
 struct FilmCard: Codable {
 
     let posterPath: String?
-    //let overview: String
+    let overview: String
     //let releaseDate: String
     let genreIds: [Int]
     let id: Int
@@ -27,7 +27,7 @@ struct FilmCard: Codable {
 
     enum CodingKeys: String, CodingKey {
         case posterPath = "poster_path"
-        //case overview
+        case overview
         //case releaseDate = "release_date"
         case genreIds = "genre_ids"
         case id

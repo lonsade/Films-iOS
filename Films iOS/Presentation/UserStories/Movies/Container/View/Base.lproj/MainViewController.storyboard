@@ -51,7 +51,7 @@
                                     <segue destination="Prs-Ka-bVV" kind="embed" id="oF7-uV-FFH"/>
                                 </connections>
                             </containerView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="utv-UP-JYE">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="utv-UP-JYE">
                                 <rect key="frame" x="0.0" y="64" width="375" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -114,6 +114,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="icSort" id="eLz-sk-WBa">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="aZt-Gt-72b" kind="show" identifier="search" id="zFa-Wv-d31"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -179,6 +182,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lo-Sz-2Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2534" y="-557"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="nmF-oA-0NX">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Search" storyboardName="Search" id="aZt-Gt-72b" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yp5-S2-Dhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="796" y="-793"/>
         </scene>
         <!--Base Main Page View Controller-->
         <scene sceneID="s7J-Bq-GwU">

@@ -12,7 +12,7 @@ class ArtistFilmsViewController: BaseViewController {
 
     var presenter: IArtistFilmsPresenter!
 
-    var router: ArtistFilmsRouting!
+    var router: ArtistFilmsRoutingInput!
 
     var artistFilmsDisplayManager: ArtistMoviesDisplayManager! {
         didSet {
@@ -24,7 +24,7 @@ class ArtistFilmsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .FMainBackgroundColor
-        ArtistFilmsViewAssembly.instance().inject(into: self)
+        ArtistFilmsAssembly.instance().inject(into: self)
         router.viewController = self
         presenter.loadArtistFilms()
     }

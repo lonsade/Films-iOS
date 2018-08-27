@@ -27,9 +27,6 @@ final class InfoFilmDisplayManager: NSObject {
             infoFilmCollectionView?.delegate = self
             infoFilmCollectionView?.dataSource = self
 
-            detailFilm.delegate = self
-            filmsDataSource.delegate = self
-
             infoFilmCollectionView?.register(
                 UINib(nibName: "FilmVideos", bundle: nil),
                 forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
@@ -62,6 +59,9 @@ final class InfoFilmDisplayManager: NSObject {
         self.galleryDisplayManager = galleryDisplayManager
         self.filmsDataSource = filmsDataSource
         self.filmsPresenter = filmsPresenter
+        super.init()
+        detailFilm.delegate = self
+        filmsDataSource.delegate = self
     }
 
 }

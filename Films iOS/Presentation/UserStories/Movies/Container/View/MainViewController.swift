@@ -11,16 +11,7 @@ import InteractiveSideMenu
 
 final class MainViewController: UIViewController, SideMenuItemContent, Storyboardable {
 
-    private let storybordName = "MainViewController"
-
-    // Изначально активный таб на Popular
-
-    private lazy var prevSelectedCell: TabNameCollectionViewCell = {
-        guard let cell = collectionTabNames.cellForItem(at: IndexPath(item: 1, section: 0)) as? TabNameCollectionViewCell else {
-            fatalError("Cell error")
-        }
-        return cell
-    }()
+    private let storybordName = L10n.Movies.storybordName
 
     private var firstPage: UIViewController!
 
@@ -72,10 +63,7 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MainViewAssembly.instance().inject(into: self)
-
-        // Для изменения кнопки back
-        NotificationCenter.default.addObserver(self, selector: #selector(filmWasSelected), name: .beforeSegueDone, object: nil)
+        MoviesContainerAssembly.instance().inject(into: self)
 
         tabNamesPresenter.setTabNames()
         customize()
@@ -85,13 +73,7 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "Films iOS"
-    }
-
-    // Для изменения кнопки back
-    @objc
-    private func filmWasSelected() {
-        navigationItem.title = nil
+        navigationItem.title = L10n.Movies.navigationTitle
     }
 
     var genres: [TabName]!
@@ -100,7 +82,10 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
 extension MainViewController: TabNamesDSDelegate {
     func tabNamesWasAdded(names: [TabName]) {
-        collectionTabNames?.reloadData()
+
+        self.collectionTabNames.reloadData()
+        self.collectionTabNames.layoutIfNeeded()
+
         self.genres = names
 
         pageViewController.set(pages: genres, storyboardName: storybordName)
@@ -117,8 +102,9 @@ extension MainViewController: TabNamesDSDelegate {
         pageViewController.pageDelegate = self
         pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
 
-        // Изначально Popular активна
-//        prevSelectedCell.changeActive(active: true)
+        DispatchQueue.main.async {
+            self.collectionTabNames.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        }
 
     }
 }
@@ -126,16 +112,6 @@ extension MainViewController: TabNamesDSDelegate {
 extension MainViewController: TabDisplayManagerDelegate {
 
     func tabWasSelected(at indexPath: IndexPath) {
-
-        guard let selectedCell = collectionTabNames.cellForItem(at: indexPath) as? TabNameCollectionViewCell
-        else { fatalError("Error cell tab name with index: \(indexPath.item)") }
-
-        prevSelectedCell.changeActive(active: false)
-
-        selectedCell.changeActive(active: true)
-        collectionTabNames.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-
-        prevSelectedCell = selectedCell
 
         // Конфигурирование нового модуля
 
@@ -158,7 +134,12 @@ extension MainViewController: TabDisplayManagerDelegate {
                 fatalError("Current page into under range of viewPages")
             }
             let direction: UIPageViewControllerNavigationDirection = (validIndex < indexPath.item) ? .forward : .reverse
-            self.pageViewController.setViewControllers([openPage], direction: direction, animated: true, completion: nil)
+            self.pageViewController.setViewControllers([openPage], direction: direction, animated: true) { finished in
+                if finished {
+                    self.collectionTabNames.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                }
+            }
+
         }
 
     }
@@ -166,15 +147,6 @@ extension MainViewController: TabDisplayManagerDelegate {
 
 extension MainViewController: BaseMainPageViewControllerDelegate {
     func pageWasChanged(to toIndex: Int, from fromIndex: Int) {
-        if let cell = collectionTabNames.cellForItem(at: IndexPath(item: toIndex, section: 0)) as? TabNameCollectionViewCell {
-            cell.changeActive(active: true)
-            prevSelectedCell = cell
-        }
-        if let cell = collectionTabNames.cellForItem(at: IndexPath(item: fromIndex, section: 0)) as? TabNameCollectionViewCell {
-            cell.changeActive(active: false)
-        }
-
-        collectionTabNames.scrollToItem(at: IndexPath(item: toIndex, section: 0), at: .centeredHorizontally, animated: true)
-
+        self.collectionTabNames.selectItem(at: IndexPath(item: toIndex, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
 }

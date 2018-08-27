@@ -22,6 +22,8 @@ class ArtistMoviesDisplayManager: NSObject {
     init(filmsDataSource: ArtistFilmsDataSourceOutput, filmsPresenter: IArtistFilmsPresenter) {
         self.filmsDataSource = filmsDataSource
         self.filmsPresenter = filmsPresenter
+        super.init()
+        filmsDataSource.delegate = self
     }
 
     weak var delegate: ArtistMoviesDisplayManagerDelegate?
@@ -30,7 +32,6 @@ class ArtistMoviesDisplayManager: NSObject {
         didSet {
             collectionFilms?.dataSource = self
             collectionFilms?.delegate = self
-            filmsDataSource.delegate = self
             collectionFilms?.register(UINib(nibName: "FilmCard", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         }
     }

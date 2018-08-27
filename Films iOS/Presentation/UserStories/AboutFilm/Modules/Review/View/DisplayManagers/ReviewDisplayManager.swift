@@ -16,7 +16,6 @@ final class ReviewDisplayManager: NSObject {
 
     weak var collectionReview: UICollectionView? {
         didSet {
-            reviewDataSource.delegate = self
             collectionReview?.dataSource = self
             collectionReview?.delegate = self
         }
@@ -24,6 +23,8 @@ final class ReviewDisplayManager: NSObject {
 
     init(reviewDataSource: IReviewDataSourceOutput) {
         self.reviewDataSource = reviewDataSource
+        super.init()
+        reviewDataSource.delegate = self
     }
 
 }

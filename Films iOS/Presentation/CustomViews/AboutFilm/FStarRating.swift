@@ -12,23 +12,21 @@ final class FStarRating: UIView {
 
     lazy private var backLayer: CALayer = .init()
     lazy private var frontLayer: CALayer = .init()
-
     lazy private var maskRating: CALayer = .init()
-
-    public var backStars = "stars"
-    public var frontStars = "stars"
 
     override func awakeFromNib() {
 
         self.backgroundColor = UIColor.clear
 
         backLayer.frame = self.frame
-        backLayer.contents = UIImage(named: backStars)?.cgImage
+
+        backLayer.contents = Asset.stars.image.cgImage
+
         backLayer.backgroundColor = UIColor.clear.cgColor
         backLayer.opacity = 0.3
 
         frontLayer.frame = self.frame
-        frontLayer.contents = UIImage(named: frontStars)?.cgImage
+        frontLayer.contents = Asset.stars.image.cgImage
         frontLayer.backgroundColor = UIColor.clear.cgColor
 
         self.layer.addSublayer(backLayer)
