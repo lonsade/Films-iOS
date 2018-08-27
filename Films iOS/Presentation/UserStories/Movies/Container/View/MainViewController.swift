@@ -13,10 +13,6 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
     private let storybordName = "MainViewController"
 
-    // Изначально активный таб на Popular
-
-    private var prevSelectedCell: TabNameCollectionViewCell?
-
     private var firstPage: UIViewController!
 
     var tabNamesPresenter: ITabNamesPresenter!
@@ -86,7 +82,10 @@ final class MainViewController: UIViewController, SideMenuItemContent, Storyboar
 
 extension MainViewController: TabNamesDSDelegate {
     func tabNamesWasAdded(names: [TabName]) {
-        collectionTabNames?.reloadData()
+
+        self.collectionTabNames.reloadData()
+        self.collectionTabNames.layoutIfNeeded()
+
         self.genres = names
 
         pageViewController.set(pages: genres, storyboardName: storybordName)
@@ -103,8 +102,9 @@ extension MainViewController: TabNamesDSDelegate {
         pageViewController.pageDelegate = self
         pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
 
-        // Изначально Popular активна
-//        prevSelectedCell.changeActive(active: true)
+        DispatchQueue.main.async {
+            self.collectionTabNames.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        }
 
     }
 }
@@ -112,18 +112,6 @@ extension MainViewController: TabNamesDSDelegate {
 extension MainViewController: TabDisplayManagerDelegate {
 
     func tabWasSelected(at indexPath: IndexPath) {
-
-//        guard let selectedCell = collectionTabNames.cellForItem(at: indexPath) as? TabNameCollectionViewCell
-
-        guard let selectedCell = collectionTabNames.cellForItem(at: indexPath) as? TabNameCollectionViewCell
-        else { fatalError("Error cell tab name with index: \(indexPath.item)") }
-
-//        prevSelectedCell?.changeActive(false)
-
-        selectedCell.changeActive(true)
-        collectionTabNames.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-
-//        prevSelectedCell = selectedCell
 
         // Конфигурирование нового модуля
 
@@ -146,7 +134,12 @@ extension MainViewController: TabDisplayManagerDelegate {
                 fatalError("Current page into under range of viewPages")
             }
             let direction: UIPageViewControllerNavigationDirection = (validIndex < indexPath.item) ? .forward : .reverse
-            self.pageViewController.setViewControllers([openPage], direction: direction, animated: true, completion: nil)
+            self.pageViewController.setViewControllers([openPage], direction: direction, animated: true) { finished in
+                if finished {
+                    self.collectionTabNames.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                }
+            }
+
         }
 
     }
@@ -154,15 +147,6 @@ extension MainViewController: TabDisplayManagerDelegate {
 
 extension MainViewController: BaseMainPageViewControllerDelegate {
     func pageWasChanged(to toIndex: Int, from fromIndex: Int) {
-        if let cell = collectionTabNames.cellForItem(at: IndexPath(item: toIndex, section: 0)) as? TabNameCollectionViewCell {
-//            cell.isActive = true
-            prevSelectedCell = cell
-        }
-        if let cell = collectionTabNames.cellForItem(at: IndexPath(item: fromIndex, section: 0)) as? TabNameCollectionViewCell {
-//            cell.isActive = false
-        }
-
-        collectionTabNames.scrollToItem(at: IndexPath(item: toIndex, section: 0), at: .centeredHorizontally, animated: true)
-
+        self.collectionTabNames.selectItem(at: IndexPath(item: toIndex, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
 }

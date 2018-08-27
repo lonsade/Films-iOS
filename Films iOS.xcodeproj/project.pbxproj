@@ -443,6 +443,23 @@
 			path = Routing;
 			sourceTree = "<group>";
 		};
+		BD29926C2133D56700BA6609 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BD29926D2133D57400BA6609 /* Presenters */,
+				BDFCE2C7211D5FD300C70770 /* DataSource */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BD29926D2133D57400BA6609 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				BD5292A12114783700870328 /* TabNamesPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		BD31206B213019C900FDA3B9 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +479,8 @@
 		BD312075213025E100FDA3B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BDFCE2C8211D5FDC00C70770 /* Cells */,
+				BDE164E921119D2C002E0A14 /* DisplayManagers */,
 				BD312076213025FE00FDA3B9 /* Menu */,
 				BDC941CE210EE861005C5041 /* MainViewController.storyboard */,
 				BDC941FB210F2ADE005C5041 /* MainViewController.swift */,
@@ -1188,6 +1207,7 @@
 		BDFCE2C1211D5F3700C70770 /* Container */ = {
 			isa = PBXGroup;
 			children = (
+				BD29926C2133D56700BA6609 /* Presenter */,
 				BD29925A2132E52700BA6609 /* Assemblies */,
 				BD312075213025E100FDA3B9 /* View */,
 			);
@@ -1208,8 +1228,6 @@
 		BDFCE2C3211D5F7400C70770 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BDFCE2C8211D5FDC00C70770 /* Cells */,
-				BDE164E921119D2C002E0A14 /* DisplayManagers */,
 				BDF83D672111F24F001596EA /* PopularFilmsViewController.swift */,
 			);
 			path = View;
@@ -1218,7 +1236,6 @@
 		BDFCE2C4211D5F7B00C70770 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				BDFCE2C7211D5FD300C70770 /* DataSource */,
 				BDFCE2C6211D5FCD00C70770 /* Presenters */,
 			);
 			path = Presenter;
@@ -1236,7 +1253,6 @@
 			isa = PBXGroup;
 			children = (
 				BD52F3E5211700C70063DEB1 /* PopularFilmsPresenter.swift */,
-				BD5292A12114783700870328 /* TabNamesPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";

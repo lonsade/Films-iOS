@@ -46,6 +46,7 @@ extension TabDisplayManager: UICollectionViewDataSource {
             withReuseIdentifier: self.reuseIdentifier,
             for: indexPath
         ) as? TabNameCollectionViewCell else { fatalError("Error cell tab name") }
+
         cell.setTitle(title: tabNamesDataSource.names[indexPath.item].name)
         return cell
     }
