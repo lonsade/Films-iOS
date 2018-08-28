@@ -69,10 +69,10 @@ extension SearchFilmsDisplayManager: UITableViewDataSource {
         }
         cell.setContent(
             image: dataSource.data[indexPath.item].posterPath,
-            title: dataSource.data[indexPath.item].title,
+            title: dataSource.data[indexPath.item].title ?? "",
             overview: dataSource.data[indexPath.item].overview,
             vote: dataSource.data[indexPath.item].voteAverage,
-            adult: dataSource.data[indexPath.item].adult
+            adult: dataSource.data[indexPath.item].adult ?? true
         )
 
         return cell

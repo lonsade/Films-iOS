@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="UHw-gj-9dL">
-                                <rect key="frame" x="59" y="181" width="90" height="168"/>
+                                <rect key="frame" x="59" y="181" width="90" height="194"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="EU9-tl-dIg">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="24"/>
@@ -76,7 +76,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="center" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="dyJ-5w-aQe">
-                                        <rect key="frame" x="0.0" y="144" width="90" height="24"/>
+                                        <rect key="frame" x="0.0" y="144" width="90" height="50"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zfo-65-wsQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -86,12 +86,19 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vow-WU-Fi5">
-                                                <rect key="frame" x="48" y="2" width="42" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="20.5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="Zfo-65-wsQ"/>
+                                                <exclude reference="Vow-WU-Fi5"/>
+                                            </mask>
+                                        </variation>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -99,6 +106,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UHw-gj-9dL" firstAttribute="top" secondItem="myb-Xu-diI" secondAttribute="top" constant="161" id="F1v-O4-NPe"/>
+                            <constraint firstItem="myb-Xu-diI" firstAttribute="bottom" secondItem="UHw-gj-9dL" secondAttribute="bottom" constant="292" id="rE3-O7-Acr"/>
                             <constraint firstItem="UHw-gj-9dL" firstAttribute="leading" secondItem="myb-Xu-diI" secondAttribute="leading" constant="59" id="yyq-Jz-0Pd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="myb-Xu-diI"/>
@@ -106,17 +114,29 @@
                     <connections>
                         <outlet property="favoritesImageView" destination="Zfo-65-wsQ" id="3Ct-ND-eqH"/>
                         <outlet property="favoritesLabel" destination="Vow-WU-Fi5" id="oH5-CQ-yLS"/>
+                        <outlet property="homeCommonButton" destination="EU9-tl-dIg" id="JhX-uh-cJG"/>
                         <outlet property="homeImageView" destination="Ud6-lp-53R" id="yMr-yZ-N0a"/>
                         <outlet property="homeLabel" destination="N63-q3-4Cz" id="ajh-B0-Jhq"/>
+                        <outlet property="moviesCommonButton" destination="haP-Hc-vLD" id="9BN-U0-qHM"/>
                         <outlet property="moviesImageView" destination="f5T-6U-bIE" id="zbc-sn-NlW"/>
                         <outlet property="moviesLabel" destination="Qp5-cz-0Sa" id="TYp-ph-k1j"/>
                         <outlet property="tvImageView" destination="o0g-M4-Foi" id="hQI-uM-7LO"/>
                         <outlet property="tvLabel" destination="asZ-X9-Sx3" id="o8Z-Cv-Y63"/>
+                        <outlet property="tvShowsCommonButton" destination="O7q-dd-osO" id="u0x-Jn-Sg8"/>
+                        <segue destination="NlN-6K-snm" kind="show" identifier="Movies" id="ixe-pL-7tP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLN-uX-keU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-78" y="174"/>
+        </scene>
+        <!--MainViewController-->
+        <scene sceneID="gze-Au-ZaP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainViewController" id="NlN-6K-snm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0a0-jZ-Waw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="593" y="173"/>
         </scene>
     </scenes>
 </document>

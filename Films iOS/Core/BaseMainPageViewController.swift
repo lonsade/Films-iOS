@@ -14,6 +14,8 @@ protocol BaseMainPageViewControllerHandler: class {
     var pagedViewControllers: [TabName: UIViewController] { get }
     var genres: [TabName] { get }
     var viewPages: [UIViewController] { get }
+    // Для определения муви или тв шоу
+    var type: Int! { get set }
 }
 
 protocol BaseMainPageViewControllerDelegate: class {
@@ -28,6 +30,8 @@ final class BaseMainPageViewController: UIPageViewController, BaseMainPageViewCo
 
     var genres: [TabName] = []
 
+    var type: Int!
+
     var viewPages: [UIViewController] = []
 
     var moduleInput: ModuleInput!
@@ -40,7 +44,8 @@ final class BaseMainPageViewController: UIPageViewController, BaseMainPageViewCo
         _ viewControllers: [UIViewController]?,
         direction: UIPageViewControllerNavigationDirection,
         animated: Bool,
-        completion: ((Bool) -> Void)? = nil) {
+        completion: ((Bool) -> Void)? = nil
+    ) {
         super.setViewControllers(viewControllers, direction: direction, animated: animated, completion: completion)
         guard let viewController = viewControllers?.first else {
             fatalError("Could not set empty viewController")
@@ -61,6 +66,9 @@ final class BaseMainPageViewController: UIPageViewController, BaseMainPageViewCo
     func set(pages: [TabName], storyboardName: String) {
         self.storyboardName = storyboardName
         self.genres = pages
+        pagedViewControllers = [:]
+        viewPages = []
+        currentViewController = nil
         pages.forEach { page in
             pagedViewControllers[page] = getViewController(withIdentifier: "Films")
             viewPages.append(pagedViewControllers[page]!)
@@ -96,7 +104,7 @@ extension BaseMainPageViewController: UIPageViewControllerDataSource {
                 guard let filmsInput = moduleInput as? FilmsPresenterInput else {
                     fatalError("Could not cust moduleInput to FilmsPresenterInput")
                 }
-                filmsInput.set(genre: pageController.genres[previousIndex])
+                filmsInput.set(genre: pageController.genres[previousIndex], type: self.type)
             }
         }
 
@@ -117,7 +125,7 @@ extension BaseMainPageViewController: UIPageViewControllerDataSource {
                 guard let filmsInput = moduleInput as? FilmsPresenterInput else {
                     fatalError("Could not cust moduleInput to FilmsPresenterInput")
                 }
-                filmsInput.set(genre: pageController.genres[nextIndex])
+                filmsInput.set(genre: pageController.genres[nextIndex], type: self.type)
             }
         }
 

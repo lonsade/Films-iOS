@@ -32,4 +32,5 @@
 "module.about_artist_film" = "AboutArtistFilm";
 "module.about_artist" = "AboutArtist";
 "module.about_film" = "AboutFilm";
+"module.movies" = "Movies";
 "module.search" = "search";

@@ -30,7 +30,6 @@ class PopularFilmsViewController: BaseViewController {
         super.viewDidLoad()
         router.viewController = self
         filmCollectionDisplayManager.collectionFilms = filmCollection
-//        filmCollection.reloadData()
         presenter.setFilms()
     }
 

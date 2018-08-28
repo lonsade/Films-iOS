@@ -64,9 +64,9 @@ extension ArtistMoviesDisplayManager: UICollectionViewDataSource {
 
         cell.setContent(
             image: filmsDataSource.base[indexPath.item].posterPath,
-            title: filmsDataSource.base[indexPath.item].title,
+            title: filmsDataSource.base[indexPath.item].title ?? "",
             vote: filmsDataSource.base[indexPath.item].voteAverage,
-            adult: filmsDataSource.base[indexPath.item].adult
+            adult: filmsDataSource.base[indexPath.item].adult ?? true
         )
 
         return cell

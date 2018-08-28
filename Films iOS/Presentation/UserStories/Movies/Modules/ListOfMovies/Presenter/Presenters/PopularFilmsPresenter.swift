@@ -14,14 +14,17 @@ protocol IPopularFilmsPresenter: ModuleInput {
 
 protocol FilmsPresenterInput: ModuleInput {
     var dataSource: BaseMoviesDataSourceInput { get }
-    func set(genre: TabName)
+    func set(genre: TabName, type: Int)
 }
 
 final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
 
-    func set(genre: TabName) {
+    func set(genre: TabName, type: Int) {
         self.genre = genre
+        self.type = type
     }
+
+    private var type: Int!
 
     private var genre: TabName!
 
@@ -39,7 +42,7 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
         page += 1
 
         var parameters: [String: Any] = ["page": page]
-        var relativeURL: String = "/discover/movie"
+        var relativeURL: String = (type == 0) ? "/discover/movie" : "/discover/tv"
 
         if genre.id > -1 {
             parameters["with_genres"] = String(genre.id)
