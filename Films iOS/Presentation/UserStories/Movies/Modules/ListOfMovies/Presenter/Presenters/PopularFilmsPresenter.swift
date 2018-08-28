@@ -10,6 +10,7 @@ import Foundation
 
 protocol IPopularFilmsPresenter: ModuleInput {
     func setFilms()
+    var type: Int! { get }
 }
 
 protocol FilmsPresenterInput: ModuleInput {
@@ -24,7 +25,7 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
         self.type = type
     }
 
-    private var type: Int!
+    var type: Int!
 
     private var genre: TabName!
 
@@ -47,7 +48,7 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
         if genre.id > -1 {
             parameters["with_genres"] = String(genre.id)
         } else if genre.id == -2 {
-            relativeURL = "/movie/now_playing"
+            relativeURL = (type == 0) ? "/movie/now_playing" : "/tv/on_the_air"
         }
 
         listPopularFilmsUsecase.getPopularFilms(

@@ -82,13 +82,17 @@ class FilmInfo: UICollectionReusableView {
 
     func set(details: FilmDetail) {
         titleTextView.text = details.title
-        coutryLabel.text = (!details.productionCountries.isEmpty) ? details.productionCountries[0].name : L10n.notInformation
+        if let countries = details.productionCountries {
+            coutryLabel.text = (!countries.isEmpty) ? countries[0].name : L10n.notInformation
+        } else {
+            coutryLabel.text = ""
+        }
         descriptionTextView.text = details.overview
         markLabel.text = String(details.voteAverage).withTMDb()
-        ageLabel.text = details.adult ? L10n.adult : L10n.notAdult
+        ageLabel.text = details.adult != nil ? L10n.adult : L10n.notAdult
 
         var validYear: Int
-        if !details.releaseDate.isEmpty, let yearInt = details.releaseDate.getDate(withFormat: "yyyy-MM-dd").year {
+        if let date = details.releaseDate, !date.isEmpty, let yearInt = details.releaseDate?.getDate(withFormat: "yyyy-MM-dd").year {
             validYear = yearInt
         } else {
             validYear = 1448

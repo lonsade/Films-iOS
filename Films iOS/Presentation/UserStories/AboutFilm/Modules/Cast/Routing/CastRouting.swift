@@ -7,7 +7,7 @@
 //
 
 protocol CastRoutingInput: BaseRoutingProtocol {
-    func navigateToAboutArtist(withId id: Int)
+    func navigateToAboutArtist(withId id: Int, withType type: Int)
 }
 
 final class CastRouting: CastRoutingInput {
@@ -18,12 +18,12 @@ final class CastRouting: CastRoutingInput {
         viewController?.closeModule()
     }
 
-    func navigateToAboutArtist(withId id: Int) {
+    func navigateToAboutArtist(withId id: Int, withType type: Int) {
         viewController?.openModule(withName: L10n.Module.aboutArtist) { moduleInput in
             guard let aboutArtistPresenter = moduleInput as? AboutArtistPresenter else {
                  return assertionFailure("Could not cast this moduleInput to \(String(describing: AboutArtistPresenter.self)).")
             }
-            aboutArtistPresenter.set(id: id)
+            aboutArtistPresenter.set(id: id, type: type)
         }
     }
 }

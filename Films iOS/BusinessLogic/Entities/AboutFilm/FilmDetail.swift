@@ -10,15 +10,15 @@ import Foundation
 
 struct FilmDetail: Codable {
     let id: Int
-    let title: String
-    let releaseDate: String
+    let title: String?
+    let releaseDate: String?
     let voteAverage: Float
     let runtime: Int?
     let overview: String?
-    let productionCountries: [ProductionCountry]
+    let productionCountries: [ProductionCountry]?
     let posterPath: String?
-    let video: Bool
-    let adult: Bool
+    let video: Bool?
+    let adult: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id

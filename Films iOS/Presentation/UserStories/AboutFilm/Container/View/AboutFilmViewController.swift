@@ -8,9 +8,7 @@
 
 import UIKit
 
-final class AboutFilmViewController: UIViewController, ModuleInputProvider {
-
-    var moduleInput: ModuleInput!
+final class AboutFilmViewController: BaseViewController {
 
     private let pages = [L10n.AboutFilm.page1, L10n.AboutFilm.page2, L10n.AboutFilm.page3]
     private let storybordName = L10n.AboutFilm.storybordName
@@ -59,7 +57,10 @@ final class AboutFilmViewController: UIViewController, ModuleInputProvider {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = L10n.AboutFilm.navigationTitle
+
+        // FIXME: type is nil
+
+        navigationItem.title = type == 0 ? L10n.AboutFilm.navigationTitle : L10n.AboutTv.navigationTitle
     }
 
     override func viewDidLoad() {

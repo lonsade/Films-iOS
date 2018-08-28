@@ -35,6 +35,6 @@ class InfoFilmViewController: BaseViewController {
 
 extension InfoFilmViewController: InfoFilmDisplayManagerDelegate {
     func filmWasSelected(withId id: Int) {
-        router.navigateToAboutFilm(withId: id)
+        router.navigateToAboutFilm(withId: id, withType: presenter.type)
     }
 }

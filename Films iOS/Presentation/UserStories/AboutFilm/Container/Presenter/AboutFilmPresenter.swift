@@ -10,14 +10,17 @@ import Foundation
 
 protocol AboutFilmInput: ModuleInput {
     var id: Int? { get }
-    func set(id: Int)
+    var type: Int! { get }
+    func set(id: Int, type: Int)
 }
 
 class AboutFilmPresenter: AboutFilmInput {
 
     var id: Int?
+    var type: Int!
 
-    func set(id: Int) {
+    func set(id: Int, type: Int) {
         self.id = id
+        self.type = type
     }
 }

@@ -15,6 +15,7 @@ protocol ITabNamesDataSourceInput: class {
 protocol ITabNamesDataSourceOutput: class {
     var names: [TabName] { get }
     var delegate: TabNamesDSDelegate? { get set }
+    var type: Int! { get set }
 }
 
 final class TabNamesDataSource: ITabNamesDataSourceInput, ITabNamesDataSourceOutput {
@@ -22,8 +23,11 @@ final class TabNamesDataSource: ITabNamesDataSourceInput, ITabNamesDataSourceOut
 
     weak var delegate: TabNamesDSDelegate?
 
+    var type: Int!
+
     func addNames(names: [TabName]) {
-        self.names += [TabName(name: L10n.Movies.Tabs.inCinema, id: -2), TabName(name: L10n.Movies.Tabs.popular, id: -1)] + names
+        let firstName = type == 0 ? L10n.Movies.Tabs.inCinema : L10n.Tv.Tabs.onTheAir
+        self.names += [TabName(name: firstName, id: -2), TabName(name: L10n.Movies.Tabs.popular, id: -1)] + names
         delegate?.tabNamesWasAdded(names: self.names)
     }
 

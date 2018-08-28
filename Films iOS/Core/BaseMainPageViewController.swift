@@ -66,9 +66,16 @@ final class BaseMainPageViewController: UIPageViewController, BaseMainPageViewCo
     func set(pages: [TabName], storyboardName: String) {
         self.storyboardName = storyboardName
         self.genres = pages
+
+        // Clear for each menuitemcontroller
+
         pagedViewControllers = [:]
         viewPages = []
         currentViewController = nil
+        currentIndex = 1
+        prevIndex = 1
+        pendingIndex = nil
+
         pages.forEach { page in
             pagedViewControllers[page] = getViewController(withIdentifier: "Films")
             viewPages.append(pagedViewControllers[page]!)

@@ -93,6 +93,6 @@ class SearchViewController: BaseViewController {
 
 extension SearchViewController: SearchFilmsDisplayManagerDelegate {
     func filmWasSelected(withId id: Int) {
-        router.navigateToAboutFilm(withId: id)
+        router.navigateToAboutFilm(withId: id, withType: type)
     }
 }

@@ -77,12 +77,13 @@ final class MainViewController: BaseViewController, SideMenuItemContent, Storybo
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = L10n.Movies.navigationTitle
+        navigationItem.title = type == 0 ? L10n.Movies.navigationTitle : L10n.Tv.navigationTitle
 
 //        // TODO: надо подумать над переносом этой штуки во viewDidLoad
 //        // (пока не получается, потому что используется один модуль контейнер для фильмов и тв шоу)
 //
         MoviesContainerAssembly.instance().inject(into: self)
+        genresDataSource.type = type
         tabNamesPresenter.setTabNames()
         genresDataSource.delegate = self
         router.viewController = self
@@ -126,7 +127,7 @@ extension MainViewController: TabNamesDSDelegate {
         pageViewController.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
 
         DispatchQueue.main.async {
-            //self.collectionTabNames.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+            self.collectionTabNames.selectItem(at: IndexPath(item: 1, section: 0), animated: true, scrollPosition: .centeredHorizontally)
         }
 
     }
@@ -141,7 +142,7 @@ extension MainViewController: TabDisplayManagerDelegate {
         let openPage = pageViewController.pagedViewControllers[genres[indexPath.item]]
         pageViewController.configureModule(withName: genres[indexPath.item]) { moduleInput in
             guard let filmsInput = moduleInput as? FilmsPresenterInput else {
-                fatalError("Could not cust moduleInput to FilmsPresenterInput")
+                fatalError("Could not cast moduleInput to FilmsPresenterInput")
             }
             filmsInput.set(genre: self.genres[indexPath.item], type: self.type)
 

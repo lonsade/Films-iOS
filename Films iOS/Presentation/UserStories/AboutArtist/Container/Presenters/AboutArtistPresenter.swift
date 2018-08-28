@@ -10,14 +10,17 @@ import Foundation
 
 protocol AboutArtistInput: ModuleInput {
     var id: Int? { get }
-    func set(id: Int)
+    var type: Int! { get }
+    func set(id: Int, type: Int)
 }
 
 class AboutArtistPresenter: AboutArtistInput {
 
     var id: Int?
+    var type: Int!
 
-    func set(id: Int) {
+    func set(id: Int, type: Int) {
         self.id = id
+        self.type = type
     }
 }

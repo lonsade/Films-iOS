@@ -10,6 +10,7 @@ import Foundation
 
 protocol IReviewPresenter: class {
     func setReview()
+    var type: Int { get }
 }
 
 final class ReviewPresenter: IReviewPresenter {
@@ -31,14 +32,28 @@ final class ReviewPresenter: IReviewPresenter {
         self.router = router
     }
 
-    func setReview() {
-
+    var id: Int {
         guard let filmId = aboutFilmPresenter?.id else {
             router.closeCurrentModule()
-            return assertionFailure("Film id doesnt exist")
+            assertionFailure("Film id doesnt exist")
+            return 0
         }
+        return filmId
+    }
+    var type: Int {
+        guard let type = aboutFilmPresenter?.type else {
+            router.closeCurrentModule()
+            assertionFailure("Type of page doesnt exist")
+            return 0
+        }
+        return type
+    }
 
-        reviewUsecase.getReview(relativeURL: "/movie/\(filmId)/reviews").done { reviews in
+    func setReview() {
+
+        let url = type == 0 ? "movie" : "tv"
+
+        reviewUsecase.getReview(relativeURL: "/\(url)/\(id)/reviews").done { reviews in
             self.reviewDataSource.add(reviews: reviews)
         }
         .catch { error in

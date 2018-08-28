@@ -37,6 +37,6 @@ class PopularFilmsViewController: BaseViewController {
 
 extension PopularFilmsViewController: FilmCollectionDisplayManagerDelegate {
     func filmWasSelected(withId id: Int) {
-        router.navigateToAboutFilm(onId: id)
+        router.navigateToAboutFilm(onId: id, withType: self.presenter.type)
     }
 }

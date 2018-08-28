@@ -12,6 +12,7 @@ protocol IDetailsFilmPresenter: class {
     func setDetailsFilm()
     func setGallery()
     func setSimilar()
+    var type: Int { get }
 }
 
 final class DetailsFilmPresenter: IDetailsFilmPresenter {
@@ -23,6 +24,23 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
     private var similarUsecase: ISimilarFilmsUsecase
     private var router: InfoRoutingInput
     private weak var aboutFilmPresenter: AboutFilmInput?
+
+    var id: Int {
+        guard let filmId = aboutFilmPresenter?.id else {
+            router.closeCurrentModule()
+            assertionFailure("Film id doesnt exist")
+            return 0
+        }
+        return filmId
+    }
+    var type: Int {
+        guard let type = aboutFilmPresenter?.type else {
+            router.closeCurrentModule()
+            assertionFailure("Type of page doesnt exist")
+            return 0
+        }
+        return type
+    }
 
     init(
         detailsFilmUsecase: IDetailsFilmUsecase,
@@ -44,12 +62,9 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
 
     func setDetailsFilm() {
 
-        guard let filmId = aboutFilmPresenter?.id else {
-            router.closeCurrentModule()
-            return assertionFailure("Film id doesnt exist")
-        }
+        let url = aboutFilmPresenter?.type == 0 ? "movie" : "tv"
 
-        detailsFilmUsecase.getFilmDetails(relativeURL: "/movie/\(filmId)").done { details in
+        detailsFilmUsecase.getFilmDetails(relativeURL: "/\(url)/\(id)").done { details in
             self.dataSourceForDetails.add(details: details)
         }
         .catch { error in
@@ -59,12 +74,9 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
 
     func setGallery() {
 
-        guard let filmId = aboutFilmPresenter?.id else {
-            router.closeCurrentModule()
-            return assertionFailure("Film id doesnt exist")
-        }
+        let url = aboutFilmPresenter?.type == 0 ? "movie" : "tv"
 
-        galleryUsecase.getGallery(relativeURL: "/movie/\(filmId))/images").done { images in
+        galleryUsecase.getGallery(relativeURL: "/\(url)/\(id))/images").done { images in
             self.dataSourceForDetails.add(images: images)
         }
         .catch { error in
@@ -74,12 +86,9 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
 
     func setSimilar() {
 
-        guard let filmId = aboutFilmPresenter?.id else {
-            router.closeCurrentModule()
-            return assertionFailure("Film id doesnt exist")
-        }
+        let url = aboutFilmPresenter?.type == 0 ? "movie" : "tv"
 
-        similarUsecase.getSimilar(relativeURL: "/movie/\(filmId))/similar").done { films in
+        similarUsecase.getSimilar(relativeURL: "/\(url)/\(id))/similar").done { films in
             self.dataSourceForSimilar.load(base: films)
         }
         .catch { error in
