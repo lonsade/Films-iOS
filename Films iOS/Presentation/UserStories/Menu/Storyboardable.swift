@@ -20,30 +20,30 @@ extension Storyboardable where Self: UIViewController {
     static func storyboardViewController() -> Self {
         let storyboard = UIStoryboard(name: defaultStoryboardName, bundle: nil)
 
-        guard let vc = storyboard.instantiateInitialViewController() as? Self else {
+        guard let viewc = storyboard.instantiateInitialViewController() as? Self else {
             fatalError("Could not instantiate initial storyboard with name: \(defaultStoryboardName)")
         }
 
-        return vc
+        return viewc
     }
 
     static func storyboardNavigationController() -> UINavigationController {
         let storyboard = UIStoryboard(name: defaultStoryboardName, bundle: nil)
 
-        guard let nc = storyboard.instantiateInitialViewController() as? UINavigationController else {
+        guard let navc = storyboard.instantiateInitialViewController() as? UINavigationController else {
             fatalError("Could not instantiate initial storyboard with name: \(defaultStoryboardName)")
         }
 
-        return nc
+        return navc
     }
 
     static func storyboardTabBarController() -> UITabBarController {
         let storyboard = UIStoryboard(name: defaultStoryboardName, bundle: nil)
 
-        guard let tc = storyboard.instantiateInitialViewController() as? UITabBarController else {
+        guard let tabc = storyboard.instantiateInitialViewController() as? UITabBarController else {
             fatalError("Could not instantiate initial storyboard with name: \(defaultStoryboardName)")
         }
 
-        return tc
+        return tabc
     }
 }

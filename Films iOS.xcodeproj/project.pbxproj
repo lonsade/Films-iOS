@@ -554,7 +554,6 @@
 			children = (
 				BDFCE2C8211D5FDC00C70770 /* Cells */,
 				BDE164E921119D2C002E0A14 /* DisplayManagers */,
-				BD312076213025FE00FDA3B9 /* Menu */,
 				BDC941CE210EE861005C5041 /* MainViewController.storyboard */,
 				BDC941FB210F2ADE005C5041 /* MainViewController.swift */,
 			);
@@ -891,6 +890,7 @@
 			children = (
 				BDD85B51211C190700256E60 /* AboutArtist */,
 				BDF19548211863080093D236 /* AboutFilm */,
+				BD312076213025FE00FDA3B9 /* Menu */,
 				BDC94204210F57EA005C5041 /* Movies */,
 				BD0678B9213290E900463DEC /* SearchFilms */,
 			);
@@ -1341,9 +1341,9 @@
 		BDFCE2C1211D5F3700C70770 /* Container */ = {
 			isa = PBXGroup;
 			children = (
-				BD3DE61A2134571900BE1376 /* Routing */,
 				BD29925A2132E52700BA6609 /* Assemblies */,
 				BD29926C2133D56700BA6609 /* Presenter */,
+				BD3DE61A2134571900BE1376 /* Routing */,
 				BD312075213025E100FDA3B9 /* View */,
 			);
 			path = Container;

@@ -7,19 +7,19 @@
 //
 
 protocol ArtistFilmsRoutingInput: BaseRoutingProtocol {
-    func navigateToAboutFilm(withId id: Int)
+    func navigateToAboutFilm(withId id: Int, withType type: Int)
 }
 
 final class ArtistFilmsRouting: ArtistFilmsRoutingInput {
 
     weak var viewController: BaseHandlerController?
 
-    func navigateToAboutFilm(withId id: Int) {
+    func navigateToAboutFilm(withId id: Int, withType type: Int) {
         viewController?.openModule(withName: L10n.Module.aboutArtistFilm) { moduleInput in
             guard let aboutFilmPresenter = moduleInput as? AboutFilmPresenter else {
                 return assertionFailure("Could not cast this moduleInput to \(String(describing: AboutFilmPresenter.self)).")
             }
-            aboutFilmPresenter.set(id: id)
+            aboutFilmPresenter.set(id: id, type: type)
         }
     }
 

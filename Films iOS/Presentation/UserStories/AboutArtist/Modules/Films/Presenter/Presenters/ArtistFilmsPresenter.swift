@@ -10,6 +10,7 @@ import Foundation
 
 protocol IArtistFilmsPresenter: class {
     func loadArtistFilms()
+    var type: Int { get }
 }
 
 final class ArtistFilmsPresenter: IArtistFilmsPresenter {
@@ -31,13 +32,32 @@ final class ArtistFilmsPresenter: IArtistFilmsPresenter {
         self.router = router
     }
 
+    var id: Int {
+        guard let filmId = aboutArtistPresenter?.id else {
+            router.closeCurrentModule()
+            assertionFailure("Film id doesnt exist")
+            return 0
+        }
+        return filmId
+    }
+    var type: Int {
+        guard let type = aboutArtistPresenter?.type else {
+            router.closeCurrentModule()
+            assertionFailure("Type of page doesnt exist")
+            return 0
+        }
+        return type
+    }
+
     func loadArtistFilms() {
         guard let artistId = aboutArtistPresenter?.id else {
             router.closeCurrentModule()
             return assertionFailure("Artist id doesnt exist")
         }
 
-        artistFilmsUsecase.getFilms(relativeURL: "/person/\(artistId)/movie_credits").done { films in
+        let url = type == 0 ? "movie_credits" : "tv_credits"
+
+        artistFilmsUsecase.getFilms(relativeURL: "/person/\(id)/\(url)").done { films in
             self.artistFilmsDataSource.load(base: films)
         }
         .catch { error in

@@ -10,6 +10,7 @@ import Foundation
 
 protocol ICastFilmPresenter: class {
     func setCredits()
+    var type: Int { get }
 }
 
 final class CastFilmPresenter: ICastFilmPresenter {
@@ -18,6 +19,23 @@ final class CastFilmPresenter: ICastFilmPresenter {
     private var castFilmDataSource: ICastFilmDataSourceInput
     private var router: CastRoutingInput
     private weak var aboutFilmPresenter: AboutFilmInput?
+
+    var id: Int {
+        guard let filmId = aboutFilmPresenter?.id else {
+            router.closeCurrentModule()
+            assertionFailure("Film id doesnt exist")
+            return 0
+        }
+        return filmId
+    }
+    var type: Int {
+        guard let type = aboutFilmPresenter?.type else {
+            router.closeCurrentModule()
+            assertionFailure("Type of page doesnt exist")
+            return 0
+        }
+        return type
+    }
 
     init(
         castFilmUsecase: ICastUsecase,
@@ -33,12 +51,9 @@ final class CastFilmPresenter: ICastFilmPresenter {
 
     func setCredits() {
 
-        guard let filmId = aboutFilmPresenter?.id else {
-            router.closeCurrentModule()
-            return assertionFailure("Film id doesnt exist")
-        }
+        let url = type == 0 ? "movie" : "tv"
 
-        castFilmUsecase.getCast(relativeURL: "/movie/\(filmId)/credits").done { credits in
+        castFilmUsecase.getCast(relativeURL: "/\(url)/\(id)/credits").done { credits in
             self.castFilmDataSource.addCredits(credits: credits)
         }
         .catch { error in

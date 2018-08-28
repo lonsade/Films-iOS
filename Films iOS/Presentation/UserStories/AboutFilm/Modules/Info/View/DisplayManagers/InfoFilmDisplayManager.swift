@@ -65,19 +65,23 @@ final class InfoFilmDisplayManager: NSObject {
     }
 
     private var itemCount = 0
+//    private var hcollection: CGFloat = 60
 
 }
 
 extension InfoFilmDisplayManager: SimilarFilmsDataSourceDelegate {
     func baseWasAdd(withIndex firstIndex: Int, underIndex lastIndex: Int) {
 
-        infoFilmCollectionView?.performBatchUpdates({
-            for index in firstIndex...lastIndex {
-                infoFilmCollectionView?.insertItems(at: [IndexPath(item: index, section: 3)])
-                itemCount += 1
-            }
-        }, completion: nil)
-
+        if lastIndex == 0 || lastIndex == -1 {
+            infoFilmCollectionView?.reloadSections(IndexSet(integer: 3))
+        } else {
+            infoFilmCollectionView?.performBatchUpdates({
+                for index in firstIndex...lastIndex {
+                    infoFilmCollectionView?.insertItems(at: [IndexPath(item: index, section: 3)])
+                    itemCount += 1
+                }
+            }, completion: nil)
+        }
     }
 }
 
@@ -130,9 +134,9 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
 
             filmCardCell.setContent(
                 image: filmsDataSource.base[indexPath.item].posterPath,
-                title: filmsDataSource.base[indexPath.item].title,
+                title: filmsDataSource.base[indexPath.item].title ?? filmsDataSource.base[indexPath.item].name ?? L10n.notInformation,
                 vote: filmsDataSource.base[indexPath.item].voteAverage,
-                adult: filmsDataSource.base[indexPath.item].adult
+                adult: filmsDataSource.base[indexPath.item].adult ?? false
             )
 
             cell = filmCardCell
@@ -150,8 +154,8 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
         var reusableview = UICollectionReusableView()
-        if (kind == UICollectionElementKindSectionHeader) {
-            switch (indexPath.section) {
+        if kind == UICollectionElementKindSectionHeader {
+            switch indexPath.section {
             case 0:
                 guard let filmVideos = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
@@ -181,9 +185,10 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
 
                 if !detailFilm.images.isEmpty {
                     galleryDisplayManager.collectionGallery = filmGallery.galleryCollectionView
+//                    hcollection = 60
                 } else {
-//                    filmGallery.galleryCollectionView.isHidden = true
-//                    filmGallery.galleryLabel.isHidden = true
+//                    hcollection = 0
+                    filmGallery.galleryCollectionView.isHidden = true
                 }
                 reusableview = filmGallery
 
@@ -216,7 +221,7 @@ extension InfoFilmDisplayManager: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         if section == 0 {
 
-            if let details = detailFilm.details, details.video {
+            if let details = detailFilm.details, details.video != nil {
                 return CGSize(width: collectionView.frame.size.width, height: 150)
             } else {
                 return CGSize(width: 0, height: 0)

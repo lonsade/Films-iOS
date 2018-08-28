@@ -13,11 +13,11 @@ class MoviesContainerAssembly: Assembly {
     lazy var usecaseAssembly = MoviesFilmAssembly.instance()
 
     var tabNamesDataSource: ITabNamesDataSourceOutput & ITabNamesDataSourceInput {
-        return define(scope: .lazySingleton, init: TabNamesDataSource())
+        return define(init: TabNamesDataSource())
     }
 
     var tabDisplayManager: TabDisplayManager {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             TabDisplayManager(tabNamesDataSource: self.tabNamesDataSource)
         )
     }
@@ -27,7 +27,7 @@ class MoviesContainerAssembly: Assembly {
     }
 
     var tabNamesPresenter: ITabNamesPresenter {
-        return define(scope: .lazySingleton, init:
+        return define(init:
             TabNamesPresenter(
                 tabNamesUsecase: self.usecaseAssembly.tabNamesUsecase,
                 dataSource: self.tabNamesDataSource

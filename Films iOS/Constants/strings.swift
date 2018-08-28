@@ -53,6 +53,11 @@ internal enum L10n {
     }
   }
 
+  internal enum AboutTv {
+    /// TV Show
+    internal static let navigationTitle = L10n.tr("Localizable", "about_tv.navigation_title")
+  }
+
   internal enum Menu {
     /// FAVORITES
     internal static let favorites = L10n.tr("Localizable", "menu.favorites")
@@ -71,7 +76,9 @@ internal enum L10n {
     internal static let aboutArtistFilm = L10n.tr("Localizable", "module.about_artist_film")
     /// AboutFilm
     internal static let aboutFilm = L10n.tr("Localizable", "module.about_film")
-    /// search
+    /// Movies
+    internal static let movies = L10n.tr("Localizable", "module.movies")
+    /// Search
     internal static let search = L10n.tr("Localizable", "module.search")
   }
 
@@ -86,6 +93,16 @@ internal enum L10n {
       internal static let inCinema = L10n.tr("Localizable", "movies.tabs.in_cinema")
       /// Popular
       internal static let popular = L10n.tr("Localizable", "movies.tabs.popular")
+    }
+  }
+
+  internal enum Tv {
+    /// TV iOS
+    internal static let navigationTitle = L10n.tr("Localizable", "tv.navigation_title")
+
+    internal enum Tabs {
+      /// On the air
+      internal static let onTheAir = L10n.tr("Localizable", "tv.tabs.on_the_air")
     }
   }
 }

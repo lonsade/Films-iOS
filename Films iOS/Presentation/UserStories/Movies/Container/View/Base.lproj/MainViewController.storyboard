@@ -115,7 +115,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="searchGlyphOnLight" id="eLz-sk-WBa">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="doSearch:" destination="HHy-2x-2AX" id="JGb-6c-fOZ"/>
+                                <action selector="doSearch:" destination="HHy-2x-2AX" id="q0c-ey-50j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -123,7 +123,7 @@
                         <outlet property="collectionTabNames" destination="utv-UP-JYE" id="tWr-FD-uMl"/>
                         <outlet property="navigationBar" destination="pEl-IG-axs" id="Txa-IT-3Ls"/>
                         <outlet property="searchButton" destination="eLz-sk-WBa" id="xsA-Nm-Qa7"/>
-                        <segue destination="aZt-Gt-72b" kind="show" identifier="search" id="27k-Zg-0CG"/>
+                        <segue destination="aZt-Gt-72b" kind="show" identifier="Search" id="27k-Zg-0CG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ig-ry-oav" userLabel="First Responder" sceneMemberID="firstResponder"/>

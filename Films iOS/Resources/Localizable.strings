@@ -19,10 +19,15 @@
 "about_film.info.gallery_label" = "Gallery";
 "about_film.info.see_also_label" = "See also";
 
+"about_tv.navigation_title" = "TV Show";
+
 "movies.storybord_name" = "MainViewController";
 "movies.navigation_title" = "Films iOS";
 "movies.tabs.in_cinema" = "In cinema";
 "movies.tabs.popular" = "Popular";
+
+"tv.tabs.on_the_air" = "On the air";
+"tv.navigation_title" = "TV iOS";
 
 "menu.home" = "HOME";
 "menu.movies" = "MOVIES";
@@ -32,4 +37,5 @@
 "module.about_artist_film" = "AboutArtistFilm";
 "module.about_artist" = "AboutArtist";
 "module.about_film" = "AboutFilm";
-"module.search" = "search";
+"module.movies" = "Movies";
+"module.search" = "Search";

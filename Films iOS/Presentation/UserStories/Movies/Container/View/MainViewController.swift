@@ -55,40 +55,52 @@ final class MainViewController: BaseViewController, SideMenuItemContent, Storybo
     private var pageViewController: BaseMainPageViewController!
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let pageView = segue.destination as? BaseMainPageViewController {
+        if segue.identifier == "Search" {
+            super.prepare(for: segue, sender: sender)
+        } else if let pageView = segue.destination as? BaseMainPageViewController {
             pageViewController = pageView
         }
     }
 
     var genresDataSource: ITabNamesDataSourceOutput!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+//        MoviesContainerAssembly.instance().inject(into: self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        MoviesContainerAssembly.instance().inject(into: self)
-
-        tabNamesPresenter.setTabNames()
         customize()
-        genresDataSource.delegate = self
-        router.viewController = self
-
+//        tabNamesPresenter.setTabNames()
+//        genresDataSource.delegate = self
+//        router.viewController = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = L10n.Movies.navigationTitle
+        navigationItem.title = type == 0 ? L10n.Movies.navigationTitle : L10n.Tv.navigationTitle
+
+//        // TODO: надо подумать над переносом этой штуки во viewDidLoad
+//        // (пока не получается, потому что используется один модуль контейнер для фильмов и тв шоу)
+//
+        MoviesContainerAssembly.instance().inject(into: self)
+        genresDataSource.type = type
+        tabNamesPresenter.setTabNames()
+        genresDataSource.delegate = self
+        router.viewController = self
+
+        pageViewController.type = self.type
     }
 
-    @IBOutlet weak var searchButton: UIBarButtonItem! {
-        didSet {
-            searchButton.tintColor = .FTitleTextColor
-        }
-    }
+    @IBOutlet weak var searchButton: UIBarButtonItem!
 
     var genres: [TabName]!
 
     @IBAction func doSearch(_ sender: UIBarButtonItem) {
-        router.navigateToSearch()
+        router.navigateToSearch(withType: type)
     }
+
 }
 
 extension MainViewController: TabNamesDSDelegate {
@@ -104,7 +116,7 @@ extension MainViewController: TabNamesDSDelegate {
             guard let filmsInput = moduleInput as? FilmsPresenterInput else {
                 fatalError("Could not cust moduleInput to FilmsPresenterInput")
             }
-            filmsInput.set(genre: self.genres[1])
+            filmsInput.set(genre: self.genres[1], type: self.type)
         }
         guard let firstPage = pageViewController.pagedViewControllers[genres[1]] else {
             fatalError("Could not put first page)")
@@ -129,9 +141,9 @@ extension MainViewController: TabDisplayManagerDelegate {
         let openPage = pageViewController.pagedViewControllers[genres[indexPath.item]]
         pageViewController.configureModule(withName: genres[indexPath.item]) { moduleInput in
             guard let filmsInput = moduleInput as? FilmsPresenterInput else {
-                fatalError("Could not cust moduleInput to FilmsPresenterInput")
+                fatalError("Could not cast moduleInput to FilmsPresenterInput")
             }
-            filmsInput.set(genre: self.genres[indexPath.item])
+            filmsInput.set(genre: self.genres[indexPath.item], type: self.type)
 
             // Определение направления анимации смены контроллера и его установка
             guard

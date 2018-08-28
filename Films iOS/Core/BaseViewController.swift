@@ -8,9 +8,13 @@
 
 import Foundation
 import UIKit
+import InteractiveSideMenu
 
-open class BaseViewController: UIViewController, BaseHandlerController, ModuleInputProvider {
+open class BaseViewController: MenuViewController, BaseHandlerController, ModuleInputProvider {
     var moduleInput: ModuleInput!
+
+    // Для идентификации фильмы это или тв шоу (0 - films, 1 - tv)
+    var type: Int!
 
     func openModule(withName name: String) {
         // Для изменения кнопки back

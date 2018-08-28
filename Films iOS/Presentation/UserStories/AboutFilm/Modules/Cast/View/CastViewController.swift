@@ -33,6 +33,6 @@ class CastViewController: BaseViewController {
 
 extension CastViewController: FilmCastCollectionDisplayManager {
     func castWasSelected(withId id: Int) {
-        router.navigateToAboutArtist(withId: id)
+        router.navigateToAboutArtist(withId: id, withType: presenter.type)
     }
 }

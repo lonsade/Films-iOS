@@ -30,14 +30,15 @@ class PopularFilmsViewController: BaseViewController {
         super.viewDidLoad()
         router.viewController = self
         filmCollectionDisplayManager.collectionFilms = filmCollection
-//        filmCollection.reloadData()
         presenter.setFilms()
+        // для передачи в pageController
+        type = presenter.type
     }
 
 }
 
 extension PopularFilmsViewController: FilmCollectionDisplayManagerDelegate {
     func filmWasSelected(withId id: Int) {
-        router.navigateToAboutFilm(onId: id)
+        router.navigateToAboutFilm(onId: id, withType: self.presenter.type)
     }
 }

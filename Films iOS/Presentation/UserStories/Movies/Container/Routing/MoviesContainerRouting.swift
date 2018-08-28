@@ -7,7 +7,7 @@
 //
 
 protocol MoviesContainerRoutingInput: BaseRoutingProtocol {
-    func navigateToSearch()
+    func navigateToSearch(withType type: Int)
 }
 
 final class MoviesContainerRouting: MoviesContainerRoutingInput {
@@ -15,9 +15,15 @@ final class MoviesContainerRouting: MoviesContainerRoutingInput {
         viewController?.closeModule()
     }
 
-    var viewController: BaseHandlerController?
+    weak var viewController: BaseHandlerController?
 
-    func navigateToSearch() {
-        viewController?.openModule(withName: L10n.Module.search)
+    func navigateToSearch(withType type: Int) {
+
+        viewController?.openModule(withName: L10n.Module.search) { moduleInput in
+            guard let searchFilmsPresenter = moduleInput as? SearchFilmsPresenterInput else {
+                return assertionFailure("Could not cast this moduleInput to \(String(describing: SearchFilmsPresenterInput.self)).")
+            }
+            searchFilmsPresenter.set(type: type)
+        }
     }
 }

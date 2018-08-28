@@ -36,12 +36,23 @@ class HostViewController: MenuContainerViewController {
 
         menuViewController = SampleMenuViewController.storyboardViewController()
         contentViewControllers = contentControllers()
-        selectContentViewController(contentViewControllers.first!)
+
+        // Инициальная настройка контроллера
+        guard
+            let openPage = contentViewControllers.first,
+            let navController = openPage as? UINavigationController,
+            let contentController = navController.topViewController as? BaseViewController
+        else {
+            fatalError("Could not init \(BaseViewController.description())")
+        }
+        contentController.type = 0
+
+        selectContentViewController(openPage)
     }
 
     private func contentControllers() -> [UIViewController] {
         let filmsController = MainViewController.storyboardNavigationController()
-
-        return [filmsController]
+        let tvController = MainViewController.storyboardNavigationController()
+        return [filmsController, tvController]
     }
 }
