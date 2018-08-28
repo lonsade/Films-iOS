@@ -8,14 +8,16 @@
 
 import Foundation
 
-protocol SearchFilmsPresenterOutput: class {
+protocol SearchFilmsPresenterOutput: ModuleInput {
 
 }
 
-protocol SearchFilmsPresenterInput: class {
+protocol SearchFilmsPresenterInput: ModuleInput {
     func setSearchFilms(onText text: String)
     func loadMore()
     func clear()
+    func set(type: Int)
+    var type: Int! { get }
 }
 
 final class SearchFilmsPresenter: SearchFilmsPresenterOutput, SearchFilmsPresenterInput {
@@ -23,6 +25,11 @@ final class SearchFilmsPresenter: SearchFilmsPresenterOutput, SearchFilmsPresent
     private var dataSource: SearchFilmsDataSourceInput
     private var usecase: SearchFilmsUsecaseOutput
     private var query: String!
+    var type: Int!
+
+    func set(type: Int) {
+        self.type = type
+    }
 
     init(dataSource: SearchFilmsDataSourceInput, usecase: SearchFilmsUsecaseOutput) {
         self.dataSource = dataSource
@@ -32,7 +39,8 @@ final class SearchFilmsPresenter: SearchFilmsPresenterOutput, SearchFilmsPresent
     func setSearchFilms(onText text: String) {
         query = text
         usecase.page = 0
-        usecase.getSearchFilms(relativeURL: "/search/movie", query: query).done { films in
+        let url = type == 0 ? "movie" : "tv"
+        usecase.getSearchFilms(relativeURL: "/search/\(url)", query: query).done { films in
             self.dataSource.set(films: films)
         }
         .catch { error in
@@ -46,7 +54,8 @@ final class SearchFilmsPresenter: SearchFilmsPresenterOutput, SearchFilmsPresent
     }
 
     func loadMore() {
-        usecase.getSearchFilms(relativeURL: "/search/movie", query: query).done { films in
+        let url = type == 0 ? "movie" : "tv"
+        usecase.getSearchFilms(relativeURL: "/search/\(url)", query: query).done { films in
             self.dataSource.add(films: films)
         }
         .catch { error in

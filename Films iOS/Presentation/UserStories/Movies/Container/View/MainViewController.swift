@@ -55,7 +55,9 @@ final class MainViewController: BaseViewController, SideMenuItemContent, Storybo
     private var pageViewController: BaseMainPageViewController!
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let pageView = segue.destination as? BaseMainPageViewController {
+        if segue.identifier == "Search" {
+            super.prepare(for: segue, sender: sender)
+        } else if let pageView = segue.destination as? BaseMainPageViewController {
             pageViewController = pageView
         }
     }
@@ -91,17 +93,14 @@ final class MainViewController: BaseViewController, SideMenuItemContent, Storybo
         pageViewController.type = self.type
     }
 
-    @IBOutlet weak var searchButton: UIBarButtonItem! {
-        didSet {
-            searchButton.tintColor = .FTitleTextColor
-        }
-    }
+    @IBOutlet weak var searchButton: UIBarButtonItem!
 
     var genres: [TabName]!
 
     @IBAction func doSearch(_ sender: UIBarButtonItem) {
-        router.navigateToSearch()
+        router.navigateToSearch(withType: type)
     }
+
 }
 
 extension MainViewController: TabNamesDSDelegate {

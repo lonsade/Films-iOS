@@ -12,6 +12,7 @@ final class AboutFilmViewController: BaseViewController {
 
     private let pages = [L10n.AboutFilm.page1, L10n.AboutFilm.page2, L10n.AboutFilm.page3]
     private let storybordName = L10n.AboutFilm.storybordName
+    private var firstPage: BaseViewController!
 
     @IBOutlet weak var tdbBarForFilm: UIStackView! {
         didSet {
@@ -31,6 +32,7 @@ final class AboutFilmViewController: BaseViewController {
             guard let firstPage = pageView.viewPages.first else {
                 fatalError("Could not put first page)")
             }
+            self.firstPage = firstPage as? BaseViewController
 
             pageView.setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
 
@@ -53,14 +55,6 @@ final class AboutFilmViewController: BaseViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         AboutFilmContainerAssembly.instance().inject(into: self)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        // FIXME: type is nil
-
-        navigationItem.title = type == 0 ? L10n.AboutFilm.navigationTitle : L10n.AboutTv.navigationTitle
     }
 
     override func viewDidLoad() {

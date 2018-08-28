@@ -87,9 +87,9 @@ extension BaseMoviesDisplayManager: UICollectionViewDataSource {
 
         cell.setContent(
             image: filmsDataSource.films[indexPath.item].posterPath,
-            title: filmsDataSource.films[indexPath.item].title ?? "",
+            title: filmsDataSource.films[indexPath.item].title ?? filmsDataSource.films[indexPath.item].name ?? L10n.notInformation,
             vote: filmsDataSource.films[indexPath.item].voteAverage,
-            adult: filmsDataSource.films[indexPath.item].adult ?? true
+            adult: filmsDataSource.films[indexPath.item].adult ?? false
         )
 
         return cell

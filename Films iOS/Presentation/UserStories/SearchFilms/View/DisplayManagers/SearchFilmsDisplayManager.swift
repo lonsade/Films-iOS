@@ -20,7 +20,7 @@ protocol SearchFilmsDisplayManagerOutput: class {
 final class SearchFilmsDisplayManager: NSObject, SearchFilmsDisplayManagerOutput {
 
     private var dataSource: SearchFilmsDataSourceOutput
-    private var presenter: SearchFilmsPresenterInput
+    private weak var presenter: SearchFilmsPresenterInput?
 
     weak var delegate: SearchFilmsDisplayManagerDelegate?
 
@@ -45,6 +45,7 @@ extension SearchFilmsDisplayManager: SearchFilmsDataSourceDelegate {
     func filmsWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int) {
 
         if lastIndex == 0 {
+            itemCount = 0
             searchFilmsTableView?.reloadData()
         } else {
             searchFilmsTableView?.performBatchUpdates({
@@ -69,7 +70,7 @@ extension SearchFilmsDisplayManager: UITableViewDataSource {
         }
         cell.setContent(
             image: dataSource.data[indexPath.item].posterPath,
-            title: dataSource.data[indexPath.item].title ?? "",
+            title: dataSource.data[indexPath.item].title ?? dataSource.data[indexPath.item].name ?? L10n.notInformation,
             overview: dataSource.data[indexPath.item].overview,
             vote: dataSource.data[indexPath.item].voteAverage,
             adult: dataSource.data[indexPath.item].adult ?? true
@@ -87,7 +88,7 @@ extension SearchFilmsDisplayManager: UIScrollViewDelegate {
         let deltaOffset = maximumOffset - currentOffset
 
         if deltaOffset <= 0 {
-            presenter.loadMore()
+            presenter?.loadMore()
         }
 
     }

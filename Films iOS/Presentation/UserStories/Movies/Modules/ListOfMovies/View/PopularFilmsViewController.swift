@@ -31,6 +31,8 @@ class PopularFilmsViewController: BaseViewController {
         router.viewController = self
         filmCollectionDisplayManager.collectionFilms = filmCollection
         presenter.setFilms()
+        // для передачи в pageController
+        type = presenter.type
     }
 
 }

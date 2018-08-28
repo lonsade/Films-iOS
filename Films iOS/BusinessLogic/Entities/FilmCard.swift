@@ -24,6 +24,7 @@ struct FilmCard: Codable {
 //    let video: Bool
     let voteAverage: Float
     let adult: Bool?
+    let name: String?
 
     enum CodingKeys: String, CodingKey {
         case posterPath = "poster_path"
@@ -40,5 +41,6 @@ struct FilmCard: Codable {
 //        case video
         case voteAverage = "vote_average"
         case adult
+        case name
     }
 }

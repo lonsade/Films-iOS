@@ -20,6 +20,11 @@ struct FilmDetail: Codable {
     let video: Bool?
     let adult: Bool?
 
+    let name: String?
+    let originCountry: [String]?
+    let firstAirDate: String?
+    let numberOfSeasons: Int?
+
     enum CodingKeys: String, CodingKey {
         case id
         case title
@@ -31,5 +36,10 @@ struct FilmDetail: Codable {
         case posterPath = "poster_path"
         case video
         case adult
+
+        case name
+        case originCountry = "origin_country"
+        case firstAirDate = "first_air_date"
+        case numberOfSeasons = "number_of_seasons"
     }
 }

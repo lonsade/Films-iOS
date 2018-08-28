@@ -81,11 +81,11 @@ class FilmInfo: UICollectionReusableView {
     }
 
     func set(details: FilmDetail) {
-        titleTextView.text = details.title
+        titleTextView.text = details.title ?? details.name ?? L10n.notInformation
         if let countries = details.productionCountries {
             coutryLabel.text = (!countries.isEmpty) ? countries[0].name : L10n.notInformation
-        } else {
-            coutryLabel.text = ""
+        } else if let countries = details.originCountry {
+            coutryLabel.text = (!countries.isEmpty) ? countries[0] : L10n.notInformation
         }
         descriptionTextView.text = details.overview
         markLabel.text = String(details.voteAverage).withTMDb()
@@ -93,6 +93,12 @@ class FilmInfo: UICollectionReusableView {
 
         var validYear: Int
         if let date = details.releaseDate, !date.isEmpty, let yearInt = details.releaseDate?.getDate(withFormat: "yyyy-MM-dd").year {
+            validYear = yearInt
+        } else if
+            let date = details.firstAirDate,
+            !date.isEmpty,
+            let yearInt = details.firstAirDate?.getDate(withFormat: "yyyy-MM-dd").year
+        {
             validYear = yearInt
         } else {
             validYear = 1448
@@ -103,6 +109,8 @@ class FilmInfo: UICollectionReusableView {
             let time = runtime.getTimeFromIntDuration()
             // TODO: сделать через форматер
             runtimeLabel.text = String(time.0)+"h "+String(time.1)+"min"
+        } else if let countSessions = details.numberOfSeasons {
+            runtimeLabel.text = String(countSessions)+" seasons"
         } else {
             runtimeLabel.text = L10n.notInformation
         }

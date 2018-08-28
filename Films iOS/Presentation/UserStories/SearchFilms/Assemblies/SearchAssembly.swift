@@ -36,6 +36,7 @@ final class SearchAssembly: Assembly {
             $0.presenter = self.searchFilmsPresenter
             $0.displayManager = self.searchFilmsDisplayManager
             $0.router = self.router
+            $0.moduleInput = self.searchFilmsPresenter
             return $0
         }
     }

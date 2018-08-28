@@ -134,9 +134,9 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
 
             filmCardCell.setContent(
                 image: filmsDataSource.base[indexPath.item].posterPath,
-                title: filmsDataSource.base[indexPath.item].title ?? "",
+                title: filmsDataSource.base[indexPath.item].title ?? filmsDataSource.base[indexPath.item].name ?? L10n.notInformation,
                 vote: filmsDataSource.base[indexPath.item].voteAverage,
-                adult: filmsDataSource.base[indexPath.item].adult ?? true
+                adult: filmsDataSource.base[indexPath.item].adult ?? false
             )
 
             cell = filmCardCell
