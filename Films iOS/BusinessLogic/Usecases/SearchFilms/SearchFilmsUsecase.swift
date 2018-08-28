@@ -10,12 +10,13 @@ import PromiseKit
 
 protocol SearchFilmsUsecaseOutput: class {
     func getSearchFilms(relativeURL: String, query: String) -> Promise<[FilmCard]>
+    var page: Int { get set }
 }
 
 final class SearchFilmsUsecase: SearchFilmsUsecaseOutput {
 
     private var makeRequestGatewaySearch: IMakeRequestGateway
-    private var page = 0
+    var page = 0
 
     init(makeRequestGatewaySearch: IMakeRequestGateway) {
         self.makeRequestGatewaySearch = makeRequestGatewaySearch

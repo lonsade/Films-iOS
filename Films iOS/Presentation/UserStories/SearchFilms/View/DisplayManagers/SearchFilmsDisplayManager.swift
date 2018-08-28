@@ -20,6 +20,7 @@ protocol SearchFilmsDisplayManagerOutput: class {
 final class SearchFilmsDisplayManager: NSObject, SearchFilmsDisplayManagerOutput {
 
     private var dataSource: SearchFilmsDataSourceOutput
+    private var presenter: SearchFilmsPresenterInput
 
     weak var delegate: SearchFilmsDisplayManagerDelegate?
 
@@ -31,21 +32,35 @@ final class SearchFilmsDisplayManager: NSObject, SearchFilmsDisplayManagerOutput
         }
     }
 
-    init(dataSource: SearchFilmsDataSourceOutput) {
+    init(dataSource: SearchFilmsDataSourceOutput, presenter: SearchFilmsPresenterInput) {
         self.dataSource = dataSource
+        self.presenter = presenter
     }
+
+    private var itemCount = 0
 
 }
 
 extension SearchFilmsDisplayManager: SearchFilmsDataSourceDelegate {
-    func filmsWereAdd() {
-        searchFilmsTableView?.reloadData()
+    func filmsWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int) {
+
+        if lastIndex == 0 {
+            searchFilmsTableView?.reloadData()
+        } else {
+            searchFilmsTableView?.performBatchUpdates({
+                for index in firstIndex...lastIndex {
+                    searchFilmsTableView?.insertRows(at: [IndexPath(item: index, section: 0)], with: .none)
+                    itemCount += 1
+                }
+            }, completion: nil)
+        }
     }
 }
 
 extension SearchFilmsDisplayManager: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.data.count
+        return itemCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,6 +76,20 @@ extension SearchFilmsDisplayManager: UITableViewDataSource {
         )
 
         return cell
+    }
+}
+
+extension SearchFilmsDisplayManager: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        let deltaOffset = maximumOffset - currentOffset
+
+        if deltaOffset <= 0 {
+            presenter.loadMore()
+        }
+
     }
 }
 

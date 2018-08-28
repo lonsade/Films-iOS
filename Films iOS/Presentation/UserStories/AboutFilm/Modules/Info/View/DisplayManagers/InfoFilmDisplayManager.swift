@@ -64,21 +64,30 @@ final class InfoFilmDisplayManager: NSObject {
         filmsDataSource.delegate = self
     }
 
+    private var itemCount = 0
+
 }
 
 extension InfoFilmDisplayManager: SimilarFilmsDataSourceDelegate {
-    func baseWasAdd() {
-        infoFilmCollectionView?.reloadData()
+    func baseWasAdd(withIndex firstIndex: Int, underIndex lastIndex: Int) {
+
+        infoFilmCollectionView?.performBatchUpdates({
+            for index in firstIndex...lastIndex {
+                infoFilmCollectionView?.insertItems(at: [IndexPath(item: index, section: 3)])
+                itemCount += 1
+            }
+        }, completion: nil)
+
     }
 }
 
 extension InfoFilmDisplayManager: DetailsFilmDataSourceDelegate {
     func detailsWasAdded(details: FilmDetail) {
-        infoFilmCollectionView?.reloadData()
+        infoFilmCollectionView?.reloadSections(IndexSet(integer: 1))
     }
 
     func imagesWasAdded(images: [GalleryImage]) {
-        infoFilmCollectionView?.reloadData()
+        infoFilmCollectionView?.reloadSections(IndexSet(integer: 2))
     }
 }
 
@@ -106,7 +115,7 @@ extension InfoFilmDisplayManager: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         if section == 3 {
-            return filmsDataSource.base.count
+            return itemCount
         }
 
         return 0

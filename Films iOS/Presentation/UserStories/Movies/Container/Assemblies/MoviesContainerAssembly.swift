@@ -22,6 +22,10 @@ class MoviesContainerAssembly: Assembly {
         )
     }
 
+    var router: MoviesContainerRoutingInput {
+        return define(init: MoviesContainerRouting())
+    }
+
     var tabNamesPresenter: ITabNamesPresenter {
         return define(scope: .lazySingleton, init:
             TabNamesPresenter(
@@ -36,6 +40,7 @@ class MoviesContainerAssembly: Assembly {
             $0.tabDisplayManager = self.tabDisplayManager
             $0.tabNamesPresenter = self.tabNamesPresenter
             $0.genresDataSource = self.tabNamesDataSource
+            $0.router = self.router
             return $0
         }
     }

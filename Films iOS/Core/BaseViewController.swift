@@ -13,6 +13,8 @@ open class BaseViewController: UIViewController, BaseHandlerController, ModuleIn
     var moduleInput: ModuleInput!
 
     func openModule(withName name: String) {
+        // Для изменения кнопки back
+        navigationController?.topViewController?.navigationItem.title = nil
         self.performSegue(withIdentifier: name, sender: nil)
     }
 

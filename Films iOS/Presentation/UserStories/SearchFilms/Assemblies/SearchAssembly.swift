@@ -16,8 +16,12 @@ final class SearchAssembly: Assembly {
         return define(init: SearchFilmsDataSource())
     }
 
+    var router: SearchFilmsRoutingInput {
+        return define(init: SearchFilmsRouting())
+    }
+
     var searchFilmsDisplayManager: SearchFilmsDisplayManagerOutput {
-        return define(init: SearchFilmsDisplayManager(dataSource: self.searchFilmsDataSource))
+        return define(init: SearchFilmsDisplayManager(dataSource: self.searchFilmsDataSource, presenter: self.searchFilmsPresenter))
     }
 
     var searchFilmsPresenter: SearchFilmsPresenterInput {
@@ -31,6 +35,7 @@ final class SearchAssembly: Assembly {
         defineInjection(into: mvc) {
             $0.presenter = self.searchFilmsPresenter
             $0.displayManager = self.searchFilmsDisplayManager
+            $0.router = self.router
             return $0
         }
     }

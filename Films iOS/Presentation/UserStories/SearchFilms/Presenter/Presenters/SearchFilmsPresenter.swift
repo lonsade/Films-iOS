@@ -14,12 +14,15 @@ protocol SearchFilmsPresenterOutput: class {
 
 protocol SearchFilmsPresenterInput: class {
     func setSearchFilms(onText text: String)
+    func loadMore()
+    func clear()
 }
 
 final class SearchFilmsPresenter: SearchFilmsPresenterOutput, SearchFilmsPresenterInput {
 
     private var dataSource: SearchFilmsDataSourceInput
     private var usecase: SearchFilmsUsecaseOutput
+    private var query: String!
 
     init(dataSource: SearchFilmsDataSourceInput, usecase: SearchFilmsUsecaseOutput) {
         self.dataSource = dataSource
@@ -27,7 +30,23 @@ final class SearchFilmsPresenter: SearchFilmsPresenterOutput, SearchFilmsPresent
     }
 
     func setSearchFilms(onText text: String) {
-        usecase.getSearchFilms(relativeURL: "/search/movie", query: text).done { films in
+        query = text
+        usecase.page = 0
+        usecase.getSearchFilms(relativeURL: "/search/movie", query: query).done { films in
+            self.dataSource.set(films: films)
+        }
+        .catch { error in
+            fatalError(error.localizedDescription)
+        }
+    }
+
+    func clear() {
+        dataSource.clear()
+        usecase.page = 0
+    }
+
+    func loadMore() {
+        usecase.getSearchFilms(relativeURL: "/search/movie", query: query).done { films in
             self.dataSource.add(films: films)
         }
         .catch { error in

@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MWt-u2-b6D" customClass="FilmCollectionViewCell" customModule="Films_iOS" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="MWt-u2-b6D" customClass="FilmCollectionViewCell" customModule="Films_iOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="163" height="298"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -37,7 +37,7 @@
                             <constraint firstAttribute="height" constant="220" id="IJl-Gk-sEp"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YpU-I3-gKP">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Title" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpU-I3-gKP">
                         <rect key="frame" x="16" y="233" width="131" height="32"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
