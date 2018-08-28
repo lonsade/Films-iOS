@@ -18,6 +18,7 @@ struct FilmDetail: Codable {
     let productionCountries: [ProductionCountry]
     let posterPath: String?
     let video: Bool
+    let adult: Bool
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -29,5 +30,6 @@ struct FilmDetail: Codable {
         case productionCountries = "production_countries"
         case posterPath = "poster_path"
         case video
+        case adult
     }
 }

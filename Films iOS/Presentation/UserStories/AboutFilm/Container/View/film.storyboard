@@ -198,7 +198,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Review" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vCc-4Q-BXR">
-                                                    <rect key="frame" x="0.0" y="50" width="342" height="65"/>
+                                                    <rect key="frame" x="0.0" y="31" width="342" height="84"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -217,9 +217,11 @@
                                             <constraint firstItem="CAG-xO-PoT" firstAttribute="top" secondItem="vCc-4Q-BXR" secondAttribute="bottom" constant="16" id="3Xl-uf-zZP"/>
                                             <constraint firstItem="6kz-XO-A8K" firstAttribute="leading" secondItem="Szx-Ad-qqb" secondAttribute="leading" id="CBQ-JR-mqm"/>
                                             <constraint firstItem="Tse-G1-ogM" firstAttribute="leading" secondItem="6kz-XO-A8K" secondAttribute="trailing" constant="14" id="Cwc-p9-jmS"/>
+                                            <constraint firstItem="vCc-4Q-BXR" firstAttribute="top" secondItem="BBa-du-9T7" secondAttribute="bottom" constant="10" id="EgV-UH-9NR"/>
                                             <constraint firstItem="CAG-xO-PoT" firstAttribute="leading" secondItem="Szx-Ad-qqb" secondAttribute="leading" id="GU8-G0-r3Q"/>
                                             <constraint firstItem="6kz-XO-A8K" firstAttribute="top" secondItem="Szx-Ad-qqb" secondAttribute="top" id="GW1-x4-ZgE"/>
                                             <constraint firstAttribute="trailing" secondItem="vCc-4Q-BXR" secondAttribute="trailing" id="RxS-oa-0kN"/>
+                                            <constraint firstItem="BBa-du-9T7" firstAttribute="leading" secondItem="Szx-Ad-qqb" secondAttribute="leading" constant="54" id="WLv-le-ZBP"/>
                                             <constraint firstItem="BBa-du-9T7" firstAttribute="top" secondItem="Szx-Ad-qqb" secondAttribute="top" id="XA0-65-jRP"/>
                                             <constraint firstAttribute="bottom" secondItem="CAG-xO-PoT" secondAttribute="bottom" id="Xew-wd-8pH"/>
                                             <constraint firstItem="BBa-du-9T7" firstAttribute="leading" secondItem="6kz-XO-A8K" secondAttribute="trailing" constant="14" id="aaj-rj-JcK"/>
@@ -227,6 +229,12 @@
                                             <constraint firstItem="Tse-G1-ogM" firstAttribute="top" secondItem="BBa-du-9T7" secondAttribute="bottom" constant="3" id="wYA-dd-ePW"/>
                                             <constraint firstItem="vCc-4Q-BXR" firstAttribute="leading" secondItem="Szx-Ad-qqb" secondAttribute="leading" id="x5x-Hv-HNu"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="6kz-XO-A8K"/>
+                                                <exclude reference="Tse-G1-ogM"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="name" destination="BBa-du-9T7" id="fl7-ir-AyP"/>
                                             <outlet property="personImage" destination="6kz-XO-A8K" id="vgc-0T-oJg"/>
