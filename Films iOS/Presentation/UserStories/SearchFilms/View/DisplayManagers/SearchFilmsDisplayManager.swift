@@ -43,12 +43,17 @@ final class SearchFilmsDisplayManager: NSObject, SearchFilmsDisplayManagerOutput
 
 extension SearchFilmsDisplayManager: SearchFilmsDataSourceDelegate {
     func filmsWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int) {
-        searchFilmsTableView?.performBatchUpdates({
-            for index in firstIndex...lastIndex {
-                searchFilmsTableView?.insertRows(at: [IndexPath(item: index, section: 0)], with: .none)
-                itemCount += 1
-            }
-        }, completion: nil)
+
+        if lastIndex == 0 {
+            searchFilmsTableView?.reloadData()
+        } else {
+            searchFilmsTableView?.performBatchUpdates({
+                for index in firstIndex...lastIndex {
+                    searchFilmsTableView?.insertRows(at: [IndexPath(item: index, section: 0)], with: .none)
+                    itemCount += 1
+                }
+            }, completion: nil)
+        }
     }
 }
 
