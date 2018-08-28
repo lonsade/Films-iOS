@@ -78,6 +78,12 @@ final class MainViewController: BaseViewController, SideMenuItemContent, Storybo
         navigationItem.title = L10n.Movies.navigationTitle
     }
 
+    @IBOutlet weak var searchButton: UIBarButtonItem! {
+        didSet {
+            searchButton.tintColor = .FTitleTextColor
+        }
+    }
+
     var genres: [TabName]!
 
     @IBAction func doSearch(_ sender: UIBarButtonItem) {

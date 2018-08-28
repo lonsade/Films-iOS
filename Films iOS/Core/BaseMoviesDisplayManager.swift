@@ -36,6 +36,8 @@ class BaseMoviesDisplayManager: NSObject {
         }
     }
 
+    private var itemCount = 0
+
 }
 
 extension BaseMoviesDisplayManager: UIScrollViewDelegate {
@@ -53,19 +55,16 @@ extension BaseMoviesDisplayManager: UIScrollViewDelegate {
 }
 
 extension BaseMoviesDisplayManager: BaseMoviesDataSourceDelegate {
-    func moviesWereAdd() {
 
-//        var indexPaths = [IndexPath]()
-//
-//        for index in firstIndex...lastIndex {
-//            indexPaths.append(IndexPath(item: index, section: 0))
-//        }
-//
-//
-//        collectionFilms?.insertItems(at: indexPaths)
-
-        collectionFilms?.reloadData()
+    func moviesWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int) {
+        collectionFilms?.performBatchUpdates({
+            for index in firstIndex...lastIndex {
+                collectionFilms?.insertItems(at: [IndexPath(item: index, section: 0)])
+                itemCount += 1
+            }
+        }, completion: nil)
     }
+
 }
 
 extension BaseMoviesDisplayManager: UICollectionViewDelegate {
@@ -77,7 +76,7 @@ extension BaseMoviesDisplayManager: UICollectionViewDelegate {
 extension BaseMoviesDisplayManager: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.filmsDataSource.films.count
+        return itemCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

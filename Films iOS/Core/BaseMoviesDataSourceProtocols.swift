@@ -18,7 +18,7 @@ protocol BaseMoviesDataSourceOutput: class {
 }
 
 protocol BaseMoviesDataSourceDelegate: class {
-    func moviesWereAdd()
+    func moviesWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int)
 }
 
 final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourceOutput {
@@ -26,8 +26,9 @@ final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourc
     weak var delegate: BaseMoviesDataSourceDelegate?
 
     func load(films: [FilmCard]) {
+        let firstIndex = self.films.count
         self.films += films
-        delegate?.moviesWereAdd()
+        delegate?.moviesWereAdd(withIndex: firstIndex, underIndex: self.films.count - 1)
     }
 
     var films: [FilmCard]

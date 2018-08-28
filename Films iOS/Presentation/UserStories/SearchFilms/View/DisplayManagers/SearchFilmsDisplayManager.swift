@@ -37,18 +37,25 @@ final class SearchFilmsDisplayManager: NSObject, SearchFilmsDisplayManagerOutput
         self.presenter = presenter
     }
 
+    private var itemCount = 0
+
 }
 
 extension SearchFilmsDisplayManager: SearchFilmsDataSourceDelegate {
-    func filmsWereAdd() {
-        searchFilmsTableView?.reloadData()
+    func filmsWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int) {
+        searchFilmsTableView?.performBatchUpdates({
+            for index in firstIndex...lastIndex {
+                searchFilmsTableView?.insertRows(at: [IndexPath(item: index, section: 0)], with: .none)
+                itemCount += 1
+            }
+        }, completion: nil)
     }
 }
 
 extension SearchFilmsDisplayManager: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.data.count
+        return itemCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

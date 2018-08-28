@@ -20,7 +20,7 @@ protocol SearchFilmsDataSourceOutput: class {
 }
 
 protocol SearchFilmsDataSourceDelegate: class {
-    func filmsWereAdd()
+    func filmsWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int)
 }
 
 final class SearchFilmsDataSource: SearchFilmsDataSourceOutput, SearchFilmsDataSourceInput {
@@ -29,18 +29,24 @@ final class SearchFilmsDataSource: SearchFilmsDataSourceOutput, SearchFilmsDataS
     weak var delegate: SearchFilmsDataSourceDelegate?
 
     func add(films: [FilmCard]) {
-        data += films
-        delegate?.filmsWereAdd()
+        if !films.isEmpty {
+            let fristIndex = self.data.count
+            data += films
+            delegate?.filmsWereAdd(withIndex: fristIndex, underIndex: self.data.count - 1)
+        }
     }
 
     func set(films: [FilmCard]) {
-        data = films
-        delegate?.filmsWereAdd()
+        if !films.isEmpty {
+            let fristIndex = self.data.count
+            data = films
+            delegate?.filmsWereAdd(withIndex: fristIndex, underIndex: self.data.count - 1)
+        }
     }
 
     func clear() {
         data = []
-        delegate?.filmsWereAdd()
+        delegate?.filmsWereAdd(withIndex: 0, underIndex: 0)
     }
 
     init() {

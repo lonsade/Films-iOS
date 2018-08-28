@@ -18,7 +18,7 @@ protocol SimilarFilmsDataSourceOutput: class {
 }
 
 protocol SimilarFilmsDataSourceDelegate: class {
-    func baseWasAdd()
+    func baseWasAdd(withIndex firstIndex: Int, underIndex lastIndex: Int)
 }
 
 final class SimilarFilmsDataSource: SimilarFilmsDataSourceInput, SimilarFilmsDataSourceOutput {
@@ -28,8 +28,9 @@ final class SimilarFilmsDataSource: SimilarFilmsDataSourceInput, SimilarFilmsDat
     weak var delegate: SimilarFilmsDataSourceDelegate?
 
     func load(base: [FilmCard]) {
+        let firstIndex = self.base.count
         self.base += base
-        delegate?.baseWasAdd()
+        delegate?.baseWasAdd(withIndex: firstIndex, underIndex: self.base.count - 1)
     }
 
     init() {

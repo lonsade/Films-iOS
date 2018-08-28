@@ -25,11 +25,12 @@ class SearchViewController: BaseViewController {
                 attributes: [.foregroundColor: UIColor.FSearchTextColor]
             )
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 22, height: 36))
-            let image = UIImageView(image: Asset.group.image)
-            image.frame = CGRect(x: 8, y: 11, width: 14, height: 14)
+            let image = UIImageView(image: Asset.searchGlyphOnLight.image)
+            image.frame.origin = CGPoint(x: 4, y: 6)
             paddingView.addSubview(image)
             searchTextField.leftView = paddingView
             searchTextField.leftViewMode = .always
+
         }
     }
 
