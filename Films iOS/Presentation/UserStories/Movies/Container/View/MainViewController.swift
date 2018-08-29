@@ -18,12 +18,7 @@ final class MainViewController: BaseViewController, SideMenuItemContent, Storybo
     var tabNamesPresenter: ITabNamesPresenter!
     var router: MoviesContainerRoutingInput!
 
-    var tabDisplayManager: TabDisplayManager! {
-        didSet {
-            tabDisplayManager.collectionTabNames = self.collectionTabNames
-            tabDisplayManager.delegate = self
-        }
-    }
+    var tabDisplayManager: TabDisplayManager!
 
     @IBAction func showMenu(_ sender: CustomMenuBarButtonItem) {
         showSideMenu()
@@ -66,31 +61,25 @@ final class MainViewController: BaseViewController, SideMenuItemContent, Storybo
 
     override func awakeFromNib() {
         super.awakeFromNib()
-//        MoviesContainerAssembly.instance().inject(into: self)
+        MoviesContainerAssembly.instance().inject(into: self)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         customize()
-//        tabNamesPresenter.setTabNames()
-//        genresDataSource.delegate = self
-//        router.viewController = self
+        tabDisplayManager.collectionTabNames = self.collectionTabNames
+        tabDisplayManager.delegate = self
+        genresDataSource.type = type
+        tabNamesPresenter.setTabNames()
+        genresDataSource.delegate = self
+        router.viewController = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = Bundle.main.object(forInfoDictionaryKey: "AppName") as? String
-
-//        // TODO: надо подумать над переносом этой штуки во viewDidLoad
-//        // (пока не получается, потому что используется один модуль контейнер для фильмов и тв шоу)
-//
-        MoviesContainerAssembly.instance().inject(into: self)
-        genresDataSource.type = type
-        tabNamesPresenter.setTabNames()
-        genresDataSource.delegate = self
-        router.viewController = self
-
         pageViewController.type = self.type
+
     }
 
     @IBOutlet weak var searchButton: UIBarButtonItem!

@@ -66,7 +66,7 @@ extension SearchFilmsDisplayManager: UITableViewDataSource {
             title: dataSource.data[indexPath.item].title ?? dataSource.data[indexPath.item].name ?? L10n.notInformation,
             overview: dataSource.data[indexPath.item].overview ?? L10n.notInformation,
             vote: dataSource.data[indexPath.item].voteAverage,
-            adult: dataSource.data[indexPath.item].adult ?? true
+            adult: dataSource.data[indexPath.item].adult ?? false
         )
 
         return cell
