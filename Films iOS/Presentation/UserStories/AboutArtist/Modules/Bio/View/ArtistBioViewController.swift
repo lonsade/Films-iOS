@@ -81,8 +81,16 @@ class ArtistBioViewController: BaseViewController {
         view.backgroundColor = UIColor.FMainBackgroundColor
         ArtistBioAssembly.instance().inject(into: self)
         router.viewController = self
-        artistBioPresenter.setBio()
-        artistBioPresenter.setGallery()
+        artistBioPresenter.setBio { [weak self] error in
+            if error != nil {
+                self?.callAlertError()
+            }
+        }
+        artistBioPresenter.setGallery { [weak self] error in
+            if error != nil {
+                self?.callAlertError()
+            }
+        }
     }
 }
 

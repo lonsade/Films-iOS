@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol IArtistBioPresenter: class {
-    func setBio()
-    func setGallery()
+protocol IArtistBioPresenter: ModuleInput {
+    func setBio(completion: @escaping Response)
+    func setGallery(completion: @escaping Response)
 }
 
 final class ArtistBioPresenter: IArtistBioPresenter {
@@ -35,7 +35,7 @@ final class ArtistBioPresenter: IArtistBioPresenter {
         self.router = router
     }
 
-    func setBio() {
+    func setBio(completion: @escaping Response) {
         guard let artistId = aboutArtistPresenter?.id else {
             router.closeCurrentModule()
             return assertionFailure("Artist id doesnt exist")
@@ -43,13 +43,14 @@ final class ArtistBioPresenter: IArtistBioPresenter {
 
         artistBioUsecase.getArtist(relativeURL: "/person/\(artistId)").done { artist in
             self.artistBioDataSource.add(bio: artist)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 
-    func setGallery() {
+    func setGallery(completion: @escaping Response) {
         guard let artistId = aboutArtistPresenter?.id else {
             router.closeCurrentModule()
             return assertionFailure("Artist id doesnt exist")
@@ -57,9 +58,10 @@ final class ArtistBioPresenter: IArtistBioPresenter {
 
         artistGalleryUsecase.getPhotos(relativeURL: "/person/\(artistId)/images").done { photos in
             self.artistBioDataSource.add(artistPhotos: photos)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 

@@ -25,7 +25,11 @@ class ReviewViewController: BaseViewController {
         super.viewDidLoad()
         FilmReviewAssembly.instance().inject(into: self)
         router.viewController = self
-        presenter.setReview()
+        presenter.setReview { [weak self] error in
+            if error != nil {
+                self?.callAlertError()
+            }
+        }
     }
 
 }

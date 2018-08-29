@@ -70,7 +70,11 @@ final class MainViewController: BaseViewController, SideMenuItemContent, Storybo
         tabDisplayManager.collectionTabNames = self.collectionTabNames
         tabDisplayManager.delegate = self
         genresDataSource.type = type
-        tabNamesPresenter.setTabNames()
+        tabNamesPresenter.setTabNames { [weak self] error in
+            if error != nil {
+                self?.callAlertError()
+            }
+        }
         genresDataSource.delegate = self
         router.viewController = self
     }

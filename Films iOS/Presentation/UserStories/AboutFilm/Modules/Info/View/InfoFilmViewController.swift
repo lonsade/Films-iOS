@@ -14,6 +14,7 @@ class InfoFilmViewController: BaseViewController {
         didSet {
             infoFilmDisplayManager.infoFilmCollectionView = aboutFilmCollectionView
             infoFilmDisplayManager.delegate = self
+            infoFilmDisplayManager.controller = self
         }
     }
 
@@ -24,9 +25,21 @@ class InfoFilmViewController: BaseViewController {
         super.viewDidLoad()
         FilmInfoAssembly.instance().inject(into: self)
         router.viewController = self
-        presenter.setDetailsFilm()
-        presenter.setGallery()
-        presenter.setSimilar()
+        presenter.setDetailsFilm { [weak self] error in
+            if error != nil {
+                self?.callAlertError()
+            }
+        }
+        presenter.setGallery { [weak self] error in
+            if error != nil {
+                self?.callAlertError()
+            }
+        }
+        presenter.setSimilar { [weak self] error in
+            if error != nil {
+                self?.callAlertError()
+            }
+        }
     }
 
     @IBOutlet weak var aboutFilmCollectionView: UICollectionView!

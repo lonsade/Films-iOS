@@ -15,9 +15,11 @@ protocol ITabNamesUsecase: class {
 final class TabNamesUsecase: ITabNamesUsecase {
 
     private var makeRequestGatewayTabNames: IMakeRequestGateway
+//    private var tabNamesAcceessor: RealmAccessor<TabName>
 
-    init(makeRequestGatewayTabNames: IMakeRequestGateway) {
+    init(makeRequestGatewayTabNames: IMakeRequestGateway/*, tabNamesAcceessor: RealmAccessor<TabName>*/) {
         self.makeRequestGatewayTabNames = makeRequestGatewayTabNames
+//        self.tabNamesAcceessor = tabNamesAcceessor
     }
 
     func getTabNames(relativeURL: String) -> Promise<[TabName]> {

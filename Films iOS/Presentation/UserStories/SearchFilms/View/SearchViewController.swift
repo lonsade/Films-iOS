@@ -52,6 +52,7 @@ class SearchViewController: BaseViewController {
     var displayManager: SearchFilmsDisplayManagerOutput! {
         didSet {
             displayManager.delegate = self
+            displayManager.controller = self
         }
     }
 
@@ -88,7 +89,11 @@ class SearchViewController: BaseViewController {
     @objc
     func load() {
         if let text = timer.userInfo as? String {
-            presenter.setSearchFilms(onText: text)
+            presenter.setSearchFilms(onText: text) { [weak self] error in
+                if error != nil {
+                    self?.callAlertError()
+                }
+            }
         }
         timer.invalidate()
     }

@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol IDetailsFilmPresenter: class {
-    func setDetailsFilm()
-    func setGallery()
-    func setSimilar()
+protocol IDetailsFilmPresenter: ModuleInput {
+    func setDetailsFilm(completion: @escaping Response)
+    func setGallery(completion: @escaping Response)
+    func setSimilar(completion: @escaping Response)
     var type: Int { get }
 }
 
@@ -60,39 +60,42 @@ final class DetailsFilmPresenter: IDetailsFilmPresenter {
         self.router = router
     }
 
-    func setDetailsFilm() {
+    func setDetailsFilm(completion: @escaping Response) {
 
         let url = aboutFilmPresenter?.type == 0 ? "movie" : "tv"
 
         detailsFilmUsecase.getFilmDetails(relativeURL: "/\(url)/\(id)").done { details in
             self.dataSourceForDetails.add(details: details)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 
-    func setGallery() {
+    func setGallery(completion: @escaping Response) {
 
         let url = aboutFilmPresenter?.type == 0 ? "movie" : "tv"
 
         galleryUsecase.getGallery(relativeURL: "/\(url)/\(id))/images").done { images in
             self.dataSourceForDetails.add(images: images)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 
-    func setSimilar() {
+    func setSimilar(completion: @escaping Response) {
 
         let url = aboutFilmPresenter?.type == 0 ? "movie" : "tv"
 
         similarUsecase.getSimilar(relativeURL: "/\(url)/\(id))/similar").done { films in
             self.dataSourceForSimilar.load(base: films)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 }

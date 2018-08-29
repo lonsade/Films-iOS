@@ -15,12 +15,14 @@ protocol SearchFilmsDisplayManagerDelegate: class {
 protocol SearchFilmsDisplayManagerOutput: class {
     var delegate: SearchFilmsDisplayManagerDelegate? { get set }
     var searchFilmsTableView: UITableView? { get set }
+    var controller: BaseViewController? { get set }
 }
 
 final class SearchFilmsDisplayManager: NSObject, SearchFilmsDisplayManagerOutput {
 
     private var dataSource: SearchFilmsDataSourceOutput
     private weak var presenter: SearchFilmsPresenterInput?
+    weak var controller: BaseViewController?
 
     weak var delegate: SearchFilmsDisplayManagerDelegate?
 
@@ -81,8 +83,10 @@ extension SearchFilmsDisplayManager: UIScrollViewDelegate {
         let deltaOffset = maximumOffset - currentOffset
 
         if deltaOffset <= 0 {
-            presenter?.loadMore { _ in
-
+            presenter?.loadMore { error in
+                if error != nil {
+                    self.controller?.callAlertError()
+                }
             }
         }
 
