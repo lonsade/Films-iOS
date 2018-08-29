@@ -472,8 +472,8 @@
 		BD16A4632136CB9C000DC979 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				BD16A4642136CBDB000DC979 /* FilmCardManaged.swift */,
 				BD16A4682136D043000DC979 /* Extensions.swift */,
+				BD16A4642136CBDB000DC979 /* FilmCardManaged.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -869,15 +869,15 @@
 		BDC941E8210EF0FF005C5041 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				BD16A4632136CB9C000DC979 /* Realm */,
 				BDD85B86211C49AB00256E60 /* AboutArtist */,
 				BD700C44211AF48F00C51220 /* AboutFilm */,
 				BDC941F0210EF225005C5041 /* Errors */,
+				BD16A4632136CB9C000DC979 /* Realm */,
 				BDF83D632111D68E001596EA /* FilmCard.swift */,
 				BD52F3E32116FE980063DEB1 /* Films.swift */,
 				BD1DCF7121132939001B48EF /* Genres.swift */,
-				BD1DCF6B21132308001B48EF /* TabName.swift */,
 				BD16A4662136CC93000DC979 /* RealmProtocols.swift */,
+				BD1DCF6B21132308001B48EF /* TabName.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";

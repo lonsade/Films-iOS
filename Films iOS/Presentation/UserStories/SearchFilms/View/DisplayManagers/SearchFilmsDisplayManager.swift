@@ -81,8 +81,8 @@ extension SearchFilmsDisplayManager: UIScrollViewDelegate {
         let deltaOffset = maximumOffset - currentOffset
 
         if deltaOffset <= 0 {
-            presenter?.loadMore { error in
-                
+            presenter?.loadMore { _ in
+
             }
         }
 
