@@ -222,7 +222,8 @@ extension InfoFilmDisplayManager: UICollectionViewDelegateFlowLayout {
         if section == 0 {
 
             if let details = detailFilm.details, details.video != nil {
-                return CGSize(width: collectionView.frame.size.width, height: 150)
+//                return CGSize(width: collectionView.frame.size.width, height: 150)
+                return CGSize(width: 0, height: 0)
             } else {
                 return CGSize(width: 0, height: 0)
             }

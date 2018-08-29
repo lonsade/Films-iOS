@@ -79,7 +79,7 @@ final class MainViewController: BaseViewController, SideMenuItemContent, Storybo
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = type == 0 ? L10n.Movies.navigationTitle : L10n.Tv.navigationTitle
+        navigationItem.title = Bundle.main.object(forInfoDictionaryKey: "AppName") as? String
 
 //        // TODO: надо подумать над переносом этой штуки во viewDidLoad
 //        // (пока не получается, потому что используется один модуль контейнер для фильмов и тв шоу)

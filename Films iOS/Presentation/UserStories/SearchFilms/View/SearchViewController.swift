@@ -70,7 +70,7 @@ class SearchViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = presenter.type == 0 ? L10n.Movies.navigationTitle : L10n.Tv.navigationTitle
+        navigationItem.title = Bundle.main.object(forInfoDictionaryKey: "AppName") as? String
     }
 
     @IBAction func editingChanged(_ sender: UITextField) {

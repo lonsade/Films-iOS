@@ -11,7 +11,7 @@ import Foundation
 struct FilmCard: Codable {
 
     let posterPath: String?
-    let overview: String
+    let overview: String?
     //let releaseDate: String
     let genreIds: [Int]
     let id: Int
