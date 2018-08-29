@@ -13,8 +13,8 @@ protocol SearchFilmsPresenterOutput: ModuleInput {
 }
 
 protocol SearchFilmsPresenterInput: ModuleInput {
-    func setSearchFilms(onText text: String)
-    func loadMore()
+    func setSearchFilms(onText text: String, completion: @escaping Response)
+    func loadMore(completion: @escaping Response)
     func clear()
     func set(type: Int)
     var type: Int! { get }
@@ -36,15 +36,16 @@ final class SearchFilmsPresenter: SearchFilmsPresenterOutput, SearchFilmsPresent
         self.usecase = usecase
     }
 
-    func setSearchFilms(onText text: String) {
+    func setSearchFilms(onText text: String, completion: @escaping Response) {
         query = text
         usecase.page = 0
         let url = type == 0 ? "movie" : "tv"
         usecase.getSearchFilms(relativeURL: "/search/\(url)", query: query).done { films in
             self.dataSource.set(films: films)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 
@@ -53,13 +54,14 @@ final class SearchFilmsPresenter: SearchFilmsPresenterOutput, SearchFilmsPresent
         usecase.page = 0
     }
 
-    func loadMore() {
+    func loadMore(completion: @escaping Response) {
         let url = type == 0 ? "movie" : "tv"
         usecase.getSearchFilms(relativeURL: "/search/\(url)", query: query).done { films in
             self.dataSource.add(films: films)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 }

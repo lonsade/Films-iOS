@@ -9,7 +9,7 @@
 import Foundation
 
 protocol IPopularFilmsPresenter: ModuleInput {
-    func setFilms()
+    func setFilms(completion: @escaping Response)
     var type: Int! { get }
 }
 
@@ -39,7 +39,7 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
 
     private var page = 0
 
-    func setFilms() {
+    func setFilms(completion: @escaping Response) {
         page += 1
 
         var parameters: [String: Any] = ["page": page]
@@ -55,10 +55,14 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
             relativeURL: relativeURL,
             parameters: parameters
         ).done { films in
+
+            // TODO: можно в принципе убрать делегат в датасоурс и передавать в comp
+
             self.dataSource.load(films: films)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 

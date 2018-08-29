@@ -19,6 +19,8 @@ class BaseMoviesDisplayManager: NSObject {
     private var filmsDataSource: BaseMoviesDataSourceOutput
     private var filmsPresenter: IPopularFilmsPresenter
 
+    var controller: BaseViewController!
+
     init(filmsDataSource: BaseMoviesDataSourceOutput, filmsPresenter: IPopularFilmsPresenter) {
         self.filmsDataSource = filmsDataSource
         self.filmsPresenter = filmsPresenter
@@ -48,7 +50,11 @@ extension BaseMoviesDisplayManager: UIScrollViewDelegate {
         let deltaOffset = maximumOffset - currentOffset
 
         if deltaOffset <= 0 {
-            filmsPresenter.setFilms()
+            filmsPresenter.setFilms { error in
+                if error != nil {
+                    self.controller.callAlertError()
+                }
+            }
         }
 
     }

@@ -58,4 +58,14 @@ open class BaseViewController: MenuViewController, BaseHandlerController, Module
         }
     }
 
+    func callAlertError() {
+        let alert = UIAlertController(
+            title: L10n.Error.Networking.NotConnection.title,
+            message: L10n.Error.Networking.NotConnection.text,
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+        alert.addAction(UIAlertAction(title: L10n.Error.AllertItems.ok, style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }
