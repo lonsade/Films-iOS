@@ -56,12 +56,10 @@ extension BaseMoviesDisplayManager: UIScrollViewDelegate {
 
 extension BaseMoviesDisplayManager: BaseMoviesDataSourceDelegate {
 
-    func moviesWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int) {
+    func moviesWereAdd(withIndexPaths indexPaths: [IndexPath]) {
         collectionFilms?.performBatchUpdates({
-            for index in firstIndex...lastIndex {
-                collectionFilms?.insertItems(at: [IndexPath(item: index, section: 0)])
-                itemCount += 1
-            }
+            collectionFilms?.insertItems(at: indexPaths)
+            itemCount += indexPaths.count
         }, completion: nil)
     }
 
