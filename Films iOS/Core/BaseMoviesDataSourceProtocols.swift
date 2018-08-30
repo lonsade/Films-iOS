@@ -9,11 +9,11 @@
 import Foundation
 
 protocol BaseMoviesDataSourceInput: class {
-    func load(films: [FilmCard])
+    func load(films: [CategoryFilm])
 }
 
 protocol BaseMoviesDataSourceOutput: class {
-    var films: [FilmCard] { get }
+    var films: [CategoryFilm] { get }
     var delegate: BaseMoviesDataSourceDelegate? { get set }
 }
 
@@ -25,7 +25,7 @@ final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourc
 
     weak var delegate: BaseMoviesDataSourceDelegate?
 
-    func load(films: [FilmCard]) {
+    func load(films: [CategoryFilm]) {
         let firstIndex = self.films.count
         self.films += films
         var indexPaths: [IndexPath] = []
@@ -35,7 +35,7 @@ final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourc
         delegate?.moviesWereAdd(withIndexPaths: indexPaths)
     }
 
-    var films: [FilmCard]
+    var films: [CategoryFilm]
 
     init() {
         films = []

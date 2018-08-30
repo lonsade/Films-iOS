@@ -9,7 +9,7 @@
 import RealmSwift
 
 protocol RealmObjectConvertable {
-    associatedtype ManagedObject
+    associatedtype ManagedObject: Object
     func toManagedObject() -> ManagedObject
 }
 
@@ -18,15 +18,52 @@ protocol PlainObjectConvertable {
     func toPlainObject() -> PlainObject
 }
 
-//class RealmAccessor<T: RealmObjectConvertable> {
-//    func add(objects: [T]) {
-//        let realm = try! Realm()
-//        try! realm.write {
-//            let managedObjects = objects.map {
-//                $0.toManagedObject()
-//            }
-//            try! realm.add(managedObjects)
-//
-//        }
-//    }
-//}
+class RealmAccessor<T: RealmObjectConvertable> {
+    func add(objects: [T]) {
+
+        do {
+            let realm = try Realm()
+
+            try realm.write {
+                let managedObjects = objects.map {
+                    $0.toManagedObject()
+                }
+                realm.add(managedObjects, update: true)
+            }
+        } catch let error as NSError {
+            fatalError(error.description)
+        }
+
+    }
+
+    func add(object: T) {
+
+        do {
+            let realm = try Realm()
+
+            try realm.write {
+                realm.add(object.toManagedObject(), update: true)
+            }
+        } catch let error as NSError {
+            fatalError(error.description)
+        }
+
+    }
+
+    func getAll() -> Results<T.ManagedObject> {
+        do {
+            let realm = try Realm()
+            return realm.objects(T.ManagedObject.self)
+        } catch let error as NSError {
+            fatalError(error.description)
+        }
+    }
+    func get(usingQuery query: String) -> Results<T.ManagedObject> {
+        do {
+            let realm = try Realm()
+            return realm.objects(T.ManagedObject.self).filter(query)
+        } catch let error as NSError {
+            fatalError(error.description)
+        }
+    }
+}

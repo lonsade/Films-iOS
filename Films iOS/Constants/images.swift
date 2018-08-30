@@ -51,6 +51,7 @@ internal enum Asset {
   internal static let group2 = ImageAsset(name: "group2")
   internal static let home = ImageAsset(name: "home")
   internal static let icSort = ImageAsset(name: "icSort")
+  internal static let icon = ImageAsset(name: "icon")
   internal static let menuIcon = ImageAsset(name: "menuIcon")
   internal static let movie = ImageAsset(name: "movie")
   internal static let searchGlyphOnLight = ImageAsset(name: "searchGlyphOnLight")
@@ -68,6 +69,7 @@ internal enum Asset {
     group2,
     home,
     icSort,
+    icon,
     menuIcon,
     movie,
     searchGlyphOnLight,

@@ -37,13 +37,11 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
         self.dataSource = dataSource
     }
 
-    private var page = 0
-
     func setFilms(completion: @escaping Response) {
-        page += 1
 
-        var parameters: [String: Any] = ["page": page]
         var relativeURL: String = (type == 0) ? "/discover/movie" : "/discover/tv"
+
+        var parameters: [String: Any] = [:]
 
         if genre.id > -1 {
             parameters["with_genres"] = String(genre.id)
@@ -53,7 +51,9 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
 
         listPopularFilmsUsecase.getPopularFilms(
             relativeURL: relativeURL,
-            parameters: parameters
+            parameters: parameters,
+            genreId: genre.id,
+            type: type
         ).done { films in
 
             // TODO: можно в принципе убрать делегат в датасоурс и передавать в comp

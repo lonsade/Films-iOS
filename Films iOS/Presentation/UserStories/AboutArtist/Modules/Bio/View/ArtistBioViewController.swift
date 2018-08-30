@@ -84,6 +84,7 @@ class ArtistBioViewController: BaseViewController {
         artistBioPresenter.setBio { [weak self] error in
             if error != nil {
                 self?.callAlertError()
+                self?.view.isHidden = true
             }
         }
         artistBioPresenter.setGallery { [weak self] error in

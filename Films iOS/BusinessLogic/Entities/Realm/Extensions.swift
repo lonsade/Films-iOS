@@ -30,3 +30,19 @@ extension TabName: RealmObjectConvertable {
         ])
     }
 }
+
+extension CategoryFilm: RealmObjectConvertable {
+    func toManagedObject() -> CategoryFilmManaged {
+        return CategoryFilmManaged(value: [
+            "genreId": genreId,
+            "type": type,
+            "posterPath": posterPath ?? "",
+            "overview": overview ?? L10n.notInformation,
+            "id": id,
+            "title": title ?? "",
+            "voteAverage": voteAverage,
+            "adult": adult ?? false,
+            "name": name ?? ""
+            ])
+    }
+}

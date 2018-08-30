@@ -30,6 +30,8 @@
 		BD16A4672136CC93000DC979 /* RealmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16A4662136CC93000DC979 /* RealmProtocols.swift */; };
 		BD16A4692136D043000DC979 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16A4682136D043000DC979 /* Extensions.swift */; };
 		BD16A46B2136DC41000DC979 /* TabNameManaged.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16A46A2136DC41000DC979 /* TabNameManaged.swift */; };
+		BD16A46D2137E543000DC979 /* CategoryFilm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16A46C2137E543000DC979 /* CategoryFilm.swift */; };
+		BD16A46F2137E5BD000DC979 /* CategoryFilmManaged.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16A46E2137E5BD000DC979 /* CategoryFilmManaged.swift */; };
 		BD1DCF6321131A38001B48EF /* NetworkingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6221131A38001B48EF /* NetworkingAssembly.swift */; };
 		BD1DCF6621131DCA001B48EF /* MoviesContainerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6521131DCA001B48EF /* MoviesContainerAssembly.swift */; };
 		BD1DCF6821131EA6001B48EF /* TabNamesUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1DCF6721131EA6001B48EF /* TabNamesUsecase.swift */; };
@@ -190,6 +192,8 @@
 		BD16A4662136CC93000DC979 /* RealmProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProtocols.swift; sourceTree = "<group>"; };
 		BD16A4682136D043000DC979 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BD16A46A2136DC41000DC979 /* TabNameManaged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNameManaged.swift; sourceTree = "<group>"; };
+		BD16A46C2137E543000DC979 /* CategoryFilm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilm.swift; sourceTree = "<group>"; };
+		BD16A46E2137E5BD000DC979 /* CategoryFilmManaged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilmManaged.swift; sourceTree = "<group>"; };
 		BD1DCF6221131A38001B48EF /* NetworkingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingAssembly.swift; sourceTree = "<group>"; };
 		BD1DCF6521131DCA001B48EF /* MoviesContainerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesContainerAssembly.swift; sourceTree = "<group>"; };
 		BD1DCF6721131EA6001B48EF /* TabNamesUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNamesUsecase.swift; sourceTree = "<group>"; };
@@ -475,11 +479,9 @@
 			isa = PBXGroup;
 			children = (
 				BD16A4682136D043000DC979 /* Extensions.swift */,
-
 				BD16A4642136CBDB000DC979 /* FilmCardManaged.swift */,
-
 				BD16A46A2136DC41000DC979 /* TabNameManaged.swift */,
-
+				BD16A46E2137E5BD000DC979 /* CategoryFilmManaged.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -884,6 +886,7 @@
 				BD1DCF7121132939001B48EF /* Genres.swift */,
 				BD16A4662136CC93000DC979 /* RealmProtocols.swift */,
 				BD1DCF6B21132308001B48EF /* TabName.swift */,
+				BD16A46C2137E543000DC979 /* CategoryFilm.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1668,6 +1671,7 @@
 				BD2992632132EFE100BA6609 /* AboutFilmPresenter.swift in Sources */,
 				BD1DCF6821131EA6001B48EF /* TabNamesUsecase.swift in Sources */,
 				BD2992522132DB3400BA6609 /* MoviesFilmAssembly.swift in Sources */,
+				BD16A46F2137E5BD000DC979 /* CategoryFilmManaged.swift in Sources */,
 				BD700C59211B296A00C51220 /* Cast.swift in Sources */,
 				BDE532342132A16B00A6D283 /* SearchFilmsPresenter.swift in Sources */,
 				BDD85BA8211C545A00256E60 /* ArtistBioViewController.swift in Sources */,
@@ -1775,6 +1779,7 @@
 				BD2992562132DE1E00BA6609 /* ArtistFilmsAssembly.swift in Sources */,
 				BD05FCCC2119C48B008B5AC5 /* ProductionCountry.swift in Sources */,
 				BD5292A22114783700870328 /* TabNamesPresenter.swift in Sources */,
+				BD16A46D2137E543000DC979 /* CategoryFilm.swift in Sources */,
 				BD119EEE21206B8B002BBAD1 /* BaseMoviesDataSourceProtocols.swift in Sources */,
 				BDC941F4210EF464005C5041 /* BaseViewController.swift in Sources */,
 				BD47CFDC2112FE15007339C8 /* NetworkingError.swift in Sources */,

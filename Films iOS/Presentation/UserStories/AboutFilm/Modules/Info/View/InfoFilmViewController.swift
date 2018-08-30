@@ -28,6 +28,7 @@ class InfoFilmViewController: BaseViewController {
         presenter.setDetailsFilm { [weak self] error in
             if error != nil {
                 self?.callAlertError()
+                self?.view.isHidden = true
             }
         }
         presenter.setGallery { [weak self] error in
