@@ -41,6 +41,8 @@
 	<string>UIStatusBarStyleLightContent</string>
 	<key>Api key</key>
 	<string>7e768e8012161bc9c4ca59f1e4f5979e</string>
+	<key>AppName</key>
+	<string>findtastic</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

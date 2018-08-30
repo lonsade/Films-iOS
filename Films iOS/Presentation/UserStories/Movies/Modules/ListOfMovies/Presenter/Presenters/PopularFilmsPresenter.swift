@@ -9,7 +9,7 @@
 import Foundation
 
 protocol IPopularFilmsPresenter: ModuleInput {
-    func setFilms()
+    func setFilms(completion: @escaping Response)
     var type: Int! { get }
 }
 
@@ -37,13 +37,11 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
         self.dataSource = dataSource
     }
 
-    private var page = 0
+    func setFilms(completion: @escaping Response) {
 
-    func setFilms() {
-        page += 1
-
-        var parameters: [String: Any] = ["page": page]
         var relativeURL: String = (type == 0) ? "/discover/movie" : "/discover/tv"
+
+        var parameters: [String: Any] = [:]
 
         if genre.id > -1 {
             parameters["with_genres"] = String(genre.id)
@@ -53,12 +51,18 @@ final class PopularFilmsPresenter: IPopularFilmsPresenter, FilmsPresenterInput {
 
         listPopularFilmsUsecase.getPopularFilms(
             relativeURL: relativeURL,
-            parameters: parameters
+            parameters: parameters,
+            genreId: genre.id,
+            type: type
         ).done { films in
+
+            // TODO: можно в принципе убрать делегат в датасоурс и передавать в comp
+
             self.dataSource.load(films: films)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 

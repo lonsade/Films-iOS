@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol IReviewPresenter: class {
-    func setReview()
+protocol IReviewPresenter: ModuleInput {
+    func setReview(completion: @escaping Response)
     var type: Int { get }
 }
 
@@ -49,15 +49,16 @@ final class ReviewPresenter: IReviewPresenter {
         return type
     }
 
-    func setReview() {
+    func setReview(completion: @escaping Response) {
 
         let url = type == 0 ? "movie" : "tv"
 
         reviewUsecase.getReview(relativeURL: "/\(url)/\(id)/reviews").done { reviews in
             self.reviewDataSource.add(reviews: reviews)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 

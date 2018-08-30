@@ -26,7 +26,11 @@ class ArtistFilmsViewController: BaseViewController {
         view.backgroundColor = .FMainBackgroundColor
         ArtistFilmsAssembly.instance().inject(into: self)
         router.viewController = self
-        presenter.loadArtistFilms()
+        presenter.loadArtistFilms { [weak self] error in
+            if error != nil {
+                self?.callAlertError()
+            }
+        }
     }
 
     @IBOutlet weak var artistFilmsCollectionView: UICollectionView!

@@ -1,3 +1,4 @@
+
 "adult" = "18+";
 "not_adult" = "0+";
 "not_information" = "Not information";
@@ -39,3 +40,7 @@
 "module.about_film" = "AboutFilm";
 "module.movies" = "Movies";
 "module.search" = "Search";
+
+"error.networking.not_connection.title" = "Not connection";
+"error.networking.not_connection.text" = "Check please your connection to Internet";
+"error.allert_items.ok" = "OK";

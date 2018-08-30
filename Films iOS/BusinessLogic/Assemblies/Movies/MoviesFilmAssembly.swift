@@ -50,12 +50,24 @@ final class MoviesFilmAssembly: Assembly {
 
     /// Usecases
 
+    var tabNamesAccessor: RealmAccessor<TabName> {
+        return define(init: RealmAccessor<TabName>())
+    }
+
+    var filmsAccessor: RealmAccessor<CategoryFilm> {
+        return define(init: RealmAccessor<CategoryFilm>())
+    }
+
     var tabNamesUsecase: ITabNamesUsecase {
-        return define(scope: .lazySingleton, init: TabNamesUsecase(makeRequestGatewayTabNames: self.genresGateway))
+        return define(init: TabNamesUsecase(
+            makeRequestGatewayTabNames: self.genresGateway,
+            tabNamesAcceessor: self.tabNamesAccessor
+        ))
     }
 
     var moviesFilmsUsecase: IListPopularFilmsUsecase {
-        return define(init: ListPopularFilmsUsecase(makeRequestGatewayListPopular: self.moviesGateway))
+        return define(init: ListPopularFilmsUsecase(makeRequestGatewayListPopular: self.moviesGateway,
+                                                    filmsAccessor: self.filmsAccessor))
     }
 
 }

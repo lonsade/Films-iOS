@@ -26,7 +26,11 @@ class CastViewController: BaseViewController {
         super.viewDidLoad()
         FilmCastAssembly.instance().inject(into: self)
         router.viewController = self
-        presenter.setCredits()
+        presenter.setCredits { [weak self] error in
+            if error != nil {
+                self?.callAlertError()
+            }
+        }
     }
 
 }

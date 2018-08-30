@@ -62,6 +62,14 @@ final class AboutFilmViewController: BaseViewController {
         costomize()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let moduleInput = moduleInput as? AboutFilmInput else {
+            return assertionFailure("\(String(describing: ModuleInput.self)) could not cast to \(String(describing: AboutFilmInput.self))")
+        }
+        navigationItem.title = moduleInput.type == 0 ? L10n.Movies.navigationTitle : L10n.AboutTv.navigationTitle
+    }
+
 }
 
 //Синхронизация смены страницы с изменением активной вкладки

@@ -21,6 +21,7 @@ final class InfoFilmDisplayManager: NSObject {
     private var filmsDataSource: SimilarFilmsDataSourceOutput
 
     private var filmsPresenter: IDetailsFilmPresenter
+    weak var controller: BaseViewController?
 
     weak var infoFilmCollectionView: UICollectionView? {
         didSet {
@@ -109,7 +110,11 @@ extension InfoFilmDisplayManager: UIScrollViewDelegate {
         let deltaOffset = maximumOffset - currentOffset
 
         if deltaOffset <= 0 {
-            filmsPresenter.setSimilar()
+            filmsPresenter.setSimilar { error in
+                if error != nil {
+                    self.controller?.callAlertError()
+                }
+            }
         }
 
     }
@@ -222,7 +227,8 @@ extension InfoFilmDisplayManager: UICollectionViewDelegateFlowLayout {
         if section == 0 {
 
             if let details = detailFilm.details, details.video != nil {
-                return CGSize(width: collectionView.frame.size.width, height: 150)
+//                return CGSize(width: collectionView.frame.size.width, height: 150)
+                return CGSize(width: 0, height: 0)
             } else {
                 return CGSize(width: 0, height: 0)
             }

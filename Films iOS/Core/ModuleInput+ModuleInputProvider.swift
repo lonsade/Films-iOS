@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ModuleInput: class {
-
+    typealias Response = (Error?) -> Void
 }
 
 protocol ModuleInputProvider: class {

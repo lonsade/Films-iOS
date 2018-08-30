@@ -20,7 +20,7 @@ protocol SearchFilmsDataSourceOutput: class {
 }
 
 protocol SearchFilmsDataSourceDelegate: class {
-    func filmsWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int)
+    func filmsWereAdd(withIndexPaths indexPaths: [IndexPath])
 }
 
 final class SearchFilmsDataSource: SearchFilmsDataSourceOutput, SearchFilmsDataSourceInput {
@@ -32,7 +32,11 @@ final class SearchFilmsDataSource: SearchFilmsDataSourceOutput, SearchFilmsDataS
         if !films.isEmpty {
             let fristIndex = self.data.count
             data += films
-            delegate?.filmsWereAdd(withIndex: fristIndex, underIndex: self.data.count - 1)
+            var indexPaths: [IndexPath] = []
+            for item in fristIndex..<self.data.count {
+                indexPaths.append(IndexPath(item: item, section: 0))
+            }
+            delegate?.filmsWereAdd(withIndexPaths: indexPaths)
         }
     }
 
@@ -40,13 +44,17 @@ final class SearchFilmsDataSource: SearchFilmsDataSourceOutput, SearchFilmsDataS
         if !films.isEmpty {
             let fristIndex = self.data.count
             data = films
-            delegate?.filmsWereAdd(withIndex: fristIndex, underIndex: self.data.count - 1)
+            var indexPaths: [IndexPath] = []
+            for item in fristIndex..<self.data.count {
+                indexPaths.append(IndexPath(item: item, section: 0))
+            }
+            delegate?.filmsWereAdd(withIndexPaths: indexPaths)
         }
     }
 
     func clear() {
         data = []
-        delegate?.filmsWereAdd(withIndex: 0, underIndex: 0)
+        delegate?.filmsWereAdd(withIndexPaths: [])
     }
 
     init() {

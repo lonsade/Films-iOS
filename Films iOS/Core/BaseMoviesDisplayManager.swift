@@ -19,6 +19,8 @@ class BaseMoviesDisplayManager: NSObject {
     private var filmsDataSource: BaseMoviesDataSourceOutput
     private var filmsPresenter: IPopularFilmsPresenter
 
+    weak var controller: BaseViewController?
+
     init(filmsDataSource: BaseMoviesDataSourceOutput, filmsPresenter: IPopularFilmsPresenter) {
         self.filmsDataSource = filmsDataSource
         self.filmsPresenter = filmsPresenter
@@ -48,7 +50,11 @@ extension BaseMoviesDisplayManager: UIScrollViewDelegate {
         let deltaOffset = maximumOffset - currentOffset
 
         if deltaOffset <= 0 {
-            filmsPresenter.setFilms()
+            filmsPresenter.setFilms { error in
+                if error != nil {
+                    self.controller?.callAlertError()
+                }
+            }
         }
 
     }
@@ -56,12 +62,10 @@ extension BaseMoviesDisplayManager: UIScrollViewDelegate {
 
 extension BaseMoviesDisplayManager: BaseMoviesDataSourceDelegate {
 
-    func moviesWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int) {
+    func moviesWereAdd(withIndexPaths indexPaths: [IndexPath]) {
         collectionFilms?.performBatchUpdates({
-            for index in firstIndex...lastIndex {
-                collectionFilms?.insertItems(at: [IndexPath(item: index, section: 0)])
-                itemCount += 1
-            }
+            collectionFilms?.insertItems(at: indexPaths)
+            itemCount += indexPaths.count
         }, completion: nil)
     }
 

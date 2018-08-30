@@ -58,6 +58,24 @@ internal enum L10n {
     internal static let navigationTitle = L10n.tr("Localizable", "about_tv.navigation_title")
   }
 
+  internal enum Error {
+
+    internal enum AllertItems {
+      /// OK
+      internal static let ok = L10n.tr("Localizable", "error.allert_items.ok")
+    }
+
+    internal enum Networking {
+
+      internal enum NotConnection {
+        /// Check please your connection to Internet
+        internal static let text = L10n.tr("Localizable", "error.networking.not_connection.text")
+        /// Not connection
+        internal static let title = L10n.tr("Localizable", "error.networking.not_connection.title")
+      }
+    }
+  }
+
   internal enum Menu {
     /// FAVORITES
     internal static let favorites = L10n.tr("Localizable", "menu.favorites")

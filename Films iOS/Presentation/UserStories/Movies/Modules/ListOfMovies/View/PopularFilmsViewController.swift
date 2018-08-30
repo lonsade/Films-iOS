@@ -15,6 +15,7 @@ class PopularFilmsViewController: BaseViewController {
     var filmCollectionDisplayManager: BaseMoviesDisplayManager! {
         didSet {
             filmCollectionDisplayManager.delegate = self
+            filmCollectionDisplayManager.controller = self
         }
     }
 
@@ -30,7 +31,12 @@ class PopularFilmsViewController: BaseViewController {
         super.viewDidLoad()
         router.viewController = self
         filmCollectionDisplayManager.collectionFilms = filmCollection
-        presenter.setFilms()
+        presenter.setFilms { error in
+            if error != nil {
+                // alert
+                self.callAlertError()
+            }
+        }
         // для передачи в pageController
         type = presenter.type
     }

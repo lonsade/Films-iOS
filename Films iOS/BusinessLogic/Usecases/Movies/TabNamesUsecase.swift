@@ -15,16 +15,28 @@ protocol ITabNamesUsecase: class {
 final class TabNamesUsecase: ITabNamesUsecase {
 
     private var makeRequestGatewayTabNames: IMakeRequestGateway
+    private var tabNamesAcceessor: RealmAccessor<TabName>
 
-    init(makeRequestGatewayTabNames: IMakeRequestGateway) {
+    init(makeRequestGatewayTabNames: IMakeRequestGateway, tabNamesAcceessor: RealmAccessor<TabName>) {
         self.makeRequestGatewayTabNames = makeRequestGatewayTabNames
+        self.tabNamesAcceessor = tabNamesAcceessor
     }
 
     func getTabNames(relativeURL: String) -> Promise<[TabName]> {
         return Promise<[TabName]> { seal in
             makeRequestGatewayTabNames.getResults(relativeURL: relativeURL, parameters: nil).done { (tabs: Genres) in
-                seal.fulfill(tabs.genres)
+                self.tabNamesAcceessor.add(objects: tabs.genres)
+                let tabNames: [TabName] = self.tabNamesAcceessor.getAll().map {
+                    $0.toPlainObject()
+                }
+                seal.fulfill(tabNames)
             }.catch { error in
+                if let networkError = error as? NetworkingError, networkError == NetworkingError.networkingError {
+                    let tabNames: [TabName] = self.tabNamesAcceessor.getAll().map {
+                        $0.toPlainObject()
+                    }
+                    seal.fulfill(tabNames)
+                }
                 seal.reject(error)
             }
         }

@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol IArtistFilmsPresenter: class {
-    func loadArtistFilms()
+protocol IArtistFilmsPresenter: ModuleInput {
+    func loadArtistFilms(completion: @escaping Response)
     var type: Int { get }
 }
 
@@ -49,19 +49,16 @@ final class ArtistFilmsPresenter: IArtistFilmsPresenter {
         return type
     }
 
-    func loadArtistFilms() {
-        guard let artistId = aboutArtistPresenter?.id else {
-            router.closeCurrentModule()
-            return assertionFailure("Artist id doesnt exist")
-        }
+    func loadArtistFilms(completion: @escaping Response) {
 
         let url = type == 0 ? "movie_credits" : "tv_credits"
 
         artistFilmsUsecase.getFilms(relativeURL: "/person/\(id)/\(url)").done { films in
             self.artistFilmsDataSource.load(base: films)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 

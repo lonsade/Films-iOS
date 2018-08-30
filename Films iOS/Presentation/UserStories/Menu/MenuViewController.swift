@@ -109,7 +109,7 @@ class SampleMenuViewController: BaseViewController, Storyboardable {
 
     @objc func navigateToTvShowsPage() {
         guard let menuContainerViewController = self.menuContainerViewController else { return }
-        guard let navController = menuContainerViewController.contentViewControllers[0] as? UINavigationController else { return }
+        guard let navController = menuContainerViewController.contentViewControllers[1] as? UINavigationController else { return }
         guard let contentController = navController.topViewController as? BaseViewController else { return }
         contentController.type = 1
         menuContainerViewController.selectContentViewController(navController)

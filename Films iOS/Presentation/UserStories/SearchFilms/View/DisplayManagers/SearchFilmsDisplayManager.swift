@@ -15,12 +15,14 @@ protocol SearchFilmsDisplayManagerDelegate: class {
 protocol SearchFilmsDisplayManagerOutput: class {
     var delegate: SearchFilmsDisplayManagerDelegate? { get set }
     var searchFilmsTableView: UITableView? { get set }
+    var controller: BaseViewController? { get set }
 }
 
 final class SearchFilmsDisplayManager: NSObject, SearchFilmsDisplayManagerOutput {
 
     private var dataSource: SearchFilmsDataSourceOutput
     private weak var presenter: SearchFilmsPresenterInput?
+    weak var controller: BaseViewController?
 
     weak var delegate: SearchFilmsDisplayManagerDelegate?
 
@@ -37,23 +39,16 @@ final class SearchFilmsDisplayManager: NSObject, SearchFilmsDisplayManagerOutput
         self.presenter = presenter
     }
 
-    private var itemCount = 0
-
 }
 
 extension SearchFilmsDisplayManager: SearchFilmsDataSourceDelegate {
-    func filmsWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int) {
-
-        if lastIndex == 0 {
-            itemCount = 0
+    func filmsWereAdd(withIndexPaths indexPaths: [IndexPath]) {
+        if indexPaths.isEmpty {
             searchFilmsTableView?.reloadData()
         } else {
-            searchFilmsTableView?.performBatchUpdates({
-                for index in firstIndex...lastIndex {
-                    searchFilmsTableView?.insertRows(at: [IndexPath(item: index, section: 0)], with: .none)
-                    itemCount += 1
-                }
-            }, completion: nil)
+            searchFilmsTableView?.beginUpdates()
+            searchFilmsTableView?.insertRows(at: indexPaths, with: .none)
+            searchFilmsTableView?.endUpdates()
         }
     }
 }
@@ -61,7 +56,7 @@ extension SearchFilmsDisplayManager: SearchFilmsDataSourceDelegate {
 extension SearchFilmsDisplayManager: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemCount
+        return dataSource.data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,9 +66,9 @@ extension SearchFilmsDisplayManager: UITableViewDataSource {
         cell.setContent(
             image: dataSource.data[indexPath.item].posterPath,
             title: dataSource.data[indexPath.item].title ?? dataSource.data[indexPath.item].name ?? L10n.notInformation,
-            overview: dataSource.data[indexPath.item].overview,
+            overview: dataSource.data[indexPath.item].overview ?? L10n.notInformation,
             vote: dataSource.data[indexPath.item].voteAverage,
-            adult: dataSource.data[indexPath.item].adult ?? true
+            adult: dataSource.data[indexPath.item].adult ?? false
         )
 
         return cell
@@ -88,7 +83,11 @@ extension SearchFilmsDisplayManager: UIScrollViewDelegate {
         let deltaOffset = maximumOffset - currentOffset
 
         if deltaOffset <= 0 {
-            presenter?.loadMore()
+            presenter?.loadMore { error in
+                if error != nil {
+                    self.controller?.callAlertError()
+                }
+            }
         }
 
     }

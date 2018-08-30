@@ -13,6 +13,11 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.3.4):
     - PromiseKit/CorePromise
+  - Realm (3.7.4):
+    - Realm/Headers (= 3.7.4)
+  - Realm/Headers (3.7.4)
+  - RealmSwift (3.7.4):
+    - Realm (= 3.7.4)
   - SwiftGen (5.3.0)
   - SwiftLint (0.26.0)
 
@@ -22,6 +27,7 @@ DEPENDENCIES:
   - EasyDi
   - InteractiveSideMenu
   - PromiseKit
+  - RealmSwift
   - SwiftGen
   - SwiftLint
 
@@ -32,6 +38,8 @@ SPEC REPOS:
     - EasyDi
     - InteractiveSideMenu
     - PromiseKit
+    - Realm
+    - RealmSwift
     - SwiftGen
     - SwiftLint
 
@@ -41,9 +49,11 @@ SPEC CHECKSUMS:
   EasyDi: 84cfe04e906c0f463b1b1d76ed4be3db446f9702
   InteractiveSideMenu: d503a508c6d62a4d5d4372d9fb9e1795637a8e45
   PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
+  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
+  RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
   SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
   SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
 
-PODFILE CHECKSUM: bdc4a1637be96c65048fa073d28c80556e7d065c
+PODFILE CHECKSUM: e507149dc4946c6e7b4f06f67b0f172eaa5041d1
 
 COCOAPODS: 1.5.2

@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol ICastFilmPresenter: class {
-    func setCredits()
+protocol ICastFilmPresenter: ModuleInput {
+    func setCredits(completion: @escaping Response)
     var type: Int { get }
 }
 
@@ -49,15 +49,16 @@ final class CastFilmPresenter: ICastFilmPresenter {
         self.router = router
     }
 
-    func setCredits() {
+    func setCredits(completion: @escaping Response) {
 
         let url = type == 0 ? "movie" : "tv"
 
         castFilmUsecase.getCast(relativeURL: "/\(url)/\(id)/credits").done { credits in
             self.castFilmDataSource.addCredits(credits: credits)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 

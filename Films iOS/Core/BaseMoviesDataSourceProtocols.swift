@@ -9,29 +9,33 @@
 import Foundation
 
 protocol BaseMoviesDataSourceInput: class {
-    func load(films: [FilmCard])
+    func load(films: [CategoryFilm])
 }
 
 protocol BaseMoviesDataSourceOutput: class {
-    var films: [FilmCard] { get }
+    var films: [CategoryFilm] { get }
     var delegate: BaseMoviesDataSourceDelegate? { get set }
 }
 
 protocol BaseMoviesDataSourceDelegate: class {
-    func moviesWereAdd(withIndex firstIndex: Int, underIndex lastIndex: Int)
+    func moviesWereAdd(withIndexPaths indexPaths: [IndexPath])
 }
 
 final class BaseMoviesDataSource: BaseMoviesDataSourceInput, BaseMoviesDataSourceOutput {
 
     weak var delegate: BaseMoviesDataSourceDelegate?
 
-    func load(films: [FilmCard]) {
+    func load(films: [CategoryFilm]) {
         let firstIndex = self.films.count
         self.films += films
-        delegate?.moviesWereAdd(withIndex: firstIndex, underIndex: self.films.count - 1)
+        var indexPaths: [IndexPath] = []
+        for item in firstIndex..<self.films.count {
+            indexPaths.append(IndexPath(item: item, section: 0))
+        }
+        delegate?.moviesWereAdd(withIndexPaths: indexPaths)
     }
 
-    var films: [FilmCard]
+    var films: [CategoryFilm]
 
     init() {
         films = []

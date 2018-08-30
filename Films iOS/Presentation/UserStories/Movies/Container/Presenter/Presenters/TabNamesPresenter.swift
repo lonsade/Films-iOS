@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol ITabNamesPresenter: class {
-    func setTabNames()
+protocol ITabNamesPresenter: ModuleInput {
+    func setTabNames(completion: @escaping Response)
 }
 
 final class TabNamesPresenter: ITabNamesPresenter {
@@ -22,12 +22,13 @@ final class TabNamesPresenter: ITabNamesPresenter {
         self.dataSource = dataSource
     }
 
-    func setTabNames() {
+    func setTabNames(completion: @escaping Response) {
         tabNamesUsecase.getTabNames(relativeURL: "/genre/movie/list").done { tabNames in
             self.dataSource.addNames(names: tabNames)
+            completion(nil)
         }
         .catch { error in
-            fatalError(error.localizedDescription)
+            completion(error)
         }
     }
 
